@@ -1,0 +1,240 @@
+@import "@styles/global.scss";
+
+.main {
+  @include fontJetBrains;
+  display: flex;
+  justify-content: space-between;
+  // width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  height: 100px;
+  padding: 0 5%;
+  align-items: center;
+
+  @media (max-width: 1025px) {
+    background-color: black;
+    backdrop-filter: none;
+    // position: absolute;
+  }
+
+  &_burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    @media (max-width: 1025px) {
+      display: flex;
+    }
+
+    &_line {
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      transition: all 0.3s ease;
+
+      &:nth-child(1) {
+        transform-origin: top left;
+      }
+
+      &:nth-child(2) {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      &:nth-child(3) {
+        transform-origin: bottom left;
+      }
+
+      &_open {
+        background-color: #d0ec57;
+
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &_header {
+    display: flex;
+    align-items: center;
+    font-weight: 100;
+    font-size: 23px;
+    font-family: var(--font-jetbrains-mono);
+    // width: 70%;
+    // margin-bottom: 20px;
+
+    @media (max-width: 1300px) {
+      font-size: 20px;
+    }
+
+    &::before,
+    &::after {
+      content: ">";
+      font-size: 23px;
+      color: #d0ec57;
+
+      @media (max-width: 1300px) {
+        font-size: 20px;
+      }
+    }
+
+    &::before {
+      margin-right: 10px;
+    }
+
+    &::after {
+      content: "<";
+      margin-left: 10px;
+    }
+  }
+
+  &_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+
+    & a {
+      margin-right: 15px;
+      font-size: 15px;
+      transition: color 0.5s ease-in-out;
+      text-transform: uppercase;
+      font-weight: 100;
+
+      &:hover {
+        color: #e2ff66;
+      }
+
+      @media (max-width: 1300px) {
+        font-size: 14px;
+      }
+
+      @media (max-width: 1250px) {
+        font-size: 13px;
+      }
+    }
+
+    & button {
+      display: none;
+    }
+
+    & a:last-of-type {
+      margin-right: 0;
+      position: relative;
+    }
+    & a:last-of-type::before {
+      position: absolute;
+      left: -40%;
+      transform: translate(40%, 0);
+
+      content: "//";
+      color: #e2ff66;
+    }
+
+    @media (max-width: 1025px) {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 140px);
+      background-color: rgba(0, 0, 0, 1);
+      padding: 20px 0;
+      text-align: center;
+
+      &_open {
+        display: flex;
+
+        & a {
+          font-size: 20px;
+          transition: color 0.5s ease-in-out;
+
+          &:hover {
+            color: #e2ff66;
+          }
+        }
+
+        & button {
+          font-family: var(--font-jetbrains-mono, monospace);
+          font-size: 1rem;
+          font-weight: 400;
+          padding: 15px 30px;
+          border-radius: 12px;
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+          text-transform: uppercase;
+          text-align: center;
+          height: fit-content;
+          clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+
+          background-color: #fff;
+          color: #000;
+          border: none;
+          transition: background-color 0.5s ease;
+          padding: 12px 25px;
+
+          &:hover {
+            background-color: #f0f0f0;
+          }
+        }
+      }
+    }
+  }
+
+  &_button {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 1025px) {
+      display: none;
+    }
+
+    & button {
+      font-family: var(--font-jetbrains-mono, monospace);
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 15px 30px;
+      border-radius: 12px;
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      text-transform: uppercase;
+      text-align: center;
+      height: fit-content;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transition: background-color 0.5s ease;
+
+      @media (max-width: 1300px) {
+        max-width: 150px;
+        font-size: 14px;
+      }
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+}

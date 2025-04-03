@@ -1,0 +1,74 @@
+@import '@styles/global.scss';
+
+.answer {
+  @include fontAbel;
+  font-weight: 400;
+  font-size: 16px;
+
+  color: rgba(#fff, 0.5);
+}
+
+.accordionItem {
+  border-bottom: 1px solid rgba(#fff, 0.4);
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: fit-content;
+
+  padding: 8px;
+
+  border: 1px solid gray;
+  border-radius: 4px;
+
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+
+  .accordionItem[data-open='open'] & {
+    background-color: #d0ec57;
+  }
+}
+
+.plusIcon {
+  width: 16px;
+  height: 16px;
+
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+
+  .accordionItem[data-open='open'] & {
+    transform: rotate(45deg);
+    color: #000;
+  }
+
+  @include media(laptop) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.accordionQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  padding: 32px 24px;
+
+  cursor: pointer;
+}
+
+.question {
+  @include fontJetBrains;
+  font-weight: 300;
+  font-size: 18px;
+
+  &:active {
+    outline: none;
+  }
+}

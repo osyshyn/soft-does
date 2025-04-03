@@ -1,0 +1,40 @@
+{
+  "hero": {
+    "title": "Soft does Expertise",
+    "tagText": "We transform market insights into globally beloved apps that power your business",
+    "btnText": "Contact us"
+  },
+  "solutions": {
+    "title": "Solutions",
+    "list": [
+      "Custom software development",
+      "Mobile App Development",
+      "Web Application Development",
+      "MVP Development",
+      "Product Development",
+      "API Integration Services",
+      "Artificial Intelligence Development",
+      "Enterprise Data Management",
+      "Machine Learning Model Development",
+      "AI-Driven Process Automation",
+      "AI Operationalization",
+      "Custom AI Solutions",
+      "Cloud Computing Solutions",
+      "DevOps and Cloud Infrastructure",
+      "Cloud Migration Services",
+      "Managed Cloud Services",
+      "Data Science Services",
+      "Data Analytics Solutions",
+      "Data Strategy and Governance",
+      "Business Analytics",
+      "IT Consulting",
+      "Digital Transformation",
+      "Product Management",
+      "Product Ownership",
+      "Database Design & Development",
+      "Code Audits",
+      "User Experience Design",
+      "User Interface Design"
+    ]
+  }
+}

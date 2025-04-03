@@ -1,0 +1,97 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  color: white;
+  padding: 180px 160px 180px 160px;
+
+  background: conic-gradient(from 5deg at 100% 30%, #000000 90deg, #000000 300deg, #e2ff66 395deg);
+
+  .title {
+    font-weight: 300;
+    font-size: 120px;
+    line-height: 90%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+
+    text-align: center;
+    margin-bottom: 80px;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  li {
+    box-sizing: border-box;
+    height: 369px;
+    flex: 0 1 calc(33.33% - 17px);
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #333333;
+
+    transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out, fill 0.7s ease-in-out;
+
+    &:hover {
+      background-color: #cfec57;
+
+      * {
+        color: black;
+      }
+      .arrow {
+        fill: black;
+      }
+      .iconStroke {
+        stroke: black;
+      }
+      .iconFill {
+        fill: black;
+      }
+    }
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 48px;
+
+      .softdoes {
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 117%;
+      }
+
+      .arrow {
+        fill: white;
+      }
+    }
+
+    > svg {
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      max-width: 387px;
+      margin-bottom: 32px;
+
+      font-weight: 200;
+      font-size: 32px;
+      line-height: 110%;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+    }
+
+    .text {
+      max-width: 438px;
+
+      @include fontAbel;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+    }
+  }
+}

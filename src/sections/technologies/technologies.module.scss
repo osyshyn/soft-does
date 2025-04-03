@@ -1,0 +1,44 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  color: white;
+  padding: 0 160px 180px 160px;
+
+  .title {
+    font-weight: 300;
+    font-size: 120px;
+    line-height: 90%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+
+    margin-bottom: 80px;
+    max-width: 896px;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px 40px;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      box-sizing: border-box;
+      padding: 52px 108px;
+      flex: 1 1 calc(10% - 100px);
+
+      background: linear-gradient(180deg, #1a1a1a -29.71%, rgba(26, 26, 26, 0) 75.89%);
+      border: 1px solid #262626;
+      border-radius: 8px;
+    }
+  }
+}
+
+.icon {
+  width: 70px;
+  max-width: 90px;
+  height: auto;
+}

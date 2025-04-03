@@ -1,0 +1,142 @@
+@import '@styles/global.scss';
+
+.footer {
+	@include fontJetBrains;
+	display: flex;
+	justify-content: space-between;
+	padding: 100px 5%;
+
+	@media (max-width: 800px) {
+		flex-wrap: wrap;
+		align-content: flex-start;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	@media (max-width: 500px) {
+		flex-direction: column;
+		align-content: center;
+		text-align: center;
+	}
+
+	background: conic-gradient(
+			from 22.28deg at 63.12% 50.09%,
+			#0a0a0a 0deg,
+			#0a0a0a 0deg,
+			#0f0f0f 0deg,
+			#0f0f0f 208.8deg,
+			#0a0a0a 360deg
+		),
+		conic-gradient(
+			from 22.28deg at 63.12% 50.09%,
+			#0a0a0a 0deg,
+			#0a0a0a 0deg,
+			#000000 0deg,
+			#000000 208.8deg,
+			#0a0a0a 360deg
+		);
+
+	&_line {
+		width: 50%;
+		@media (max-width: 800px) {
+			margin-right: 15%;
+		}
+
+		&_column {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 20px;
+		}
+
+		> button {
+		}
+	}
+
+	h4 {
+		font-size: 13px;
+		font-weight: 200;
+		margin-bottom: 15px;
+	}
+
+	h2 {
+		//   display: flex;
+		font-weight: 100;
+		font-size: 2rem;
+		// width: 70%;
+		margin-bottom: 20px;
+		text-transform: uppercase;
+
+		@media (max-width: 1050px) {
+			font-size: 1.8rem;
+		}
+
+		&::before,
+		&::after {
+			content: '>';
+			font-size: 2rem;
+			//   color: #1EBC8F;
+			@media (max-width: 1050px) {
+				font-size: 1.8rem;
+			}
+		}
+
+		&::before {
+			margin-right: 1rem;
+		}
+
+		&::after {
+			content: '<';
+			margin-left: 1rem;
+		}
+	}
+
+	a,
+	p {
+		font-size: 13px;
+		margin-bottom: 15px;
+		opacity: 0.5;
+	}
+
+	& a {
+		transition: color 0.5s ease-in-out;
+
+		&:hover {
+			color: #e2ff66;
+		}
+	}
+
+	p {
+		width: 250px;
+
+		@media (max-width: 1050px) {
+			width: 200px;
+		}
+
+		@media (max-width: 500px) {
+			width: 100%;
+		}
+	}
+
+	button {
+		font-family: var(--font-jetbrains-mono, monospace);
+		font-size: 1rem;
+		font-weight: 400;
+		padding: 15px 30px;
+		border-radius: 12px;
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+		text-transform: uppercase;
+		text-align: center;
+		height: fit-content;
+		clip-path: polygon(
+			0 0,
+			100% 0,
+			100% calc(100% - 20px),
+			calc(100% - 20px) 100%,
+			0 100%
+		);
+
+		margin-bottom: 20px;
+	}
+}

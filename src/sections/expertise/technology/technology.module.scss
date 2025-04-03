@@ -1,0 +1,43 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  padding: 180px 160px 130px 160px;
+  background-color: black;
+  color: #ffffff;
+
+  h2 {
+    font-weight: 300;
+    font-size: 120px;
+    line-height: 90%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+
+    margin-bottom: 80px;
+    max-width: 1348px;
+  }
+}
+
+.img {
+  max-width: 616px;
+  height: auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+
+  .elementBlock {
+    padding: 16px;
+  }
+
+  .elementBlock:first-child {
+    grid-row: span 2;
+    background-color: red;
+  }
+
+  .elementBlock:not(first-child) {
+  }
+}

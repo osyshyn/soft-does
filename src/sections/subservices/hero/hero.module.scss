@@ -1,0 +1,88 @@
+@import '@styles/global.scss';
+
+.root {
+  width: 100%;
+  // background: linear-gradient(
+  //   -15deg,
+  //   rgba(226, 255, 102, 0.5) 0%,
+  //   rgba(226, 255, 102, 0) 50%
+  // );
+  background-color: black;
+  padding-top: 116px;
+  padding-bottom: 146px;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+  width: fit-content;
+  position: relative;
+
+  @include media(tabletVertical) {
+    margin-left: 160px;
+  }
+}
+
+.tagContainer {
+  background-color: #37364b;
+  border: 1px solid #262626;
+  border-radius: 40px;
+
+  padding: 12px 24px;
+  margin-bottom: 24px;
+
+  width: fit-content;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.tagText {
+  @include fontInter;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.title {
+  @include fontJetBrains;
+  font-size: 40px;
+  font-weight: 200;
+
+  text-transform: uppercase;
+
+  margin-bottom: 24px;
+
+  @include media(tabletVertical) {
+    font-size: 100px;
+    max-width: 800px;
+    margin-bottom: 48px;
+    letter-spacing: -8px;
+  }
+}
+
+.button {
+  @include fontJetBrains;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 100%;
+  min-height: 60px;
+
+  padding: 15px 30px;
+  background: linear-gradient(320deg, #e2ff66 30%, #8da720 60%);
+  color: #000;
+
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.heroImage {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 0;
+}

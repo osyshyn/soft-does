@@ -1,0 +1,161 @@
+@import "@styles/global.scss";
+
+.root {
+  background: linear-gradient(-15deg, rgba(226, 255, 102, 0.5) 0%, rgba(226, 255, 102, 0) 20%);
+  background-color: black;
+  color: white;
+  padding: 36px 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  overflow: hidden;
+
+  @include media(laptop) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 15%;
+
+    padding: 100px 160px;
+  }
+}
+
+.leftContentWrapper {
+  @include media(laptop) {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: start;
+  }
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include media(laptop) {
+    gap: 0;
+  }
+}
+
+.title {
+  @include fontJetBrains;
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: -0.08em;
+  line-height: 90%;
+
+  text-transform: uppercase;
+
+  margin-bottom: 20px;
+
+  @include media(laptop) {
+    font-size: 120px;
+
+    margin-bottom: 40px;
+  }
+}
+
+.description {
+  @include fontAbel;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: -0.04em;
+  max-width: 652px;
+}
+
+.listItem {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: -0.08m;
+
+  padding: 24px 16px;
+  border-radius: 8px;
+  border: 1px solid black;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), calc(100% - 60px) 100%, 0 100%);
+
+  &:nth-child(1) {
+    background-color: white;
+
+    @include media(laptop) {
+      margin-left: 16px;
+    }
+  }
+
+  &:nth-child(2) {
+    background-color: white;
+
+    @include media(laptop) {
+      margin-top: -8px;
+    }
+  }
+
+  &:nth-child(3) {
+    background-color: #cfec57;
+
+    @include media(laptop) {
+      margin-left: 16px;
+      margin-top: -16px;
+    }
+  }
+
+  @include media(laptop) {
+    padding: 12px 16px 30px 16px;
+    width: 587px;
+    border-radius: 18px;
+  }
+}
+
+.listItemNumber {
+  @include fontJetBrains;
+  font-weight: 100;
+  font-size: 80px;
+
+  color: black;
+
+  display: flex;
+
+  &::before,
+  &::after {
+    content: "> ";
+    padding: 0 16px;
+    font-size: 80px;
+  }
+  &::after {
+    content: " <";
+  }
+}
+
+.listItemDescription {
+  @include fontAbel;
+  font-weight: 400;
+  font-size: 20px;
+
+  color: black;
+
+  text-align: center;
+  @include media(laptop) {
+    width: 530px;
+  }
+}
+
+.certificate {
+  width: 12.5%;
+  height: auto;
+  margin: 0 auto;
+
+  @include media(laptop) {
+    margin-top: 65px;
+
+    justify-self: center;
+    grid-column: span 2;
+  }
+}

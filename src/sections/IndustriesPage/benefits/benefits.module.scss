@@ -1,0 +1,71 @@
+@import "@styles/global.scss";
+
+.root {
+  color: white;
+  padding-left: 160px;
+  padding-right: 160px;
+  margin-bottom: 180px;
+
+  h2 {
+    @include fontJetBrains;
+    font-weight: 300;
+    font-size: 120px;
+    line-height: 90%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+
+    margin-bottom: 80px;
+  }
+
+  ul {
+    display: flex;
+    gap: 30px;
+
+    li {
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 0.5px solid rgba(255, 255, 255, 0.08);
+      width: 100%;
+    }
+
+    div {
+      width: 70px;
+      height: 70px;
+      border: 1px solid rgba(207, 236, 87, 0.45);
+      margin-bottom: 36px;
+    }
+  }
+}
+
+.title {
+  @include fontJetBrains;
+  font-weight: 200;
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+
+  max-width: 344px;
+  margin-bottom: 32px;
+
+  &::after,
+  &::before {
+    content: " <";
+    font-size: 32px;
+    color: #cfec57;
+  }
+
+  &::before {
+    content: "> ";
+  }
+}
+
+.description {
+  @include fontAbel;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+
+  max-width: 313px;
+}

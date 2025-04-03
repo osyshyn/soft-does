@@ -1,0 +1,122 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  color: white;
+
+  padding: 0 160px 180px 160px;
+
+  & .article:first-child {
+    margin-bottom: 160px;
+  }
+}
+
+.captionContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 56px;
+
+  h2 {
+    font-weight: 300;
+    font-size: 54px;
+    line-height: 120%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 166px;
+    background-color: black;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+
+    @include fontJetBrains;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    .arrow {
+      margin-left: 16px;
+    }
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 30px;
+
+  li {
+    box-sizing: border-box;
+    display: flex;
+    gap: 30px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 10px 0;
+    }
+
+    .image {
+      width: 50%;
+      height: auto;
+    }
+  }
+}
+
+.title {
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 90%;
+  text-transform: uppercase;
+
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 90%;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.description {
+  @include fontAbel;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+
+  max-width: 325px;
+}
+
+.btn {
+  box-sizing: border-box;
+  width: 166px;
+  padding: 24px;
+
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+
+  @include fontJetBrains;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}

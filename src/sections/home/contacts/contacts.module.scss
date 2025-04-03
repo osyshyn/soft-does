@@ -1,0 +1,78 @@
+@import '@styles/global.scss';
+
+.root {
+  background-color: #000;
+  border-top: 2px solid #ffffff5b;
+  border-bottom: 2px solid #ffffff5b;
+  overflow: hidden;
+}
+
+.contactsList {
+  display: grid;
+  gap: 0;
+
+  @include media(tabletVertical) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding: 80px 12px;
+
+  border-bottom: 2px solid #ffffff5b;
+
+  &:nth-last-child(1) {
+    border-bottom: none;
+  }
+
+  @include media(tabletVertical) {
+    border-bottom: none;
+    border-right: 2px solid #ffffff5b;
+
+    &:nth-last-child(1) {
+      border-right: none;
+      border-bottom: none;
+    }
+  }
+}
+
+.listItemTitle {
+  @include fontAbel;
+  color: #ffffff5b;
+  margin-bottom: 16px;
+}
+
+.listItemLink {
+  @include fontJetBrains;
+  font-size: 18px;
+
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  color: #fff;
+
+  transition-property: color;
+  transition-duration: 300ms;
+  transition-timing-function: linear;
+
+  &:hover {
+    color: #d0ec57;
+  }
+
+  @include media(tabletVertical) {
+    font-size: 24px;
+  }
+}
+
+.arrowIcon {
+  width: 32px;
+  height: 32px;
+}

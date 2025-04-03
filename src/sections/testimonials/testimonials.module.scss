@@ -1,0 +1,144 @@
+@import "@styles/global.scss";
+
+.root {
+  background-color: #000;
+
+  overflow: hidden;
+
+  padding-bottom: 36px;
+  color: #fff;
+
+  @include media(tabletVertical) {
+    padding-bottom: 180px;
+  }
+}
+
+.title {
+  @include fontJetBrains;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 90%;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+
+  margin-bottom: 80px;
+
+  @include media(tabletVertical) {
+    font-size: 120px;
+  }
+}
+
+.swiper {
+  overflow: visible;
+
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 225px;
+    z-index: 10;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(90deg, black 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(-90deg, black 0%, rgba(0, 0, 0, 0) 100%);
+  }
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+}
+
+.topContentWrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+  margin-bottom: 44px;
+  padding: 40px;
+  position: relative;
+
+  background: linear-gradient(to bottom, #1a1a1a 0%, #1a1a1a38 40%);
+  border: 1px solid #262626;
+  border-radius: 20px;
+}
+
+.upwork {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  width: 104px;
+  padding: 16px;
+  margin-bottom: 30px;
+
+  background: #1a1a1a;
+  border: 1px solid #262626;
+  border-radius: 8px;
+}
+
+.arrowDown {
+  position: absolute;
+
+  left: 14px;
+  bottom: -20px;
+
+  color: #262626;
+}
+
+.bottomContentWrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bottomContentTitleAndDateWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reviewText {
+  @include fontAbel;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.reviewTitle {
+  @include fontAbel;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.date {
+  @include fontAbel;
+  font-size: 14px;
+  font-weight: 300;
+
+  color: #808080;
+}
+
+.logo {
+  min-width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  background-color: yellowgreen;
+}

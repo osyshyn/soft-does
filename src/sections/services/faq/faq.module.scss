@@ -1,0 +1,58 @@
+@import "@styles/global.scss";
+
+.root {
+  padding: 36px 16px;
+
+  background-color: #000;
+  color: #fff;
+
+  display: grid;
+  gap: 20px;
+
+  position: relative;
+
+  @include media(laptop) {
+    padding: 100px 80px;
+    padding-top: 258px;
+    padding-bottom: 0;
+
+    grid-template-columns: 1fr 1fr;
+    gap: 68px;
+  }
+}
+
+.img {
+  position: absolute;
+  display: none;
+  visibility: hidden;
+
+  @include media(laptop) {
+    display: block;
+    visibility: visible;
+
+    top: 100px;
+    left: 40%;
+    transform: translateX(-50%);
+  }
+}
+
+.title {
+  @include fontJetBrains;
+  font-weight: 300;
+  font-size: 40px;
+
+  text-transform: uppercase;
+
+  @include media(laptop) {
+    font-size: 80px;
+
+    margin-bottom: 40px;
+  }
+}
+
+.accordionRoot {
+  display: grid;
+  padding-left: 60px;
+  padding-bottom: 190px;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}

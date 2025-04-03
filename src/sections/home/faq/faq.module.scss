@@ -1,0 +1,55 @@
+@import '@styles/global.scss';
+
+.root {
+  padding: 36px 16px;
+
+  background-color: #000;
+  color: #fff;
+
+  border-top: 2px solid rgba(#fff, 0.4);
+
+  display: grid;
+  gap: 20px;
+
+  position: relative;
+
+  @include media(laptop) {
+    padding: 100px 80px;
+
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.img {
+  position: absolute;
+  display: none;
+  visibility: hidden;
+
+  @include media(laptop) {
+    display: block;
+    visibility: visible;
+
+    top: -230px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.title {
+  @include fontJetBrains;
+  font-weight: 300;
+  font-size: 40px;
+
+  text-transform: uppercase;
+
+  @include media(laptop) {
+    font-size: 80px;
+
+    margin-bottom: 40px;
+  }
+}
+
+.accordionRoot {
+  display: grid;
+}

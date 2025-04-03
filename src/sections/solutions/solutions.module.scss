@@ -1,0 +1,128 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  background-color: black;
+  color: #ffffff;
+  padding-left: 160px;
+  padding-right: 160px;
+  padding-bottom: 180px;
+
+  h2 {
+    font-weight: 300;
+    font-size: 120px;
+    line-height: 90%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+  }
+
+  .block {
+    padding: 52px 30px;
+
+    border: 0.5px solid rgba(255, 255, 255, 0.4);
+    background: conic-gradient(
+        from 80deg at 32.78% 23.3%,
+        rgba(54, 89, 181, 0.123236) -14.17deg,
+        rgba(22, 29, 37, 0.2) 202.38deg,
+        rgba(64, 107, 224, 0.5) 280.23deg,
+        #161d25 280.21deg,
+        rgba(64, 107, 224, 0.5) 280.23deg,
+        #161d25 280.26deg,
+        rgba(64, 107, 224, 0.1) 280.28deg,
+        rgba(54, 89, 181, 0.123236) 345.83deg,
+        rgba(22, 29, 37, 0.2) 562.38deg
+      ),
+      rgba(255, 255, 255, 0.04);
+
+    .list {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(10, 1fr);
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+
+      .firstCell {
+        grid-row: span 2;
+
+        .serviceTitle {
+          font-weight: 200;
+          font-size: 32px;
+          line-height: 110%;
+          letter-spacing: -0.08em;
+          text-transform: uppercase;
+
+          padding-bottom: 32px;
+
+          &::before,
+          &::after {
+            content: "> ";
+            font-size: 32px;
+          }
+          &::after {
+            content: " <";
+          }
+        }
+
+        .description {
+          @include fontAbel;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 150%;
+          letter-spacing: -0.04em;
+
+          max-width: 382px;
+        }
+      }
+
+      .link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 74px;
+
+        box-sizing: border-box;
+        padding: 12px 30px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: border 0.5s ease-in-out, background-color 0.5s ease-in-out;
+
+        p {
+          font-weight: 200;
+          font-size: 20px;
+          text-transform: uppercase;
+          transition: color 0.5s ease-in-out;
+
+          max-width: 378px;
+        }
+
+        .img {
+          transition: all 0.5s ease-in-out;
+
+          .img path {
+            stroke: white;
+            transition: stroke 0.5s ease-in-out;
+          }
+        }
+
+        &:hover {
+          border: 1px solid #cfec57;
+          background-color: #12171d;
+
+          p {
+            color: #cfec57;
+          }
+
+          .img {
+            transform: rotate(90deg);
+          }
+
+          .img path {
+            stroke: #cfec57;
+          }
+        }
+      }
+    }
+  }
+}

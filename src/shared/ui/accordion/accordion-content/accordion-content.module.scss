@@ -1,0 +1,21 @@
+.root {
+  max-height: 0;
+  overflow: hidden;
+
+  transition-property: max-height;
+  transition-duration: 300ms;
+  transition-timing-function: linear;
+
+  padding-left: 24px;
+
+  &[data-open='open'] {
+    padding: 24px;
+    max-height: calc(var(--height-var) + 48px);
+  }
+
+  &[data-open='closed'] {
+    transition-property: max-height;
+    transition-duration: 150ms;
+    transition-timing-function: linear;
+  }
+}

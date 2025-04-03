@@ -1,0 +1,95 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  color: white;
+  padding: 0 160px 180px 160px;
+
+  .title {
+    font-weight: 300;
+    font-size: 120px;
+    line-height: 90%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+
+    margin-bottom: 80px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  li {
+    box-sizing: border-box;
+    flex: 1 1 calc(33.33% - 48px);
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #333333;
+
+    transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out, fill 0.7s ease-in-out;
+
+    &:hover {
+      background-color: #cfec57;
+
+      * {
+        color: black;
+      }
+      .arrow {
+        fill: black;
+      }
+      //   .icon path {
+      //     stroke: black;
+      //   } tags
+      //   .icon path {
+      //     fill: black;
+      //   } rocket
+      //   .icon {
+      //     fill: black;
+      //   } phone
+    }
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 48px;
+
+      .softdoes {
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 117%;
+      }
+
+      .arrow {
+        fill: white;
+      }
+    }
+
+    .icon {
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      max-width: 348px;
+      margin-bottom: 32px;
+
+      font-weight: 200;
+      font-size: 32px;
+      line-height: 110%;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+    }
+
+    .text {
+      max-width: 438px;
+
+      @include fontAbel;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+    }
+  }
+}

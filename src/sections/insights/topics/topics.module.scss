@@ -1,0 +1,99 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  color: white;
+
+  padding: 0 160px 160px 160px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  grid-template-rows: auto auto;
+  gap: 30px;
+
+  li {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  & li:first-child {
+    grid-row: span 2;
+
+    .image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 32px;
+    }
+  }
+
+  & li:not(:first-child) {
+    flex-direction: row;
+
+    .image {
+      max-width: 498px;
+      height: auto;
+      margin-right: 30px;
+    }
+
+    .description {
+      max-width: 350px;
+    }
+  }
+}
+
+.title {
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 90%;
+  text-transform: uppercase;
+
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 90%;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.description {
+  @include fontAbel;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+
+  max-width: 500px;
+}
+
+.btn {
+  box-sizing: border-box;
+  width: 166px;
+  padding: 24px;
+
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+
+  @include fontJetBrains;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}

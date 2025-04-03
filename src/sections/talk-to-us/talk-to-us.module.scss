@@ -1,0 +1,88 @@
+@import "@styles/global.scss";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  background: linear-gradient(-240deg, rgba(226, 255, 102, 0.5) 0%, rgba(226, 255, 102, 0) 15%);
+  background-color: black;
+  color: white;
+  border-top: 2px solid rgba(#fff, 0.3);
+
+  @include media(tabletVertical) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+}
+
+.leftWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: 36px 16px 0 16px;
+
+  @include media(tabletVertical) {
+    border-right: 2px solid rgba(#fff, 0.3);
+    padding: 244px 30px 244px 160px;
+  }
+}
+
+.title {
+  @include fontJetBrains;
+  font-weight: 300;
+  font-size: 54px;
+  line-height: 120%;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+}
+
+.description {
+  @include fontAbel;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.5);
+
+  max-width: 740px;
+}
+
+.rightWrapper {
+  display: flex;
+
+  padding: 0 16px 36px 16px;
+
+  @include media(tabletVertical) {
+    justify-content: center;
+    align-items: center;
+    padding: 100px 30px 100px 160px;
+  }
+}
+
+.button {
+  padding: 30px 88px;
+  border-radius: 8px;
+  background-color: white;
+
+  @include fontJetBrains;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  color: #000;
+
+  cursor: pointer;
+
+  transition-property: background-color;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+
+  &:hover {
+    background-color: rgba($color: #fff, $alpha: 0.8);
+  }
+}

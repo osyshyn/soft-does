@@ -1,0 +1,125 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  padding: 180px 160px;
+  background-color: black;
+  color: #ffffff;
+
+  h2 {
+    font-weight: 300;
+    font-size: 120px;
+    line-height: 90%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+  }
+
+  .block {
+    display: flex;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
+      conic-gradient(
+        from 63deg at 30% 50%,
+        rgba(64, 107, 224, 0.1) -90deg,
+        rgba(22, 29, 37, 0.2) 45deg,
+        rgba(64, 107, 224, 0.5) 297deg,
+        #161d25 280.21deg,
+        rgba(64, 107, 224, 0.5) 280deg,
+        #161d25 280.26deg,
+        rgba(64, 107, 224, 0.1) 280deg,
+        rgba(22, 29, 37, 0.2) 405deg
+      );
+
+    .left {
+      width: 30%;
+      padding: 52px 10px 0 30px;
+
+      .title {
+        max-width: 419px;
+        font-size: 32px;
+        font-weight: 200;
+        text-transform: uppercase;
+        line-height: 110%;
+        letter-spacing: -0.08em;
+        margin-bottom: 32px;
+
+        &::before,
+        &::after {
+          content: "> ";
+          font-size: 32px;
+        }
+        &::after {
+          content: " <";
+        }
+      }
+
+      .subtitle {
+        @include fontAbel;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 150%;
+        letter-spacing: -0.04em;
+
+        max-width: 382px;
+      }
+    }
+
+    .right {
+      width: 70%;
+      padding: 52px 30px 52px 57px;
+
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1 1 calc(50% - 30px);
+
+        box-sizing: border-box;
+        padding: 34px 30px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: border 0.5s ease-in-out, background-color 0.5s ease-in-out;
+
+        p {
+          font-weight: 200;
+          font-size: 20px;
+          line-height: 90%;
+          text-transform: uppercase;
+          transition: color 0.5s ease-in-out;
+        }
+
+        .img {
+          transition: all 0.5s ease-in-out;
+
+          .img path {
+            stroke: white;
+            transition: stroke 0.5s ease-in-out;
+          }
+        }
+
+        &:hover {
+          border: 1px solid #cfec57;
+          background-color: #12171d;
+
+          p {
+            color: #cfec57;
+          }
+
+          .img {
+            transform: rotate(90deg);
+          }
+
+          .img path {
+            stroke: #cfec57;
+          }
+        }
+      }
+    }
+  }
+}

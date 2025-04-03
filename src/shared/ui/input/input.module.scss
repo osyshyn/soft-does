@@ -1,0 +1,54 @@
+@import "@styles/global.scss";
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input {
+  @include fontAbel;
+  font-size: 14px;
+  font-weight: 300;
+
+  border: none;
+  border-bottom: 2px solid #fff;
+
+  background-color: #000;
+  color: #fff;
+
+  padding: 12px 16px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.textarea {
+  @include fontAbel;
+  font-size: 14px;
+  font-weight: 300;
+
+  resize: none;
+
+  border: none;
+  border-bottom: 2px solid #fff;
+
+  background-color: #000;
+  color: #fff;
+
+  height: 18px;
+  padding: 12px 16px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.label {
+  @include fontAbel;
+  font-size: 18px;
+  font-weight: 300;
+
+  cursor: pointer;
+}
