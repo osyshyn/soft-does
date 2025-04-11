@@ -19,7 +19,7 @@ export default function Header() {
   };
 
   return (
-    <div className={styles.main} id="header">
+    <header className={styles.main} id="header">
       <Link href="/" className={styles.main_header}>
         SOFT DOES
       </Link>
@@ -29,7 +29,7 @@ export default function Header() {
         <Link href="/industries">Industies</Link>
         <Link href="/portfolio">Success Stories</Link>
         <Link href="/">Solution Hub</Link>
-        <Link href="/">Company</Link>
+        <Link href="/company">Company</Link>
         <Link href="/insights">Insights</Link>
         <button onClick={scrollToContacts}>Contact us</button>
       </div>
@@ -41,6 +41,6 @@ export default function Header() {
         <div className={`${styles.main_burger_line} ${isMenuOpen ? styles.main_burger_line_open : ""}`}></div>
         <div className={`${styles.main_burger_line} ${isMenuOpen ? styles.main_burger_line_open : ""}`}></div>
       </div>
-    </div>
+    </header>
   );
 }

@@ -1,0 +1,254 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  color: white;
+  padding: 0 160px 180px 160px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
+  h2 {
+    font-weight: 300;
+    font-size: 120px;
+    line-height: 90%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+    text-align: center;
+
+    margin-bottom: 200px;
+    max-width: 1516px;
+  }
+}
+
+.mainList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 210px;
+
+  & > li {
+    width: 1600px;
+    display: flex;
+    gap: 230px;
+  }
+
+  & li:nth-child(2) .info {
+    height: 227px;
+  }
+  & li:nth-child(3) .info {
+    height: 248px;
+  }
+  & li:nth-child(4) {
+    justify-content: flex-end;
+
+    @include media(desktop) {
+      .info {
+        width: 671px;
+      }
+    }
+  }
+  & li:nth-child(5) {
+    .info {
+      height: 292px;
+    }
+  }
+
+  .info {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    width: 697px;
+    min-height: 227px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #333333;
+
+    h3 {
+      font-weight: 200;
+      font-size: 32px;
+      line-height: 110%;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+
+      margin-bottom: 24px;
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 48px;
+
+    .date {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 150%;
+      letter-spacing: -0.08em;
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+
+      padding: 24px 32px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid #333333;
+
+      width: max-content;
+    }
+
+    &:nth-child(odd) .date {
+      align-self: flex-end;
+    }
+
+    .tools {
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid #333333;
+
+      & ul {
+        display: flex;
+        gap: 24px;
+
+        & li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          width: 80px;
+          height: 80px;
+          background: #131316;
+          border: 1px solid #232329;
+
+          &:nth-child(odd) img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    .detailsTitle {
+      @include fontAbel;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 140%;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    &:nth-child(even) .detailsTitle {
+      margin-bottom: 12px;
+    }
+
+    .devices {
+      display: flex;
+      gap: 24px;
+      padding: 32px;
+
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid #333333;
+    }
+
+    .frame img {
+      max-width: 592px;
+      height: auto;
+    }
+
+    .aiDiv {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 68px;
+      padding: 32px;
+
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid #333333;
+
+      .aiIcon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .statsDiv {
+      padding: 32px 32px 40px 32px;
+
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid #333333;
+
+      text-align: center;
+
+      h3 {
+        @include fontAbel;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 140%;
+        color: rgba(255, 255, 255, 0.6);
+
+        margin-bottom: 16px;
+      }
+
+      .stats {
+        display: flex;
+        gap: 24px;
+
+        li {
+          box-sizing: border-box;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+
+          padding: 28px;
+          width: 195px;
+          background: #131316;
+
+          p:nth-child(1) {
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 150%;
+            text-align: right;
+            letter-spacing: -0.08em;
+
+            span {
+              color: #cfec57;
+            }
+          }
+
+          p:nth-child(2) {
+            @include fontAbel;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 140%;
+            color: rgba(255, 255, 255, 0.6);
+          }
+        }
+      }
+    }
+  }
+}
+
+.textDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .text {
+    @include fontAbel;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: rgba(255, 255, 255, 0.6);
+
+    &:nth-child(2) {
+      margin-bottom: 22px;
+    }
+  }
+}

@@ -1,6 +1,7 @@
-import data from "@texts/main/index.json";
+"use client";
+
 import { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 
 import aiLaptop from "@assets/images/main/ai-laptop.png";
 import aiPhone from "@assets/images/main/ai-phone.png";
@@ -30,93 +31,120 @@ const PHOTOS = {
 
 type Key = keyof typeof PHOTOS;
 
-export const CaseCards = () => {
+type CaseItem = {
+  id: string;
+  title: string;
+  mainInfo: string[];
+  additionalInfo: string[];
+  before: {
+    tag: string;
+    number: string;
+    title: string;
+    text: string;
+  };
+  after: {
+    tag: string;
+    number: string;
+    title: string;
+    text: string;
+  };
+};
+
+type Props = {
+  index: number;
+  item: CaseItem;
+  range: number[];
+  targetScale: number;
+  progress: MotionValue<number>;
+};
+
+export const CaseCards = ({ item, index, range, targetScale, progress }: Props) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start center", "start start"],
   });
 
+  const cardScale = useTransform(progress, range, [1, targetScale]);
+
   return (
     <>
-      {data.cases.list.map((item, index) => (
-        <li ref={targetRef} key={index} className={s.cardContainer}>
-          <div className={s.caseCardRoot}>
-            <div className={s.tagsContainer}>
-              <ul className={s.mainTags}>
-                {item.mainInfo.map((i) => (
-                  <li key={i} className={s.tagItem}>
-                    {i}
-                  </li>
-                ))}
-              </ul>
+      <motion.li ref={targetRef} className={s.cardContainer} style={{ top: `calc(0px + 48px * (${index} - 1))`, scale: cardScale }} key={index}>
+        <div className={s.caseCardRoot}>
+          <div className={s.tagsContainer}>
+            <ul className={s.mainTags}>
+              {item.mainInfo.map((i) => (
+                <li key={i} className={s.tagItem}>
+                  {i}
+                </li>
+              ))}
+            </ul>
 
-              <ul className={s.additionalTags}>
-                {item.additionalInfo.map((i) => (
-                  <li key={i} className={s.tagItem}>
-                    {i}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className={s.mainContentWrapper}>
-              <h3 className={s.cardTitle}>{item.title}</h3>
-
-              <ul className={s.photosWrapper}>
-                <motion.div style={{ opacity: scrollYProgress }} className={s.inner}>
-                  <li
-                    className={s.photo}
-                    style={{
-                      backgroundImage: `url(${PHOTOS[item.id as Key][0].src})`,
-                    }}
-                  />
-                </motion.div>
-                <motion.div style={{ opacity: scrollYProgress }} className={s.inner}>
-                  <li
-                    className={s.photo}
-                    style={{
-                      backgroundImage: `url(${PHOTOS[item.id as Key][1].src})`,
-                    }}
-                  />
-                </motion.div>
-                <motion.div style={{ opacity: scrollYProgress }} className={s.inner}>
-                  <li
-                    className={s.photo}
-                    style={{
-                      backgroundImage: `url(${PHOTOS[item.id as Key][2].src})`,
-                    }}
-                  />
-                </motion.div>
-              </ul>
-            </div>
-
-            <ul className={s.bottomContentWrapper}>
-              <li className={s.bottomCardWrapper}>
-                <span className={s.tag}>{item.before.tag}</span>
-
-                <h4 className={s.bottomTitle}>
-                  <span className={s.titleNumber}>{item.before.number}</span>
-                  {item.before.title}
-                </h4>
-
-                <p className={s.bottomCardText}>{item.before.text}</p>
-              </li>
-
-              <li className={clsx(s.bottomCardWrapper, s.after)}>
-                <span className={clsx(s.tag, s.after)}>{item.after.tag}</span>
-
-                <h4 className={clsx(s.bottomTitle, s.after)}>
-                  <span className={clsx(s.titleNumber, s.after)}>{item.after.number}</span>
-                  {item.after.title}
-                </h4>
-
-                <p className={s.bottomCardText}>{item.after.text}</p>
-              </li>
+            <ul className={s.additionalTags}>
+              {item.additionalInfo.map((i) => (
+                <li key={i} className={s.tagItem}>
+                  {i}
+                </li>
+              ))}
             </ul>
           </div>
-        </li>
-      ))}
+
+          <div className={s.mainContentWrapper}>
+            <h3 className={s.cardTitle}>{item.title}</h3>
+
+            <ul className={s.photosWrapper}>
+              <motion.div style={{ opacity: scrollYProgress }} className={s.inner}>
+                <li
+                  className={s.photo}
+                  style={{
+                    backgroundImage: `url(${PHOTOS[item.id as Key][0].src})`,
+                  }}
+                />
+              </motion.div>
+              <motion.div style={{ opacity: scrollYProgress }} className={s.inner}>
+                <li
+                  className={s.photo}
+                  style={{
+                    backgroundImage: `url(${PHOTOS[item.id as Key][1].src})`,
+                  }}
+                />
+              </motion.div>
+              <motion.div style={{ opacity: scrollYProgress }} className={s.inner}>
+                <li
+                  className={s.photo}
+                  style={{
+                    backgroundImage: `url(${PHOTOS[item.id as Key][2].src})`,
+                  }}
+                />
+              </motion.div>
+            </ul>
+          </div>
+
+          <ul className={s.bottomContentWrapper}>
+            <li className={s.bottomCardWrapper}>
+              <span className={s.tag}>{item.before.tag}</span>
+
+              <h4 className={s.bottomTitle}>
+                <span className={s.titleNumber}>{item.before.number}</span>
+                {item.before.title}
+              </h4>
+
+              <p className={s.bottomCardText}>{item.before.text}</p>
+            </li>
+
+            <li className={clsx(s.bottomCardWrapper, s.after)}>
+              <span className={clsx(s.tag, s.after)}>{item.after.tag}</span>
+
+              <h4 className={clsx(s.bottomTitle, s.after)}>
+                <span className={clsx(s.titleNumber, s.after)}>{item.after.number}</span>
+                {item.after.title}
+              </h4>
+
+              <p className={s.bottomCardText}>{item.after.text}</p>
+            </li>
+          </ul>
+        </div>
+      </motion.li>
     </>
   );
 };

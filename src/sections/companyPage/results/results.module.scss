@@ -1,0 +1,77 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  color: white;
+  padding: 140px 160px;
+
+  ul {
+    display: flex;
+    gap: 40px;
+    justify-content: space-around;
+
+    li {
+      box-sizing: border-box;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 370px;
+      height: 370px;
+      padding: 32px;
+
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid #333333;
+
+      transition: border 0.4s ease-in-out;
+
+      &:nth-child(odd) {
+        margin-top: 110px;
+      }
+
+      &:hover {
+        border: 1px solid #cfec57;
+
+        .number {
+          color: #cfec57;
+        }
+      }
+    }
+  }
+}
+
+.textDiv {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  .text {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: -0.08em;
+    text-align: right;
+
+    max-width: 120px;
+  }
+}
+
+.numberDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .number {
+    font-weight: 300;
+    font-size: 54px;
+    line-height: 150%;
+    letter-spacing: -0.08em;
+
+    transition: color 0.4s ease-in-out;
+  }
+
+  .arrowIcon {
+    width: 35px;
+    height: 35px;
+  }
+}

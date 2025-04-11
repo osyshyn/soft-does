@@ -1,0 +1,101 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  color: white;
+  padding: 0 160px 180px 160px;
+}
+
+.playerContainer {
+  display: grid;
+  gap: 184px;
+  grid-template-columns: 1fr 1fr;
+
+  padding-bottom: 80px;
+
+  li {
+    p {
+      @include fontJetBrains;
+      font-weight: 200;
+      font-size: 54px;
+      line-height: 110%;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+
+      max-width: 672px;
+
+      &::after,
+      &::before {
+        content: ">";
+        font-size: 54px;
+        color: #f28b82;
+      }
+      &::after {
+        content: "<";
+        padding-left: 20px;
+      }
+      &::before {
+        padding-right: 20px;
+      }
+    }
+
+    .leftWrapper {
+      position: relative;
+
+      .previewImg {
+        width: 100%;
+        height: auto;
+      }
+
+      .play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .rightWrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 128px;
+
+      padding-top: 128px;
+
+      .spiral {
+        width: 65%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.stats {
+  display: flex;
+  gap: 232px;
+  justify-content: space-around;
+
+  li {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .number {
+    font-weight: 500;
+    font-size: 80px;
+    line-height: 150%;
+    letter-spacing: -0.08em;
+  }
+
+  .text {
+    @include fontAbel;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 140%;
+    letter-spacing: -0.08em;
+  }
+}
