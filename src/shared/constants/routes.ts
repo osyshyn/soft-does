@@ -11,4 +11,6 @@ export const ROUTES = {
   industries: "/industries",
 
   insights: "/insights",
+
+  company: "/company",
 };
