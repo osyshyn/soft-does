@@ -1,7 +1,7 @@
 export const ROUTES = {
   root: "/",
 
-  softwaredev: "/softwaredev",
+  softwaredev: "/software-development",
 
   customSoftDev: "/custom-software-development",
   mobileAppDev: "/mobile-app-development",
