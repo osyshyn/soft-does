@@ -11,7 +11,6 @@ import { Testimonials } from "@sections/home/testimonials/testimonials";
 import { ContactsForm } from "@sections/home/contacts-form/contacts-form";
 import { CaseStudies } from "@sections/case-studies/case-studies";
 
-
 import softwareDevelopment from "@assets/images/main/software-development.png";
 import aiAndMachineLearning from "@assets/images/main/ai-machine-learning.png";
 import cloudServices from "@assets/images/main/cloud-services.png";
@@ -28,7 +27,7 @@ export default function Home() {
       <Layout>
         <Hero />
         <Certificates />
-        <ServiceSection link="/softwaredev" currentColor="#173B91" img={softwareDevelopment} {...data.softwareDevelopment} />
+        <ServiceSection link="/software-development" currentColor="#173B91" img={softwareDevelopment} {...data.softwareDevelopment} />
         <ServiceSection link="/ai-and-ml" currentColor="#D75186" img={aiAndMachineLearning} isRight {...data.aiMachineLearning} />
         <ServiceSection link="/cloud-services" currentColor="#F28B82" img={cloudServices} {...data.cloudServices} />
         <ServiceSection link="/" currentColor="#BF81FF" img={dataScienceAndEngeneering} isRight {...data.dataScienceAndEngeneering} />
