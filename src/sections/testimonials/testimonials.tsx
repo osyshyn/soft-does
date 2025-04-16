@@ -1,5 +1,6 @@
 import data from "@texts/main/index.json";
 import Image from "next/image";
+import "swiper/css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
