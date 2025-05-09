@@ -27,6 +27,7 @@ export const HeroContactForm = () => {
 
 		const result = await response.json();
 		console.log(result.message);
+		event.currentTarget.reset();
 	};
 
 	return (
