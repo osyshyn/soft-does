@@ -27,14 +27,6 @@ export default async function handler(req, res) {
 
 		const uploadedFile = files?.file?.length ? files.file[0] : null;
 
-		if (uploadedFile) {
-			const attachment = {
-				filename: uploadedFile?.originalFilename,
-				path: uploadedFile?.filepath,
-				encoding: 'base64',
-			};
-		}
-
 		const getField = val => (Array.isArray(val) ? val[0] : val);
 
 		const name = getField(fields.name);
