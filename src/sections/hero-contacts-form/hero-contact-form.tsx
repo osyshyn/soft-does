@@ -7,6 +7,7 @@ export const HeroContactForm = () => {
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
+		const formElement = event.currentTarget;
 		const form = new FormData(event.currentTarget);
 
 		const fileInput = event.currentTarget.querySelector(
@@ -27,7 +28,11 @@ export const HeroContactForm = () => {
 
 		const result = await response.json();
 		console.log(result.message);
-		event.currentTarget.reset();
+		formElement.reset();
+
+		if (fileInput) {
+			fileInput.value = '';
+		}
 	};
 
 	return (
