@@ -152,6 +152,10 @@
   &:active {
     cursor: grabbing;
   }
+
+  @media (max-width: 1030px) {
+    width: 100%;
+  }
 }
 
 .technologiesIcon {

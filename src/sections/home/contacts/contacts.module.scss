@@ -1,78 +1,96 @@
 @import '@styles/global.scss';
 
 .root {
-  background-color: #000;
-  border-top: 2px solid #ffffff5b;
-  border-bottom: 2px solid #ffffff5b;
-  overflow: hidden;
+	background-color: #000;
+	border-top: 2px solid #ffffff5b;
+	border-bottom: 2px solid #ffffff5b;
+	overflow: hidden;
+	padding: 0 16px;
 }
 
 .contactsList {
-  display: grid;
-  gap: 0;
+	display: grid;
+	gap: 0;
 
-  @include media(tabletVertical) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+	@include media(tabletVertical) {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 
 .listItem {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
 
-  width: 100%;
-  padding: 80px 12px;
+	width: 100%;
+	padding: 80px 12px;
 
-  border-bottom: 2px solid #ffffff5b;
+	border-bottom: 2px solid #ffffff5b;
 
-  &:nth-last-child(1) {
-    border-bottom: none;
-  }
+	&:nth-last-child(1) {
+		border-bottom: none;
+	}
 
-  @include media(tabletVertical) {
-    border-bottom: none;
-    border-right: 2px solid #ffffff5b;
+	@include media(tabletVertical) {
+		border-bottom: none;
+		border-right: 2px solid #ffffff5b;
 
-    &:nth-last-child(1) {
-      border-right: none;
-      border-bottom: none;
-    }
-  }
+		&:nth-last-child(1) {
+			border-right: none;
+			border-bottom: none;
+		}
+	}
+
+	@media (max-width: 500px) {
+		text-align: center;
+	}
+}
+
+.itemContentWrapper {
+	> p {
+		@include media(500px) {
+			text-align: center;
+		}
+	}
 }
 
 .listItemTitle {
-  @include fontAbel;
-  color: #ffffff5b;
-  margin-bottom: 16px;
+	@include fontAbel;
+	color: #ffffff5b;
+	margin-bottom: 16px;
+
+	@include media(500px) {
+		text-align: center;
+	}
 }
 
 .listItemLink {
-  @include fontJetBrains;
-  font-size: 18px;
+	@include fontJetBrains;
+	font-size: 20px;
 
-  display: flex;
-  gap: 16px;
-  align-items: center;
+	display: flex;
+	gap: 16px;
+	align-items: center;
 
-  color: #fff;
+	color: #fff;
 
-  transition-property: color;
-  transition-duration: 300ms;
-  transition-timing-function: linear;
+	transition-property: color;
+	transition-duration: 300ms;
+	transition-timing-function: linear;
 
-  &:hover {
-    color: #d0ec57;
-  }
+	&:hover {
+		color: #d0ec57;
+	}
 
-  @include media(tabletVertical) {
-    font-size: 24px;
-  }
+	@include media(tabletVertical) {
+		font-size: 24px;
+	}
 }
 
 .arrowIcon {
-  width: 32px;
-  height: 32px;
+	width: 32px;
+	height: 32px;
 }

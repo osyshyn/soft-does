@@ -2,7 +2,7 @@
 
 .root {
   z-index: 999;
-  overflow: auto;
+  overflow-y: auto;
   
 	// padding: 36px 16px;
 
@@ -174,7 +174,7 @@
 }
 
 .calendarWrapper {
-	height: 600px;
+	// height: 600px;
 
 	@include media(laptop) {
 		height: 100%;

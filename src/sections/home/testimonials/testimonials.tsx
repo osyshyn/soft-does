@@ -15,19 +15,36 @@ export const Testimonials = () => (
     <h2 className={s.title}>{data.testimonials.title}</h2>
 
     <Swiper
-      slidesPerView={4}
       spaceBetween={30}
-      centeredSlides={true}
-      autoplay={{
-        delay: 2000,
-        disableOnInteraction: false,
-      }}
-      loop={true}
-      speed={1500}
-      freeMode={true}
-      modules={[Autoplay]}
-      className={s.swiper}
-      a11y={{ enabled: true }}
+			centeredSlides={true}
+			autoplay={{
+				delay: 2000,
+				disableOnInteraction: false,
+			}}
+			breakpoints={{
+				 0: {
+      slidesPerView: 1,
+      centeredSlides: false,
+    },
+    500: {
+      slidesPerView: 2,
+      centeredSlides: true,
+    },
+    768: {
+      slidesPerView: 3,
+      centeredSlides: true,
+    },
+    1050: {
+      slidesPerView: 4,
+      centeredSlides: true,
+    },
+			}}
+			loop={true}
+			speed={1500}
+			freeMode={true}
+			modules={[Autoplay]}
+			className={s.swiper}
+			a11y={{ enabled: true }}
     >
       {data.testimonials.list.map((item, index) => (
         <SwiperSlide key={index} className={s.slide}>

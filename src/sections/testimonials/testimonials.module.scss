@@ -28,6 +28,10 @@
   @include media(tabletVertical) {
     font-size: 120px;
   }
+
+  @media (max-width: 1030px) {
+    margin-top: 30px;
+  }
 }
 
 .swiper {
@@ -45,7 +49,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 225px;
+    min-width: 225px;
+    max-width: 20%;
     z-index: 10;
   }
 
@@ -62,6 +67,7 @@
 
 .slide {
   display: flex;
+  width: 100%;
   flex-direction: column;
 }
 
