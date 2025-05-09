@@ -2,7 +2,6 @@ import data from "@texts/main/index.json";
 
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
-import { Hero } from "@sections/home/hero/hero";
 import { Certificates } from "@sections/home/certificates/certificates";
 import { AboutUs } from "@sections/home/about-us/about-us";
 import { ServiceSection } from "@sections/home/service-section/service-section";
