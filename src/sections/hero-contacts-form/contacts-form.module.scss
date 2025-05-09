@@ -3,6 +3,7 @@
 .root {
   z-index: 999;
   overflow: auto;
+  
 	// padding: 36px 16px;
 
 	// background-color: #000;
@@ -34,7 +35,7 @@
 	margin-bottom: 10px;
 
 	@include media(laptop) {
-		font-size: 52px;
+		font-size: 48px;
 
 		margin-bottom: 20px;
 	}
@@ -42,13 +43,13 @@
 
 .subtitle {
 	@include fontJetBrains;
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: 100;
 
 	margin-bottom: 20px;
 
 	@include media(laptop) {
-		font-size: 18px;
+		font-size: 13px;
 
 		margin-bottom: 40px;
 	}

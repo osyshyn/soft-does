@@ -37,13 +37,14 @@
 	max-width: calc(100vw - 160px);
 	position: relative;
 	z-index: 999;
+	transform: scale(0.8);
 
 	@include media(tabletVertical) {
 		margin-left: 160px;
 	}
 
 	@media (max-width: 1025px) {
-		top: 170px;
+		top: 50px;
 		// margin-bottom: -60vh;
 	}
 
