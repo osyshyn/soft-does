@@ -2,12 +2,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
-import artifactDevelopment from "@assets/images/main/artifact-intellagence-certificate.png";
-import awsCertificate from "@assets/images/main/aws-certificate.png";
-import developerEssentials from "@assets/images/main/developer-essentials.png";
-import ibmCoCreation from "@assets/images/main/ibm-co-creation.png";
-import pmCertificate from "@assets/images/main/pm-certificate.png";
-import webDevelopmentFundamentals from "@assets/images/main/web-development-fundamentals.png";
+import artifactDevelopment from "@assets/images/main/artifact-intellagence-certificate.svg";
+import awsCertificate from "@assets/images/main/aws-certificate.svg";
+import developerEssentials from "@assets/images/main/developer-essentials.svg";
+import ibmCoCreation from "@assets/images/main/ibm-co-creation.svg";
+import pmCertificate from "@assets/images/main/pm-certificate.svg";
+import webDevelopmentFundamentals from "@assets/images/main/web-development-fundamentals.svg";
 import Image from "next/image";
 
 import "swiper/css";
@@ -26,7 +26,7 @@ export const Certificates = () => {
           disableOnInteraction: false,
         }}
         loop={true}
-        spaceBetween={140}
+        spaceBetween={80}
         centeredSlides={false}
         speed={1000}
         freeMode={true}
@@ -36,6 +36,9 @@ export const Certificates = () => {
           },
           768: {
             slidesPerView: 4,
+          },
+          1050: {
+            slidesPerView: 5,
           },
         }}
       >

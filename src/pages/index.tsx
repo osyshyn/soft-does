@@ -19,13 +19,14 @@ import uiUxDesign from "@assets/images/main/ui-ux-design.png";
 import architectureAndConsulting from "@assets/images/main/architecture-and-consulting.png";
 
 import Layout from "@shared/components/layout/layout";
+import { ContactUsHero } from '@sections/home/contact-us-hero/contactUsHero'
 
 export default function Home() {
   return (
     <>
       <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.root} />
       <Layout>
-        <Hero />
+        <ContactUsHero />
         <Certificates />
         <ServiceSection link="/software-development" currentColor="#173B91" img={softwareDevelopment} {...data.softwareDevelopment} />
         <ServiceSection link="/ai-and-ml" currentColor="#D75186" img={aiAndMachineLearning} isRight {...data.aiMachineLearning} />

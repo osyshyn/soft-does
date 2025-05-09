@@ -3,7 +3,7 @@ import s from './contacts-form.module.scss';
 import { Input } from '@shared/ui/input/input';
 import { Clip } from '@shared/assets/icons/clip';
 
-export const ContactsForm = () => {
+export const HeroContactForm = () => {
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
@@ -32,7 +32,11 @@ export const ContactsForm = () => {
 	return (
 		<section className={s.root}>
 			<div className={s.formWrapper}>
-				<h2 className={s.title}>{data.contactsForm.title}</h2>
+				<h2 className={s.title}>Your App. The First Version. By Tomorrow.</h2>
+				<h5 className={s.subtitle}>
+					We’ll design and build the first working version of your app in just
+					24 hours — mobile, web, or both.
+				</h5>
 				<form onSubmit={handleSubmit}>
 					<div className={s.inputWrapper}>
 						<Input
@@ -113,25 +117,6 @@ export const ContactsForm = () => {
 						{data.contactsForm.buttonText}
 					</button>
 				</form>
-			</div>
-
-			<div className={s.calendarWrapper}>
-				{/* <iframe
-					src='https://calendar.google.com/calendar/appointments/schedules/AcZssZ3sB_KYTTrfH7CUzWif0DRNvoWkUt-w4ORDnU2gg4opC-uJAPb0FCiFNjcoNO9Y0cZyYEad2Jz1?gv=true&'
-					style={{ border: 0, backgroundColor: '#121212' }}
-					width='100%'
-					height='100%'
-				></iframe> */}
-
-				<iframe
-					src='https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff'
-					style={{ border: 0, width: '100%', height: '900px' }}
-				></iframe>
-				<script
-					type='text/javascript'
-					src='https://assets.calendly.com/assets/external/widget.js'
-					async
-				></script>
 			</div>
 		</section>
 	);

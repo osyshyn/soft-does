@@ -22,6 +22,6 @@ export const Input = ({
       </label>
     )}
     {!isTextarea && <input className={s.input} id={id} {...rest} />}
-    {isTextarea && <textarea className={s.textarea} id={id} />}
+    {isTextarea && <textarea className={s.textarea} id={id} {...rest} />}
   </div>
 );

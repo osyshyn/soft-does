@@ -13,9 +13,12 @@
     "@splinetool/runtime": "^1.9.66",
     "aos": "^3.0.0-beta.6",
     "clsx": "^2.1.1",
+    "env": "^0.0.2",
+    "formidable": "^3.5.4",
     "lenis": "^1.2.3",
     "motion": "^12.6.2",
     "next": "15.1.2",
+    "nodemailer": "^7.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "swiper": "^11.1.15"

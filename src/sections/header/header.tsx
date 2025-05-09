@@ -24,13 +24,13 @@ export default function Header() {
         SOFT DOES
       </Link>
       <div className={`${styles.main_nav} ${isMenuOpen ? styles.main_nav_open : ""}`}>
-        <Link href="/services">Services</Link>
+        {/* <Link href="/services">Services</Link>
         <Link href="/expertise">Expertise</Link>
         <Link href="/industries">Industies</Link>
         <Link href="/portfolio">Success Stories</Link>
         <Link href="/">Solution Hub</Link>
         <Link href="/company">Company</Link>
-        <Link href="/insights">Insights</Link>
+        <Link href="/insights">Insights</Link> */}
         <button onClick={scrollToContacts}>Contact us</button>
       </div>
       <div className={styles.main_button}>
