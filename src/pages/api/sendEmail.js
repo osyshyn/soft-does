@@ -25,13 +25,15 @@ export default async function handler(req, res) {
 	try {
 		const { fields, files } = await parseForm(req);
 
-		const uploadedFile = files?.file[0];
+		const uploadedFile = files?.file?.length ? files.file[0] : null;
 
-		const attachment = {
-			filename: uploadedFile?.originalFilename,
-			path: uploadedFile?.filepath,
-			encoding: 'base64',
-		};
+		if (uploadedFile) {
+			const attachment = {
+				filename: uploadedFile?.originalFilename,
+				path: uploadedFile?.filepath,
+				encoding: 'base64',
+			};
+		}
 
 		const getField = val => (Array.isArray(val) ? val[0] : val);
 
@@ -54,7 +56,15 @@ export default async function handler(req, res) {
 			to: process.env.EMAIL,
 			subject: 'New Contact Form Submission',
 			text: `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nPhone: ${number}\nMessage: ${message}`,
-			attachments: [attachment],
+			attachments: uploadedFile
+				? [
+						{
+							filename: uploadedFile?.originalFilename,
+							path: uploadedFile?.filepath,
+							encoding: 'base64',
+						},
+				  ]
+				: [],
 		});
 
 		return res.status(200).json({ message: 'Email sent successfully' });

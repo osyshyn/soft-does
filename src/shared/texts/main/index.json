@@ -11,8 +11,8 @@
   },
   "contacts": {
     "project": {
-      "contact": "hello@softdoes.com",
-      "to": "mailto:hello@softdoes.com",
+      "contact": "info@softdoes.com",
+      "to": "mailto:info@softdoes.com",
       "title": "Project inquiries"
     },
     "career": {
@@ -21,8 +21,8 @@
       "title": "Careers"
     },
     "phone": {
-      "contact": "+ 1 213 4019311",
-      "to": "tel:+ 1 213 4019311",
+      "contact": "913 787 7997",
+      "to": "tel:913 787 7997",
       "title": "Phone number"
     }
   },

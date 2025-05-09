@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import Upwork from "@shared/assets/images/industries/upwork.png";
-import Avatar from "@shared/assets/images/industries/reviews.png";
+import Avatar from "@shared/assets/images/industries/upwork.svg";
 import { Tip } from "@shared/assets/icons/tip";
 
 import s from "./testimonials.module.scss";
@@ -40,7 +40,7 @@ export const Testimonials = () => (
           </div>
 
           <div className={s.bottomContentWrapper}>
-            <Image aria-hidden alt="" src={Avatar.src} width={Avatar.width} height={Avatar.height} className={s.avatar} />
+            <Image aria-hidden alt="" src={Avatar.src} width={70} height={70} className={s.avatar} />
             <div className={s.bottomContentTitleAndDateWrapper}>
               <h3 className={s.reviewTitle}>Mark Roberts</h3>
               <span className={s.date}>{item.date}</span>
