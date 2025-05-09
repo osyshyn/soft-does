@@ -42,7 +42,7 @@ export const Testimonials = () => (
           <div className={s.bottomContentWrapper}>
             <Image aria-hidden alt="" src={Avatar.src} width={70} height={70} className={s.avatar} />
             <div className={s.bottomContentTitleAndDateWrapper}>
-              <h3 className={s.reviewTitle}>Mark Roberts</h3>
+              <h3 className={s.reviewTitle}>{item.name}</h3>
               <span className={s.date}>{item.date}</span>
             </div>
           </div>

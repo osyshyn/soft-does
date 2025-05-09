@@ -118,9 +118,9 @@ export const ContactsForm = () => {
 			<div className={s.calendarWrapper}>
 				<iframe
 					// className='calendly-inline-widget'
-						src='https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff'
+					src='https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff'
 					style={{ border: 0, width: '100%', height: '900px' }}
-          // https://calendly.com/comebackagency/30min?embed_domain=comebackagency.com&embed_type=Inline&hide_gdpr_banner=1&background_color=15123d&text_color=ffffff&primary_color=ffffff
+					// https://calendly.com/comebackagency/30min?embed_domain=comebackagency.com&embed_type=Inline&hide_gdpr_banner=1&background_color=15123d&text_color=ffffff&primary_color=ffffff
 				></iframe>
 				<script
 					type='text/javascript'
