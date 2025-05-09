@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import LenisScroll from "@shared/components/lenis/lenis";
 
+
 declare global {
   interface Window {
     _hsq?: Array<[string, string?]>;
