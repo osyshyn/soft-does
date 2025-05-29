@@ -12,12 +12,13 @@ interface LayoutProps {
   children: ReactNode;
   talkToUs?: boolean;
   faq?: boolean;
+  posts?: boolean;
 }
 
-export default function Layout({ children, talkToUs = true, faq = true }: LayoutProps) {
+export default function Layout({ children, talkToUs = true, faq = true, posts = false }: LayoutProps) {
   return (
     <>
-      <Header />
+      <Header posts={posts} />
       <main>{children}</main>
       {talkToUs && <TalkToUs />}
       {faq && <FAQ />}

@@ -1,0 +1,101 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontPoppins;
+  padding-top: 210px;
+  text-align: center;
+  background-color: #fff;
+  margin-top: -100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-weight: 500;
+    font-size: clamp(40px, 6vw, 100px);
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #111111;
+
+    max-width: 949px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: clamp(16px, 4vw, 18px);
+    line-height: 150%;
+    letter-spacing: 0;
+    color: #808080;
+
+    max-width: 767px;
+    margin-bottom: 40px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  button {
+    @include fontJetBrains;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+    color: #000;
+
+    min-height: 60px;
+    padding: 30px 88px;
+    border-radius: 8px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    margin-top: 180px;
+  }
+}
+
+.buttonGreen {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: font-weight 1s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 25deg at 14% 50%, #e2ff66, #8da720);
+    z-index: -1;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 1s ease;
+  }
+
+  &:hover {
+    font-weight: 300;
+    &::before {
+      transform: scaleX(10);
+    }
+  }
+}
+
+.buttonWhite {
+  background-color: #fff;
+  border: 1px solid #111111;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #e3e2e29a;
+  }
+}

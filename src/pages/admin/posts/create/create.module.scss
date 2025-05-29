@@ -1,0 +1,78 @@
+.wrapper {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+  gap: 48px;
+
+  & > div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  h2 {
+    color: #fff;
+  }
+
+  textarea,
+  input {
+    padding: 4px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  textarea::placeholder,
+  input::placeholder {
+    margin-top: 4px;
+  }
+
+  button {
+    width: 160px;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .remove {
+    background-color: #eb7474;
+  }
+
+  .add {
+    background-color: #9ff0a7;
+  }
+
+  .upload {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+.dropzone {
+  box-sizing: border-box;
+  padding: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  background-color: #fafafa;
+  transition: background-color 0.3s;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.hiddenInput {
+  display: none;
+}

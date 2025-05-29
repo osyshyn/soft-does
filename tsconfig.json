@@ -20,7 +20,8 @@
       "@sections/*": ["./sections/*"],
       "@texts/*": ["./shared/texts/*"],
       "@constants/*": ["./shared/constants/*"],
-      "@assets/*": ["./shared/assets/*"]
+      "@assets/*": ["./shared/assets/*"],
+      "@models/*": ["./models/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -3,7 +3,11 @@ import { useState } from "react";
 import styles from "./Header.module.scss";
 import Link from "next/link";
 
-export default function Header() {
+interface HeaderProps {
+  posts?: boolean;
+}
+
+export default function Header({ posts }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
