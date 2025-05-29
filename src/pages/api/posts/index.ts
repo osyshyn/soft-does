@@ -1,4 +1,4 @@
-import connectDB from "../../lib/mongoose";
+import connectDB from "../../../lib/mongoose";
 import { NextApiRequest, NextApiResponse } from "next";
 import Post from "@models/Post";
 

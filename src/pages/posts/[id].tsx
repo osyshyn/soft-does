@@ -6,7 +6,11 @@ import { SEO } from "@shared/ui/seo";
 import Layout from "@shared/components/layout/layout";
 import { Hero } from "@sections/postPage/hero/hero";
 
-import { ICONS } from "./constants";
+import { Facebook } from "@shared/assets/icons/blog/facebook";
+import { Tg } from "@shared/assets/icons/blog/tg";
+import { Whatsapp } from "@shared/assets/icons/blog/whatsapp";
+import { X } from "@shared/assets/icons/blog/x";
+import { Plus } from "@shared/assets/icons/blog/plus";
 import { Profile } from "@shared/assets/icons/blog/profile";
 
 import s from "./post.module.scss";
@@ -18,6 +22,8 @@ interface PostPageProps {
 export default function PostPage({ post }: PostPageProps) {
   const router = useRouter();
   const { id } = router.query;
+
+  const ICONS = [Facebook, Tg, Whatsapp, X, Plus];
 
   return (
     <>

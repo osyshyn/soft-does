@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 
 import s from "./create.module.scss";
 
-export default function CreatePostPage() {
+export default function CreatePost() {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
