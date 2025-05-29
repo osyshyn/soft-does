@@ -57,7 +57,7 @@ export const Topics = ({ posts }: TopicsProps) => {
         ))} */}
         {posts.map((post) => (
           <li key={post._id}>
-            <Image alt={post.title} src={post.imageUrl || People} className={s.image} width={300} height={200} />
+            <Image alt={post.title} src={post.imagePreviewUrl || People} className={s.image} width={300} height={200} />
             <div className={s.info}>
               <div>
                 <p className={s.title}>{post.author}</p>

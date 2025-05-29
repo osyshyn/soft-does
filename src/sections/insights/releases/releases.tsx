@@ -69,7 +69,7 @@ const TOPICS2 = [
 interface ReleasesProps {
   posts: IPost[];
 }
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Releases = ({ posts }: ReleasesProps) => {
   // const router = useRouter();
 
