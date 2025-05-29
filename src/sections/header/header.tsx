@@ -24,7 +24,7 @@ export default function Header({ posts }: HeaderProps) {
 
   return (
     <header className={styles.main} id="header">
-      <Link href="/" className={styles.main_header}>
+      <Link href="/" className={`${styles.main_header} ${posts ? styles.postPage : ""}`}>
         SOFT DOES
       </Link>
       <div className={`${styles.main_nav} ${isMenuOpen ? styles.main_nav_open : ""}`}>

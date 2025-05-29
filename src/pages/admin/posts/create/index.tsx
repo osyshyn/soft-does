@@ -222,7 +222,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   try {
     jwt.verify(token, process.env.JWT_SECRET!);
     return { props: {} };
-  } catch (err) {
+  } catch {
     return {
       redirect: {
         destination: "/admin/login",

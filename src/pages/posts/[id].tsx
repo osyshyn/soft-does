@@ -22,7 +22,7 @@ export default function PostPage({ post }: PostPageProps) {
   return (
     <>
       <SEO title={post.title} description={post.introduction} pathname={`/posts/${id}`} />
-      <Layout>
+      <Layout posts={true}>
         <Hero />
         <section className={s.post}>
           <div className={s.leftSide}>
