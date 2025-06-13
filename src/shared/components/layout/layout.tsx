@@ -13,12 +13,13 @@ interface LayoutProps {
   talkToUs?: boolean;
   faq?: boolean;
   posts?: boolean;
+  isLanding?: boolean;
 }
 
-export default function Layout({ children, talkToUs = true, faq = true, posts = false }: LayoutProps) {
+export default function Layout({ children, talkToUs = true, faq = true, posts = false, isLanding = false }: LayoutProps) {
   return (
     <>
-      <Header posts={posts} />
+      <Header posts={posts} isLanding={isLanding} />
       <main>{children}</main>
       {talkToUs && <TalkToUs />}
       {faq && <FAQ />}
