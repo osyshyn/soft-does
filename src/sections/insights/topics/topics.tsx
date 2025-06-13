@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import Link from "next/link";
 import Image from "next/image";
 import { IPost } from "@models/Post";
 
@@ -34,8 +34,6 @@ interface TopicsProps {
 }
 
 export const Topics = ({ posts }: TopicsProps) => {
-  const router = useRouter();
-
   return (
     <section className={s.root}>
       <ul className={s.container}>
@@ -55,21 +53,23 @@ export const Topics = ({ posts }: TopicsProps) => {
             </div>
           </li>
         ))} */}
-        {posts.map((post) => (
-          <li key={post._id}>
-            <Image alt={post.title} src={post.imagePreviewUrl || People} className={s.image} width={300} height={200} />
-            <div className={s.info}>
-              <div>
-                <p className={s.title}>{post.author}</p>
-                <p className={s.subtitle}>{post.authorPosition}</p>
+        {posts.map((post) => {
+          return (
+            <li key={post._id}>
+              <Image alt={post.title} src={post.imageUrl || People} className={s.image} width={300} height={200} />
+              <div className={s.info}>
+                <div>
+                  <p className={s.title}>{post.author}</p>
+                  <p className={s.subtitle}>{post.authorPosition}</p>
+                </div>
+                <p className={s.description}>{post.introduction.slice(0, 100)}</p>
+                <Link className={s.btn} href={`/posts/${post._id}`}>
+                  Read more
+                </Link>
               </div>
-              <p className={s.description}>{post.introduction.slice(0, 100)}</p>
-              <button className={s.btn} onClick={() => router.push(`/posts/${post._id}`)}>
-                Read more
-              </button>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

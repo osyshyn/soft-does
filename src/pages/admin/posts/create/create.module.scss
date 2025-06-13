@@ -6,6 +6,15 @@
   padding: 5%;
   gap: 48px;
 
+  a {
+    align-self: flex-start;
+    display: block;
+    width: max-content;
+    padding: 4px;
+    background-color: #9ff0a7;
+    color: #000;
+  }
+
   & > div {
     width: 50%;
     display: flex;

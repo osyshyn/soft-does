@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { GetServerSidePropsContext } from "next";
-import { parse } from "cookie";
-import jwt from "jsonwebtoken";
+import Link from "next/link";
+
+import { withAdminAuth } from "@shared/utils/withAdminAuth";
 
 import s from "./create.module.scss";
 
@@ -76,6 +76,8 @@ export default function CreatePost() {
 
   return (
     <form className={s.wrapper} onSubmit={handleSubmit}>
+      <Link href="/admin/posts">Back to posts</Link>
+
       <div>
         <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
         <input value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Author" required />
@@ -206,31 +208,9 @@ export default function CreatePost() {
   );
 }
 
-export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  const cookies = parse(ctx.req.headers.cookie || "");
-  const token = cookies.admin_token;
-
-  if (!token) {
-    return {
-      redirect: {
-        destination: "/admin/login",
-        permanent: false,
-      },
-    };
-  }
-
-  try {
-    jwt.verify(token, process.env.JWT_SECRET!);
-    return { props: {} };
-  } catch {
-    return {
-      redirect: {
-        destination: "/admin/login",
-        permanent: false,
-      },
-    };
-  }
-}
+export const getServerSideProps = withAdminAuth(async () => {
+  return { props: {} };
+});
 
 const formatDate = (isoDate: string) => {
   const [yyyy, mm, dd] = isoDate.split("-");

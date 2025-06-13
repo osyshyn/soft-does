@@ -21,6 +21,7 @@ export interface IPost extends Document {
   comments: Comment[];
   imagePreviewUrl?: string;
   imageAuthorUrl?: string;
+  imageUrl?: string;
   createdAt: Date;
   updatedAt: Date;
 }
