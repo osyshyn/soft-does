@@ -6,6 +6,7 @@ import PostModel from "@models/Post";
 import { withAdminAuth } from "@shared/utils/withAdminAuth";
 
 import s from "./posts.module.scss";
+import connectDB from "lib/mongoose";
 
 export default function PostsPage({ initialPosts }: { initialPosts: IPost[] }) {
   const [posts, setPosts] = useState<IPost[]>(initialPosts);
@@ -52,6 +53,7 @@ export default function PostsPage({ initialPosts }: { initialPosts: IPost[] }) {
 // });
 
 export const getServerSideProps = withAdminAuth(async () => {
+  await connectDB();
   const posts = await PostModel.find().lean();
   return { props: { initialPosts: JSON.parse(JSON.stringify(posts)) } };
 });
