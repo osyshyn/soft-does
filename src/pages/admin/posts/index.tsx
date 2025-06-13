@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { IPost } from "@models/Post";
+import PostModel from "@models/Post";
 
 import { withAdminAuth } from "@shared/utils/withAdminAuth";
 
@@ -42,10 +43,15 @@ export default function PostsPage({ initialPosts }: { initialPosts: IPost[] }) {
   );
 }
 
-export const getServerSideProps = withAdminAuth(async (ctx) => {
-  const protocol = ctx.req.headers["x-forwarded-proto"] || "http";
-  const host = ctx.req.headers.host;
-  const res = await fetch(`${protocol}://${host}/api/posts`);
-  const posts = await res.json();
-  return { props: { initialPosts: posts } };
+// export const getServerSideProps = withAdminAuth(async (ctx) => {
+//   const protocol = ctx.req.headers["x-forwarded-proto"] || "http";
+//   const host = ctx.req.headers.host;
+//   const res = await fetch(`${protocol}://${host}/api/posts`);
+//   const posts = await res.json();
+//   return { props: { initialPosts: posts } };
+// });
+
+export const getServerSideProps = withAdminAuth(async () => {
+  const posts = await PostModel.find().lean();
+  return { props: { initialPosts: JSON.parse(JSON.stringify(posts)) } };
 });
