@@ -1,6 +1,6 @@
 import data from "@texts/main/index.json";
 import Image from "next/image";
-import Spline from "./spline-wrapper";
+import Spline from "@splinetool/react-spline";
 
 import kansasFlag from "@assets/images/main/kansas-flag-min.jpg";
 
