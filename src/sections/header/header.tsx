@@ -3,7 +3,11 @@ import { useState } from "react";
 import styles from "./Header.module.scss";
 import Link from "next/link";
 
-export default function Header() {
+interface HeaderProps {
+  posts?: boolean;
+}
+
+export default function Header({ posts }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -20,7 +24,7 @@ export default function Header() {
 
   return (
     <header className={styles.main} id="header">
-      <Link href="/" className={styles.main_header}>
+      <Link href="/" className={`${styles.main_header} ${posts ? styles.postPage : ""}`}>
         SOFT DOES
       </Link>
       <div className={`${styles.main_nav} ${isMenuOpen ? styles.main_nav_open : ""}`}>

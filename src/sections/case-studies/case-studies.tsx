@@ -8,7 +8,7 @@ import { CaseCards } from "./case-cards/case-cards";
 
 import s from "./case-studies.module.scss";
 
-export const CaseStudies = () => {
+export default function CaseStudies() {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -32,4 +32,4 @@ export const CaseStudies = () => {
       </div>
     </section>
   );
-};
+}

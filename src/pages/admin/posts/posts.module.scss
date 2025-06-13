@@ -1,0 +1,48 @@
+.wrapper {
+  padding: 5%;
+
+  h1 {
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 8px;
+      background-color: #fff;
+
+      div {
+        display: flex;
+        gap: 8px;
+
+        a {
+          display: block;
+          width: max-content;
+          padding: 4px;
+          background-color: #9ff0a7;
+          color: #000;
+        }
+
+        button {
+          background-color: #eb7474;
+        }
+      }
+    }
+  }
+
+  .createButton {
+    display: block;
+    width: max-content;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #9ff0a7;
+    color: #000;
+  }
+}

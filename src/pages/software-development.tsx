@@ -5,7 +5,7 @@ import { Hero } from "@sections/softwareDev/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { Services } from "@sections/softwareDev/services/services";
-import { CaseStudies } from "@sections/case-studies/case-studies";
+import CaseStudies from "@sections/case-studies/case-studies";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
 import { Industries } from "@sections/industries/industries";

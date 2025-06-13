@@ -1,19 +1,19 @@
-import Image from 'next/image';
-import { MouseEventHandler } from 'react';
+import Image from "next/image";
+import { MouseEventHandler } from "react";
 
-import finance from '@assets/images/main/industries-finance.png';
-import healtcare from '@assets/images/main/industries-healthcare.png';
-import education from '@assets/images/main/industries-education.png';
-import construction from '@assets/images/main/industries-construction.png';
-import tehnology from '@assets/images/main/industries-technology.png';
-import startups from '@assets/images/main/industries-startups.png';
-import compliance from '@assets/images/main/industries-compilance.png';
-import energy from '@assets/images/main/industries-energy.png';
+import finance from "@assets/images/main/industries-finance.png";
+import healtcare from "@assets/images/main/industries-healthcare.png";
+import education from "@assets/images/main/industries-education.png";
+import construction from "@assets/images/main/industries-construction.png";
+import tehnology from "@assets/images/main/industries-technology.png";
+import startups from "@assets/images/main/industries-startups.png";
+import compliance from "@assets/images/main/industries-compilance.png";
+import energy from "@assets/images/main/industries-energy.png";
 
-import { ArrowUpAndRight } from '@shared/assets/icons/arrow-up-and-right';
+import { ArrowUpAndRight } from "@shared/assets/icons/arrow-up-and-right";
 
-import data from '@texts/main/index.json';
-import s from './industries.module.scss';
+import data from "@texts/main/index.json";
+import s from "./industries.module.scss";
 
 const INDUSTRIES = {
   finance,
@@ -28,29 +28,28 @@ const INDUSTRIES = {
 
 type Key = keyof typeof INDUSTRIES;
 
-export const Industries = () => {
-  const onClick: MouseEventHandler = e => {
+export default function Industries() {
+  const onClick: MouseEventHandler = (e) => {
     e.preventDefault();
 
-    const contacts = document.querySelector('#contacts');
+    const contacts = document.querySelector("#contacts");
 
     if (!contacts) return;
 
-    contacts.scrollIntoView({ behavior: 'smooth' });
+    contacts.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section className={s.root}>
       <h2 className={s.title}>{data.industries.title}</h2>
       <ul className={s.list}>
-        {data.industries.list.map(item => (
+        {data.industries.list.map((item) => (
           <li
             key={item.id}
             className={s.listItem}
             style={
               {
-                '--current-color-variable':
-                  item.color || 'rgba(255, 255, 255, 0.2)',
+                "--current-color-variable": item.color || "rgba(255, 255, 255, 0.2)",
               } as React.CSSProperties
             }
           >
@@ -72,4 +71,4 @@ export const Industries = () => {
       </ul>
     </section>
   );
-};
+}

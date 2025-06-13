@@ -1,14 +1,15 @@
 import data from "@texts/main/index.json";
+import dynamic from "next/dynamic";
 
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import { Certificates } from "@sections/home/certificates/certificates";
-import { AboutUs } from "@sections/home/about-us/about-us";
 import { ServiceSection } from "@sections/home/service-section/service-section";
-import { Industries } from "@sections/home/industries/industries";
-import { Testimonials } from "@sections/home/testimonials/testimonials";
+// import { Testimonials } from "@sections/home/testimonials/testimonials";
+import { AboutUs } from "@sections/home/about-us/about-us";
 import { ContactsForm } from "@sections/home/contacts-form/contacts-form";
-import { CaseStudies } from "@sections/case-studies/case-studies";
+// import { Industries } from "@sections/home/industries/industries";
+// import { CaseStudies } from "@sections/case-studies/case-studies";
 
 import softwareDevelopment from "@assets/images/main/software-development.png";
 import aiAndMachineLearning from "@assets/images/main/ai-machine-learning.png";
@@ -18,7 +19,11 @@ import uiUxDesign from "@assets/images/main/ui-ux-design.png";
 import architectureAndConsulting from "@assets/images/main/architecture-and-consulting.png";
 
 import Layout from "@shared/components/layout/layout";
-import { ContactUsHero } from '@sections/home/contact-us-hero/contactUsHero'
+import { ContactUsHero } from "@sections/home/contact-us-hero/contactUsHero";
+
+const Testimonials = dynamic(() => import("@sections/home/testimonials/testimonials"));
+const Industries = dynamic(() => import("@sections/home/industries/industries"));
+const CaseStudies = dynamic(() => import("@sections/case-studies/case-studies"));
 
 export default function Home() {
   return (

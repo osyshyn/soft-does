@@ -1,4 +1,6 @@
+// import { useRouter } from "next/router";
 import Image from "next/image";
+import { IPost } from "@models/Post";
 
 import { Arrow } from "@shared/assets/icons/short-arrow-right";
 import Devices from "@shared/assets/images/blog/devices.png";
@@ -64,9 +66,50 @@ const TOPICS2 = [
   },
 ];
 
-export const Releases = () => {
+interface ReleasesProps {
+  posts: IPost[];
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const Releases = ({ posts }: ReleasesProps) => {
+  // const router = useRouter();
+
+  // const firstHalf = posts.slice(0, 3);
+  // const secondHalf = posts.slice(3);
+
+  // const renderBlock = (block: IPost[], index: number) => (
+  //   <article key={index} className={s.article}>
+  //     <div className={s.captionContainer}>
+  //       <h2>Press releases</h2>
+  //       <button>
+  //         More
+  //         <Arrow className={s.arrow} />
+  //       </button>
+  //     </div>
+
+  //     <ul className={s.container}>
+  //       {block.map((post) => (
+  //         <li key={post._id}>
+  //           <Image aria-hidden alt="" src="/placeholder.png" className={s.image} width={300} height={200} />
+  //           <div className={s.info}>
+  //             <div>
+  //               <p className={s.title}>{post.author}</p>
+  //               <p className={s.subtitle}>{post.authorPosition}</p>
+  //             </div>
+  //             <p className={s.description}>{post.introduction.slice(0, 100)}...</p>
+  //             <button className={s.btn} onClick={() => router.push(`/posts/${post._id}`)}>
+  //               Read more
+  //             </button>
+  //           </div>
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   </article>
+  // );
+
   return (
     <section className={s.root}>
+      {/* {renderBlock(firstHalf, 1)}
+      {renderBlock(secondHalf, 2)} */}
       <article className={s.article}>
         <div className={s.captionContainer}>
           <h2>Press releases</h2>
