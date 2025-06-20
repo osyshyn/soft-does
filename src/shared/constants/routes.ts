@@ -21,4 +21,6 @@ export const ROUTES = {
   insights: "/insights",
 
   company: "/company",
+
+  contact: "/contact",
 };

@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "title": "contact",
+    "titleSpan": "soft does",
+    "tagText": "We transform market insights into globally beloved apps that power your business",
+    "btnText": "Contact us"
+  },
+  "contacts": {
+    "project": {
+      "title": "Project inquiries",
+      "link": "hello@softdoes.com"
+    },
+    "careers": {
+      "title": "Careers",
+      "link": "careers@softdoes.com"
+    },
+    "phone": {
+      "title": "Phone number",
+      "link": "+ 1 213 4019311"
+    }
+  }
+}

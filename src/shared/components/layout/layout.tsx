@@ -12,18 +12,19 @@ interface LayoutProps {
   children: ReactNode;
   talkToUs?: boolean;
   faq?: boolean;
+  contacts?: boolean;
   posts?: boolean;
   isLanding?: boolean;
 }
 
-export default function Layout({ children, talkToUs = true, faq = true, posts = false, isLanding = false }: LayoutProps) {
+export default function Layout({ children, talkToUs = true, faq = true, contacts = true, posts = false, isLanding = false }: LayoutProps) {
   return (
     <>
       <Header posts={posts} isLanding={isLanding} />
-      <main>{children}</main>
+      <main style={{ marginTop: isLanding ? undefined : "-100px" }}>{children}</main>
       {talkToUs && <TalkToUs />}
       {faq && <FAQ />}
-      <Contacts />
+      {contacts && <Contacts />}
       <ContactsForm />
       <Footer />
     </>

@@ -1,0 +1,61 @@
+@import "@styles/global.scss";
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid #ffffff29;
+  margin-top: -140px;
+
+  div:first-child {
+    padding: 260px 60px 300px 60px;
+    border-right: 1px solid #ffffff29;
+    justify-self: end;
+  }
+  div:last-child {
+    padding: 260px 60px 300px 60px;
+    display: flex;
+    align-items: center;
+    justify-self: start;
+  }
+
+  img {
+    max-width: 740px;
+    width: 100%;
+    height: auto;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 56px;
+  }
+
+  li {
+    & > p:first-child {
+      @include fontAbel;
+      line-height: 100%;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 16px;
+    }
+    & > a:last-child {
+      @include fontJetBrains;
+      font-size: 54px;
+      font-weight: 200;
+      line-height: 100%;
+      letter-spacing: -4.32px;
+      color: #fff;
+
+      transition-property: color;
+      transition-duration: 300ms;
+      transition-timing-function: linear;
+
+      &:hover {
+        color: #d0ec57;
+      }
+    }
+  }
+}
+
+.arrowIcon {
+  padding-left: 16px;
+  width: 28px;
+  height: 28px;
+}
