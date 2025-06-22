@@ -5,12 +5,12 @@ export const N = ({ className }: { className?: string }) => (
     <path d="M63 29H57V63H63V29Z" fill="url(#paint1_linear_2225_6425)" />
     <defs>
       <linearGradient id="paint0_linear_2225_6425" x1="46.9336" y1="64.2194" x2="62.1619" y2="83.2319" gradientUnits="userSpaceOnUse">
-        <stop stop-color="white" />
-        <stop offset="1" stop-color="white" stop-opacity="0" />
+        <stop stopColor="white" />
+        <stop offset="1" stopColor="white" stopOpacity="0" />
       </linearGradient>
       <linearGradient id="paint1_linear_2225_6425" x1="59.9957" y1="28.9904" x2="59.8994" y2="53.9597" gradientUnits="userSpaceOnUse">
-        <stop stop-color="white" />
-        <stop offset="1" stop-color="white" stop-opacity="0" />
+        <stop stopColor="white" />
+        <stop offset="1" stopColor="white" stopOpacity="0" />
       </linearGradient>
     </defs>
   </svg>

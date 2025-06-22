@@ -10,7 +10,7 @@ export const Gear = ({ className }: { className: string }) => {
           stroke="#fff"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="5"
+          strokeWidth="5"
           d="M51.588 45.583a5.667 5.667 0 1 1 0-11.333m0 11.333a5.667 5.667 0 1 0 0-11.333m0 11.333v4.25m0-15.583V30m8.588 4.958-3.68 2.125m-9.813 5.667L43 44.875m0-9.917 3.683 2.125m9.812 5.667 3.684 2.125"
         />
       </g>

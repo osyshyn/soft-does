@@ -3,7 +3,7 @@ export const Tags = ({ className }: { className?: string }) => (
     <path
       d="M19.8359 50.4063L2.83594 33.4063L19.8359 16.4062M48.9788 50.4063L65.9788 33.4063L48.9788 16.4062"
       stroke="white"
-      stroke-width="4"
+      strokeWidth="4"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
