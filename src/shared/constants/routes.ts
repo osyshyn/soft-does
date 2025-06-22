@@ -12,6 +12,8 @@ export const ROUTES = {
 
   cloudServices: "/cloud-services",
 
+  uiux_design: "/ui-ux-design",
+
   services: "/services",
 
   expertise: "/expertise",

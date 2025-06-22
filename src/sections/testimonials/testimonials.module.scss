@@ -2,15 +2,9 @@
 
 .root {
   background-color: #000;
-
   overflow: hidden;
-
-  padding-bottom: 36px;
   color: #fff;
-
-  @include media(tabletVertical) {
-    padding-bottom: 180px;
-  }
+  padding-bottom: 160px;
 }
 
 .title {

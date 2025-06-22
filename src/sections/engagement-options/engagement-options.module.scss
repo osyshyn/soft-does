@@ -2,7 +2,7 @@
 
 .root {
   @include fontAbel;
-  padding: 180px 160px;
+  padding: 0 160px 180px 160px;
 
   display: flex;
   flex-direction: column;
