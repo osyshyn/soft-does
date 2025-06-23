@@ -18,12 +18,14 @@
 
 .container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
 
   li {
     box-sizing: border-box;
     flex: 1 1 calc(33.33% - 48px);
+    max-width: 518px;
 
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid #333333;

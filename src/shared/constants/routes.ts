@@ -14,6 +14,8 @@ export const ROUTES = {
 
   uiux_design: "/ui-ux-design",
 
+  dse: "/data-science-and-engineering",
+
   services: "/services",
 
   expertise: "/expertise",
