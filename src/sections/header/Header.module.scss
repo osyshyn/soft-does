@@ -9,18 +9,19 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+  background-color: black;
+  // background-color: rgba(0, 0, 0, 0.5);
+  // backdrop-filter: blur(10px);
   z-index: 1000;
   height: 100px;
   padding: 0 5%;
   align-items: center;
 
-  @media (max-width: 1025px) {
-    background-color: black;
-    backdrop-filter: none;
-    // position: absolute;
-  }
+  // @media (max-width: 1025px) {
+  //   background-color: black;
+  //   backdrop-filter: none;
+  //   // position: absolute;
+  // }
 
   &_burger {
     display: none;

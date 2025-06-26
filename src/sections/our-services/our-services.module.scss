@@ -26,6 +26,7 @@
     box-sizing: border-box;
     flex: 1 1 calc(33.33% - 48px);
     max-width: 518px;
+    padding: 40px;
 
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid #333333;
@@ -64,7 +65,7 @@
     }
 
     .tag {
-      max-width: 348px;
+      max-width: 384px;
       margin-bottom: 32px;
 
       font-weight: 200;
@@ -75,7 +76,7 @@
     }
 
     .text {
-      max-width: 438px;
+      max-width: 380px;
 
       @include fontAbel;
       font-weight: 400;
@@ -87,6 +88,8 @@
 }
 
 .link {
-  display: block;
-  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }

@@ -1,5 +1,6 @@
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
+import Layout from "@shared/components/layout/layout";
 
 import { Hero } from "@sections/dse/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
@@ -8,8 +9,6 @@ import { OurServices } from "@sections/our-services/our-services";
 import CaseStudies from "@sections/case-studies/case-studies";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
-
-import Layout from "@shared/components/layout/layout";
 
 import { Data } from "@assets/icons/services/dse/icons";
 import { Analytics } from "@assets/icons/services/dse/icons";

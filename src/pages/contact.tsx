@@ -1,7 +1,7 @@
 import data from "@shared/texts/contact/index.json";
-import { ROUTES } from "@shared/constants/routes";
 
 import { SEO } from "@shared/ui/seo";
+import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
 import { Hero } from "@sections/hero/hero";

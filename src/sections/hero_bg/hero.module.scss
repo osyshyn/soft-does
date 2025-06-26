@@ -1,0 +1,88 @@
+@import "@styles/global.scss";
+
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: clamp(100px, 13.5vw, 188px);
+  padding-bottom: clamp(100px, 13.5vw, 188px);
+
+  color: white;
+
+  background-repeat: no-repeat;
+}
+
+.container {
+  margin-left: 160px;
+}
+
+.title {
+  @include fontJetBrains;
+  text-transform: uppercase;
+  font-size: clamp(60px, 6.5vw, 120px);
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+
+  max-width: 940px;
+  margin-bottom: 48px;
+}
+
+.tagText {
+  @include fontAbel;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+
+  margin-bottom: 48px;
+
+  max-width: 523px;
+}
+
+.button {
+  @include fontJetBrains;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  color: #000;
+
+  min-height: 60px;
+  padding: 30px 88px;
+  border-radius: 8px;
+  background: conic-gradient(from 25deg at 14% 50%, #e2ff66 0deg, #8da720 360deg), #ffffff;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: font-weight 1s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 25deg at 14% 50%, #e2ff66, #8da720);
+    z-index: -1;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 1s ease;
+  }
+
+  &:hover {
+    font-weight: 300;
+    &::before {
+      transform: scaleX(10);
+    }
+  }
+}
+
+.heroImage {
+  position: absolute;
+  z-index: 0;
+  height: auto;
+}

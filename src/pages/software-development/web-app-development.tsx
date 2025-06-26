@@ -13,7 +13,7 @@ import Layout from "@shared/components/layout/layout";
 export default function WebAppDev() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.webAppDev} />
+      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.softwaredev.webAppDev} />
       <Layout>
         <Hero />
         <Results />
