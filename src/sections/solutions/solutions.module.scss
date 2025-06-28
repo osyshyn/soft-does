@@ -9,8 +9,8 @@
   padding-bottom: 180px;
 
   h2 {
+    font-size: $FontSize-Title;
     font-weight: 300;
-    font-size: 120px;
     line-height: 90%;
     letter-spacing: -0.08em;
     text-transform: uppercase;
@@ -22,25 +22,69 @@
 
     border: 0.5px solid rgba(255, 255, 255, 0.4);
     background: conic-gradient(
-        from 80deg at 32.78% 23.3%,
-        rgba(54, 89, 181, 0.123236) -14.17deg,
-        rgba(22, 29, 37, 0.2) 202.38deg,
-        rgba(64, 107, 224, 0.5) 280.23deg,
-        #161d25 280.21deg,
-        rgba(64, 107, 224, 0.5) 280.23deg,
-        #161d25 280.26deg,
-        rgba(64, 107, 224, 0.1) 280.28deg,
+        from 80deg at 100% 23.3%,
+        rgba(54, 89, 181, 0.123236) -14deg,
+        rgba(22, 29, 37, 0.2) 202deg,
+        rgba(64, 107, 224, 0.5) 280deg,
+        #161d25 280deg,
+        rgba(64, 107, 224, 0.5) 280deg,
+        #161d25 280deg,
+        rgba(64, 107, 224, 0.1) 280deg,
         rgba(54, 89, 181, 0.123236) 345.83deg,
-        rgba(22, 29, 37, 0.2) 562.38deg
+        rgba(22, 29, 37, 0.2) 562deg
       ),
       rgba(255, 255, 255, 0.04);
 
+    @include media(tabletVertical) {
+      background: conic-gradient(
+          from 80deg at 50% 23.3%,
+          rgba(54, 89, 181, 0.123236) -14deg,
+          rgba(22, 29, 37, 0.2) 202deg,
+          rgba(64, 107, 224, 0.5) 280deg,
+          #161d25 280deg,
+          rgba(64, 107, 224, 0.5) 280deg,
+          #161d25 280deg,
+          rgba(64, 107, 224, 0.1) 280deg,
+          rgba(54, 89, 181, 0.123236) 345.83deg,
+          rgba(22, 29, 37, 0.2) 562deg
+        ),
+        rgba(255, 255, 255, 0.04);
+    }
+
+    @include media(laptop) {
+      background: conic-gradient(
+          from 80deg at 34% 23.3%,
+          rgba(54, 89, 181, 0.123236) -14deg,
+          rgba(22, 29, 37, 0.2) 202deg,
+          rgba(64, 107, 224, 0.5) 280deg,
+          #161d25 280deg,
+          rgba(64, 107, 224, 0.5) 280deg,
+          #161d25 280deg,
+          rgba(64, 107, 224, 0.1) 280deg,
+          rgba(54, 89, 181, 0.123236) 345.83deg,
+          rgba(22, 29, 37, 0.2) 562deg
+        ),
+        rgba(255, 255, 255, 0.04);
+    }
+
     .list {
       display: grid;
-      grid-auto-flow: column;
-      grid-template-rows: repeat(10, 1fr);
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 30px;
+
+      @include media(tabletVertical) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include media(laptop) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      // @media (max-width) {
+      // grid-auto-flow: column;
+      // grid-template-rows: repeat(10, 1fr);
+      // grid-template-columns: 1fr 1fr 1fr;
+      // }
 
       .firstCell {
         grid-row: span 2;

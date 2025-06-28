@@ -21,12 +21,12 @@ export default function CaiSolutions() {
         <Hero
           data={data.hero}
           heroImg={HeroObj}
-          imgStyles={{ top: "20%", right: "15%", width: "33%" }}
+          imgStyles={{ right: "15%", width: "33%" }}
           isStaticImage={false}
           bgImg="heroBg_caiSolutions.png"
           bgStyles={{
             backgroundPosition: "bottom",
-            backgroundSize: "100% 90%",
+            backgroundSize: "100% 100%",
           }}
         />
         <Results />

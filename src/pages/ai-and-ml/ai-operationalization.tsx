@@ -21,7 +21,7 @@ export default function AiOperation() {
         <Hero
           data={data.hero}
           heroImg={HeroObj}
-          imgStyles={{ bottom: "0%", right: "2%", width: "45%" }}
+          imgStyles={{ right: "2%", width: "45%" }}
           isStaticImage={false}
           bgImg={["heroBgL_aiOperation.png", "heroBgR_aiOperation.png"]}
           bgStyles={{

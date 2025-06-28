@@ -10,10 +10,7 @@ import CaseStudies from "@sections/case-studies/case-studies";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
 
-import { Data } from "@assets/icons/services/dse/icons";
-import { Analytics } from "@assets/icons/services/dse/icons";
-import { Secure } from "@assets/icons/services/dse/icons";
-import { View } from "@assets/icons/services/dse/icons";
+import { Data, Analytics, Secure, View } from "@assets/icons/services/dse/icons";
 
 const content = [
   {

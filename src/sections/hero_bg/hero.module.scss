@@ -13,19 +13,23 @@
 }
 
 .container {
-  margin-left: 160px;
+  margin-left: clamp(60px, 10vw, 160px);
 }
 
 .title {
   @include fontJetBrains;
   text-transform: uppercase;
-  font-size: clamp(60px, 6.5vw, 120px);
+  font-size: $FontSize-Title;
   font-weight: 300;
   line-height: 100%;
   letter-spacing: -0.08em;
 
-  max-width: 940px;
+  max-width: 640px;
   margin-bottom: 48px;
+
+  @include media(laptop) {
+    max-width: 940px;
+  }
 }
 
 .tagText {

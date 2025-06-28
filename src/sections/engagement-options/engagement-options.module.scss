@@ -14,9 +14,9 @@
 
 .rootTitle {
   @include fontJetBrains;
+  font-size: $FontSize-Title;
   font-style: normal;
   font-weight: 300;
-  font-size: 120px;
   line-height: 90%;
   letter-spacing: -0.08em;
   text-transform: uppercase;

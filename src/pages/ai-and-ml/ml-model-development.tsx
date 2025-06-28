@@ -21,8 +21,8 @@ export default function MlMD() {
           titleWidth={{ maxWidth: 1200 }}
           bgImg={["heroBg_mlMD.png", "heroBgWave_mlMD.png"]}
           bgStyles={{
-            backgroundPosition: "right bottom, bottom",
-            backgroundSize: "100% 89%, 100% 90%",
+            backgroundPosition: "top, bottom",
+            backgroundSize: "100%, cover",
           }}
         />
         <Results />

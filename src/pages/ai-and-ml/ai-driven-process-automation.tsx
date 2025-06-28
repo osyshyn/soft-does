@@ -18,8 +18,6 @@ export default function AiDPAuto() {
       <Layout>
         <Hero
           data={data.hero}
-          imgStyles={{ bottom: "5%", right: "4%", width: "45%" }}
-          isStaticImage={false}
           bgImg="heroBg_aiDPAuto.png"
           bgStyles={{
             backgroundPosition: "right bottom",
