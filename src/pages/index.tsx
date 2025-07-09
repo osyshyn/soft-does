@@ -19,10 +19,10 @@ import architectureAndConsulting from "@assets/images/main/architecture-and-cons
 import Layout from "@shared/components/layout/layout";
 
 const Testimonials = dynamic(
-  () => import("@sections/home/testimonials/testimonials")
+  () => import("@sections/testimonials/testimonials")
 );
 const Industries = dynamic(
-  () => import("@sections/home/industries/industries")
+  () => import("@sections/services/industries/industries")
 );
 const CaseStudies = dynamic(
   () => import("@sections/case-studies/case-studies")

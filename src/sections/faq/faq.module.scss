@@ -1,23 +1,27 @@
 @import "@styles/global.scss";
 
-.root {
-  padding: 36px 16px;
-
+.wrapper {
   background-color: #000;
   color: #fff;
-
-  border-top: 2px solid rgba(#fff, 0.3);
-
-  display: grid;
-  gap: 20px;
-
   position: relative;
+  padding-top: 90px;
+  padding-bottom: 90px;
 
   @include media(laptop) {
-    padding: 100px 80px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
 
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+.content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 80px;
+
+  @include media(laptop) {
+    flex-direction: row;
+    gap: 0px;
   }
 }
 
@@ -37,6 +41,10 @@
 }
 
 .title {
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+
   @include fontJetBrains;
   font-weight: 300;
   font-size: 40px;
@@ -44,12 +52,20 @@
   text-transform: uppercase;
 
   @include media(laptop) {
-    font-size: 80px;
-
-    margin-bottom: 40px;
+    border-right: 2px solid rgba(#fff, 0.4);
+    padding: 180px 0px;
+    padding-right: 60px;
+    text-align: left;
   }
 }
 
 .accordionRoot {
+  width: 100%;
   display: grid;
+  padding: 0px;
+
+  @include media(laptop) {
+    padding: 180px 0px;
+    padding-left: 60px;
+  }
 }

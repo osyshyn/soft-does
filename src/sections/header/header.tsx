@@ -62,68 +62,73 @@ export default function Header({ posts, isLanding }: HeaderProps) {
   };
 
   return (
-    <header className={clsx(s.main, isMenuOpen && s.main_open)} id="header">
-      {isLandingDomain ? (
-        <a
-          href={homeLink}
-          className={`${s.main_header} ${posts ? s.postPage : ""}`}
-        >
-          SOFT DOES
-        </a>
-      ) : (
-        <Link
-          href={homeLink}
-          className={`${s.main_header} ${posts ? s.postPage : ""}`}
-        >
-          SOFT DOES
-        </Link>
-      )}
-
-      <div className={`${s.main_nav} ${isMenuOpen ? s.main_nav_open : ""}`}>
-        {!isLanding && (
-          <>
-            {navItems.map((item) =>
-              item.isModal ? (
-                <div
-                  key={item.label}
-                  onClick={handleServicesModalOpen}
-                  className={s.main_nav_item}
-                >
-                  {item.label}
-                </div>
-              ) : (
-                <Link
-                  key={item.label}
-                  href={item.href!}
-                  className={s.main_nav_item}
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
-          </>
+    <header className={clsx(s.wrapper, "wrapper")} id="header">
+      <div
+        className={clsx(s.main, isMenuOpen && s.main_open, "container")}
+        id="header"
+      >
+        {isLandingDomain ? (
+          <a
+            href={homeLink}
+            className={`${s.main_header} ${posts ? s.postPage : ""}`}
+          >
+            SOFT DOES
+          </a>
+        ) : (
+          <Link
+            href={homeLink}
+            className={`${s.main_header} ${posts ? s.postPage : ""}`}
+          >
+            SOFT DOES
+          </Link>
         )}
-        <button onClick={scrollToContacts}>Contact us</button>
+
+        <div className={`${s.main_nav} ${isMenuOpen ? s.main_nav_open : ""}`}>
+          {!isLanding && (
+            <>
+              {navItems.map((item) =>
+                item.isModal ? (
+                  <div
+                    key={item.label}
+                    onClick={handleServicesModalOpen}
+                    className={s.main_nav_item}
+                  >
+                    {item.label}
+                  </div>
+                ) : (
+                  <Link
+                    key={item.label}
+                    href={item.href!}
+                    className={s.main_nav_item}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
+            </>
+          )}
+          <button onClick={scrollToContacts}>Contact us</button>
+        </div>
+        <div className={s.main_button}>
+          <button onClick={scrollToContacts}>Contact us</button>
+        </div>
+
+        <MenuBurger toggleMenu={onClickCloseMenu} isMenuOpen={isMenuOpen} />
+
+        {isServicesModalOpen && (
+          <ServicesModal
+            isOpen={isServicesModalOpen}
+            onClose={() => setIsServicesModalOpen(false)}
+          />
+        )}
+
+        {isServicesModalMobileOpen && (
+          <ServicesModalMobile
+            isOpen={isServicesModalMobileOpen}
+            onClose={() => setIsServicesModalMobileOpen(false)}
+          />
+        )}
       </div>
-      <div className={s.main_button}>
-        <button onClick={scrollToContacts}>Contact us</button>
-      </div>
-
-      <MenuBurger toggleMenu={onClickCloseMenu} isMenuOpen={isMenuOpen} />
-
-      {isServicesModalOpen && (
-        <ServicesModal
-          isOpen={isServicesModalOpen}
-          onClose={() => setIsServicesModalOpen(false)}
-        />
-      )}
-
-      {isServicesModalMobileOpen && (
-        <ServicesModalMobile
-          isOpen={isServicesModalMobileOpen}
-          onClose={() => setIsServicesModalMobileOpen(false)}
-        />
-      )}
     </header>
   );
 }

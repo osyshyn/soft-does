@@ -1,5 +1,21 @@
 @import "@styles/global.scss";
 
+.wrapper {
+  @include fontJetBrains;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  z-index: 1000;
+  height: 100px;
+  padding: 0 80px;
+
+  @media (max-width: 1279px) {
+    padding: 0 16px;
+  }
+}
+
 .main {
   @include fontJetBrains;
   display: flex;

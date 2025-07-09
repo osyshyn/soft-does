@@ -1,37 +1,29 @@
 import type { NextConfig } from "next";
 
-// const nextConfig: NextConfig = {
-//   /* config options here */
-//   reactStrictMode: true,
-// };
-
-// module.exports = {
-//   images: {
-//     domains: ["res.cloudinary.com"],
-//   },
-// };
-
-// export default nextConfig;
-
 const nextConfig: NextConfig = {
   webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/i,
-      use: ["@svgr/webpack"],
-    });
+    const fileLoaderRule = config.module.rules.find(
+      (rule: { test: { test: (arg0: string) => any } }) =>
+        rule.test?.test?.(".svg")
+    );
+
+    config.module.rules.push(
+      {
+        ...fileLoaderRule,
+        test: /\.svg$/i,
+        resourceQuery: /url/, // *.svg?url
+      },
+      {
+        test: /\.svg$/i,
+        issuer: fileLoaderRule.issuer,
+        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
+        use: ["@svgr/webpack"],
+      }
+    );
 
     return config;
   },
-  experimental: {
-    turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
-      },
-    },
-  },
+
   images: {
     domains: ["res.cloudinary.com"],
   },

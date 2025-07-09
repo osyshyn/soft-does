@@ -7,6 +7,7 @@ import Team from "@shared/assets/images/services/team.png";
 import Light from "@shared/assets/images/services/light.png";
 
 import s from "./engagement-options.module.scss";
+import clsx from "clsx";
 
 const OPTIONS = [
   {
@@ -52,33 +53,40 @@ const OPTIONS_INFO = [
 
 export const Engagement = () => {
   return (
-    <section className={s.root}>
-      <h2 className={s.rootTitle}>Engagement Options</h2>
+    <section className={clsx(s.wrapper, "wrapper")}>
+      <div className={clsx(s.content, "container")}>
+        <h2 className={s.rootTitle}>Engagement Options</h2>
 
-      <ul className={s.list}>
-        {OPTIONS.map((item, index) => (
-          <li className={s.block} key={index}>
-            <div className={s.icon}>
-              <Image src={item.image} alt="" width={item.image.width} height={item.image.height} />
-            </div>
-            <h3 className={s.title}>{item.title}</h3>
-            <ul>
-              <li className={s.point}>
-                <Pin className={s.pin} />
-                {OPTIONS_INFO[index].a}
-              </li>
-              <li className={s.point}>
-                <Pin className={s.pin} />
-                {OPTIONS_INFO[index].b}
-              </li>
-              <li className={s.point}>
-                <Pin className={s.pin} />
-                {OPTIONS_INFO[index].c}
-              </li>
-            </ul>
-          </li>
-        ))}
-      </ul>
+        <ul className={s.list}>
+          {OPTIONS.map((item, index) => (
+            <li className={s.block} key={index}>
+              <div className={s.icon}>
+                <Image
+                  src={item.image}
+                  alt=""
+                  width={item.image.width}
+                  height={item.image.height}
+                />
+              </div>
+              <h3 className={s.title}>{item.title}</h3>
+              <ul>
+                <li className={s.point}>
+                  <Pin className={s.pin} />
+                  {OPTIONS_INFO[index].a}
+                </li>
+                <li className={s.point}>
+                  <Pin className={s.pin} />
+                  {OPTIONS_INFO[index].b}
+                </li>
+                <li className={s.point}>
+                  <Pin className={s.pin} />
+                  {OPTIONS_INFO[index].c}
+                </li>
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };

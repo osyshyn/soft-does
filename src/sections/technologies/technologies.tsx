@@ -15,20 +15,39 @@ import { Obj } from "@shared/assets/icons/technologies/obj";
 import { React } from "@shared/assets/icons/technologies/react";
 
 import s from "./technologies.module.scss";
+import clsx from "clsx";
 
-const TECHNOLOGIES = [Node, C, Html, Django, Python, Js, Angular, Vue, Swift, Java, Ktln, Flutter, N, Obj, React];
+const TECHNOLOGIES = [
+  Node,
+  C,
+  Html,
+  Django,
+  Python,
+  Js,
+  Angular,
+  Vue,
+  Swift,
+  Java,
+  Ktln,
+  Flutter,
+  N,
+  Obj,
+  React,
+];
 
 export const Technologies = () => {
   return (
-    <section className={s.root}>
-      <h2 className={s.title}>Technologies we work with </h2>
-      <ul>
-        {TECHNOLOGIES.map((Item, index) => (
-          <li key={index}>
-            <Item className={s.icon}></Item>
-          </li>
-        ))}
-      </ul>
+    <section className={"wrapper"}>
+      <div className={clsx(s.root, "container")}>
+        <h2 className={s.title}>Technologies we work with </h2>
+        <ul>
+          {TECHNOLOGIES.map((Item, index) => (
+            <li key={index}>
+              <Item className={s.icon}></Item>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };

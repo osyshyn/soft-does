@@ -1,16 +1,16 @@
-import data from '@texts/main/index.json';
-import s from './talk-to-us.module.scss';
-import { MouseEventHandler } from 'react';
+import data from "@texts/main/index.json";
+import s from "./talk-to-us.module.scss";
+import { MouseEventHandler } from "react";
 
 export const TalkToUs = () => {
-  const onClick: MouseEventHandler = e => {
+  const onClick: MouseEventHandler = (e) => {
     e.preventDefault();
 
-    const contacts = document.querySelector('#contacts');
+    const contacts = document.querySelector("#contacts");
 
     if (!contacts) return;
 
-    contacts.scrollIntoView({ behavior: 'smooth' });
+    contacts.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

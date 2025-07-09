@@ -3,12 +3,12 @@ import s from "./services-modal.module.scss";
 import Link from "next/link";
 import { ROUTES } from "@shared/constants/routes";
 
-import webDevelopmentFundamentals from "@assets/images/main/web-development-fundamentals.svg";
-import pmCertificate from "@assets/images/main/pm-certificate.svg";
-import developerEssentials from "@assets/images/main/developer-essentials.svg";
-import artifactDevelopment from "@assets/images/main/artifact-intellagence-certificate.svg";
-import ibmCoCreation from "@assets/images/main/ibm-co-creation.svg";
-import awsCertificate from "@assets/images/main/aws-certificate.svg";
+import webDevelopmentFundamentals from "@assets/images/main/web-development-fundamentals.svg?url";
+import pmCertificate from "@assets/images/main/pm-certificate.svg?url";
+import developerEssentials from "@assets/images/main/developer-essentials.svg?url";
+import artifactDevelopment from "@assets/images/main/artifact-intellagence-certificate.svg?url";
+import ibmCoCreation from "@assets/images/main/ibm-co-creation.svg?url";
+import awsCertificate from "@assets/images/main/aws-certificate.svg?url";
 import Image from "next/image";
 
 import {
@@ -251,6 +251,8 @@ const CertificatesList = [
   artifactDevelopment,
 ];
 
+console.log(CertificatesList);
+
 export {
   ServiceItem,
   Certificates,
@@ -331,9 +333,14 @@ const Certificates = () => {
       <p className={s.certificates__label}>Our certificates</p>
 
       <ul className={s.certificates__list}>
-        {CertificatesList.map((item) => (
-          <li className={s.certificates__item} key={item.src}>
-            <Image src={item} alt={item.src} />
+        {CertificatesList.map((item, index) => (
+          <li className={s.certificates__item} key={index}>
+            <Image
+              src={item}
+              width={80} // ← pick the real size you want
+              height={80}
+              alt={`Certificate ${index + 1}`}
+            />
           </li>
         ))}
       </ul>
