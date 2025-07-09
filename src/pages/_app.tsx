@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const isAdminRoute = router.pathname.startsWith("/admin");
 
   useEffect(() => {
-    // AOS.init(aosOptions);
+    AOS.init(aosOptions);
   }, []);
 
   useEffect(() => {
@@ -82,7 +82,6 @@ export default function App({ Component, pageProps }: AppProps) {
         </>
       )}
 
-      {/* <LenisScroll /> */}
       <LenisProvider>
         <Component {...pageProps} />
       </LenisProvider>
