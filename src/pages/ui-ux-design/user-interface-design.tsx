@@ -16,7 +16,11 @@ import HeroObj from "@assets/images/uiux/uiuxServices/heroObj_userID.png";
 export default function UserID() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.uiux_design.userID} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.uiUxDesign.userID}
+      />
       <Layout>
         <Hero
           data={data.hero}

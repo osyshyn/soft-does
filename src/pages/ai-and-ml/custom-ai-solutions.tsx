@@ -16,7 +16,11 @@ import HeroObj from "@assets/images/aiml/aimlServices/heroObject_caiSolutions.pn
 export default function CaiSolutions() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.aiml.caiSolutions} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.aiAndMl.caiSolutions}
+      />
       <Layout>
         <Hero
           data={data.hero}

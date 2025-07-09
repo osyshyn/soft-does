@@ -16,7 +16,11 @@ import HeroObj from "@assets/images/uiux/uiuxServices/heroObj_productDS.png";
 export default function ProductDS() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.uiux_design.productDS} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.uiUxDesign.productDS}
+      />
       <Layout>
         <Hero
           data={data.hero}

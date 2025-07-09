@@ -14,7 +14,11 @@ import { Solutions } from "@sections/solutions/solutions";
 export default function MlMD() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.aiml.mlMD} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.aiAndMl.mlMD}
+      />
       <Layout>
         <Hero
           data={data.hero}

@@ -10,7 +10,12 @@ import CaseStudies from "@sections/case-studies/case-studies";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
 
-import { Data, Analytics, Secure, View } from "@assets/icons/services/dse/icons";
+import {
+  Data,
+  Analytics,
+  Secure,
+  View,
+} from "@assets/icons/services/dse/icons";
 
 const content = [
   {
@@ -42,7 +47,11 @@ const content = [
 export default function DSE() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.dse} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.dataScnAndEngnrng.root}
+      />
       <Layout>
         <Hero />
         <Results />

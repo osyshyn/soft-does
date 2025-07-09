@@ -4,24 +4,19 @@
   @include fontJetBrains;
   display: flex;
   justify-content: space-between;
-  // width: 100%;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   background-color: black;
-  // background-color: rgba(0, 0, 0, 0.5);
-  // backdrop-filter: blur(10px);
   z-index: 1000;
   height: 100px;
-  padding: 0 5%;
+  padding: 0 80px;
   align-items: center;
 
-  // @media (max-width: 1025px) {
-  //   background-color: black;
-  //   backdrop-filter: none;
-  //   // position: absolute;
-  // }
+  @media (max-width: 1279px) {
+    padding: 0 16px;
+  }
 
   &_burger {
     display: none;
@@ -31,7 +26,7 @@
     height: 30px;
     cursor: pointer;
 
-    @media (max-width: 1025px) {
+    @media (max-width: 1200px) {
       display: flex;
     }
 
@@ -109,15 +104,23 @@
   &_nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 60%;
+    justify-content: center;
+    // justify-content: space-between;
+    gap: 32px;
+    width: 70%;
 
-    & a {
-      margin-right: 15px;
+    @media (max-width: 1400px) {
+      gap: 20px;
+    }
+
+    & a,
+    & .main_nav_item {
       font-size: 15px;
       transition: color 0.5s ease-in-out;
       text-transform: uppercase;
       font-weight: 100;
+      cursor: pointer;
+      color: white;
 
       &:hover {
         color: #e2ff66;
@@ -149,7 +152,7 @@
       color: #e2ff66;
     }
 
-    @media (max-width: 1025px) {
+    @media (max-width: 1200px) {
       display: none;
       flex-direction: column;
       position: absolute;
@@ -164,7 +167,8 @@
       &_open {
         display: flex;
 
-        & a {
+        & a,
+        & .main_nav_item {
           font-size: 20px;
           transition: color 0.5s ease-in-out;
 
@@ -185,7 +189,13 @@
           text-transform: uppercase;
           text-align: center;
           height: fit-content;
-          clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+          clip-path: polygon(
+            0 0,
+            100% 0,
+            100% calc(100% - 20px),
+            calc(100% - 20px) 100%,
+            0 100%
+          );
 
           background-color: #fff;
           color: #000;
@@ -205,7 +215,7 @@
     display: flex;
     align-items: center;
 
-    @media (max-width: 1025px) {
+    @media (max-width: 1200px) {
       display: none;
     }
 
@@ -221,7 +231,13 @@
       text-transform: uppercase;
       text-align: center;
       height: fit-content;
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 20px),
+        calc(100% - 20px) 100%,
+        0 100%
+      );
 
       background-color: #fff;
       color: #000;

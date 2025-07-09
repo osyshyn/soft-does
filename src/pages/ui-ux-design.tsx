@@ -18,26 +18,30 @@ const content = [
     image: User,
     title: "User Experience Design",
     text: "Create intuitive interfaces that enhance user satisfaction.",
-    link: ROUTES.uiux_design.userED,
+    link: ROUTES.uiUxDesign.userED,
   },
   {
     image: Interface,
     title: "User Interface Design",
     text: "Aesthetic and functional design solutions that drive engagement.",
-    link: ROUTES.uiux_design.userID,
+    link: ROUTES.uiUxDesign.userID,
   },
   {
     image: Light,
     title: "Product Design Services",
     text: "Innovate your product design to improve usability and ROI.",
-    link: ROUTES.uiux_design.productDS,
+    link: ROUTES.uiUxDesign.productDS,
   },
 ];
 
 export default function Uiux() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.uiux_design.root} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.uiUxDesign.root}
+      />
       <Layout>
         <Hero />
         <Results />

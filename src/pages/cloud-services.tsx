@@ -15,7 +15,11 @@ import Layout from "@shared/components/layout/layout";
 export default function CloudServices() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.cloudServices} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.cloudServices.root}
+      />
       <Layout>
         <Hero />
         <Results />

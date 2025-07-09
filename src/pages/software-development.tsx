@@ -15,7 +15,11 @@ import Layout from "@shared/components/layout/layout";
 export default function SoftwareDev() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.softwaredev.root} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.softwareDev.root}
+      />
       <Layout>
         <Hero />
         <Results />
