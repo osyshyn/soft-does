@@ -1,170 +1,87 @@
-// import { useRouter } from "next/router";
 import Image from "next/image";
-import { IPost } from "@models/Post";
-
+import Link from "next/link";
 import { Arrow } from "@shared/assets/icons/short-arrow-right";
-import Devices from "@shared/assets/images/blog/devices.png";
-import Robot from "@shared/assets/images/blog/robot.png";
 import People from "@shared/assets/images/blog/people-work.png";
-import Notebook from "@shared/assets/images/blog/notebook.png";
-import Monitors from "@shared/assets/images/blog/monitors.png";
-import ManNotebook from "@shared/assets/images/blog/man-notebook.png";
-
 import s from "./releases.module.scss";
-
-const TOPICS1 = [
-  {
-    id: 1,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    img: Devices,
-  },
-  {
-    id: 2,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    img: Devices,
-  },
-  {
-    id: 3,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    img: Robot,
-  },
-  {
-    id: 4,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    img: Robot,
-  },
-];
-
-const TOPICS2 = [
-  {
-    id: 1,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    img: People,
-  },
-  {
-    id: 2,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    img: Notebook,
-  },
-  {
-    id: 3,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    img: Monitors,
-  },
-  {
-    id: 4,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    img: ManNotebook,
-  },
-];
+import { IBlogMain } from "../../../types/contentful/BlogPost";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 interface ReleasesProps {
-  posts: IPost[];
+  posts: IBlogMain[];
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+// Групування по категоріях
+function groupByCategory(posts: IBlogMain[]) {
+  const map: Record<string, IBlogMain[]> = {};
+  posts.forEach(post => {
+    const catName = post.category?.name || "Uncategorized";
+    if (!map[catName]) map[catName] = [];
+    map[catName].push(post);
+  });
+  return map;
+}
+
 export const Releases = ({ posts }: ReleasesProps) => {
-  // const router = useRouter();
-
-  // const firstHalf = posts.slice(0, 3);
-  // const secondHalf = posts.slice(3);
-
-  // const renderBlock = (block: IPost[], index: number) => (
-  //   <article key={index} className={s.article}>
-  //     <div className={s.captionContainer}>
-  //       <h2>Press releases</h2>
-  //       <button>
-  //         More
-  //         <Arrow className={s.arrow} />
-  //       </button>
-  //     </div>
-
-  //     <ul className={s.container}>
-  //       {block.map((post) => (
-  //         <li key={post._id}>
-  //           <Image aria-hidden alt="" src="/placeholder.png" className={s.image} width={300} height={200} />
-  //           <div className={s.info}>
-  //             <div>
-  //               <p className={s.title}>{post.author}</p>
-  //               <p className={s.subtitle}>{post.authorPosition}</p>
-  //             </div>
-  //             <p className={s.description}>{post.introduction.slice(0, 100)}...</p>
-  //             <button className={s.btn} onClick={() => router.push(`/posts/${post._id}`)}>
-  //               Read more
-  //             </button>
-  //           </div>
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </article>
-  // );
+  const grouped = groupByCategory(posts);
 
   return (
-    <section className={s.root}>
-      {/* {renderBlock(firstHalf, 1)}
-      {renderBlock(secondHalf, 2)} */}
-      <article className={s.article}>
-        <div className={s.captionContainer}>
-          <h2>Press releases</h2>
-          <button>
-            More
-            <Arrow className={s.arrow} />
-          </button>
-        </div>
-        <ul className={s.container}>
-          {TOPICS1.map((item, index) => (
-            <li key={index}>
-              <Image aria-hidden alt="" src={item.img.src} className={s.image} width={item.img.width} height={item.img.height} />
-              <div className={s.info}>
-                <div>
-                  <p className={s.title}>{item.title}</p>
-                  <p className={s.subtitle}>{item.subtitle}</p>
-                </div>
-                <p className={s.description}>
-                  “Yalantis has been a great fit for us because of their experience, responsiveness, value, and time to market. From the very start, they’ve been able to staff an
-                  effective development team in no time and perform as expected.”
-                </p>
-                <button className={s.btn}>Read more</button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </article>
+      <section className={s.root}>
+        {Object.entries(grouped).map(([category, posts]) => {
+          const mainPosts = posts.slice(0, 4);
+          const hasMore = posts.length > 4;
 
-      <article className={s.article}>
-        <div className={s.captionContainer}>
-          <h2>Press releases</h2>
-          <button>
-            More
-            <Arrow className={s.arrow} />
-          </button>
-        </div>
-        <ul className={s.container}>
-          {TOPICS2.map((item, index) => (
-            <li key={index}>
-              <Image aria-hidden alt="" src={item.img.src} className={s.image} width={item.img.width} height={item.img.height} />
-              <div className={s.info}>
-                <div>
-                  <p className={s.title}>{item.title}</p>
-                  <p className={s.subtitle}>{item.subtitle}</p>
+          return (
+              <article key={category} className={s.article}>
+                <div className={s.captionContainer}>
+                  <h2>{category}</h2>
+                  {hasMore && (
+                      <Link href={`/blog/category/${encodeURIComponent(category)}`}>
+                        <button>
+                          More
+                          <Arrow className={s.arrow} />
+                        </button>
+                      </Link>
+                  )}
                 </div>
-                <p className={s.description}>
-                  “Yalantis has been a great fit for us because of their experience, responsiveness, value, and time to market. From the very start, they’ve been able to staff an
-                  effective development team in no time and perform as expected.”
-                </p>
-                <button className={s.btn}>Read more</button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </article>
-    </section>
+                <ul className={s.container}>
+                  {mainPosts.map((post) => (
+                      <li key={post.id}>
+                        <Image
+                            aria-hidden
+                            alt={post.author?.authorName || "Author"}
+                            src={
+                              post.mainImage?.url
+                                  ? post.mainImage.url.startsWith('//')
+                                      ? `https:${post.mainImage.url}`
+                                      : post.mainImage.url
+                                  : People
+                            }
+                            className={s.image}
+                            width={300}
+                            height={200}
+                        />
+                        <div className={s.info}>
+                          <div>
+                            <p className={s.title}>{post.author?.authorName || "Unknown Author"}</p>
+                            <p className={s.subtitle}>{post.author?.authorRole || ""}</p>
+                          </div>
+                          <div className={s.description}>
+                            {post.testimonialText &&
+                                (typeof post.testimonialText === "string"
+                                    ? post.testimonialText
+                                    : documentToReactComponents(post.testimonialText))
+                            }
+                          </div>
+                          <Link className={s.btn} href={`/blog/${post.slug}`}>
+                            Read more
+                          </Link>
+                        </div>
+                      </li>
+                  ))}
+                </ul>
+              </article>
+          );
+        })}
+      </section>
   );
 };

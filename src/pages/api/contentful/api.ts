@@ -1,0 +1,100 @@
+import client from './contentfulClient';
+
+export const fetchBlog = async () => {
+    const entries = await client.getEntries({ content_type: 'blogPost' });
+
+    // Для легкого пошуку по id
+    const entryMap = Object.fromEntries(
+        (entries.includes?.Entry || []).map((e: any) => [e.sys.id, e])
+    );
+    const assetMap = Object.fromEntries(
+        (entries.includes?.Asset || []).map((a: any) => [a.sys.id, a])
+    );
+
+    return entries.items.map((item: any) => {
+        // MAIN IMAGE
+        let mainImage = null;
+        if (item.fields.mainImage && assetMap[item.fields.mainImage.sys.id]) {
+            const asset = assetMap[item.fields.mainImage.sys.id];
+            mainImage = {
+                sys: { id: asset.sys.id },
+                url: asset.fields.file.url,
+                title: asset.fields.title || null,
+                description: asset.fields.description || null,
+            };
+        }
+
+        // AUTHOR
+        let author = null;
+        if (item.fields.postAuthor && entryMap[item.fields.postAuthor.sys.id]) {
+            const authorEntry = entryMap[item.fields.postAuthor.sys.id];
+            author = {
+                id: authorEntry.sys.id,
+                authorName: authorEntry.fields.authorName,
+                authorRole: authorEntry.fields.authorRole || null,
+                // Якщо додаси avatar в модель — тут можна додати аналогічно до mainImage
+            };
+        }
+
+        // CATEGORY (якщо є)
+        let category = null;
+        if (item.fields.category && entryMap[item.fields.category.sys.id]) {
+            const catEntry = entryMap[item.fields.category.sys.id];
+            category = {
+                id: catEntry.sys.id,
+                name: catEntry.fields.name,
+            };
+        }
+
+        // HERO IMAGES
+        let heroImages = null;
+        if (item.fields.heroImages && Array.isArray(item.fields.heroImages)) {
+            heroImages = item.fields.heroImages
+                .map((ref: any) =>
+                    assetMap[ref.sys.id]
+                        ? {
+                            sys: { id: assetMap[ref.sys.id].sys.id },
+                            url: assetMap[ref.sys.id].fields.file.url,
+                            title: assetMap[ref.sys.id].fields.title || null,
+                            description: assetMap[ref.sys.id].fields.description || null,
+                        }
+                        : null
+                )
+                .filter(Boolean);
+        }
+
+        // STEPS
+        let steps = null;
+        if (item.fields.steps && Array.isArray(item.fields.steps)) {
+            steps = item.fields.steps
+                .map((ref: any) =>
+                    entryMap[ref.sys.id]
+                        ? {
+                            id: entryMap[ref.sys.id].sys.id,
+                            stepNumber: entryMap[ref.sys.id].fields.stepNumber,
+                            stepTitle: entryMap[ref.sys.id].fields.stepTitle,
+                            stepDescription: entryMap[ref.sys.id].fields.stepDescription,
+                        }
+                        : null
+                )
+                .filter(Boolean);
+        }
+
+        return {
+            id: item.sys.id,
+            mainImage,
+            author,
+            testimonialText: item.fields.testimonialText || null,
+            slug: item.fields.slug,
+            category,
+            readMoreLabel: item.fields.readMoreLabel || null,
+            heroTitle: item.fields.heroTitle || null,
+            heroDescription: item.fields.heroDescription || null,
+            heroImages,
+            stepTitle: item.fields.stepTitle || null,
+            steps,
+            postContent: item.fields.postContent || null,
+            // додай інші поля, якщо треба
+        };
+    });
+};
