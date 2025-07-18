@@ -5,11 +5,12 @@ import { BACKGROUND_PRESETS } from "@shared/constants/hero-backgrounds";
 import { Kansas } from "@shared/components/kansas/kansas";
 
 import s from "./hero.module.scss";
+import clsx from "clsx";
 
 interface HeroProps {
   data: {
     title: string;
-    titleSpan: string;
+    titleSpan?: string;
     tagText: string;
     btnText: string;
   };
@@ -49,27 +50,45 @@ export const Hero = ({ data, heroImg, backgroundKey = "green" }: HeroProps) => {
   }, [isMouseDevice]);
 
   return (
-    <section className={s.root} style={{ background: BACKGROUND_PRESETS[backgroundKey], backgroundColor: "black" }}>
-      <div className={s.container}>
-        <Kansas />
-        <h1 className={s.title}>
-          <span>{data.titleSpan}</span> {data.title}
-        </h1>
-        <p className={s.text}>{data.tagText}</p>
-        <button className={s.button}>{data.btnText}</button>
+    <section
+      className={clsx(s.root, "wrapper")}
+      style={{
+        background: BACKGROUND_PRESETS[backgroundKey],
+        backgroundColor: "black",
+      }}
+    >
+      <div className={clsx(s.container, "container")}>
+        <div className={s.content}>
+          <div className={s.tagContainer}>
+            <Kansas />
+          </div>
+
+          <h1 className={s.title}>
+            <span>{data.titleSpan}</span> {data.title}
+          </h1>
+          <p className={s.text}>{data.tagText}</p>
+
+          <div>
+            <button className={s.button}>{data.btnText}</button>
+          </div>
+        </div>
+
+        <div
+          style={{
+            transform: `translate(${offset.x}px, ${offset.y}px)`,
+            transition: "transform 0.1s ease-out",
+          }}
+        >
+          <Image
+            aria-hidden
+            alt=""
+            className={s.heroImage}
+            src={heroImg.src}
+            width={heroImg.width}
+            height={heroImg.height}
+          />
+        </div>
       </div>
-      <Image
-        aria-hidden
-        alt=""
-        className={s.heroImage}
-        src={heroImg.src}
-        width={heroImg.width}
-        height={heroImg.height}
-        style={{
-          transform: `translate(${offset.x}px, ${offset.y}px)`,
-          transition: "transform 0.1s ease-out",
-        }}
-      />
     </section>
   );
 };

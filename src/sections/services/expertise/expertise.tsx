@@ -1,48 +1,91 @@
-// import { useState } from "react";
+"use client";
 
-import { ProgressArrow } from "@shared/assets/icons/services/progress-arrow";
-import { Arrow } from "@shared/assets/icons/services/arrow";
+import { useState, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Grid, Pagination } from "swiper/modules";
+import type { Swiper as SwiperCore } from "swiper";
+import clsx from "clsx";
+
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
 
 import s from "./expertise.module.scss";
+import { ProgressArrow } from "@shared/assets/icons/services/progress-arrow";
+import { Arrow } from "@shared/assets/icons/services/arrow";
+import { SERVICES } from "@shared/constants/services";
 
 export const Expertise = () => {
-  // const [selected, setSelected] = useState<string | null>(null);
-
-  const expertiseList = [
-    { id: "software-dev", title: "Software Development" },
-    { id: "ai-ml", title: "AI & Machine Learning" },
-    { id: "cloud-services", title: "Cloud Services" },
-    { id: "data-engineering", title: "Data Science & Engineering" },
-    { id: "architecture", title: "Architecture & Consulting Services" },
-    { id: "ui-ux", title: "UI/UX Design" },
-  ];
-
-  // const services = {
-  //   "software-dev": ["Custom Software Development", "Mobile App Development", "Web Application Development", "MVP Development", "Product Development", "API Integration Services"],
-  // };
+  const swiperRef = useRef<SwiperCore>(null);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [allStep, setAllStep] = useState(0);
 
   return (
-    <section className={s.root}>
-      <div className={s.expContainer}>
-        <h2 className={s.title}>Expertise</h2>
-        <div className={s.progressContainer}>
-          <p>01/02</p>
-          <ProgressArrow className={s.progressArrow} />
+    <section className={clsx(s.wrapper, "wrapper")}>
+      <div className={clsx(s.container, "container")}>
+        <div className={s.expContainer}>
+          <h2 className={s.title}>Expertise</h2>
+          <div className={s.progressContainer}>
+            <p>
+              {String(currentStep).padStart(2, "0")} /{" "}
+              {String(allStep).padStart(2, "0")}
+            </p>
+            <ProgressArrow className={s.progressArrow} />
+          </div>
+
+          <div className={s.btnContainer}>
+            {currentStep > 1 && (
+              <button
+                className={s.backBtn}
+                onClick={() => swiperRef.current?.slidePrev()}
+                disabled={currentStep === 1}
+              >
+                ← Back
+              </button>
+            )}
+          </div>
         </div>
-      </div>
-      <div>
-        <ul className={s.list}>
-          {expertiseList.map((item) => (
-            <li key={item.id}>
-              <div className={s.titleContainer}>
-                <p className={s.liTitle}>Soft does</p>
-                <Arrow className={s.arrow} />
-              </div>
-              <p className={s.info}>{item.title}</p>
-            </li>
-          ))}
-        </ul>
+
+        <div className={s.swiperContainer}>
+          <Swiper
+            modules={[Grid, Pagination]}
+            slidesPerView={3}
+            slidesPerGroup={3}
+            grid={{ rows: 2, fill: "row" }}
+            spaceBetween={7}
+            pagination={{ clickable: false }}
+            onSwiper={(sw) => {
+              swiperRef.current = sw;
+              setAllStep(sw.snapGrid.length);
+            }}
+            onSlideChange={(sw) => {
+              setCurrentStep(sw.snapIndex + 1);
+            }}
+            breakpoints={{
+              0: { slidesPerView: 1, slidesPerGroup: 1 },
+              640: { slidesPerView: 2, slidesPerGroup: 2 },
+              1024: { slidesPerView: 3, slidesPerGroup: 3 },
+            }}
+            className={s.list}
+          >
+            {SERVICES.map((service) => (
+              <SwiperSlide key={service.label}>
+                <Card label={service.label} href={service.href} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </section>
   );
 };
+
+const Card = ({ label, href }: { label: string; href: string }) => (
+  <a href={href} className={s.card}>
+    <div className={s.card__titleContainer}>
+      <p className={s.card__liTitle}>Soft does</p>
+      <Arrow className={s.card__arrow} />
+    </div>
+    <p className={s.card__info}>{label}</p>
+  </a>
+);

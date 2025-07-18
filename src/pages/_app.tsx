@@ -8,6 +8,10 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { LenisProvider } from "@shared/components/lenis/lenis";
 
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
+
 declare global {
   interface Window {
     _hsq?: Array<[string, string?]>;

@@ -4,6 +4,7 @@ import map from "@assets/images/contact/map.png";
 import { ArrowUpAndRight } from "@shared/assets/icons/arrow-up-and-right";
 
 import s from "./contacts.module.scss";
+import clsx from "clsx";
 
 interface ContactsProps {
   data: {
@@ -26,16 +27,29 @@ export const Contacts = ({ data }: ContactsProps) => {
   const contactList = Object.entries(data);
 
   return (
-    <section className={s.root}>
-      <div>
-        <Image aria-hidden alt="" className={s.img} src={map.src} width={map.width} height={map.height} />
-      </div>
-      <div>
-        <ul>
+    <section className={clsx(s.wrapper, "wrapper")}>
+      <div className={clsx(s.root, "container")}>
+        <div>
+          <Image
+            aria-hidden
+            alt=""
+            className={s.img}
+            src={map.src}
+            width={740}
+            height={470}
+          />
+        </div>
+
+        <div className={s.line} />
+
+        <ul className={s.list}>
           {contactList.map(([key, { title, link }]) => {
-            const href = key === "phone" ? `tel:${link.replace(/\s+/g, "")}` : `mailto:${link}`;
+            const href =
+              key === "phone"
+                ? `tel:${link.replace(/\s+/g, "")}`
+                : `mailto:${link}`;
             return (
-              <li key={key}>
+              <li className={s.list__item} key={key}>
                 <p>{title}</p>
                 <a href={href}>
                   {link}

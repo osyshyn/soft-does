@@ -12,12 +12,22 @@ export const Hero = () => {
       <div className={s.container}>
         <div className={s.tagContainer}>
           <p className={s.tagText}>{data.hero.tagText}</p>
-          <Image aria-hidden alt="" src={kansasFlag.src} className={s.flagImage} width={kansasFlag.width} height={kansasFlag.height} />
+          <Image
+            aria-hidden
+            alt=""
+            src={kansasFlag.src}
+            className={s.flagImage}
+            width={kansasFlag.width}
+            height={kansasFlag.height}
+          />
         </div>
         <h1 className={s.title}>{data.hero.title}</h1>
         <button className={s.button}>{data.hero.buttonText}</button>
       </div>
-      <Spline scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode" className={s.main_image} />
+      <Spline
+        scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode"
+        className={s.main_image}
+      />
     </section>
   );
 };
