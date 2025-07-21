@@ -7,7 +7,7 @@ import { Hero } from "@sections/home/hero/hero";
 import { Certificates } from "@sections/home/certificates/certificates";
 import { ServiceSection } from "@sections/home/service-section/service-section";
 import { AboutUs } from "@sections/home/about-us/about-us";
-import { ContactsForm } from "@sections/home/contacts-form/contacts-form";
+import { ContactsForm } from "@sections/contacts-form/contacts-form";
 
 import softwareDevelopment from "@assets/images/main/software-development.png";
 import aiAndMachineLearning from "@assets/images/main/ai-machine-learning.png";
@@ -38,6 +38,7 @@ export default function Home() {
       />
       <Layout>
         <Hero />
+
         <Certificates />
         <ServiceSection
           link="/software-development"
@@ -80,6 +81,7 @@ export default function Home() {
         />
         <Testimonials />
         <AboutUs />
+
         <ContactsForm />
         <Industries />
         <CaseStudies />

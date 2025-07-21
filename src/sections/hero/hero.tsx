@@ -14,11 +14,17 @@ interface HeroProps {
     tagText: string;
     btnText: string;
   };
-  heroImg: StaticImageData;
+  rightNode?: React.ReactNode;
+  heroImg?: StaticImageData;
   backgroundKey?: keyof typeof BACKGROUND_PRESETS;
 }
 
-export const Hero = ({ data, heroImg, backgroundKey = "green" }: HeroProps) => {
+export const Hero = ({
+  data,
+  rightNode,
+  heroImg,
+  backgroundKey = "green",
+}: HeroProps) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [isMouseDevice, setIsMouseDevice] = useState(true);
 
@@ -73,21 +79,25 @@ export const Hero = ({ data, heroImg, backgroundKey = "green" }: HeroProps) => {
           </div>
         </div>
 
-        <div
-          style={{
-            transform: `translate(${offset.x}px, ${offset.y}px)`,
-            transition: "transform 0.1s ease-out",
-          }}
-        >
-          <Image
-            aria-hidden
-            alt=""
-            className={s.heroImage}
-            src={heroImg.src}
-            width={heroImg.width}
-            height={heroImg.height}
-          />
-        </div>
+        {heroImg && (
+          <div
+            style={{
+              transform: `translate(${offset.x}px, ${offset.y}px)`,
+              transition: "transform 0.1s ease-out",
+            }}
+          >
+            <Image
+              aria-hidden
+              alt=""
+              className={s.heroImage}
+              src={heroImg.src}
+              width={heroImg.width}
+              height={heroImg.height}
+            />
+          </div>
+        )}
+
+        {rightNode && rightNode}
       </div>
     </section>
   );

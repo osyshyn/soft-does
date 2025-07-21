@@ -27,12 +27,7 @@
   background-color: black;
   z-index: 1000;
   height: 100px;
-  padding: 0 80px;
   align-items: center;
-
-  @media (max-width: 1279px) {
-    padding: 0 16px;
-  }
 
   &_burger {
     display: none;

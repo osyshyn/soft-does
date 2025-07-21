@@ -1,33 +1,27 @@
 import data from "@texts/main/index.json";
-import Image from "next/image";
 import Spline from "@splinetool/react-spline";
 
-import kansasFlag from "@assets/images/main/kansas-flag-min.jpg";
-
 import s from "./hero.module.scss";
+import clsx from "clsx";
+import { Kansas } from "@shared/components/kansas/kansas";
 
 export const Hero = () => {
   return (
-    <section className={s.root}>
-      <div className={s.container}>
-        <div className={s.tagContainer}>
-          <p className={s.tagText}>{data.hero.tagText}</p>
-          <Image
-            aria-hidden
-            alt=""
-            src={kansasFlag.src}
-            className={s.flagImage}
-            width={kansasFlag.width}
-            height={kansasFlag.height}
-          />
+    <section className={clsx(s.wrapper, "wrapper")}>
+      <div className={clsx(s.container, "container")}>
+        <div className={s.content}>
+          <Kansas />
+          <h1 className={s.title}>{data.hero.title}</h1>
+
+          <div>
+            <button className={s.button}>{data.hero.buttonText}</button>
+          </div>
         </div>
-        <h1 className={s.title}>{data.hero.title}</h1>
-        <button className={s.button}>{data.hero.buttonText}</button>
+
+        <div className={s.main_image}>
+          <Spline scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode" />
+        </div>
       </div>
-      <Spline
-        scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode"
-        className={s.main_image}
-      />
     </section>
   );
 };
