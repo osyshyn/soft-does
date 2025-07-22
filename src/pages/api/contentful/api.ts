@@ -3,7 +3,6 @@ import client from './contentfulClient';
 export const fetchBlog = async () => {
     const entries = await client.getEntries({ content_type: 'blogPost' });
 
-    // Для легкого пошуку по id
     const entryMap = Object.fromEntries(
         (entries.includes?.Entry || []).map((e: any) => [e.sys.id, e])
     );
@@ -12,7 +11,6 @@ export const fetchBlog = async () => {
     );
 
     return entries.items.map((item: any) => {
-        // MAIN IMAGE
         let mainImage = null;
         if (item.fields.mainImage && assetMap[item.fields.mainImage.sys.id]) {
             const asset = assetMap[item.fields.mainImage.sys.id];
@@ -24,7 +22,6 @@ export const fetchBlog = async () => {
             };
         }
 
-        // AUTHOR
         let author = null;
         if (item.fields.postAuthor && entryMap[item.fields.postAuthor.sys.id]) {
             const authorEntry = entryMap[item.fields.postAuthor.sys.id];
@@ -32,11 +29,9 @@ export const fetchBlog = async () => {
                 id: authorEntry.sys.id,
                 authorName: authorEntry.fields.authorName,
                 authorRole: authorEntry.fields.authorRole || null,
-                // Якщо додаси avatar в модель — тут можна додати аналогічно до mainImage
             };
         }
 
-        // CATEGORY (якщо є)
         let category = null;
         if (item.fields.category && entryMap[item.fields.category.sys.id]) {
             const catEntry = entryMap[item.fields.category.sys.id];
@@ -46,7 +41,6 @@ export const fetchBlog = async () => {
             };
         }
 
-        // HERO IMAGES
         let heroImages = null;
         if (item.fields.heroImages && Array.isArray(item.fields.heroImages)) {
             heroImages = item.fields.heroImages
@@ -63,7 +57,6 @@ export const fetchBlog = async () => {
                 .filter(Boolean);
         }
 
-        // STEPS
         let steps = null;
         if (item.fields.steps && Array.isArray(item.fields.steps)) {
             steps = item.fields.steps
@@ -94,7 +87,6 @@ export const fetchBlog = async () => {
             stepTitle: item.fields.stepTitle || null,
             steps,
             postContent: item.fields.postContent || null,
-            // додай інші поля, якщо треба
         };
     });
 };

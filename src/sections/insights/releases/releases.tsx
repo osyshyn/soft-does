@@ -10,11 +10,10 @@ interface ReleasesProps {
   posts: IBlogMain[];
 }
 
-// Групування по категоріях
 function groupByCategory(posts: IBlogMain[]) {
   const map: Record<string, IBlogMain[]> = {};
   posts.forEach(post => {
-    const catName = post.category?.name || "Uncategorized";
+    const catName = post.category?.name?.toLowerCase() || "uncategorized";
     if (!map[catName]) map[catName] = [];
     map[catName].push(post);
   });
@@ -24,16 +23,67 @@ function groupByCategory(posts: IBlogMain[]) {
 export const Releases = ({ posts }: ReleasesProps) => {
   const grouped = groupByCategory(posts);
 
+  const featuredPosts = grouped["featured"] || [];
+  const otherCategories = Object.entries(grouped)
+      .filter(([cat]) => cat !== "featured")
+      .sort(([a], [b]) => {
+        if (a === "uncategorized") return 1;
+        if (b === "uncategorized") return -1;
+        return a.localeCompare(b);
+      });
+
   return (
       <section className={s.root}>
-        {Object.entries(grouped).map(([category, posts]) => {
+        {featuredPosts.length > 0 && (
+            <article className={s.article}>
+              <div className={s.captionContainer}>
+              </div>
+              <ul className={s.container}>
+                {featuredPosts.slice(0, 4).map((post) => (
+                    <li key={post.id}>
+                      <Image
+                          aria-hidden
+                          alt={post.author?.authorName || "Author"}
+                          src={
+                            post.mainImage?.url
+                                ? post.mainImage.url.startsWith('//')
+                                    ? `https:${post.mainImage.url}`
+                                    : post.mainImage.url
+                                : People
+                          }
+                          className={s.image}
+                          width={300}
+                          height={200}
+                      />
+                      <div className={s.info}>
+                        <div>
+                          <p className={s.title}>{post.author?.authorName || "Unknown Author"}</p>
+                          <p className={s.subtitle}>{post.author?.authorRole || ""}</p>
+                        </div>
+                        <div className={s.description}>
+                          {post.testimonialText &&
+                              (typeof post.testimonialText === "string"
+                                  ? post.testimonialText
+                                  : documentToReactComponents(post.testimonialText))}
+                        </div>
+                        <Link className={s.btn} href={`/blog/${post.slug}`}>
+                          Read more
+                        </Link>
+                      </div>
+                    </li>
+                ))}
+              </ul>
+            </article>
+        )}
+
+        {otherCategories.map(([category, posts]) => {
           const mainPosts = posts.slice(0, 4);
           const hasMore = posts.length > 4;
 
           return (
               <article key={category} className={s.article}>
                 <div className={s.captionContainer}>
-                  <h2>{category}</h2>
+                  <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
                   {hasMore && (
                       <Link href={`/blog/category/${encodeURIComponent(category)}`}>
                         <button>
@@ -69,8 +119,7 @@ export const Releases = ({ posts }: ReleasesProps) => {
                             {post.testimonialText &&
                                 (typeof post.testimonialText === "string"
                                     ? post.testimonialText
-                                    : documentToReactComponents(post.testimonialText))
-                            }
+                                    : documentToReactComponents(post.testimonialText))}
                           </div>
                           <Link className={s.btn} href={`/blog/${post.slug}`}>
                             Read more

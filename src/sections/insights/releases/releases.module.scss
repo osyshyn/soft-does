@@ -6,9 +6,9 @@
 
   padding: 0 160px 180px 160px;
 
-  & .article:first-child {
-    margin-bottom: 160px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
 
   button {
     cursor: pointer;
