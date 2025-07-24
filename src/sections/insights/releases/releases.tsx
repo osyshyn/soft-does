@@ -76,61 +76,63 @@ export const Releases = ({ posts }: ReleasesProps) => {
             </article>
         )}
 
-        {otherCategories.map(([category, posts]) => {
-          const mainPosts = posts.slice(0, 4);
-          const hasMore = posts.length > 4;
+          {otherCategories.map(([category, posts]) => {
+              const mainPosts = posts.slice(0, 4);
+              const hasMore = posts.length > 4;
 
-          return (
-              <article key={category} className={s.article}>
-                <div className={s.captionContainer}>
-                  <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
-                  {hasMore && (
-                      <Link href={`/blog/category/${encodeURIComponent(category)}`}>
-                        <button>
-                          More
-                          <Arrow className={s.arrow} />
-                        </button>
-                      </Link>
-                  )}
-                </div>
-                <ul className={s.container}>
-                  {mainPosts.map((post) => (
-                      <li key={post.id}>
-                        <Image
-                            aria-hidden
-                            alt={post.author?.authorName || "Author"}
-                            src={
-                              post.mainImage?.url
-                                  ? post.mainImage.url.startsWith('//')
-                                      ? `https:${post.mainImage.url}`
-                                      : post.mainImage.url
-                                  : People
-                            }
-                            className={s.image}
-                            width={300}
-                            height={200}
-                        />
-                        <div className={s.info}>
-                          <div>
-                            <p className={s.title}>{post.author?.authorName || "Unknown Author"}</p>
-                            <p className={s.subtitle}>{post.author?.authorRole || ""}</p>
-                          </div>
-                          <div className={s.description}>
-                            {post.testimonialText &&
-                                (typeof post.testimonialText === "string"
-                                    ? post.testimonialText
-                                    : documentToReactComponents(post.testimonialText))}
-                          </div>
-                          <Link className={s.btn} href={`/blog/${post.slug}`}>
-                            Read more
-                          </Link>
-                        </div>
-                      </li>
-                  ))}
-                </ul>
-              </article>
-          );
-        })}
+              // !!! Ось тут беремо id категорії з першого поста цієї категорії:
+              const categoryId = posts[0]?.category?.id || "unknown";
+
+              return (
+                  <article key={category} className={s.article}>
+                      <div className={s.captionContainer}>
+                          <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
+                          {hasMore && (
+                              <Link href={`/blog/category/${categoryId}`} className={s.moreBtn}>
+                                  More
+                                  <Arrow className={s.arrow} />
+                              </Link>
+                          )}
+                      </div>
+                      <ul className={s.container}>
+                          {mainPosts.map((post) => (
+                              <li key={post.id}>
+                                  <Image
+                                      aria-hidden
+                                      alt={post.author?.authorName || "Author"}
+                                      src={
+                                          post.mainImage?.url
+                                              ? post.mainImage.url.startsWith('//')
+                                                  ? `https:${post.mainImage.url}`
+                                                  : post.mainImage.url
+                                              : People
+                                      }
+                                      className={s.image}
+                                      width={300}
+                                      height={200}
+                                  />
+                                  <div className={s.info}>
+                                      <div>
+                                          <p className={s.title}>{post.author?.authorName || "Unknown Author"}</p>
+                                          <p className={s.subtitle}>{post.author?.authorRole || ""}</p>
+                                      </div>
+                                      <div className={s.description}>
+                                          {post.testimonialText &&
+                                              (typeof post.testimonialText === "string"
+                                                  ? post.testimonialText
+                                                  : documentToReactComponents(post.testimonialText))}
+                                      </div>
+                                      <Link className={s.btn} href={`/blog/${post.slug}`}>
+                                          Read more
+                                      </Link>
+                                  </div>
+                              </li>
+                          ))}
+                      </ul>
+                  </article>
+              );
+          })}
+
       </section>
   );
 };
