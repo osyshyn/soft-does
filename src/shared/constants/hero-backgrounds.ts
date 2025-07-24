@@ -1,4 +1,10 @@
+import CustomSoftwareDevBg from "@assets/images/softwareDev/hero.png";
+import UiuxBg from "@assets/images/uiux/heroWave.png";
+import DseBg from "@assets/images/dse/heroBackground.png";
+import AimlBg from "@assets/images/aiml/wave.png";
+
 export const BACKGROUND_PRESETS = {
+  black: `linear-gradient(180deg, #161D25 0%, #161D25 100%)`,
   hero: `linear-gradient(
 		-15deg,
 		rgba(226, 255, 102, 0.5) 0%,
@@ -71,4 +77,8 @@ export const BACKGROUND_PRESETS = {
     rgba(20, 63, 173, 0.1) 280deg,
     rgba(22, 29, 37, 0.2) 400deg
   )`,
+  customSoftwareDev: `url(${CustomSoftwareDevBg.src})`,
+  uiux: `url(${UiuxBg.src})`,
+  dse: `url(${DseBg.src})`,
+  aiml: `url(${AimlBg.src})`,
 } as const;

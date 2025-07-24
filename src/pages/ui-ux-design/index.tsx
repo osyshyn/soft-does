@@ -2,32 +2,35 @@ import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
-import { Hero } from "@sections/ui-ux-design/hero/hero";
+import { Hero } from "@sections/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";
-import { OurServices } from "@sections/our-services/our-services";
 import CaseStudies from "@sections/case-studies/case-studies";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
 import { Testimonials } from "@sections/testimonials/testimonials";
+import data from "@shared/texts/ui-ux-design/index.json";
 
 import { User, Interface, Light } from "@assets/icons/services/uiux/icons";
+import { ServicesList } from "@sections/services-list/services-list";
+
+import HeroImg from "@assets/images/uiux/hero.png";
 
 const content = [
   {
-    image: User,
+    image: <User />,
     title: "User Experience Design",
     text: "Create intuitive interfaces that enhance user satisfaction.",
     link: ROUTES.uiUxDesign.userED,
   },
   {
-    image: Interface,
+    image: <Interface />,
     title: "User Interface Design",
     text: "Aesthetic and functional design solutions that drive engagement.",
     link: ROUTES.uiUxDesign.userID,
   },
   {
-    image: Light,
+    image: <Light />,
     title: "Product Design Services",
     text: "Innovate your product design to improve usability and ROI.",
     link: ROUTES.uiUxDesign.productDS,
@@ -43,12 +46,16 @@ export default function Uiux() {
         pathname={ROUTES.uiUxDesign.root}
       />
       <Layout>
-        <Hero />
+        <Hero data={data.hero} heroImg={HeroImg} backgroundKey="uiux" />
         <Results />
         <Technologies />
-        <OurServices content={content} />
+        <div className="sectionWrapper">
+          <ServicesList services={content} href={ROUTES.uiUxDesign.root} />
+        </div>
         <Engagement />
-        <CaseStudies />
+        <div className="sectionWrapper">
+          <CaseStudies />
+        </div>
         <Testimonials />
         <Solutions />
       </Layout>

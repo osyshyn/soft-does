@@ -3,11 +3,11 @@
 .root {
   @include fontJetBrains;
   color: white;
-  padding: 0 160px 180px 160px;
 
   .title {
+    font-size: $FontSize-Title;
     font-weight: 300;
-    font-size: 120px;
+    // font-size: 120px;
     line-height: 90%;
     letter-spacing: -0.08em;
     text-transform: uppercase;
@@ -16,19 +16,32 @@
   }
 }
 
-.container {
+.list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 
   li {
     box-sizing: border-box;
-    flex: 1 1 calc(33.33% - 48px);
+    flex: 0 0 calc(100%);
 
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid #333333;
 
-    transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out, fill 0.7s ease-in-out;
+    transition:
+      background-color 0.7s ease-in-out,
+      color 0.7s ease-in-out,
+      fill 0.7s ease-in-out;
+
+    @media (min-width: 650px) {
+      flex: 0 0 calc(50% - 16px);
+    }
+
+    @include media("laptop") {
+      max-width: 518px;
+      flex: 0 0 calc(33.333% - 16px);
+    }
 
     &:hover {
       background-color: #cfec57;
@@ -39,15 +52,6 @@
       .arrow {
         fill: black;
       }
-      //   .icon path {
-      //     stroke: black;
-      //   } tags
-      //   .icon path {
-      //     fill: black;
-      //   } rocket
-      //   .icon {
-      //     fill: black;
-      //   } phone
     }
 
     div {
@@ -95,5 +99,9 @@
 
 .link {
   display: block;
-  padding: 40px;
+  padding: 16px;
+
+  @include media("tablet") {
+    padding: 40px;
+  }
 }

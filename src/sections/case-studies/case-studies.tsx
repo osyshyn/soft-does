@@ -7,6 +7,7 @@ import { useScroll } from "framer-motion";
 import { CaseCards } from "./case-cards/case-cards";
 
 import s from "./case-studies.module.scss";
+import clsx from "clsx";
 
 export default function CaseStudies() {
   const targetRef = useRef(null);
@@ -16,8 +17,8 @@ export default function CaseStudies() {
   });
 
   return (
-    <section className={s.root}>
-      <div className={s.contentContainer}>
+    <section className={clsx(s.root, "wrapper")}>
+      <div className={clsx(s.contentContainer, "container")}>
         <ul ref={targetRef}>
           <li className={s.cardContainer}>
             <div>
@@ -26,7 +27,16 @@ export default function CaseStudies() {
           </li>
           {data.cases.list.map((item, index) => {
             const targetScale = 1 - (data.cases.list.length - index) * 0.05;
-            return <CaseCards key={index} item={item} index={index} range={[index * 0.2, 1]} targetScale={targetScale} progress={scrollYProgress} />;
+            return (
+              <CaseCards
+                key={index}
+                item={item}
+                index={index}
+                range={[index * 0.2, 1]}
+                targetScale={targetScale}
+                progress={scrollYProgress}
+              />
+            );
           })}
         </ul>
       </div>

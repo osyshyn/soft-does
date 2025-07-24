@@ -30,3 +30,11 @@ $Container-Width: 1600px;
   max-width: $Container-Width;
   margin: 0 auto;
 }
+
+.sectionWrapper {
+  padding-bottom: 90px;
+
+  @include media("tablet") {
+    padding-bottom: 160px;
+  }
+}

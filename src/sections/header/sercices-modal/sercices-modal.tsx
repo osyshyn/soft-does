@@ -33,6 +33,7 @@ interface ServiceItem {
 
 interface ServiceList {
   label: string;
+  href: string;
   list: ServiceItem[];
 }
 
@@ -103,7 +104,9 @@ export const ServicesModal = ({ isOpen, onClose }: ServicesModalProps) => {
 const ServiceItem = ({ service }: { service: ServiceList }) => {
   return (
     <div className={s.service}>
-      <p className={s.service__label}>{service.label}</p>
+      <div className={s.service__label}>
+        <Link href={service.href}>{service.label}</Link>
+      </div>
 
       <ul className={s.service__list}>
         {service.list.map((item) => (
@@ -129,7 +132,7 @@ const Certificates = () => {
           <li className={s.certificates__item} key={index}>
             <Image
               src={item}
-              width={80} // ← pick the real size you want
+              width={80}
               height={80}
               alt={`Certificate ${index + 1}`}
             />

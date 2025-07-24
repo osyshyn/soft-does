@@ -20,7 +20,6 @@ const navItems = [
   { label: "Industries", href: "/industries" },
   { label: "Success Stories", href: "/portfolio" },
   { label: "Solution Hub", href: "/" },
-  // { label: "Process", href: "/process" },
   { label: "Company", href: "/company" },
   { label: "Insights", href: "/insights" },
 ];

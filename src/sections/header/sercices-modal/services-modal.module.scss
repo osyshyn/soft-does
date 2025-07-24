@@ -93,6 +93,14 @@
     color: #fff;
     min-height: 48px;
 
+    a {
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #e2ff66;
+      }
+    }
+
     @media (max-width: 1200px) {
       min-height: 0;
     }

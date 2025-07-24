@@ -72,13 +72,16 @@ export default function Home() {
           img={uiUxDesign}
           {...data.uiUxDesign}
         />
-        <ServiceSection
-          link="/"
-          currentColor="#515151"
-          img={architectureAndConsulting}
-          isRight
-          {...data.architectureAndConsulting}
-        />
+
+        <div className="sectionWrapper">
+          <ServiceSection
+            link="/"
+            currentColor="#515151"
+            img={architectureAndConsulting}
+            isRight
+            {...data.architectureAndConsulting}
+          />
+        </div>
         <Testimonials />
         <AboutUs />
 

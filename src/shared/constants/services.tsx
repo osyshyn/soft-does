@@ -89,6 +89,7 @@ export const SERVICES = [
 
 export const SoftwareDevelopment = {
   label: "Software Development",
+  href: ROUTES.softwareDev.root,
   list: [
     {
       label: "Custom Software Development",
@@ -125,6 +126,7 @@ export const SoftwareDevelopment = {
 
 export const ArchitectureAndConsultingServices = {
   label: "Architecture & Consulting Services",
+  href: ROUTES.softwareDev.root,
   list: [
     {
       label: "Business Analytics",
@@ -166,6 +168,7 @@ export const ArchitectureAndConsultingServices = {
 
 export const AIAndMachineLearning = {
   label: "AI & Machine Learning",
+  href: ROUTES.aiAndMl.root,
   list: [
     {
       label: "Artificial Intelligence Development",
@@ -197,6 +200,7 @@ export const AIAndMachineLearning = {
 
 export const UIUXDesign = {
   label: "UI / UX Design",
+  href: ROUTES.uiUxDesign.root,
   list: [
     {
       label: "User Experience Design",
@@ -218,6 +222,7 @@ export const UIUXDesign = {
 
 export const CloudServices = {
   label: "Cloud Services",
+  href: ROUTES.cloudServices.root,
   list: [
     {
       label: "Cloud Computing Solutions",
@@ -244,6 +249,7 @@ export const CloudServices = {
 
 export const DataScienceAndEngineering = {
   label: "Data Science & Engineering",
+  href: ROUTES.dataScnAndEngnrng.root,
   list: [
     {
       label: "Data Science Services",

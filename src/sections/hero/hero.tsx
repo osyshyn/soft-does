@@ -61,6 +61,7 @@ export const Hero = ({
       style={{
         background: BACKGROUND_PRESETS[backgroundKey],
         backgroundColor: "black",
+        // backgroundSize: "100% 100%",
       }}
     >
       <div className={clsx(s.container, "container")}>

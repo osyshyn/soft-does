@@ -2,10 +2,11 @@ import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
-import { Hero } from "@sections/dse/hero/hero";
+import { Hero } from "@sections/hero/hero";
+// import { Hero } from "@sections/dse/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";
-import { OurServices } from "@sections/our-services/our-services";
+import { ServicesList } from "@sections/services-list/services-list";
 import CaseStudies from "@sections/case-studies/case-studies";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
@@ -17,32 +18,36 @@ import {
   View,
 } from "@assets/icons/services/dse/icons";
 
+import data from "@shared/texts/data-science-and-engineering/index.json";
+
 const content = [
   {
-    image: Data,
+    image: <Data />,
     title: "Data Science Services",
     text: "Unlock insights with advanced analytics and data modeling.",
     link: "/",
   },
   {
-    image: Analytics,
+    image: <Analytics />,
     title: "Data Analytics Solutions",
     text: "Transform raw data into actionable insights for strategic decision-making.",
     link: "/",
   },
   {
-    image: Secure,
+    image: <Secure />,
     title: "Enterprise Data Management",
     text: "Optimize your data assets across the organization.",
     link: "/",
   },
   {
-    image: View,
+    image: <View />,
     title: "Data Strategy and Governance",
     text: "Establish robust data governance frameworks to ensure data integrity and compliance.",
     link: "/",
   },
 ];
+
+import HeroImg from "@assets/images/dse/heroObject.png";
 
 export default function DSE() {
   return (
@@ -53,10 +58,15 @@ export default function DSE() {
         pathname={ROUTES.dataScnAndEngnrng.root}
       />
       <Layout>
-        <Hero />
+        <Hero data={data.hero} heroImg={HeroImg} backgroundKey="dse" />
         <Results />
         <Technologies />
-        <OurServices content={content} />
+        <div className="sectionWrapper">
+          <ServicesList
+            services={content}
+            href={ROUTES.dataScnAndEngnrng.root}
+          />
+        </div>
         <CaseStudies />
         <Engagement />
         <Solutions />
