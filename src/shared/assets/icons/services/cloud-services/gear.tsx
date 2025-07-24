@@ -1,13 +1,19 @@
-export const Gear = ({ className }: { className: string }) => {
+export const Gear = ({ className }: { className?: string }) => {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="68" height="68" fill="none">
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      width="68"
+      height="68"
+      fill="none"
+    >
       <g clip-path="url(#a)">
         <path
-          fill="#fff"
+          fill="currentColor"
           d="M18.42 45.33h18.416v5.667H18.419c-4.25 0-7.961-1.416-11.021-4.448-3.032-2.975-4.562-6.63-4.562-10.908 0-3.684 1.105-6.97 3.315-9.86 3.315-4.335 5.185-4.732 8.727-5.525 1.19-4.335 3.541-7.849 7.083-10.54 3.542-2.692 7.565-4.052 12.042-4.052 5.525 0 10.2 1.927 14.053 5.78 3.173 3.173 5.015 6.97 5.582 11.22-1.984 0-3.882.538-5.61 1.303a13.6 13.6 0 0 0-3.995-8.5c-2.777-2.72-6.12-4.136-10.03-4.136-3.91 0-7.254 1.416-10.03 4.136-2.72 2.777-4.137 6.12-4.137 10.03h-1.417c-2.748 0-5.071.964-6.998 2.919-1.955 1.926-2.918 4.25-2.918 6.998s.963 5.072 2.918 7.083c1.927 1.87 4.25 2.834 6.998 2.834Z"
         />
         <path
-          stroke="#fff"
+          stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
           strokeWidth="5"
@@ -16,7 +22,7 @@ export const Gear = ({ className }: { className: string }) => {
       </g>
       <defs>
         <clipPath id="a">
-          <path fill="#fff" d="M0 0h68v68H0z" />
+          <path fill="currentColor" d="M0 0h68v68H0z" />
         </clipPath>
       </defs>
     </svg>

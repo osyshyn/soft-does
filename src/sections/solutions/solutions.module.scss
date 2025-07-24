@@ -1,27 +1,36 @@
 @import "@styles/global.scss";
 
-.root {
+.wrapper {
   @include fontJetBrains;
   background-color: black;
   color: #ffffff;
-  padding-left: 160px;
-  padding-right: 160px;
-  padding-bottom: 180px;
+  padding-bottom: 90px;
 
+  @include media("tablet") {
+    padding-bottom: 160px;
+  }
+}
+
+.content {
   h2 {
     font-size: $FontSize-Title;
     font-weight: 300;
     line-height: 90%;
     letter-spacing: -0.08em;
     text-transform: uppercase;
-    margin-bottom: 80px;
+    margin-bottom: 32px;
+
+    @include media("tablet") {
+      margin-bottom: 80px;
+    }
   }
 
   .block {
-    padding: 52px 30px;
+    padding: 40px 20px;
 
     border: 0.5px solid rgba(255, 255, 255, 0.4);
-    background: conic-gradient(
+    background:
+      conic-gradient(
         from 80deg at 100% 23.3%,
         rgba(54, 89, 181, 0.123236) -14deg,
         rgba(22, 29, 37, 0.2) 202deg,
@@ -36,7 +45,8 @@
       rgba(255, 255, 255, 0.04);
 
     @include media(tabletVertical) {
-      background: conic-gradient(
+      background:
+        conic-gradient(
           from 80deg at 50% 23.3%,
           rgba(54, 89, 181, 0.123236) -14deg,
           rgba(22, 29, 37, 0.2) 202deg,
@@ -52,7 +62,8 @@
     }
 
     @include media(laptop) {
-      background: conic-gradient(
+      background:
+        conic-gradient(
           from 80deg at 34% 23.3%,
           rgba(54, 89, 181, 0.123236) -14deg,
           rgba(22, 29, 37, 0.2) 202deg,
@@ -67,6 +78,10 @@
         rgba(255, 255, 255, 0.04);
     }
 
+    @include media(tablet) {
+      padding: 52px 30px;
+    }
+
     .list {
       display: grid;
       grid-template-columns: 1fr;
@@ -77,34 +92,37 @@
       }
 
       @include media(laptop) {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
       }
-
-      // @media (max-width) {
-      // grid-auto-flow: column;
-      // grid-template-rows: repeat(10, 1fr);
-      // grid-template-columns: 1fr 1fr 1fr;
-      // }
 
       .firstCell {
         grid-row: span 2;
 
         .serviceTitle {
           font-weight: 200;
-          font-size: 32px;
           line-height: 110%;
           letter-spacing: -0.08em;
           text-transform: uppercase;
 
-          padding-bottom: 32px;
+          font-size: 24px;
+          padding-bottom: 16px;
 
           &::before,
           &::after {
             content: "> ";
-            font-size: 32px;
+            font-size: 24px;
           }
           &::after {
             content: " <";
+          }
+
+          @include media("tablet") {
+            padding-bottom: 32px;
+
+            &::before,
+            &::after {
+              font-size: 32px;
+            }
           }
         }
 
@@ -125,34 +143,35 @@
         align-items: center;
         justify-content: space-between;
         height: 74px;
+        gap: 16px;
 
         box-sizing: border-box;
-        padding: 12px 30px;
+        padding: 12px 16px;
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        transition: border 0.5s ease-in-out, background-color 0.5s ease-in-out;
+        transition:
+          border 0.5s ease-in-out,
+          background-color 0.5s ease-in-out;
 
         p {
+          flex: 1 1 100%;
           font-weight: 200;
-          font-size: 20px;
+          font-size: 14px;
           text-transform: uppercase;
           transition: color 0.5s ease-in-out;
-
-          max-width: 378px;
         }
 
         .img {
+          width: 24px;
+          height: 24px;
+          flex: 1 1 auto;
           transition: all 0.5s ease-in-out;
-
-          .img path {
-            stroke: white;
-            transition: stroke 0.5s ease-in-out;
-          }
         }
 
         &:hover {
           border: 1px solid #cfec57;
           background-color: #12171d;
+          color: #cfec57;
 
           p {
             color: #cfec57;
@@ -161,9 +180,13 @@
           .img {
             transform: rotate(90deg);
           }
+        }
 
-          .img path {
-            stroke: #cfec57;
+        @include media("tablet") {
+          padding: 12px 30px;
+
+          p {
+            font-size: 20px;
           }
         }
       }

@@ -1,12 +1,21 @@
 import Image from "next/image";
-import kansasFlag from "@assets/images/main/kansas-flag-min.jpg";
+import kansasFlag from "@assets/images/main/kansas-flag.png";
 import s from "./kansas.module.scss";
 
 export const Kansas = () => {
   return (
     <div className={s.tagContainer}>
       <p className={s.tagText}>Proudly based in kansas</p>
-      <Image aria-hidden alt="" src={kansasFlag.src} className={s.flagImage} width={kansasFlag.width} height={kansasFlag.height} />
+      <div className={s.imageContainer}>
+        <Image
+          aria-hidden
+          alt="Kansas flag"
+          quality={100}
+          sizes="(max-width: 768px) 32px, 46px"
+          src={kansasFlag}
+          fill
+        />
+      </div>
     </div>
   );
 };

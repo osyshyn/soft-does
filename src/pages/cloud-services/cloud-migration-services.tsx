@@ -16,7 +16,11 @@ import HeroObj from "@assets/images/cloud/services/heroObject_CMS.png";
 export default function CMS() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.uiux_design.productDS} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.cloudServices.cloudMigration}
+      />
       <Layout>
         <Hero
           data={data.hero}

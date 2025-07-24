@@ -14,7 +14,11 @@ import { Solutions } from "@sections/solutions/solutions";
 export default function UserED() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.uiux_design.userED} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.uiUxDesign.userED}
+      />
       <Layout>
         <Hero
           data={data.hero}

@@ -16,7 +16,11 @@ import HeroObj from "@assets/images/dse/services/heroObject_dataSS.png";
 export default function DataSS() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.uiux_design.productDS} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.dataScnAndEngnrng.dataScience}
+      />
       <Layout>
         <Hero
           data={data.hero}

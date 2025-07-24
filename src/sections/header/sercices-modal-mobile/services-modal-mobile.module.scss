@@ -1,0 +1,49 @@
+@import "@styles/global.scss";
+
+.mobileModal {
+  position: fixed;
+  inset: 0;
+  top: 100px;
+  z-index: 1200;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.mobileModal__content {
+  position: relative;
+  width: 100vw;
+  // height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(0deg, #000000, #000000),
+    linear-gradient(180deg, #1a1a1a -29.71%, rgba(26, 26, 26, 0) 75.89%);
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.mobileModal__close {
+  position: sticky;
+  top: 20px;
+  margin-left: auto;
+  margin-right: 20px;
+  background: transparent;
+  color: #d0ec57;
+  font-size: 32px;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.mobileModal__scroll {
+  margin-top: 60px;
+  padding: 0 20px 40px 20px;
+  overflow-y: auto;
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

@@ -1,11 +1,29 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactStrictMode: true,
-};
+  webpack(config) {
+    const fileLoaderRule = config.module.rules.find(
+      (rule: { test: { test: (arg0: string) => any } }) =>
+        rule.test?.test?.(".svg")
+    );
 
-module.exports = {
+    config.module.rules.push(
+      {
+        ...fileLoaderRule,
+        test: /\.svg$/i,
+        resourceQuery: /url/, // *.svg?url
+      },
+      {
+        test: /\.svg$/i,
+        issuer: fileLoaderRule.issuer,
+        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
+        use: ["@svgr/webpack"],
+      }
+    );
+
+    return config;
+  },
+
   images: {
     domains: ["res.cloudinary.com"],
   },

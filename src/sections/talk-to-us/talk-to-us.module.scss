@@ -1,16 +1,25 @@
 @import "@styles/global.scss";
 
+.wrapper {
+  background: linear-gradient(
+    -240deg,
+    rgba(226, 255, 102, 0.5) 0%,
+    rgba(226, 255, 102, 0) 15%
+  );
+  background-color: black;
+  color: white;
+  border-top: 2px solid rgba(#fff, 0.3);
+  border-bottom: 2px solid rgba(#fff, 0.3);
+}
+
 .root {
   display: flex;
   flex-direction: column;
   gap: 32px;
-
-  background: linear-gradient(-240deg, rgba(226, 255, 102, 0.5) 0%, rgba(226, 255, 102, 0) 15%);
-  background-color: black;
-  color: white;
-  border-top: 2px solid rgba(#fff, 0.3);
+  padding: 90px 0px;
 
   @include media(tabletVertical) {
+    padding: 0px 0px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
@@ -21,49 +30,70 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-
-  padding: 36px 16px 0 16px;
+  align-items: center;
 
   @include media(tabletVertical) {
     border-right: 2px solid rgba(#fff, 0.3);
-    padding: 244px 30px 244px 160px;
+    padding: 244px 0px;
+    padding-right: 60px;
+    align-items: start;
   }
 }
 
 .title {
   @include fontJetBrains;
   font-weight: 300;
-  font-size: 54px;
+  font-size: 32px;
   line-height: 120%;
   letter-spacing: -0.08em;
   text-transform: uppercase;
+  max-width: 740px;
+  text-align: center;
+
+  @include media(tabletVertical) {
+    text-align: left;
+  }
+
+  @include media(laptop) {
+    font-size: 54px;
+  }
 }
 
 .description {
   @include fontAbel;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 140%;
   letter-spacing: -0.04em;
   color: rgba(255, 255, 255, 0.5);
-
   max-width: 740px;
+  text-align: center;
+
+  @include media(tabletVertical) {
+    text-align: left;
+  }
+
+  @include media(laptop) {
+    font-size: 18px;
+  }
 }
 
 .rightWrapper {
   display: flex;
-
-  padding: 0 16px 36px 16px;
+  justify-content: center;
+  align-items: center;
 
   @include media(tabletVertical) {
-    justify-content: center;
     align-items: center;
-    padding: 100px 30px 100px 160px;
+    padding: 244px 0px;
+    padding-left: 60px;
+    justify-content: end;
   }
 }
 
 .button {
-  padding: 30px 88px;
+  padding: 22px;
+  width: 100%;
   border-radius: 8px;
   background-color: white;
 
@@ -84,5 +114,13 @@
 
   &:hover {
     background-color: rgba($color: #fff, $alpha: 0.8);
+  }
+
+  @include media(tablet) {
+    width: 281px;
+  }
+
+  @include media(tabletVertical) {
+    padding: 30px 88px;
   }
 }

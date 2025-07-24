@@ -1,71 +1,113 @@
-@import "@styles/global.scss";
+@use "@styles/mixins" as *;
 
 .root {
   @include fontJetBrains;
   background-color: black;
-  color: #ffffff;
-  padding: 0 160px 180px 160px;
+  color: white;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 48px;
+
+  @media (max-width: 900px) {
+    gap: 24px;
+  }
 }
 
 .block {
   display: flex;
-
+  align-items: stretch;
   background: rgba(255, 255, 255, 0.04);
   border: 0.5px solid rgba(255, 255, 255, 0.4);
 
-  div {
-    padding: 83px 83px 83px 50px;
+  &.reverse {
+    flex-direction: row-reverse;
   }
 
-  h3 {
-    font-style: normal;
+  &__content {
+    flex: 1 1 50%;
+    padding: 83px 83px 83px 50px;
+
+    @media (max-width: 1200px) {
+      padding: 40px 24px;
+    }
+    @media (max-width: 900px) {
+      padding: 24px 8px;
+    }
+  }
+
+  &__title {
     font-weight: 200;
     font-size: 54px;
     line-height: 110%;
     letter-spacing: -0.08em;
     text-transform: uppercase;
-
-    margin-bottom: 32px;
+    margin-bottom: 16px;
+    text-align: center;
 
     &::before,
     &::after {
       content: "> ";
-      font-size: 54px;
       color: #f28b82;
     }
     &::after {
       content: " <";
     }
+
+    @media (max-width: 900px) {
+      font-size: 32px;
+      &::before,
+      &::after {
+        font-size: 32px;
+      }
+    }
+    @media (max-width: 600px) {
+      font-size: 22px;
+      &::before,
+      &::after {
+        font-size: 22px;
+      }
+    }
+
+    @include media("phoneL") {
+      margin-bottom: 32px;
+      text-align: left;
+    }
   }
 
-  p {
+  &__text {
+    text-align: center;
     @include fontAbel;
-    font-style: normal;
-    font-weight: 400;
     font-size: 16px;
     line-height: 140%;
     color: rgba(255, 255, 255, 0.6);
-
     max-width: 361px;
-  }
-}
 
-.visuallyHidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+    @media (max-width: 900px) {
+      font-size: 14px;
+      max-width: 100%;
+    }
+    @media (max-width: 600px) {
+      font-size: 12px;
+    }
+
+    @include media("phoneL") {
+      text-align: left;
+    }
+  }
+
+  &__image {
+    display: none;
+    position: relative;
+    flex: 1 1 50%;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+
+    @include media("phoneL") {
+      display: block;
+    }
+  }
 }

@@ -3,7 +3,7 @@
 .root {
   @include fontJetBrains;
   color: white;
-  padding: 0 160px 180px 160px;
+  padding-bottom: 90px;
 
   .title {
     font-size: $FontSize-Title;
@@ -12,14 +12,18 @@
     letter-spacing: -0.08em;
     text-transform: uppercase;
 
-    margin-bottom: 80px;
+    margin-bottom: 32px;
     max-width: 896px;
+
+    @include media("tablet") {
+      margin-bottom: 80px;
+    }
   }
 
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
 
     li {
       display: flex;
@@ -27,18 +31,49 @@
       align-items: center;
 
       box-sizing: border-box;
-      padding: 52px 108px;
+      padding: 16px;
       flex: 1 1 calc(10% - 100px);
 
-      background: linear-gradient(180deg, #1a1a1a -29.71%, rgba(26, 26, 26, 0) 75.89%);
+      background: linear-gradient(
+        180deg,
+        #1a1a1a -29.71%,
+        rgba(26, 26, 26, 0) 75.89%
+      );
       border: 1px solid #262626;
       border-radius: 8px;
+    }
+  }
+
+  @include media("tablet") {
+    ul {
+      grid-template-columns: repeat(4, 1fr);
+
+      li {
+        padding: 25px;
+      }
+    }
+  }
+
+  @include media("laptop") {
+    padding-bottom: 180px;
+
+    ul {
+      gap: 25px;
+      grid-template-columns: repeat(5, 1fr);
+
+      li {
+        padding: 52px;
+      }
     }
   }
 }
 
 .icon {
-  width: 70px;
+  width: 50px;
   max-width: 90px;
   height: auto;
+
+  @include media("phoneL") {
+    width: 70px;
+  }
 }

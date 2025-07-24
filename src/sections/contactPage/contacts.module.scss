@@ -1,21 +1,37 @@
 @import "@styles/global.scss";
 
+.wrapper {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  border-top: 1px solid #ffffff29;
+
+  @include media("tablet") {
+    padding-top: 180px;
+    padding-bottom: 180px;
+  }
+
+  @include media("laptop") {
+    padding-top: 250px;
+    padding-bottom: 250px;
+  }
+}
+
 .root {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid #ffffff29;
-  margin-top: -140px;
+  align-items: center;
 
   div:first-child {
-    padding: 260px 60px 300px 60px;
-    border-right: 1px solid #ffffff29;
     justify-self: end;
+    padding-right: 60px;
   }
+
   div:last-child {
-    padding: 260px 60px 300px 60px;
     display: flex;
     align-items: center;
     justify-self: start;
+    padding-left: 60px;
   }
 
   img {
@@ -23,39 +39,115 @@
     width: 100%;
     height: auto;
   }
+}
 
-  li:not(:last-child) {
-    margin-bottom: 56px;
-  }
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-left: 0px;
 
-  li {
-    & > p:first-child {
+  &__item {
+    p {
       @include fontAbel;
       line-height: 100%;
       color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
       margin-bottom: 16px;
     }
-    & > a:last-child {
+
+    a {
       @include fontJetBrains;
-      font-size: 54px;
+      font-size: 20px;
       font-weight: 200;
       line-height: 100%;
-      letter-spacing: -4.32px;
       color: #fff;
-
-      transition-property: color;
-      transition-duration: 300ms;
-      transition-timing-function: linear;
+      transition: color 300ms linear;
 
       &:hover {
         color: #d0ec57;
       }
     }
+
+    @include media("tablet") {
+      a {
+        font-size: 32px;
+      }
+    }
+
+    @media (min-width: 1500px) {
+      a {
+        font-size: 54px;
+        letter-spacing: -4.32px;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding-left: 60px;
+  }
+
+  @media (min-width: 1500px) {
+    gap: 56px;
+    padding-left: 60px;
+  }
+}
+
+.line {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 1px;
+  height: 100%;
+  background-color: #ffffff29;
+
+  @include media("tabletVertical") {
+    display: block;
   }
 }
 
 .arrowIcon {
   padding-left: 16px;
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
+
+  @include media("tablet") {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .root {
+    grid-template-columns: 1fr;
+    gap: 80px;
+
+    div:first-child,
+    div:last-child {
+      padding: 0;
+      justify-self: center;
+    }
+
+    ul {
+      text-align: center;
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .line {
+    display: none;
+  }
+
+  .root {
+    gap: 40px;
+
+    img {
+      width: 100%;
+      max-width: none;
+    }
+  }
 }

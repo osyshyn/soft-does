@@ -26,7 +26,10 @@ export const Solutions = () => {
       <div className={s.block}>
         <div className={s.left}>
           <h3 className={s.title}>Technology excellence</h3>
-          <p className={s.subtitle}>Create and enhance your software product with powerful and cost-effective technology</p>
+          <p className={s.subtitle}>
+            Create and enhance your software product with powerful and
+            cost-effective technology
+          </p>
         </div>
         <div className={s.right}>
           <ul className={s.list}>

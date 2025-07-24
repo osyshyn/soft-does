@@ -1,30 +1,50 @@
 @import "@styles/global.scss";
 
-.root {
+.wrapper {
   @include fontJetBrains;
   color: white;
-  padding: 48px 200px;
-  margin-bottom: 180px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  margin-bottom: 60px;
   border-top: 1px solid rgba(#fff, 0.2);
   border-bottom: 1px solid rgba(#fff, 0.2);
 
+  @include media("tablet") {
+    margin-bottom: 160px;
+  }
+}
+
+.content {
+  @include fontJetBrains;
+  color: white;
+
   ul {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     gap: 48px;
-    justify-content: space-around;
 
     li {
       position: relative;
+      padding-bottom: 32px;
+      text-align: center;
     }
 
     li::before {
       position: absolute;
       content: "";
-      top: 16px;
-      left: -33px;
-      width: 2px;
-      height: 90px;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 2px;
       background-color: #cfec57;
+
+      @include media("tablet") {
+        top: 16px;
+        left: 0px;
+        width: 2px;
+        height: 90px;
+        background-color: #cfec57;
+      }
     }
 
     .number {
@@ -39,6 +59,32 @@
       font-weight: 400;
       font-size: 24px;
       line-height: 140%;
+    }
+  }
+
+  @include media("laptop") {
+    ul {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @include media("tablet") {
+    ul {
+      grid-template-columns: repeat(2, 1fr);
+
+      li {
+        padding-left: 32px;
+        padding-bottom: 0px;
+        text-align: left;
+      }
+
+      li::before {
+        top: 16px;
+        left: 0px;
+        width: 2px;
+        height: 90px;
+        background-color: #cfec57;
+      }
     }
   }
 }

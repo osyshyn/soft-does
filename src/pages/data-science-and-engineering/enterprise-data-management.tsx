@@ -14,7 +14,11 @@ import { Solutions } from "@sections/solutions/solutions";
 export default function Enterprise() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.uiux_design.productDS} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.dataScnAndEngnrng.enterpriseData}
+      />
       <Layout>
         <Hero
           data={data.hero}

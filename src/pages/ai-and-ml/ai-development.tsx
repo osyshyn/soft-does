@@ -16,7 +16,11 @@ import HeroObj from "@assets/images/aiml/aimlServices/heroObject_aiDev.png";
 export default function AiDev() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.aiml.aiDev} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.aiAndMl.aiDev}
+      />
       <Layout>
         <Hero
           data={data.hero}

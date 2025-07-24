@@ -15,7 +15,14 @@ export const Hero = () => {
         <p className={s.text}>{data.hero.tagText}</p>
         <button className={s.button}>{data.hero.btnText}</button>
       </div>
-      <Image aria-hidden alt="" className={s.heroImage} src={hero.src} width={hero.width} height={hero.height} />
+      <Image
+        aria-hidden
+        alt=""
+        className={s.heroImage}
+        src={hero.src}
+        width={hero.width}
+        height={hero.height}
+      />
     </section>
   );
 };

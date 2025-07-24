@@ -1,12 +1,16 @@
 @import "@styles/global.scss";
 
-.root {
-  padding: 0 160px 180px 160px;
-
+.wrapper {
+  padding-top: 90px;
+  padding-bottom: 90px;
   background-color: #000;
   color: #fff;
-
   overflow: hidden;
+
+  @include media(laptop) {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
 }
 
 .title {
@@ -32,24 +36,32 @@
   display: grid;
   gap: 16px;
 
-  @include media(tablet) {
-    grid-template-columns: 1fr 1fr;
+  @media (min-width: 550px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  @include media(laptop) {
+  @media (min-width: 850px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media(desktop) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .listItem {
   box-sizing: border-box;
-  width: 370px;
-  height: 370px;
   padding: 38px 32px;
 
   border: 1px solid rgba(#757575, 0.9);
 
-  background: linear-gradient(135deg, var(--current-color-variable) 0%, rgba(0, 0, 0, 0) 60%), #121212;
+  background:
+    linear-gradient(
+      135deg,
+      var(--current-color-variable) 0%,
+      rgba(0, 0, 0, 0) 60%
+    ),
+    #121212;
 
   display: flex;
   flex-direction: column;
