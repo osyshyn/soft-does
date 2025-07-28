@@ -6,7 +6,11 @@ import "aos/dist/aos.css";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import LenisScroll from "@shared/components/lenis/lenis";
+import { LenisProvider } from "@shared/components/lenis/lenis";
+
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
 
 declare global {
   interface Window {
@@ -48,7 +52,8 @@ export default function App({ Component, pageProps }: AppProps) {
     }
 
     return () => {
-      if (!isAdminRoute) router.events.off("routeChangeComplete", handleRouteChange);
+      if (!isAdminRoute)
+        router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events, isAdminRoute]);
 
@@ -56,9 +61,20 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       {!isAdminRoute && (
         <>
-          <Script id="hs-script-loader" src="//js-na2.hs-scripts.com/242390269.js" strategy="afterInteractive" />
-          <Script id="hs-script-loader" src="//js-na2.hs-scripts.com/242390269.js" strategy="afterInteractive" />
-          <Script src="https://www.googletagmanager.com/gtag/js?id=AW-11547473176" strategy="afterInteractive" />
+          <Script
+            id="hs-script-loader"
+            src="//js-na2.hs-scripts.com/242390269.js"
+            strategy="afterInteractive"
+          />
+          <Script
+            id="hs-script-loader"
+            src="//js-na2.hs-scripts.com/242390269.js"
+            strategy="afterInteractive"
+          />
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=AW-11547473176"
+            strategy="afterInteractive"
+          />
           <Script id="gtag-init" strategy="afterInteractive">
             {`
   window.dataLayer = window.dataLayer || [];
@@ -70,8 +86,9 @@ export default function App({ Component, pageProps }: AppProps) {
         </>
       )}
 
-      <LenisScroll />
-      <Component {...pageProps} />
+      <LenisProvider>
+        <Component {...pageProps} />
+      </LenisProvider>
     </>
   );
 }

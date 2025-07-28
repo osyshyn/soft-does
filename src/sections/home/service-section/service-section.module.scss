@@ -1,14 +1,8 @@
-@import "@styles/global.scss";
+@import "@styles/_mixins.scss";
 
-.root {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  flex-grow: 1;
-
-  overflow: hidden;
-
-  padding: 36px 16px;
+.wrapper {
+  padding-top: 140px;
+  padding-bottom: 140px;
 
   background: conic-gradient(
     from 270deg at 50% 50%,
@@ -21,16 +15,6 @@
     rgba(119, 63, 188, 0.1) 280.28deg,
     rgba(22, 29, 37, 0.2) 403.82deg
   );
-  background-color: #000;
-  color: white;
-
-  @include media(tabletVertical) {
-    flex-direction: row;
-  }
-
-  @include media(laptop) {
-    padding: 100px 160px;
-  }
 
   &.isRight {
     background: conic-gradient(
@@ -52,6 +36,19 @@
   }
 }
 
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  flex-grow: 1;
+
+  color: white;
+
+  @include media(tabletVertical) {
+    flex-direction: row;
+  }
+}
+
 .leftWrapper {
   display: flex;
   flex-direction: column;
@@ -65,6 +62,7 @@
   &.isRightWrapper {
     @include media(tabletVertical) {
       align-items: end;
+      order: 1;
     }
   }
 }
@@ -141,7 +139,7 @@
 .sliderWrapper {
   overflow: hidden;
 
-  width: 450px;
+  width: 100%;
 
   cursor: grab;
 
@@ -153,8 +151,8 @@
     cursor: grabbing;
   }
 
-  @media (max-width: 1030px) {
-    width: 100%;
+  @include media(tabletVertical) {
+    width: 450px;
   }
 }
 
@@ -196,9 +194,14 @@
 }
 
 .img {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   animation: float 4s ease-in-out infinite;
+
+  @include media(tablet) {
+    width: 350px;
+    height: 350px;
+  }
 
   @include media(laptop) {
     width: 450px;

@@ -1,10 +1,14 @@
 @import "@styles/global.scss";
 
 .root {
-  background-color: #000;
-  overflow: hidden;
+  background: #000;
   color: #fff;
-  padding-bottom: 160px;
+  overflow: hidden;
+  padding-bottom: 90px;
+
+  @include media("tablet") {
+    padding-bottom: 160px;
+  }
 }
 
 .title {
@@ -17,21 +21,29 @@
   text-align: center;
   color: #fff;
 
-  margin-bottom: 80px;
+  margin-bottom: 32px;
 
   @include media(tabletVertical) {
     font-size: 120px;
   }
 
-  @media (max-width: 1030px) {
-    margin-top: 30px;
+  @include media("tablet") {
+    margin-bottom: 80px;
   }
 }
 
+/* limit carousel width & keep it centred */
+.container {
+  max-width: $Container-Width; // 1600px
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .swiper {
-  overflow: visible;
+  overflow: hidden;
 
   cursor: grab;
+  width: 100%; // fill the .container but no more
 
   &:active {
     cursor: grabbing;
@@ -46,6 +58,10 @@
     min-width: 225px;
     max-width: 20%;
     z-index: 10;
+
+    @media (max-width: 945px) {
+      display: none;
+    }
   }
 
   &::before {
@@ -60,9 +76,17 @@
 }
 
 .slide {
+  max-width: 90%;
   display: flex;
-  width: 100%;
   flex-direction: column;
+
+  @media (min-width: 445px) {
+    max-width: 80%;
+  }
+
+  @include media("tablet") {
+    max-width: 510px;
+  }
 }
 
 .topContentWrapper {
@@ -71,12 +95,16 @@
   flex-direction: column;
   min-height: 460px;
   margin-bottom: 44px;
-  padding: 40px;
+  padding: 20px;
   position: relative;
 
   background: linear-gradient(to bottom, #1a1a1a 0%, #1a1a1a38 40%);
   border: 1px solid #262626;
   border-radius: 20px;
+
+  @include media("tablet") {
+    padding: 40px;
+  }
 }
 
 .upwork {
@@ -118,6 +146,10 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 150%;
+
+  @include media("tablet") {
+    font-size: 16px;
+  }
 }
 
 .reviewTitle {

@@ -1,0 +1,107 @@
+@import "@styles/global.scss";
+
+.root {
+  @include fontJetBrains;
+  color: white;
+
+  .title {
+    font-size: $FontSize-Title;
+    font-weight: 300;
+    // font-size: 120px;
+    line-height: 90%;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+
+    margin-bottom: 80px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+
+  li {
+    box-sizing: border-box;
+    flex: 0 0 calc(100%);
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #333333;
+
+    transition:
+      background-color 0.7s ease-in-out,
+      color 0.7s ease-in-out,
+      fill 0.7s ease-in-out;
+
+    @media (min-width: 650px) {
+      flex: 0 0 calc(50% - 16px);
+    }
+
+    @include media("laptop") {
+      max-width: 518px;
+      flex: 0 0 calc(33.333% - 16px);
+    }
+
+    &:hover {
+      background-color: #cfec57;
+
+      * {
+        color: black;
+      }
+      .arrow {
+        fill: black;
+      }
+    }
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 48px;
+
+      .softdoes {
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 117%;
+      }
+
+      .arrow {
+        fill: white;
+      }
+    }
+
+    .icon {
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      max-width: 348px;
+      margin-bottom: 32px;
+
+      font-weight: 200;
+      font-size: 32px;
+      line-height: 110%;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+    }
+
+    .text {
+      max-width: 438px;
+
+      @include fontAbel;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+    }
+  }
+}
+
+.link {
+  display: block;
+  padding: 16px;
+
+  @include media("tablet") {
+    padding: 40px;
+  }
+}

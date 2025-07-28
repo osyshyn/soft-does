@@ -1,0 +1,9 @@
+@import "@styles/mixins";
+
+.section {
+  padding-bottom: 90px;
+
+  @include media("tablet") {
+    padding-bottom: 160px;
+  }
+}

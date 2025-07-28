@@ -13,7 +13,11 @@ import Layout from "@shared/components/layout/layout";
 export default function MvpDev() {
   return (
     <>
-      <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.mvpDev} />
+      <SEO
+        title="SOFT DOES"
+        description="SOFT DOES is company, that will help your bussines grow!"
+        pathname={ROUTES.softwareDev.mvpDev}
+      />
       <Layout>
         <Hero />
         <Results />

@@ -2,19 +2,26 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
-import artifactDevelopment from "@assets/images/main/artifact-intellagence-certificate.svg";
-import awsCertificate from "@assets/images/main/aws-certificate.svg";
-import developerEssentials from "@assets/images/main/developer-essentials.svg";
-import ibmCoCreation from "@assets/images/main/ibm-co-creation.svg";
-import pmCertificate from "@assets/images/main/pm-certificate.svg";
-import webDevelopmentFundamentals from "@assets/images/main/web-development-fundamentals.svg";
+import artifactDevelopment from "@assets/images/main/artifact-intellagence-certificate.svg?url";
+import awsCertificate from "@assets/images/main/aws-certificate.svg?url";
+import developerEssentials from "@assets/images/main/developer-essentials.svg?url";
+import ibmCoCreation from "@assets/images/main/ibm-co-creation.svg?url";
+import pmCertificate from "@assets/images/main/pm-certificate.svg?url";
+import webDevelopmentFundamentals from "@assets/images/main/web-development-fundamentals.svg?url";
 import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/autoplay";
 import s from "./certificates.module.scss";
 
-const CERTIFICATES = [artifactDevelopment, awsCertificate, developerEssentials, ibmCoCreation, pmCertificate, webDevelopmentFundamentals];
+const CERTIFICATES = [
+  artifactDevelopment,
+  awsCertificate,
+  developerEssentials,
+  ibmCoCreation,
+  pmCertificate,
+  webDevelopmentFundamentals,
+];
 
 export const Certificates = () => {
   return (
@@ -42,9 +49,14 @@ export const Certificates = () => {
           },
         }}
       >
-        {CERTIFICATES.map((item) => (
-          <SwiperSlide key={item.src} className={s.slide}>
-            <Image alt="" aria-hidden src={item.src} width={item.width} height={item.height} className={s.image} />
+        {CERTIFICATES.map((item, index) => (
+          <SwiperSlide key={index} className={s.slide}>
+            <Image
+              alt={`Certificate ${index + 1}`}
+              aria-hidden
+              src={item}
+              className={s.image}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

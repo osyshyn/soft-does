@@ -1,18 +1,59 @@
+type SubRoutes = Record<string, string>;
+
+type RouteGroup<Base extends string, Subs extends SubRoutes> = {
+  root: Base;
+} & { [K in keyof Subs]: `${Base}/${Subs[K]}` };
+
+export function createRouteGroup<Base extends string, Subs extends SubRoutes>(
+  base: Base,
+  subs: Subs
+): RouteGroup<Base, Subs> {
+  const result = { root: base } as RouteGroup<Base, Subs>;
+
+  (Object.keys(subs) as Array<keyof Subs>).forEach((key) => {
+    result[key] = `${base}/${subs[key]}` as RouteGroup<Base, Subs>[typeof key];
+  });
+
+  return result;
+}
+
 export const ROUTES = {
   root: "/",
 
-  softwaredev: "/software-development",
+  softwareDev: createRouteGroup("/software-development", {
+    customSoftDev: "custom-software-development",
+    mobileAppDev: "mobile-app-development",
+    webAppDev: "web-app-development",
+    mvpDev: "mvp-development",
+  }),
 
-  customSoftDev: "/custom-software-development",
-  mobileAppDev: "/mobile-app-development",
-  mvpDev: "/mvp-development",
-  webAppDev: "/web-app-development",
+  aiAndMl: createRouteGroup("/ai-and-ml", {
+    aiDev: "ai-development",
+    mlMD: "ml-model-development",
+    aiDPAuto: "ai-driven-process-automation",
+    aiOperation: "ai-operationalization",
+    caiSolutions: "custom-ai-solutions",
+  }),
 
-  aiml: "/ai-and-ml",
+  cloudServices: createRouteGroup("/cloud-services", {
+    ccs: "cloud-computing-solutions",
+    devOps: "devops-and-cloud-infrastructure",
+    cloudMigration: "cloud-migration-services",
+    managedCloud: "managed-cloud-services",
+  }),
 
-  cloudServices: "/cloud-services",
+  uiUxDesign: createRouteGroup("/ui-ux-design", {
+    userED: "user-experience-design",
+    userID: "user-interface-design",
+    productDS: "product-design-services",
+  }),
 
-  uiux_design: "/ui-ux-design",
+  dataScnAndEngnrng: createRouteGroup("/data-science-and-engineering", {
+    dataScience: "data-science-services",
+    dataAnalytics: "data-analytics-solutions",
+    enterpriseData: "enterprise-data-management",
+    dataStrategy: "data-strategy-and-governance",
+  }),
 
   services: "/services",
 

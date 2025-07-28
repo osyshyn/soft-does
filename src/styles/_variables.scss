@@ -1,0 +1,40 @@
+@use "@styles/media" as *;
+@use "@styles/mixins" as *;
+
+// Typography
+$ButtonsText-Size-16: 16px;
+$FontSize-Body: 14px;
+$FontSize-Title: clamp(48px, 6.5vw, 120px);
+
+$Container-Width: 1600px;
+
+// Colors
+
+// Spacing
+// $Spacing-xs: 4px;
+// $Spacing-sm: 8px;
+// $Spacing-md: 16px;
+// $Spacing-lg: 32px;
+
+.wrapper {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include media("laptop") {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+.container {
+  max-width: $Container-Width;
+  margin: 0 auto;
+}
+
+.sectionWrapper {
+  padding-bottom: 90px;
+
+  @include media("tablet") {
+    padding-bottom: 160px;
+  }
+}
