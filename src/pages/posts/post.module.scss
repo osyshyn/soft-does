@@ -9,16 +9,18 @@
   .title {
     font-weight: 500;
     line-height: 150%;
-    letter-spacing: 0%;
-
     margin-bottom: 32px;
+
+    &:not(:first-of-type) {
+      margin-top: 54px;
+    }
   }
 
   .content {
-    h1 {
+    h2 {
       font-size: 48px;
     }
-    h2 {
+    h3 {
       font-size: 32px;
     }
   }

@@ -3,13 +3,13 @@ import Image from "next/image";
 import img from "@assets/images/blog/postHero.png";
 import s from "./hero.module.scss";
 
-export const Hero = () => {
+// TODO: add swiper with images & buttons texts
+export const Hero = ({title, desc}) => {
   return (
     <section className={s.root}>
-      <h1>ai technology innovation</h1>
+      <h1>{title}</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur. Cum parturient ipsum tellus massa tincidunt consequat mattis cursus semper. Nisi amet imperdiet elementum pellentesque est. Ut
-        feugiat lobortis mollis elementum lorem.
+          {desc}
       </p>
       <div>
         <button className={s.buttonGreen}>Let’s discuss</button>

@@ -66,7 +66,7 @@ export const Releases = ({ posts }: ReleasesProps) => {
                                   ? post.testimonialText
                                   : documentToReactComponents(post.testimonialText))}
                         </div>
-                        <Link className={s.btn} href={`/blog/${post.slug}`}>
+                        <Link className={s.btn} href={`/posts/${post.id}`}>
                           Read more
                         </Link>
                       </div>
@@ -122,7 +122,7 @@ export const Releases = ({ posts }: ReleasesProps) => {
                                                   ? post.testimonialText
                                                   : documentToReactComponents(post.testimonialText))}
                                       </div>
-                                      <Link className={s.btn} href={`/blog/${post.slug}`}>
+                                      <Link className={s.btn} href={`/posts/${post.id}`}>
                                           Read more
                                       </Link>
                                   </div>

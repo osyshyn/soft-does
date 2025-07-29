@@ -2,6 +2,7 @@ import Image from "next/image";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { IPost } from "@models/Post";
+import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 
 import { SEO } from "@shared/ui/seo";
 import Layout from "@shared/components/layout/layout";
@@ -18,6 +19,8 @@ import Robot from "@shared/assets/images/blog/robot.png";
 import Idea from "@shared/assets/images/blog/do_you_have_idea.png";
 
 import s from "./post.module.scss";
+import {useEffect, useState} from "react";
+import {fetchBlog, fetchFullBlogPostList} from "../api/contentful/api";
 
 interface PostPageProps {
   post: IPost;
@@ -29,13 +32,52 @@ export default function PostPage({ post }: PostPageProps) {
   const router = useRouter();
   const { id } = router.query;
 
+  const [posts, setPosts] = useState<any[]>([]);
+
+  useEffect(() => {
+    if (id) {
+      fetchFullBlogPostList(String(id)).then(setPosts);
+    }
+  }, [id]);
+
   const ICONS = [Facebook, Tg, Whatsapp, X, Plus];
+
+  // Витягуємо контент поста з Contentful
+  const postContent = Array.isArray(posts) && posts[0]?.postContent ? posts[0].postContent : post.postContent;
+
+  // Витягуємо всі h1/h2/h3 для навігації та зберігаємо id для скролу
+  type Heading = { id: string; text: string };
+  const headings: Heading[] = [];
+  if (postContent && postContent.content) {
+    postContent.content.forEach((node: any, idx: number) => {
+      if (["heading-1", "heading-2", "heading-3"].includes(node.nodeType)) {
+        const text = node.content?.map((n: any) => n.value).join('') || '';
+        if (text) headings.push({ id: `heading-${idx}`, text });
+      }
+    });
+  }
+
+  // Кастомний рендер для rich text з id для заголовків
+  const richTextOptions: Options = {
+    renderNode: {
+      'heading-2': (node, children) => {
+        // Знаходимо індекс цього заголовка для id
+        const idx = postContent.content.findIndex((n: any) => n === node);
+        return <h2 className={s.title} id={`heading-${idx}`}>{children}</h2>;
+      },
+      'heading-3': (node, children) => {
+        const idx = postContent.content.findIndex((n: any) => n === node);
+        return <h3 className={s.title} id={`heading-${idx}`}>{children}</h3>;
+      },
+      'paragraph': (node, children) => <p className={s.text}>{children}</p>,
+    },
+  };
 
   return (
     <>
       <SEO title={post.title} description={post.introduction} pathname={`/posts/${id}`} />
       <Layout posts={true}>
-        <Hero />
+        <Hero title={Array.isArray(posts) && posts[0]?.title ? posts[0].title : post.title} desc={Array.isArray(posts) && posts[0]?.heroDescription ? posts[0].heroDescription : post.heroDescription} />
         <Simplify />
         <section className={s.post}>
           <div>
@@ -51,36 +93,31 @@ export default function PostPage({ post }: PostPageProps) {
             </div>
 
             <div className={s.content}>
-              <h1 className={s.title}>{post.title}</h1>
-              {post.introduction.split("\n\n").map((text, i) => (
-                <p key={i} className={s.text}>
-                  {text}
-                </p>
-              ))}
+              {/* Не виводимо мокові title та introduction */}
+              {/* Відображаємо контент поста з Contentful */}
+              {postContent && documentToReactComponents(postContent, richTextOptions)}
 
-              {post.sections.map((section, index) => (
-                <>
-                  <section key={index} className={s.section}>
-                    <h2 className={s.title}>{section.heading}</h2>
-                    {section.content.split("\n\n").map((text, i) => (
-                      <p key={i} className={s.text}>
-                        {text}
-                      </p>
-                    ))}
-                  </section>
+                {/*<>*/}
+                {/*  <section key={index} className={s.section}>*/}
+                {/*    <h2 className={s.title}>{section.heading}</h2>*/}
+                {/*    {section.content.split("\n\n").map((text, i) => (*/}
+                {/*      <p key={i} className={s.text}>*/}
+                {/*        {text}*/}
+                {/*      </p>*/}
+                {/*    ))}*/}
+                {/*  </section>*/}
 
-                  {index === 2 && (
-                    <div className={s.ideaWrapper}>
-                      <Image aria-hidden alt="" className={s.image} src={Idea.src} width={Idea.width} height={Idea.height} />
-                      <div>
-                        <h3>Do you have an interesting idea?</h3>
-                        <p>Book a call with the representative to get answers to all the questions you may have. </p>
-                        <button className={s.buttonGreen}>Let’s discuss</button>
-                      </div>
-                    </div>
-                  )}
-                </>
-              ))}
+                {/*  /!*{index === 2 && (*!/*/}
+                {/*  /!*  <div className={s.ideaWrapper}>*!/*/}
+                {/*  /!*    <Image aria-hidden alt="" className={s.image} src={Idea.src} width={Idea.width} height={Idea.height} />*!/*/}
+                {/*  /!*    <div>*!/*/}
+                {/*  /!*      <h3>Do you have an interesting idea?</h3>*!/*/}
+                {/*  /!*      <p>Book a call with the representative to get answers to all the questions you may have. </p>*!/*/}
+                {/*  /!*      <button className={s.buttonGreen}>Let’s discuss</button>*!/*/}
+                {/*  /!*    </div>*!/*/}
+                {/*  /!*  </div>*!/*/}
+                {/*  /!*)}*!/*/}
+                {/*</>*/}
 
               <div className={s.comments}>
                 <div>
@@ -158,10 +195,11 @@ export default function PostPage({ post }: PostPageProps) {
                   <div className={s.line}></div>
                 </div>
                 <ul>
-                  <li>5 key factors that affect the cost of building a website</li>
-                  <li>How much do website hosting platforms (CMS) cost?</li>
-                  <li>3 ways to build your website and how it will affect costs</li>
-                  <li>Next steps</li>
+                  {headings.map((heading, i) => (
+                    <li key={heading.id}>
+                      <a href={`#${heading.id}`} style={{ color: '#000' }}>{heading.text}</a>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -177,22 +215,40 @@ export default function PostPage({ post }: PostPageProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const protocol = ctx.req.headers["x-forwarded-proto"] || "http";
-  const host = ctx.req.headers.host;
-  const { id } = ctx.params!;
-  const res = await fetch(`${protocol}://${host}/api/posts/${id}`);
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { id } = context.params as { id: string };
 
-  if (!res.ok) {
-    return { notFound: true };
-  }
-
-  const post: IPost = await res.json();
-
+  // Повертаємо мокові дані для тесту, щоб сторінка завжди відкривалась
   return {
     props: {
-      post,
-      pathname: `/posts/${id}`,
+      post: {
+        id,
+        title: "Test Post",
+        introduction: "Test introduction for post with id " + id,
+        sections: [
+          {
+            heading: "Section 1",
+            content: "Section 1 content.\n\nMore text here.",
+          },
+          {
+            heading: "Section 2",
+            content: "Section 2 content.",
+          },
+          {
+            heading: "Section 3",
+            content: "Section 3 content.",
+          },
+        ],
+        comments: [
+          {
+            author: "John Doe",
+            date: "2025-07-29",
+            text: "Great post!",
+          },
+        ],
+        author: "John Doe",
+        authorPosition: "Writer",
+      },
     },
   };
 };

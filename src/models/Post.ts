@@ -16,6 +16,7 @@ export interface IPost extends Document {
   author: string;
   authorPosition: string;
   title: string;
+  heroDescription: string;
   introduction: string;
   sections: Section[];
   comments: Comment[];
