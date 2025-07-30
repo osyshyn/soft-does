@@ -18,7 +18,12 @@ export default function ContactPage() {
         pathname={ROUTES.contact}
       />
       <Layout talkToUs={false} faq={false} contacts={false}>
-        <Hero data={data.hero} heroImg={HeroImg} backgroundKey="turquoise" />
+        <Hero
+          data={data.hero}
+          heroImg={HeroImg}
+          backgroundKey="turquoise"
+          isDynamicImage={true}
+        />
         <Contacts data={data.contacts} />
       </Layout>
     </>

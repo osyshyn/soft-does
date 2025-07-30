@@ -2,6 +2,11 @@ import CustomSoftwareDevBg from "@assets/images/softwareDev/hero.png";
 import UiuxBg from "@assets/images/uiux/heroWave.png";
 import DseBg from "@assets/images/dse/heroBackground.png";
 import AimlBg from "@assets/images/aiml/wave.png";
+import MvpDevBg from "@assets/images/softwareServices/heroMVPDev_wave.png";
+import ApiIntegrationBg from "@assets/images/softwareServices/apiIntegrationServices_wave.png";
+import ProductDSBg from "@assets/images/uiux/uiuxServices/productDS_wave.png";
+import UserIdBg from "@assets/images/uiux/uiuxServices/userID_wave.png";
+import ArchitectureConsultingBg from "@assets/images/architecture-consulting/hero_wave.png";
 
 export const BACKGROUND_PRESETS = {
   black: `linear-gradient(180deg, #161D25 0%, #161D25 100%)`,
@@ -81,4 +86,9 @@ export const BACKGROUND_PRESETS = {
   uiux: `url(${UiuxBg.src})`,
   dse: `url(${DseBg.src})`,
   aiml: `url(${AimlBg.src})`,
+  mvpDev: `url(${MvpDevBg.src})`,
+  apiIntegration: `url(${ApiIntegrationBg.src})`,
+  uiUxProductDS: `url(${ProductDSBg.src})`,
+  uiUxUserID: `url(${UserIdBg.src})`,
+  architectureConsulting: `url(${ArchitectureConsultingBg.src})`,
 } as const;

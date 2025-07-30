@@ -2,27 +2,32 @@ import { useState, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
 import { BACKGROUND_PRESETS } from "@shared/constants/hero-backgrounds";
 
-import { Kansas } from "@shared/components/kansas/kansas";
-
 import s from "./hero.module.scss";
 import clsx from "clsx";
+import TextBlock from "@shared/components/hero-text/hero-text";
 
 interface HeroProps {
   data: {
     title: string;
     titleSpan?: string;
-    tagText: string;
+    tagText: string | React.ReactNode;
     btnText: string;
   };
   rightNode?: React.ReactNode;
   heroImg?: StaticImageData;
+  heroImgClassName?: string;
+  textContainerClassName?: string;
   backgroundKey?: keyof typeof BACKGROUND_PRESETS;
+  isDynamicImage?: boolean;
 }
 
 export const Hero = ({
   data,
   rightNode,
   heroImg,
+  heroImgClassName,
+  textContainerClassName,
+  isDynamicImage = false,
   backgroundKey = "green",
 }: HeroProps) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -61,39 +66,33 @@ export const Hero = ({
       style={{
         background: BACKGROUND_PRESETS[backgroundKey],
         backgroundColor: "black",
-        // backgroundSize: "100% 100%",
       }}
     >
       <div className={clsx(s.container, "container")}>
-        <div className={s.content}>
-          <div className={s.tagContainer}>
-            <Kansas />
-          </div>
-
-          <h1 className={s.title}>
-            <span>{data.titleSpan}</span> {data.title}
-          </h1>
-          <p className={s.text}>{data.tagText}</p>
-
-          <div>
-            <button className={s.button}>{data.btnText}</button>
-          </div>
+        <div className={clsx(s.text, textContainerClassName)}>
+          <TextBlock
+            className={s.text__content}
+            title={data.title}
+            titleSpan={data.titleSpan}
+            text={data.tagText}
+            buttonText={data.btnText}
+          />
         </div>
 
         {heroImg && (
-          <div
-            style={{
-              transform: `translate(${offset.x}px, ${offset.y}px)`,
-              transition: "transform 0.1s ease-out",
-            }}
-          >
+          <div className={clsx(s.heroImage, heroImgClassName)}>
             <Image
               aria-hidden
               alt=""
-              className={s.heroImage}
-              src={heroImg.src}
-              width={heroImg.width}
-              height={heroImg.height}
+              src={heroImg}
+              style={{
+                transform: isDynamicImage
+                  ? `translate(${offset.x}px, ${offset.y}px)`
+                  : `translate(0, 0)`,
+                transition: "transform 0.1s ease-out",
+              }}
+              // width={heroImg}
+              // height={heroImg}
             />
           </div>
         )}

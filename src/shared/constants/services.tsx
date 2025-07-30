@@ -40,8 +40,11 @@ export const SERVICES = [
   { label: "Mobile App Development", href: ROUTES.softwareDev.webAppDev },
   { label: "Web Application Development", href: ROUTES.softwareDev.mvpDev },
   { label: "MVP Development", href: ROUTES.softwareDev.mvpDev },
-  { label: "Product Development", href: ROUTES.softwareDev.root },
-  { label: "API Integration Services", href: ROUTES.softwareDev.root },
+  { label: "Product Development", href: ROUTES.softwareDev.productDev },
+  {
+    label: "API Integration Services",
+    href: ROUTES.softwareDev.apiIntegration,
+  },
   // Architecture & Consulting Services
   { label: "Business Analytics", href: ROUTES.softwareDev.root },
   { label: "IT Consulting", href: ROUTES.softwareDev.root },
@@ -98,12 +101,12 @@ export const SoftwareDevelopment = {
     },
     {
       label: "Mobile App Development",
-      href: ROUTES.softwareDev.webAppDev,
+      href: ROUTES.softwareDev.mobileAppDev,
       icon: <MobileIcon />,
     },
     {
       label: "Web Application Development",
-      href: ROUTES.softwareDev.mvpDev,
+      href: ROUTES.softwareDev.webAppDev,
       icon: <WebDevIcon />,
     },
     {
@@ -113,12 +116,12 @@ export const SoftwareDevelopment = {
     },
     {
       label: "Product Development",
-      href: ROUTES.softwareDev.root,
+      href: ROUTES.softwareDev.productDev,
       icon: <GearIcon />,
     },
     {
       label: "API Integration Services",
-      href: ROUTES.softwareDev.root,
+      href: ROUTES.softwareDev.apiIntegration,
       icon: <PuzzleIcon />,
     },
   ],
@@ -126,41 +129,41 @@ export const SoftwareDevelopment = {
 
 export const ArchitectureAndConsultingServices = {
   label: "Architecture & Consulting Services",
-  href: ROUTES.softwareDev.root,
+  href: ROUTES.architectureConsulting.root,
   list: [
     {
       label: "Business Analytics",
-      href: ROUTES.softwareDev.root,
+      href: ROUTES.architectureConsulting.businessAnalytics,
       icon: <Statistics2Icon />,
     },
     {
       label: "IT Consulting",
-      href: ROUTES.softwareDev.root,
+      href: ROUTES.architectureConsulting.itConsulting,
       icon: <ComputerIcon />,
     },
     {
       label: "Digital Transformation",
-      href: ROUTES.softwareDev.root,
+      href: ROUTES.architectureConsulting.digitalTransformation,
       icon: <ButterflyIcon />,
     },
     {
       label: "Product Management",
-      href: ROUTES.softwareDev.root,
+      href: ROUTES.architectureConsulting.productManagement,
       icon: <ChecklistIcon />,
     },
     {
       label: "Product Ownership",
-      href: ROUTES.softwareDev.root,
+      href: ROUTES.architectureConsulting.productOwnership,
       icon: <StarIcon />,
     },
     {
       label: "Database Design & Development",
-      href: ROUTES.softwareDev.root,
+      href: ROUTES.architectureConsulting.databaseDesign,
       icon: <PencilIcon />,
     },
     {
       label: "Code Audits",
-      href: ROUTES.softwareDev.root,
+      href: ROUTES.architectureConsulting.codeAudits,
       icon: <CodeAiIcon />,
     },
   ],

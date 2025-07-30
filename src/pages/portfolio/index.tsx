@@ -18,7 +18,13 @@ export default function PortfolioPage() {
         pathname={ROUTES.industries}
       />
       <Layout talkToUs={false} faq={false}>
-        <Hero data={data.hero} heroImg={HeroImg} backgroundKey="grey" />
+        <Hero
+          data={data.hero}
+          heroImg={HeroImg}
+          backgroundKey="grey"
+          isDynamicImage
+          textContainerClassName={s.textContainer}
+        />
 
         <div className={s.lastSection}>
           <GridPorfolio />

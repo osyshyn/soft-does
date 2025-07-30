@@ -4,7 +4,8 @@ import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
-import { Hero } from "@sections/hero_bg/hero";
+// import { Hero } from "@sections/hero_bg/hero";
+import { Hero } from "@sections/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { Testimonials } from "@sections/testimonials/testimonials";
@@ -25,12 +26,14 @@ export default function UserID() {
         <Hero
           data={data.hero}
           heroImg={HeroObj}
-          imgStyles={{ bottom: "0", right: "8%", width: "37%" }}
-          bgImg="heroBg_userID.png"
-          bgStyles={{
-            backgroundPosition: "bottom right",
-            backgroundSize: "80% 90%",
-          }}
+          // imgStyles={{ bottom: "0", right: "8%", width: "37%" }}
+          // bgImg="heroBg_userID.png"
+          // bgStyles={{
+          //   backgroundPosition: "bottom right",
+          //   backgroundSize: "80% 90%",
+          // }}
+          backgroundKey="uiUxUserID"
+          isDynamicImage={false}
         />
         <Results />
         <Technologies />

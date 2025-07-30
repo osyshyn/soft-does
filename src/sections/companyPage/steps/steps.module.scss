@@ -3,127 +3,331 @@
 .root {
   @include fontJetBrains;
   color: white;
-  padding: 0 160px 180px 160px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding-bottom: 180px;
+  // width: 100%;
 
   position: relative;
 
   h2 {
     font-weight: 300;
-    font-size: 120px;
+
+    font-size: 32px;
     line-height: 90%;
     letter-spacing: -0.08em;
     text-transform: uppercase;
     text-align: center;
 
-    margin-bottom: 200px;
-    max-width: 1516px;
+    margin-bottom: 50px;
+    max-width: 100%;
+
+    @include media("tablet") {
+      font-size: 48px;
+    }
+
+    @include media("laptop") {
+      font-size: 120px;
+      margin-bottom: 200px;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.steps {
+  @include fontJetBrains;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.08em;
+  color: rgba(255, 255, 255, 0.6);
+
+  position: absolute;
+  z-index: 200;
+  top: 0;
+  height: 100%;
+  left: 50%;
+
+  display: none;
+
+  @include media("laptop") {
+    display: block;
+    font-size: 24px;
+  }
+
+  li {
+    margin-bottom: 534px;
+    padding: 8px 28px;
+
+    background: black;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    transform: translate(-50%, -50%);
+  }
+
+  & li:first-child {
+    transform: translate(-50%, -100%);
+  }
+
+  & li:nth-child(4) {
+    transform: translate(-50%, 0%);
+  }
+  & li:nth-child(5) {
+    transform: translate(-50%, 50%);
+  }
+}
+
+.block {
+  width: 100%;
+  flex: 1 1 50%;
+}
+
+.leftBlock {
+  width: 100%;
+  flex: 1 1 50%;
+  order: 2;
+}
+
+.rightBlock {
+  width: 100%;
+  flex: 1 1 50%;
+  order: 1;
+}
+
+@include media("tabletVertical") {
+  .mainList li .leftBlock {
+    order: unset;
+  }
+
+  .mainList li .rightBlock {
+    order: unset;
   }
 }
 
 .mainList {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 210px;
+  gap: 40px;
+
+  .block {
+    width: 100%;
+    flex: 1 1 50%;
+  }
+
+  @include media("laptop") {
+    gap: 210px;
+  }
 
   & > li {
-    width: 1600px;
+    width: 95%;
+    max-width: 100%;
     display: flex;
-    gap: 230px;
-  }
+    flex-direction: column;
+    gap: 24px;
 
-  & li:nth-child(2) .info {
-    height: 227px;
-  }
-  & li:nth-child(3) .info {
-    height: 248px;
-  }
-  & li:nth-child(4) {
-    justify-content: flex-end;
+    @include media("tabletVertical") {
+      flex-direction: row;
+      gap: 40px;
+      padding: 0 20px;
+      max-width: calc(100vw - 40px);
+      box-sizing: border-box;
+    }
 
-    @include media(desktop) {
-      .info {
-        width: 671px;
-      }
+    @include media("laptop") {
+      max-width: 1600px;
+      width: 100%;
+      gap: 230px;
+      justify-content: unset;
+      padding: 0;
     }
   }
-  & li:nth-child(5) {
-    .info {
+
+  // Laptop+: Restore original alternating layout
+  @include media("laptop") {
+    // Original alternating pattern
+    & li:nth-child(2) .info {
+      height: 227px;
+    }
+    & li:nth-child(3) .info {
+      height: 248px;
+    }
+    & li:nth-child(4) {
+      justify-content: flex-end;
+
+      .info {
+        // width: 671px;
+      }
+    }
+    & li:nth-child(5) .info {
       height: 292px;
+    }
+
+    & > li .details .date {
+      align-self: flex-end;
+    }
+
+    & > li:nth-child(odd) .details .date {
+      align-self: flex-start;
     }
   }
 
   .info {
+    flex: 1;
     box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
-    padding: 40px;
-    width: 697px;
-    min-height: 227px;
+    padding: 24px;
+    width: 100%;
+    min-height: auto;
 
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid #333333;
 
+    @include media("tabletVertical") {
+      flex: 1;
+      padding: 32px;
+    }
+
+    @include media("laptop") {
+      padding: 40px;
+      min-height: 227px;
+      flex: unset;
+    }
+
     h3 {
       font-weight: 200;
-      font-size: 32px;
+      font-size: 24px;
       line-height: 110%;
       letter-spacing: -0.08em;
       text-transform: uppercase;
 
-      margin-bottom: 24px;
+      margin-bottom: 16px;
+
+      @include media("laptop") {
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
     }
   }
 
   .details {
+    flex: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 48px;
+    justify-content: flex-start;
+    gap: 24px;
+    margin-top: 0;
+
+    @include media("tabletVertical") {
+      gap: 32px;
+      min-width: 280px;
+      flex-shrink: 0;
+    }
+
+    @include media("laptop") {
+      justify-content: center;
+      gap: 40px;
+      margin-top: 48px;
+      min-width: unset;
+    }
 
     .date {
       font-weight: 400;
-      font-size: 20px;
+      font-size: 16px;
       line-height: 150%;
       letter-spacing: -0.08em;
       color: rgba(255, 255, 255, 0.6);
       text-align: center;
 
-      padding: 24px 32px;
+      padding: 16px 24px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid #333333;
 
       width: max-content;
-    }
+      // align-self: flex-start;
+      position: relative;
 
-    &:nth-child(odd) .date {
-      align-self: flex-end;
+      // Mobile/Tablet: Add connecting line to timeline
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   right: 100%;
+      //   top: 50%;
+      //   transform: translateY(-50%);
+      //   width: 24px;
+      //   height: 2px;
+      //   background-color: #cfec57;
+      // }
+
+      @include media("tabletVertical") {
+        font-size: 18px;
+        padding: 20px 28px;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      @include media("laptop") {
+        font-size: 20px;
+        padding: 24px 32px;
+        // align-self: auto;
+
+        &::before {
+          display: none;
+        }
+      }
     }
 
     .tools {
-      padding: 24px;
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      padding: 16px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid #333333;
 
+      @include media("laptop") {
+        padding: 24px;
+      }
+
       & ul {
         display: flex;
-        gap: 24px;
+        gap: 16px;
+        flex-wrap: wrap;
+
+        @include media("laptop") {
+          gap: 24px;
+          flex-wrap: nowrap;
+        }
 
         & li {
           display: flex;
           justify-content: center;
           align-items: center;
 
-          width: 80px;
-          height: 80px;
+          width: 60px;
+          height: 60px;
           background: #131316;
           border: 1px solid #232329;
+
+          @include media("laptop") {
+            width: 80px;
+            height: 80px;
+          }
 
           &:nth-child(odd) img {
             width: 100%;
@@ -136,26 +340,63 @@
     .detailsTitle {
       @include fontAbel;
       font-weight: 400;
-      font-size: 20px;
+      font-size: 16px;
       line-height: 140%;
       color: rgba(255, 255, 255, 0.6);
+
+      @include media("laptop") {
+        font-size: 20px;
+      }
     }
 
     &:nth-child(even) .detailsTitle {
-      margin-bottom: 12px;
+      margin-bottom: 8px;
+
+      @include media("laptop") {
+        margin-bottom: 12px;
+      }
     }
 
     .devices {
       display: flex;
-      gap: 24px;
-      padding: 32px;
+      gap: 16px;
+      padding: 24px;
+      justify-content: center;
+      flex-direction: row;
 
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid #333333;
+
+      li {
+        width: 100%;
+        height: 200px;
+        position: relative;
+
+        img {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      @include media("desktop") {
+        li {
+          width: 100%;
+          height: 171px;
+        }
+      }
+
+      @include media("laptop") {
+        flex-direction: row;
+        gap: 24px;
+        padding: 32px;
+      }
     }
 
     .frame img {
-      max-width: 592px;
+      max-width: 100%;
+      width: 100%;
       height: auto;
     }
 
@@ -163,11 +404,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 68px;
-      padding: 32px;
+      gap: 24px;
+      padding: 24px;
+      flex-direction: column;
 
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid #333333;
+
+      @include media("laptop") {
+        flex-direction: row;
+        gap: 68px;
+        padding: 32px;
+      }
 
       .aiIcon {
         display: flex;
@@ -177,45 +425,72 @@
     }
 
     .statsDiv {
-      padding: 32px 32px 40px 32px;
+      padding: 24px;
 
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid #333333;
 
       text-align: center;
 
+      @include media("laptop") {
+        padding: 32px 32px 40px 32px;
+      }
+
       h3 {
         @include fontAbel;
         font-weight: 400;
-        font-size: 20px;
+        font-size: 16px;
         line-height: 140%;
         color: rgba(255, 255, 255, 0.6);
 
-        margin-bottom: 16px;
+        margin-bottom: 12px;
+
+        @include media("laptop") {
+          font-size: 20px;
+          margin-bottom: 16px;
+        }
       }
 
       .stats {
         display: flex;
-        gap: 24px;
+        gap: 16px;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        @include media("tabletVertical") {
+          flex-direction: row;
+          gap: 20px;
+        }
 
         li {
+          flex: 1 1 calc(33.333% - 10px);
           box-sizing: border-box;
 
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 16px;
+          gap: 12px;
 
-          padding: 28px;
-          width: 195px;
+          padding: 16px;
+          width: 100%;
           background: #131316;
+
+          @include media("tabletVertical") {
+            gap: 16px;
+            padding: 20px;
+            width: 195px;
+          }
 
           p:nth-child(1) {
             font-weight: 400;
-            font-size: 40px;
+            font-size: 32px;
             line-height: 150%;
             text-align: right;
             letter-spacing: -0.08em;
+
+            @include media("laptop") {
+              font-size: 40px;
+            }
 
             span {
               color: #cfec57;
@@ -225,9 +500,19 @@
           p:nth-child(2) {
             @include fontAbel;
             font-weight: 400;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 140%;
             color: rgba(255, 255, 255, 0.6);
+
+            @include media("laptop") {
+              font-size: 18px;
+            }
+          }
+        }
+
+        @include media("desktop") {
+          li {
+            flex: 1 1 calc(33.333% - 16px);
           }
         }
       }
@@ -238,17 +523,85 @@
 .textDiv {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 24px;
+
+  @include media("laptop") {
+    gap: 40px;
+  }
 
   .text {
     @include fontAbel;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 140%;
     color: rgba(255, 255, 255, 0.6);
 
-    &:nth-child(2) {
-      margin-bottom: 22px;
+    @include media("laptop") {
+      font-size: 16px;
     }
+
+    &:nth-child(2) {
+      margin-bottom: 16px;
+
+      @include media("laptop") {
+        margin-bottom: 22px;
+      }
+    }
+  }
+}
+
+.timelineWrapper {
+  position: relative;
+  padding-left: 10px;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include media("tabletVertical") {
+    padding-left: 0;
+  }
+
+  @include media("laptop") {
+    padding-left: 0;
+  }
+}
+
+.timelineBase {
+  position: absolute;
+  left: 0px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #222;
+  z-index: 1;
+
+  @include media("tabletVertical") {
+    display: none;
+  }
+
+  @include media("laptop") {
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timelineFill {
+  position: absolute;
+  left: 0px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #cfec57;
+  transform-origin: top;
+  z-index: 2;
+
+  @include media("tabletVertical") {
+    display: none;
+  }
+
+  @include media("laptop") {
+    display: block;
+    left: calc(50% - 1px);
+    transform: translateX(-50%);
   }
 }
