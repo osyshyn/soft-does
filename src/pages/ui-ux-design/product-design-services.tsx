@@ -4,7 +4,8 @@ import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
-import { Hero } from "@sections/hero_bg/hero";
+// import { Hero } from "@sections/hero_bg/hero";
+import { Hero } from "@sections/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { Testimonials } from "@sections/testimonials/testimonials";
@@ -25,13 +26,7 @@ export default function ProductDS() {
         <Hero
           data={data.hero}
           heroImg={HeroObj}
-          imgStyles={{ bottom: "5%", right: "4%", width: "45%" }}
-          isStaticImage={false}
-          bgImg="heroBg_productDS.png"
-          bgStyles={{
-            backgroundPosition: "bottom",
-            backgroundSize: "100% 90%",
-          }}
+          backgroundKey="uiUxProductDS"
         />
         <Results />
         <Technologies />

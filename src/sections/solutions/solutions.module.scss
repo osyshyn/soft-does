@@ -85,7 +85,7 @@
     .list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 30px;
+      gap: 20px;
 
       @include media(tabletVertical) {
         grid-template-columns: 1fr 1fr;
@@ -93,6 +93,7 @@
 
       @include media(laptop) {
         grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
       }
 
       .firstCell {
@@ -191,5 +192,36 @@
         }
       }
     }
+  }
+
+  .servicesList {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    @include media(tabletVertical) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media(laptop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.desktopList {
+  display: none;
+
+  @include media(tabletVertical) {
+    display: block;
+  }
+}
+
+.mobileList {
+  display: block;
+
+  @include media(tabletVertical) {
+    display: none;
   }
 }

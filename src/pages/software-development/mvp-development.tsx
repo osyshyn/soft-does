@@ -1,7 +1,9 @@
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 
-import { Hero } from "@sections/softwareServices/mvpDev/hero/hero";
+// import { Hero } from "@sections/softwareServices/mvpDev/hero/hero";
+import HeroImage from "@assets/images/softwareServices/heroMVPDev_object.png";
+import { Hero } from "@sections/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { Testimonials } from "@sections/testimonials/testimonials";
@@ -19,7 +21,15 @@ export default function MvpDev() {
         pathname={ROUTES.softwareDev.mvpDev}
       />
       <Layout>
-        <Hero />
+        <Hero
+          heroImg={HeroImage}
+          data={{
+            title: "MVP Development",
+            tagText: "Designs that captivate, experiences that deliver.",
+            btnText: "Contact us",
+          }}
+          backgroundKey="mvpDev"
+        />
         <Results />
         <Technologies />
         <Testimonials />

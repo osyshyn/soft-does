@@ -14,7 +14,9 @@ import data from "@shared/texts/ui-ux-design/index.json";
 import { User, Interface, Light } from "@assets/icons/services/uiux/icons";
 import { ServicesList } from "@sections/services-list/services-list";
 
-import HeroImg from "@assets/images/uiux/hero.png";
+import s from "./ui-ux-design.module.scss";
+
+import HeroImg from "@assets/images/uiux/heroObject1.png";
 
 const content = [
   {
@@ -46,7 +48,14 @@ export default function Uiux() {
         pathname={ROUTES.uiUxDesign.root}
       />
       <Layout>
-        <Hero data={data.hero} heroImg={HeroImg} backgroundKey="uiux" />
+        <Hero
+          data={data.hero}
+          heroImg={HeroImg}
+          backgroundKey="uiux"
+          isDynamicImage
+          textContainerClassName={s.textContainer}
+          heroImgClassName={s.heroImg}
+        />
         <Results />
         <Technologies />
         <div className="sectionWrapper">

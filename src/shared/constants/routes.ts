@@ -25,6 +25,8 @@ export const ROUTES = {
     mobileAppDev: "mobile-app-development",
     webAppDev: "web-app-development",
     mvpDev: "mvp-development",
+    productDev: "product-development",
+    apiIntegration: "api-integration-services",
   }),
 
   aiAndMl: createRouteGroup("/ai-and-ml", {
@@ -53,6 +55,16 @@ export const ROUTES = {
     dataAnalytics: "data-analytics-solutions",
     enterpriseData: "enterprise-data-management",
     dataStrategy: "data-strategy-and-governance",
+  }),
+
+  architectureConsulting: createRouteGroup("/architecture-consulting", {
+    businessAnalytics: "business-analytics",
+    digitalTransformation: "digital-transformation",
+    codeAudits: "code-audits",
+    productManagement: "product-management",
+    productOwnership: "product-ownership",
+    itConsulting: "it-consulting",
+    databaseDesign: "database-design-and-development",
   }),
 
   services: "/services",

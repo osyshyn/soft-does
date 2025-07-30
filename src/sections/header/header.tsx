@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import s from "./Header.module.scss";
 import Link from "next/link";
@@ -62,7 +63,7 @@ export default function Header({ posts, isLanding }: HeaderProps) {
   };
 
   return (
-    <header className={clsx(s.wrapper, "wrapper")} id="header">
+    <header id="header" className={clsx(s.wrapper, "wrapper")}>
       <div
         className={clsx(s.main, isMenuOpen && s.main_open, "container")}
         id="header"
