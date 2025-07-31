@@ -10,21 +10,22 @@
 }
 
 .heroImg {
-  bottom: -11%;
+  bottom: 0%;
+  max-width: 800px;
+  right: 53%;
 
   @include media("tablet") {
     transform: translate(0%, 0%);
-    max-width: 700px;
     right: -10%;
-  }
-
-  @include media("laptop") {
-    max-width: 700px;
     bottom: 55%;
     transform: translate(0%, 50%);
   }
 
+  @include media("laptop") {
+    max-width: 700px;
+  }
+
   @include media("desktop") {
-    max-width: 900px;
+    max-width: 1000px;
   }
 }

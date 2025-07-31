@@ -22,8 +22,7 @@ const HeroText = ({
         <Kansas />
       </div>
       <h1 className={s.title}>
-        {titleSpan && <span>{titleSpan}</span>}
-        {title}
+        {titleSpan && <span>{titleSpan}</span>} {title}
       </h1>
       <p className={s.tagText}>{text}</p>
       <div>

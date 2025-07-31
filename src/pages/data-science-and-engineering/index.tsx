@@ -76,7 +76,10 @@ export default function DSE() {
             href={ROUTES.dataScnAndEngnrng.root}
           />
         </div>
-        <CaseStudies />
+
+        <div className="sectionWrapper">
+          <CaseStudies />
+        </div>
         <Engagement />
         <Solutions />
       </Layout>

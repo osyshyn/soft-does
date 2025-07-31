@@ -7,6 +7,8 @@ import ApiIntegrationBg from "@assets/images/softwareServices/apiIntegrationServ
 import ProductDSBg from "@assets/images/uiux/uiuxServices/productDS_wave.png";
 import UserIdBg from "@assets/images/uiux/uiuxServices/userID_wave.png";
 import ArchitectureConsultingBg from "@assets/images/architecture-consulting/hero_wave.png";
+import AiDevBg from "@assets/images/aiml/aimlServices/aiDev_wave.png";
+import CaiSolutionsBg from "@assets/images/aiml/aimlServices/caiSolutions_wave.png";
 
 export const BACKGROUND_PRESETS = {
   black: `linear-gradient(180deg, #161D25 0%, #161D25 100%)`,
@@ -91,4 +93,6 @@ export const BACKGROUND_PRESETS = {
   uiUxProductDS: `url(${ProductDSBg.src})`,
   uiUxUserID: `url(${UserIdBg.src})`,
   architectureConsulting: `url(${ArchitectureConsultingBg.src})`,
+  aiDev: `url(${AiDevBg.src})`,
+  caiSolutions: `url(${CaiSolutionsBg.src})`,
 } as const;

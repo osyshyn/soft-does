@@ -1,14 +1,13 @@
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 
-// import { Hero } from "@sections/companyPage/hero/hero";
 import { Hero } from "@sections/hero/hero";
 import { Results } from "@sections/companyPage/results/results";
 import { Stats } from "@sections/companyPage/stats/stats";
 import { Steps } from "@sections/companyPage/steps/steps";
 
 import HeroImage from "@assets/images/company/hero.png";
-import data from "@shared/texts/industries/index.json";
+import data from "@shared/texts/company/index.json";
 
 import s from "./company.module.scss";
 
@@ -28,7 +27,9 @@ export default function Company() {
             data={data.hero}
             heroImg={HeroImage}
             backgroundKey="turquoise"
-            heroImgClassName={s.heroImage}
+            heroImgClassName={s.heroImg}
+            textContainerClassName={s.textContainer}
+            isDynamicImage
           />
         </div>
 

@@ -5,26 +5,28 @@
   width: 100%;
 
   @include media("tablet") {
-    max-width: 850px;
+    max-width: 900px;
   }
 }
 
 .heroImg {
-  bottom: -11%;
+  bottom: -10%;
+  max-width: 500px;
 
   @include media("tablet") {
     transform: translate(0%, 0%);
-    max-width: 700px;
-    right: -10%;
+    right: -2%;
   }
 
   @include media("laptop") {
     max-width: 700px;
-    bottom: 55%;
+    right: -8%;
     transform: translate(0%, 50%);
+    bottom: 45%;
   }
 
   @include media("desktop") {
-    max-width: 900px;
+    bottom: 50%;
+    max-width: 800px;
   }
 }

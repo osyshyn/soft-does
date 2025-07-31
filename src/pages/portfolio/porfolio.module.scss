@@ -13,3 +13,23 @@
 .textContainer {
   max-width: 800px;
 }
+
+.heroImg {
+  bottom: 0%;
+  max-width: 600px;
+
+  @include media("tablet") {
+    max-width: 600px;
+    transform: translate(0%, 0%);
+    right: 0%;
+  }
+
+  @include media("laptop") {
+    bottom: 50%;
+    transform: translate(0%, 50%);
+  }
+
+  @include media("desktop") {
+    max-width: 700px;
+  }
+}
