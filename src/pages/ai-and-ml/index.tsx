@@ -22,6 +22,7 @@ import {
   CaiSolutions,
 } from "@assets/icons/services/ai-and-ml/icons";
 import { ServicesList } from "@sections/services-list/services-list";
+import s from "./ai-and-ml.module.scss";
 
 const content = [
   {
@@ -65,13 +66,25 @@ export default function Aiml() {
         pathname={ROUTES.aiAndMl.root}
       />
       <Layout>
-        <Hero data={data.hero} heroImg={HeroImage} backgroundKey="aiml" />
+        <Hero
+          data={data.hero}
+          heroImg={HeroImage}
+          backgroundKey="aiml"
+          textContainerClassName={s.textContainer}
+          heroImgClassName={s.heroImg}
+          isDynamicImage
+        />
 
         <Results />
         <Technologies />
 
-        <ServicesList services={content} href={ROUTES.aiAndMl.root} />
-        <CaseStudies />
+        <div className="sectionWrapper">
+          <ServicesList services={content} href={ROUTES.aiAndMl.root} />
+        </div>
+
+        <div className="sectionWrapper">
+          <CaseStudies />
+        </div>
         <Engagement />
         <Solutions />
       </Layout>

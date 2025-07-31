@@ -89,6 +89,7 @@ export default function DSE() {
           textContainerClassName={s.textContainer}
           heroImgClassName={s.heroImg}
         />
+
         <Results />
         <Technologies />
         <div className="sectionWrapper">
@@ -97,7 +98,10 @@ export default function DSE() {
             href={ROUTES.dataScnAndEngnrng.root}
           />
         </div>
-        <CaseStudies />
+
+        <div className="sectionWrapper">
+          <CaseStudies />
+        </div>
         <Engagement />
         <Solutions />
       </Layout>

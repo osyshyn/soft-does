@@ -1,7 +1,33 @@
-@import "@styles/mixins";
+@import "@styles/_mixins.scss";
 
-.heroImage {
-  @include media("laptop") {
+.textContainer {
+  max-width: none;
+  width: 100%;
+
+  @include media("tablet") {
+    max-width: 850px;
+  }
+}
+
+.heroImg {
+  bottom: 0%;
+  max-width: 500px;
+
+  @include media("tablet") {
+    transform: translate(0%, 0%);
+    right: -0%;
+  }
+
+  @include media("tabletVertical") {
     max-width: 600px;
+  }
+
+  @include media("laptop") {
+    max-width: 650px;
+    bottom: 50%;
+    transform: translate(0%, 50%);
+  }
+
+  @include media("desktop") {
   }
 }

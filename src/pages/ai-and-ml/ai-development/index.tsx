@@ -1,8 +1,9 @@
+import data from "@shared/texts/aiml/aiDev.json";
+
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
+import Layout from "@shared/components/layout/layout";
 
-// import { Hero } from "@sections/softwareServices/mvpDev/hero/hero";
-import HeroImage from "@assets/images/softwareServices/heroMVPDev_object.png";
 import { Hero } from "@sections/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";
@@ -10,25 +11,25 @@ import { Testimonials } from "@sections/testimonials/testimonials";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
 
-import Layout from "@shared/components/layout/layout";
+import HeroObj from "@assets/images/aiml/aimlServices/heroObject_aiDev.png";
+import s from "./ai-development.module.scss";
 
-export default function MvpDev() {
+export default function AiDev() {
   return (
     <>
       <SEO
         title="SOFT DOES"
         description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.softwareDev.mvpDev}
+        pathname={ROUTES.aiAndMl.aiDev}
       />
       <Layout>
         <Hero
-          heroImg={HeroImage}
-          data={{
-            title: "MVP Development",
-            tagText: "Designs that captivate, experiences that deliver.",
-            btnText: "Contact us",
-          }}
-          backgroundKey="mvpDev"
+          data={data.hero}
+          heroImg={HeroObj}
+          isDynamicImage
+          heroImgClassName={s.heroImg}
+          textContainerClassName={s.textContainer}
+          backgroundKey="aiDev"
         />
         <Results />
         <Technologies />

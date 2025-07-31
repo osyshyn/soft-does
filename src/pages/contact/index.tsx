@@ -8,6 +8,7 @@ import { Hero } from "@sections/hero/hero";
 import { Contacts } from "@sections/contactPage/contacts";
 
 import HeroImg from "@assets/images/contact/hero.png";
+import s from "./contact.module.scss";
 
 export default function ContactPage() {
   return (
@@ -22,7 +23,9 @@ export default function ContactPage() {
           data={data.hero}
           heroImg={HeroImg}
           backgroundKey="turquoise"
-          isDynamicImage={true}
+          isDynamicImage
+          heroImgClassName={s.heroImg}
+          textContainerClassName={s.textContainer}
         />
         <Contacts data={data.contacts} />
       </Layout>

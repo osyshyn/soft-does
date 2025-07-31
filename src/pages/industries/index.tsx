@@ -11,6 +11,8 @@ import Layout from "@shared/components/layout/layout";
 import data from "@shared/texts/industries/index.json";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 
+import s from "./industries.module.scss";
+
 export default function IndustriesPage() {
   return (
     <>
@@ -20,12 +22,22 @@ export default function IndustriesPage() {
         pathname={ROUTES.industries}
       />
       <Layout>
-        <Hero data={data.hero} heroImg={HeroImg} backgroundKey="pink" />
+        <Hero
+          data={data.hero}
+          heroImg={HeroImg}
+          backgroundKey="pink"
+          isDynamicImage
+          heroImgClassName={s.heroImg}
+          textContainerClassName={s.textContainer}
+        />
         <Industries />
         <Solutions />
         <Testimonials />
         <Engagement />
-        <Portfolio />
+
+        <div className="sectionWrapper">
+          <Portfolio />
+        </div>
       </Layout>
     </>
   );

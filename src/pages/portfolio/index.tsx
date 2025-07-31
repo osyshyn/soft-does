@@ -24,6 +24,7 @@ export default function PortfolioPage() {
           backgroundKey="grey"
           isDynamicImage
           textContainerClassName={s.textContainer}
+          heroImgClassName={s.heroImg}
         />
 
         <div className={s.lastSection}>
