@@ -80,7 +80,6 @@ export const Releases = ({ posts }: ReleasesProps) => {
               const mainPosts = posts.slice(0, 4);
               const hasMore = posts.length > 4;
 
-              // !!! Ось тут беремо id категорії з першого поста цієї категорії:
               const categoryId = posts[0]?.category?.id || "unknown";
 
               return (

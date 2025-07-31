@@ -11,15 +11,41 @@ interface Comment {
   text: string;
 }
 
+interface IButton {
+    id: string;
+    title: string;
+    url: string;
+}
+
+interface IStep {
+    id: string;
+    stepNumber?: string | number;
+    stepTitle?: string;
+    stepDescription?: string;
+}
+
+interface IHeroCarousel {
+    id: string;
+    image: any;
+    url: string;
+}
+
 export interface IPost extends Document {
   _id: string;
   author: string;
   authorPosition: string;
   title: string;
   heroDescription: string;
+  heroButton1: IButton;
+  heroButton2: IButton;
+  heroCarousel: IHeroCarousel[];
   introduction: string;
+  stepTitle: string;
+  steps: IStep[];
   sections: Section[];
   comments: Comment[];
+  sidebarContactTitle: string;
+  sidebarContactButton: IButton;
   imagePreviewUrl?: string;
   imageAuthorUrl?: string;
   imageUrl?: string;

@@ -41,22 +41,6 @@ export const fetchBlog = async () => {
             };
         }
 
-        let heroImages = null;
-        if (item.fields.heroImages && Array.isArray(item.fields.heroImages)) {
-            heroImages = item.fields.heroImages
-                .map((ref: any) =>
-                    assetMap[ref.sys.id]
-                        ? {
-                            sys: { id: assetMap[ref.sys.id].sys.id },
-                            url: assetMap[ref.sys.id].fields.file.url,
-                            title: assetMap[ref.sys.id].fields.title || null,
-                            description: assetMap[ref.sys.id].fields.description || null,
-                        }
-                        : null
-                )
-                .filter(Boolean);
-        }
-
         let steps = null;
         if (item.fields.steps && Array.isArray(item.fields.steps)) {
             steps = item.fields.steps
@@ -83,7 +67,6 @@ export const fetchBlog = async () => {
             readMoreLabel: item.fields.readMoreLabel || null,
             heroTitle: item.fields.heroTitle || null,
             heroDescription: item.fields.heroDescription || null,
-            heroImages,
             stepTitle: item.fields.stepTitle || null,
             steps,
             postContent: item.fields.postContent || null,
@@ -108,10 +91,9 @@ export const fetchPostsByCategory = async (categoryId: string, limit = 6, skip =
         order: ['-sys.createdAt'],
         limit,
         skip,
-        include: 2, // include, щоб витягти зв’язані entry
+        include: 2,
     });
 
-    // Entry мап для швидкого доступу по id
     const entryMap = Object.fromEntries(
         (entries.includes?.Entry || []).map((e: any) => [e.sys.id, e])
     );
@@ -122,7 +104,6 @@ export const fetchPostsByCategory = async (categoryId: string, limit = 6, skip =
     return {
         total: entries.total,
         posts: entries.items.map((item: any) => {
-            // !!! Використовуй postAuthor:
             let author = null;
             if (item.fields.postAuthor && entryMap[item.fields.postAuthor.sys.id]) {
                 const authorEntry = entryMap[item.fields.postAuthor.sys.id];
@@ -134,8 +115,8 @@ export const fetchPostsByCategory = async (categoryId: string, limit = 6, skip =
             }
             return {
                 sys: { id: item.sys.id },
-                title: item.fields.heroTitle || '', // або item.fields.title
-                description: item.fields.heroDescription || '', // або item.fields.description
+                title: item.fields.heroTitle || '',
+                description: item.fields.heroDescription || '',
                 image: item.fields.mainImage && assetMap[item.fields.mainImage.sys.id]
                     ? { url: assetMap[item.fields.mainImage.sys.id].fields.file.url }
                     : undefined,
@@ -155,11 +136,9 @@ export const fetchFullBlogPostList = async (postId?: string) => {
     }
     const entries = await client.getEntries(query);
 
-    // Створюємо мапи для assets та entries для розгортання reference-полів
     const entryMap = Object.fromEntries((entries.includes?.Entry || []).map(e => [e.sys.id, e]));
     const assetMap = Object.fromEntries((entries.includes?.Asset || []).map(a => [a.sys.id, a]));
 
-    // Хелпери для розгортання референсів та медіа
     const getAsset = (ref: any) => {
         const asset = ref && assetMap[ref.sys.id];
         if (!asset || !asset.fields || !asset.fields.file || !asset.fields.file.url) return null;
@@ -184,11 +163,9 @@ export const fetchFullBlogPostList = async (postId?: string) => {
         ? arr.map(getEntry).filter(Boolean)
         : [];
 
-    // Мапимо всі поля
     return entries.items.map((item: any) => {
         const f = item.fields;
 
-        // Витягуємо автора через postAuthor (як і в інших функціях)
         let author = null;
         if (f.postAuthor && entryMap[f.postAuthor.sys.id]) {
             const authorEntry = entryMap[f.postAuthor.sys.id];
@@ -196,10 +173,12 @@ export const fetchFullBlogPostList = async (postId?: string) => {
                 id: authorEntry.sys.id,
                 authorName: authorEntry.fields.authorName,
                 authorRole: authorEntry.fields.authorRole || null,
+                authorAvatar: authorEntry.fields.authorAvatar
+                    ? getAsset(authorEntry.fields.authorAvatar)
+                    : null,
             };
         }
 
-        // Витягуємо category
         let category = null;
         if (f.category && entryMap[f.category.sys.id]) {
             const catEntry = entryMap[f.category.sys.id];
@@ -208,6 +187,45 @@ export const fetchFullBlogPostList = async (postId?: string) => {
                 name: catEntry.fields.name,
             };
         }
+
+        const getButton = (ref: any) => {
+            const entry = ref && ref.sys && entryMap[ref.sys.id];
+            return entry ? {
+                id: entry.sys.id,
+                title: entry.fields.title,
+                url: entry.fields.url || null,
+            } : null;
+        };
+
+        const getStep = (ref: any) => {
+            const entry = ref && ref.sys && entryMap[ref.sys.id];
+            return entry ? {
+                id: entry.sys.id,
+                stepNumber: entry.fields.stepNumber,
+                stepTitle: entry.fields.stepTitle,
+                stepDescription: entry.fields.stepDescription,
+            } : null;
+        };
+
+        let comments = [];
+        if (Array.isArray(f.comments)) {
+            comments = f.comments
+                .map(ref => {
+                    const entry = ref && ref.sys && entryMap[ref.sys.id];
+                    if (!entry) return null;
+                    return {
+                        id: entry.sys.id,
+                        authorName: entry.fields.authorName,
+                        authorAvatar: entry.fields.authorAvatar
+                            ? getAsset(entry.fields.authorAvatar)
+                            : null,
+                        createdAt: entry.fields.createdAt,
+                        commentText: entry.fields.commentText,
+                    };
+                })
+                .filter(Boolean);
+        }
+
 
         return {
             id: item.sys.id,
@@ -219,12 +237,43 @@ export const fetchFullBlogPostList = async (postId?: string) => {
             readMoreLabel: f.readMoreLabel ?? null,
             title: f.heroTitle ?? null,
             heroDescription: item.fields.heroDescription || null,
-            heroImages: getAssets(f.heroImages),
+            heroButton1: getButton(f.heroButton1),
+            heroButton2: getButton(f.heroButton2),
+            heroCarousel: Array.isArray(f.heroCarousel)
+                ? f.heroCarousel.map(ref => {
+                    const entry = ref && ref.sys && entryMap[ref.sys.id];
+                    if (!entry) return null;
+                    return {
+                        id: entry.sys.id,
+                        image: entry.fields.image && assetMap[entry.fields.image.sys?.id]
+                            ? {
+                                url: assetMap[entry.fields.image.sys.id]?.fields?.file?.url || null,
+                                title: assetMap[entry.fields.image.sys.id]?.fields?.title || null,
+                                description: assetMap[entry.fields.image.sys.id]?.fields?.description || null,
+                            }
+                            : null,
+                        url: entry.fields.url || null,
+                    };
+                }).filter(Boolean)
+                : [],
+
             stepTitle: f.stepTitle ?? null,
-            steps: getEntries(f.steps),
-            postContent: f.postContent ?? null,           // Rich text
-            callToAction: getEntry(f.callToAction),       // Reference
-            comments: getEntries(f.comments),             // References, many
+            steps: Array.isArray(f.steps)
+                ? f.steps.map(ref => {
+                    const entry = ref && ref.sys && entryMap[ref.sys.id];
+                    return entry ? {
+                        id: entry.sys.id,
+                        stepNumber: entry.fields.stepNumber,
+                        stepTitle: entry.fields.stepTitle,
+                        stepDescription: entry.fields.stepDescription,
+                    } : null;
+                }).filter(Boolean)
+                : [],
+            postContent: f.postContent ?? null,
+            callToAction: getEntry(f.callToAction),
+            comments,
+            sidebarContactTitle: f.sidebarContactTitle ?? null,
+            sidebarContactButton: getButton(f.sidebarContactButton),
         };
     });
 };

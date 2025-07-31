@@ -66,6 +66,62 @@
   }
 }
 
+.sliderWrapper {
+  overflow: hidden;
+
+  width: 100%;
+
+  cursor: grab;
+
+  border-radius: 8px;
+
+  margin-bottom: 32px;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  @include media(tabletVertical) {
+    width: 450px;
+  }
+}
+
+.carouselImages {
+  width: 100%;
+  margin: 40px auto 0;
+
+}
+.carousellingLink{
+  width: 100%;
+  height: 100%;
+}
+.swiper {
+  width: 100%;
+  min-height: 200px;
+}
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carouselImage {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+@media (max-width: 768px) {
+  .carouselImages {
+    max-width: 98vw;
+  }
+  .carouselImage {
+    max-height: 180px;
+  }
+}
+
+
 .buttonGreen {
   position: relative;
   overflow: hidden;
