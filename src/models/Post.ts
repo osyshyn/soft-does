@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
+import {IAuthor, IBlogCategory, IBlogComments, IContentfulMedia} from "../types/contentful/BlogPost";
 
 interface Section {
   heading: string;
@@ -32,7 +33,11 @@ interface IHeroCarousel {
 
 export interface IPost extends Document {
   _id: string;
-  author: string;
+  mainImage?: IContentfulMedia | null;
+  author?: IAuthor | null;
+  testimonialText?: Document | string | null;
+  category?: IBlogCategory | null;
+  postContent?: Document | string | null;
   authorPosition: string;
   title: string;
   heroDescription: string;
@@ -43,12 +48,12 @@ export interface IPost extends Document {
   stepTitle: string;
   steps: IStep[];
   sections: Section[];
-  comments: Comment[];
   sidebarContactTitle: string;
   sidebarContactButton: IButton;
   imagePreviewUrl?: string;
   imageAuthorUrl?: string;
   imageUrl?: string;
+    comments?: IBlogComments[] | null;
   createdAt: Date;
   updatedAt: Date;
 }

@@ -51,21 +51,35 @@ export interface IBlogComments {
     createdAt: string;
 }
 
+interface IButton {
+    id: string;
+    title: string;
+    url: string;
+}
+
+interface IHeroCarousel {
+    id: string;
+    image: any;
+    url: string;
+}
+
 export interface IBlogPost {
     id: string;
     mainImage?: IContentfulMedia | null;
     author?: IAuthor | null;
     testimonialText?: Document | string | null;
-    slug?: string;
     category?: IBlogCategory | null;
     readMoreLabel?: string | null;
-    heroTitle?: string | null;
+    title?: string | null;
     heroDescription?: string | null;
-    heroImages?: IContentfulMedia[] | null;
+    heroButton1?: IButton;
+    heroButton2?: IButton;
+    heroCarousel?: IHeroCarousel[]
     stepTitle?: string | null;
     steps?: IBlogSteps[] | null;
     postContent?: Document | string | null;
     callToAction?: IContentfulReference | null;
     comments?: IBlogComments[] | null;
-    // publishedAt?: string | null;
+    sidebarContactTitle?: string;
+    sidebarContactButton?: IButton;
 }

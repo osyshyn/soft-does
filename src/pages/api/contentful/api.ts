@@ -232,7 +232,6 @@ export const fetchFullBlogPostList = async (postId?: string) => {
             mainImage: getAsset(f.mainImage),
             author,
             testimonialText: f.testimonialText ?? null,
-            slug: f.slug ?? null,
             category,
             readMoreLabel: f.readMoreLabel ?? null,
             title: f.heroTitle ?? null,

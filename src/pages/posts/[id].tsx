@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
-import { IPost } from "@models/Post";
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import Link from "next/link";
 
@@ -21,24 +19,12 @@ import s from "./post.module.scss";
 import {useEffect, useRef, useState} from "react";
 import {fetchBlog, fetchFullBlogPostList} from "../api/contentful/api";
 
-interface PostPageProps {
-  post: IPost;
-}
+import getSimilarArticles from "@shared/utils/getSimilarArticles";
+import {IBlogPost} from "../../types/contentful/BlogPost";
 
 const colors = ["#173B91", "#BF81FF", "#D75186"];
 
-function getSimilarArticles(posts, currentId) {
-  const idx = posts.findIndex(p => String(p.id) === String(currentId));
-  if (idx === -1) return posts.slice(0, 2);
-
-  const prev = posts.slice(Math.max(0, idx - 2), idx);
-  const next = posts.slice(idx + 1, idx + 3);
-
-  return [...prev, ...next];
-}
-
-
-export default function PostPage({ post }: PostPageProps) {
+export default function PostPage() {
   const router = useRouter();
   const { id } = router.query;
 
@@ -52,7 +38,7 @@ export default function PostPage({ post }: PostPageProps) {
 
   const ICONS = [Facebook, Tg, Whatsapp, X, Plus];
 
-  const postContent = Array.isArray(posts) && posts[0]?.postContent ? posts[0].postContent : post.postContent;
+  const postContent = Array.isArray(posts) && posts[0]?.postContent
 
   type Heading = { id: string; text: string };
   const headings: Heading[] = [];
@@ -96,26 +82,26 @@ export default function PostPage({ post }: PostPageProps) {
         const idx = postContent.content.findIndex((n: any) => n === node);
         const id = `heading-${idx}`;
         return (
-            <h2
-                className={s.title}
-                id={id}
-                ref={el => headingRefs.current[id] = el}
-            >
-              {children}
-            </h2>
+          <h2
+            className={s.title}
+            id={id}
+            ref={el => { headingRefs.current[id] = el; }}
+          >
+            {children}
+          </h2>
         );
       },
       'heading-3': (node, children) => {
         const idx = postContent.content.findIndex((n: any) => n === node);
         const id = `heading-${idx}`;
         return (
-            <h3
-                className={s.title}
-                id={id}
-                ref={el => headingRefs.current[id] = el}
-            >
-              {children}
-            </h3>
+          <h3
+            className={s.title}
+            id={id}
+            ref={el => { headingRefs.current[id] = el; }}
+          >
+            {children}
+          </h3>
         );
       },
       'paragraph': (node, children) => <p className={s.text}>{children}</p>,
@@ -134,29 +120,30 @@ export default function PostPage({ post }: PostPageProps) {
 
 
 
-  const [allPosts, setAllPosts] = useState([]);
+  const [allPosts, setAllPosts] = useState<IBlogPost[]>([]);
   useEffect(() => {
     fetchBlog().then(setAllPosts);
   }, []);
 
   const filteredPosts = allPosts.filter(p => String(p.id) !== String(id));
-  const similarArticles = getSimilarArticles(filteredPosts, id);
+  const normalizedId = typeof id === 'string' ? id : Array.isArray(id) ? id[0] : '';
+  const similarArticles = getSimilarArticles(filteredPosts, normalizedId);
 
-  const heroButton1 = Array.isArray(posts) && posts[0]?.heroButton1 ? posts[0].heroButton1 : post.heroButton1;
-  const heroButton2 = Array.isArray(posts) && posts[0]?.heroButton2 ? posts[0].heroButton2 : post.heroButton2;
-  const sidebarContactButton = Array.isArray(posts) && posts[0]?.sidebarContactButton ? posts[0].sidebarContactButton : post.sidebarContactButton;
-  const stepTitle = Array.isArray(posts) && posts[0]?.stepTitle ? posts[0].stepTitle : post.stepTitle;
-  const steps = Array.isArray(posts) && posts[0]?.steps ? posts[0].steps : post.steps || [];
-  const carousel = Array.isArray(posts) && posts[0]?.heroCarousel ? posts[0].heroCarousel : post.heroCarousel || [];
+  const heroButton1 = Array.isArray(posts) && posts[0]?.heroButton1 && posts[0].heroButton1;
+  const heroButton2 = Array.isArray(posts) && posts[0]?.heroButton2 && posts[0].heroButton2;
+  const stepTitle = Array.isArray(posts) && posts[0]?.stepTitle && posts[0].stepTitle;
+  const steps = Array.isArray(posts) && posts[0]?.steps && posts[0].steps || [];
+  const carousel = Array.isArray(posts) && posts[0]?.heroCarousel && posts[0].heroCarousel || [];
+  const heroTitle = Array.isArray(posts) && posts[0]?.title && posts[0].title;
+  const heroDescription = Array.isArray(posts) && posts[0]?.heroDescription && posts[0].heroDescription;
 
-  console.log('PostPage steps:', steps);
   return (
     <>
-      <SEO title={post.title} description={post.introduction} pathname={`/posts/${id}`} />
+      <SEO title='' description='' pathname={`/posts/${id}`} />
       <Layout posts={true}>
         <Hero
-            title={Array.isArray(posts) && posts[0]?.title ? posts[0].title : post.title}
-            desc={Array.isArray(posts) && posts[0]?.heroDescription ? posts[0].heroDescription : post.heroDescription}
+            title={heroTitle}
+            desc={heroDescription}
             button1={heroButton1}
             button2={heroButton2}
             carousel={carousel}
@@ -240,14 +227,14 @@ export default function PostPage({ post }: PostPageProps) {
                         />
                         <div>
                           <div>
-                            <h3>{article.author?.authorName || "Unknown Author"}</h3>
-                            <p>{article.author?.authorRole || ""}</p>
+                            <h3>{typeof article.author === 'object' && article.author !== null && 'authorName' in article.author ? article.author.authorName : "Unknown Author"}</h3>
+                            <p>{typeof article.author === 'object' && article.author !== null && 'authorRole' in article.author ? article.author.authorRole : ""}</p>
                           </div>
                           {article.testimonialText && (
                               <p>
                                 {typeof article.testimonialText === "string"
                                     ? article.testimonialText
-                                    : documentToReactComponents(article.testimonialText)}
+                                    : documentToReactComponents(article.testimonialText as any)}
                               </p>
                           )}
                           <Link href={`/posts/${article.id}`}>
@@ -304,20 +291,19 @@ export default function PostPage({ post }: PostPageProps) {
                 </ul>
               </div>
 
-              {(Array.isArray(posts) && posts[0]?.sidebarContactTitle) || post.sidebarContactTitle ? (
+              {(Array.isArray(posts) && posts[0]?.sidebarContactTitle)  ? (
                   <div className={s.sidebarContact}>
                     <p>
                       {Array.isArray(posts) && posts[0]?.sidebarContactTitle
-                          ? posts[0].sidebarContactTitle
-                          : post.sidebarContactTitle}
+                          && posts[0].sidebarContactTitle
+                          }
                     </p>
 
-                    {(Array.isArray(posts) && posts[0]?.sidebarContactButton) || post.sidebarContactButton ? (
+                    {(Array.isArray(posts) && posts[0]?.sidebarContactButton)  ? (
                         (() => {
                           const btn =
                               Array.isArray(posts) && posts[0]?.sidebarContactButton
-                                  ? posts[0].sidebarContactButton
-                                  : post.sidebarContactButton;
+                                  && posts[0].sidebarContactButton
 
                           return btn.url && btn.title ? (
                               <Link href={btn.url}>
@@ -339,40 +325,3 @@ export default function PostPage({ post }: PostPageProps) {
     </>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.params as { id: string };
-
-  return {
-    props: {
-      post: {
-        id,
-        title: "Test Post",
-        introduction: "Test introduction for post with id " + id,
-        sections: [
-          {
-            heading: "Section 1",
-            content: "Section 1 content.\n\nMore text here.",
-          },
-          {
-            heading: "Section 2",
-            content: "Section 2 content.",
-          },
-          {
-            heading: "Section 3",
-            content: "Section 3 content.",
-          },
-        ],
-        comments: [
-          {
-            author: "John Doe",
-            date: "2025-07-29",
-            text: "Great post!",
-          },
-        ],
-        author: "John Doe",
-        authorPosition: "Writer",
-      },
-    },
-  };
-};
