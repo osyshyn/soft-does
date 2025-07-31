@@ -118,8 +118,6 @@ export default function PostPage() {
     return `${day}.${month}.${year}`;
   }
 
-
-
   const [allPosts, setAllPosts] = useState<IBlogPost[]>([]);
   useEffect(() => {
     fetchBlog().then(setAllPosts);
