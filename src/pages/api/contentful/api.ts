@@ -189,7 +189,7 @@ export const fetchFullBlogPostList = async (postId?: string) => {
         let comments = [];
         if (Array.isArray(f.comments)) {
             comments = f.comments
-                .map(ref => {
+                .map((ref: any) => {
                     const entry = ref && ref.sys && entryMap[ref.sys.id];
                     if (!entry) return null;
                     return {
@@ -231,7 +231,7 @@ export const fetchFullBlogPostList = async (postId?: string) => {
             heroButton1: getButton(f.heroButton1),
             heroButton2: getButton(f.heroButton2),
             heroCarousel: Array.isArray(f.heroCarousel)
-                ? f.heroCarousel.map(ref => {
+                ? f.heroCarousel.map((ref: any) => {
                     const entry = ref && ref.sys && entryMap[ref.sys.id];
                     if (!entry) return null;
                     return {
@@ -250,7 +250,7 @@ export const fetchFullBlogPostList = async (postId?: string) => {
 
             stepTitle: f.stepTitle ?? null,
             steps: Array.isArray(f.steps)
-                ? f.steps.map(ref => {
+                ? f.steps.map((ref: any) => {
                     const entry = ref && ref.sys && entryMap[ref.sys.id];
                     return entry ? {
                         id: entry.sys.id,

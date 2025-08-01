@@ -21,60 +21,41 @@ import { fetchBlog, fetchFullBlogPostList } from "../api/contentful/api";
 
 import getSimilarArticles from "@shared/utils/getSimilarArticles";
 import { IBlogPost } from "../../types/contentful/BlogPost";
-import { BLOCKS, Document } from "@contentful/rich-text-types";
+import { BLOCKS } from "@contentful/rich-text-types";
 import {CallToAction} from "@sections/blog/post/cta/callToAction";
 
 const colors = ["#173B91", "#BF81FF", "#D75186"];
 
-function renderRichTextWithCallToActionInMiddle(doc: Document, options: Options, headingRefs: React.RefObject<{ [key: string]: HTMLHeadingElement | null }>) {
-  if (!doc || !doc.content) return null;
-  const content = doc.content;
-  const middleIdx = Math.floor(content.length / 2);
-  let ctaInserted = false;
-  const customOptions: Options = {
-    ...options,
-    renderNode: {
-      ...options.renderNode,
-      [BLOCKS.PARAGRAPH]: (node, children) => {
-        const idx = content.findIndex(n => n === node);
-        const result = <p className={s.text}>{children}</p>;
-        if (!ctaInserted && idx === middleIdx) {
-          ctaInserted = true;
-          return <>{result}<CallToAction /></>;
-        }
-        return result;
-      },
-      [BLOCKS.HEADING_2]: (node, children) => {
-        const idx = content.findIndex(n => n === node);
-        const id = `heading-${idx}`;
-        const result = (
-          <h2 className={s.title} id={id} ref={el => { headingRefs.current[id] = el; }}>
-            {children}
-          </h2>
-        );
-        if (!ctaInserted && idx === middleIdx) {
-          ctaInserted = true;
-          return <>{result}<CallToAction /></>;
-        }
-        return result;
-      },
-      [BLOCKS.HEADING_3]: (node, children) => {
-        const idx = content.findIndex(n => n === node);
-        const id = `heading-${idx}`;
-        const result = (
-          <h3 className={s.title} id={id} ref={el => { headingRefs.current[id] = el; }}>
-            {children}
-          </h3>
-        );
-        if (!ctaInserted && idx === middleIdx) {
-          ctaInserted = true;
-          return <>{result}<CallToAction /></>;
-        }
-        return result;
-      },
-    },
-  };
-  return documentToReactComponents(doc, customOptions);
+function renderPostContentWithCallToAction(
+  postContent: any,
+  options: any,
+  headingRefs: any,
+  ctaProps: any
+) {
+  if (!postContent || !postContent.content) return null;
+  const content: any[] = postContent.content;
+  const headingIndices = content
+    .map((node: any, idx: number) =>
+      node.nodeType === BLOCKS.HEADING_2 || node.nodeType === BLOCKS.HEADING_3 ? idx : null
+    )
+    .filter((idx: number | null) => idx !== null);
+  if (headingIndices.length === 0) {
+    return documentToReactComponents(postContent, options);
+  }
+  const middleHeadingIdx = headingIndices[Math.floor(headingIndices.length / 2)];
+  const before = content.slice(0, middleHeadingIdx);
+  const middleHeading = content[middleHeadingIdx];
+  const after = content.slice(middleHeadingIdx + 1);
+  return (
+    <>
+      {documentToReactComponents({ ...postContent, content: before }, options)}
+      <div style={{ display: 'flex', justifyContent: 'center', margin: '32px 0' }}>
+        <CallToAction {...ctaProps} />
+      </div>
+      {middleHeading && documentToReactComponents({ ...postContent, content: [middleHeading] }, options)}
+      {documentToReactComponents({ ...postContent, content: after }, options)}
+    </>
+  );
 }
 
 export default function PostPage() {
@@ -207,6 +188,7 @@ export default function PostPage() {
     return null;
   }
 
+
   return (
       <>
         <SEO title='' description='' pathname={`/posts/${id}`} />
@@ -233,10 +215,8 @@ export default function PostPage() {
               </div>
 
               <div className={s.content}>
-                {postContent && renderRichTextWithCallToActionInMiddle(postContent, richTextOptions, headingRefs)}
 
-
-                {ctaProps && <CallToAction {...ctaProps} />}
+                {postContent && renderPostContentWithCallToAction(postContent, richTextOptions, headingRefs, ctaProps)}
 
                 <div className={s.comments}>
                   <div>

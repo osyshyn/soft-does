@@ -1,12 +1,7 @@
-import { Number01 } from "@shared/assets/icons/blog/01";
-import { Number02 } from "@shared/assets/icons/blog/02";
-import { Number03 } from "@shared/assets/icons/blog/03";
-
 import s from "./simplify.module.scss";
 
-const numberIcons = [Number01, Number02, Number03];
-
 interface Step {
+  stepNumber: string | number;
   stepTitle?: string;
   stepDescription?: string;
 }
@@ -24,11 +19,10 @@ export const Simplify = ({ title, steps }: SimplifyProps) => {
         <ul>
           {Array.isArray(steps) && steps.length > 0 ? (
             steps.map((step, index) => {
-              const Icon = numberIcons[index] || null;
               return (
                 <li key={index}>
                   <div className={s.number}>
-                    {Icon && <Icon />}
+                    <p className={s.stepNumber}>{step.stepNumber}</p>
                     <p>{step.stepTitle || ''}</p>
                   </div>
                   <div></div>
