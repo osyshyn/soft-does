@@ -1,0 +1,30 @@
+@import "@styles/_mixins.scss";
+
+.textContainer {
+  max-width: none;
+  width: 100%;
+
+  @include media("tablet") {
+    max-width: 850px;
+  }
+}
+
+.heroImg {
+  bottom: -11%;
+
+  @include media("tablet") {
+    transform: translate(0%, 0%);
+    max-width: 700px;
+    right: -10%;
+  }
+
+  @include media("laptop") {
+    max-width: 700px;
+    bottom: 55%;
+    transform: translate(0%, 50%);
+  }
+
+  @include media("desktop") {
+    max-width: 900px;
+  }
+}

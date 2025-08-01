@@ -1,25 +1,36 @@
+import data from "@shared/texts/ui-ux-design/userID.json";
+
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
+import Layout from "@shared/components/layout/layout";
 
-import { Hero } from "@sections/softwareServices/mvpDev/hero/hero";
+import { Hero } from "@sections/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { Testimonials } from "@sections/testimonials/testimonials";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
 
-import Layout from "@shared/components/layout/layout";
+import HeroObj from "@assets/images/uiux/uiuxServices/heroObj_userID.png";
+import s from "./user-interface-design.module.scss";
 
-export default function MvpDev() {
+export default function UserID() {
   return (
     <>
       <SEO
         title="SOFT DOES"
         description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.softwareDev.mvpDev}
+        pathname={ROUTES.uiUxDesign.userID}
       />
       <Layout>
-        <Hero />
+        <Hero
+          data={data.hero}
+          heroImg={HeroObj}
+          backgroundKey="uiUxUserID"
+          isDynamicImage={false}
+          heroImgClassName={s.heroImg}
+          textContainerClassName={s.textContainer}
+        />
         <Results />
         <Technologies />
         <Testimonials />

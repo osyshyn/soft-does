@@ -92,62 +92,89 @@ export const Portfolio = () => {
 
   return (
     <section className={s.root}>
-      <div className={s.container}>
-        <h2>Portfolio</h2>
-        <div className={s.nav}>
-          {CATEGORIES.map((category) => (
-            <button
-              key={category}
-              className={clsx(
-                s.filterButton,
-                activeCategory === category && s.active
-              )}
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </button>
-          ))}
+      <div className={"wrapper"}>
+        <div className={clsx(s.container, "container")}>
+          <h2>Portfolio</h2>
+          <div className={s.nav}>
+            {CATEGORIES.map((category) => (
+              <button
+                key={category}
+                className={clsx(
+                  s.filterButton,
+                  activeCategory === category && s.active
+                )}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
-      <div className={s.swiperContainer}>
-        <div className={s.nextPrev}>
-          <button id="prevBtn">{"<"}</button>
-          <button id="nextBtn">{">"}</button>
+
+      <div className={"wrapper"}>
+        <div className={clsx(s.swiperContainer, "container")}>
+          <div className={clsx(s.nextPrev, s.nextPrev_desktop)}>
+            <button id="prevBtn">{"<"}</button>
+            <button id="nextBtn">{">"}</button>
+          </div>
+          <Swiper
+            modules={[Navigation]}
+            navigation={{ prevEl: "#prevBtn", nextEl: "#nextBtn" }}
+            slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+
+              1200: {
+                slidesPerView: 3,
+              },
+
+              1440: {
+                slidesPerView: 3.5,
+              },
+            }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSlideChange={handleSlideChange}
+            className={s.swiper}
+          >
+            {filteredProjects.map((project) => (
+              <SwiperSlide key={project.id}>
+                <div className={s.slide}>
+                  <Image
+                    aria-hidden
+                    alt=""
+                    src={project.img}
+                    className={s.image}
+                  />
+                  <h3 className={s.cardTitle}>{project.title}</h3>
+                  <p className={s.subtitle}>{project.subtitle}</p>
+                  <p className={s.description}>
+                    “Yalantis has been a great fit for us because of their
+                    experience, responsiveness, value, and time to market. From
+                    the very start, they’ve been able to staff an effective
+                    development team in no time and perform as expected.”
+                  </p>
+                  <button className={s.readMore}>Read more</button>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-        <Swiper
-          modules={[Navigation]}
-          navigation={{ prevEl: "#prevBtn", nextEl: "#nextBtn" }}
-          spaceBetween={30}
-          slidesPerView={3.5}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
-          onSlideChange={handleSlideChange}
-          className={s.swiper}
-        >
-          {filteredProjects.map((project) => (
-            <SwiperSlide key={project.id} className={s.slide}>
-              <Image
-                aria-hidden
-                alt=""
-                src={project.img.src}
-                className={s.image}
-                width={project.img.width}
-                height={project.img.height}
-              />
-              <h3 className={s.cardTitle}>{project.title}</h3>
-              <p className={s.subtitle}>{project.subtitle}</p>
-              <p className={s.description}>
-                “Yalantis has been a great fit for us because of their
-                experience, responsiveness, value, and time to market. From the
-                very start, they’ve been able to staff an effective development
-                team in no time and perform as expected.”
-              </p>
-              <button className={s.readMore}>Read more</button>
-            </SwiperSlide>
-          ))}
-        </Swiper>
       </div>
-      <div className={s.progressBar}>
-        <div className={s.progress} style={{ width: `${progress}%` }} />
+
+      <div className={"wrapper"}>
+        <div className={clsx("container", s.sliderNav)}>
+          <div className={clsx(s.progressBar)}>
+            <div className={s.progress} style={{ width: `${progress}%` }} />
+          </div>
+
+          <div className={clsx(s.nextPrev, s.nextPrev_mobile)}>
+            <button id="prevBtn">{"<"}</button>
+            <button id="nextBtn">{">"}</button>
+          </div>
+        </div>
       </div>
     </section>
   );

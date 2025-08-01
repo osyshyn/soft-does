@@ -1,17 +1,31 @@
-import data from "@shared/texts/industries/index.json";
-
-import { Kansas } from "@shared/components/kansas/kansas";
-
 import s from "./hero.module.scss";
+import clsx from "clsx";
+import HeroText from "@shared/components/hero-text/hero-text";
+
+import HeroImage from "@shared/assets/images/softwareServices/heroCustomSoftDev.png";
+import Image from "next/image";
 
 export const Hero = () => {
   return (
-    <section className={s.root}>
-      <div className={s.container}>
-        <Kansas />
-        <h1 className={s.title}>Custom Software Development</h1>
-        <p className={s.text}>We create customised software and accompany you every step of the way: from idea identification and software development to post-release support.</p>
-        <button className={s.button}>{data.hero.btnText}</button>
+    <section className={clsx(s.wrapper, "wrapper")}>
+      <div className={clsx(s.container, "container")}>
+        <Image
+          priority
+          sizes="(max-width: 1024px) 100vw, 1300px"
+          className={s.main_image}
+          src={HeroImage}
+          quality={100}
+          alt={"Hero Image"}
+        />
+
+        <HeroText
+          className={s.content}
+          title={"Custom Software Development"}
+          text={`We create customised software and accompany you every step of the way:
+            from idea identification and software development to post-release
+            support.`}
+          buttonText={"Contact us"}
+        />
       </div>
     </section>
   );

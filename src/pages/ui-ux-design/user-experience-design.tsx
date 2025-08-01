@@ -1,10 +1,8 @@
-import data from "@shared/texts/ui-ux-design/userED.json";
-
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
-import { Hero } from "@sections/hero_bg/hero";
+import { Hero } from "@sections/ui-ux-design/services/user-experience-design/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { Testimonials } from "@sections/testimonials/testimonials";
@@ -20,14 +18,8 @@ export default function UserED() {
         pathname={ROUTES.uiUxDesign.userED}
       />
       <Layout>
-        <Hero
-          data={data.hero}
-          bgImg="heroBg_userED.png"
-          bgStyles={{
-            backgroundPosition: "bottom",
-            backgroundSize: "100% 99%",
-          }}
-        />
+        <Hero />
+
         <Results />
         <Technologies />
         <Testimonials />

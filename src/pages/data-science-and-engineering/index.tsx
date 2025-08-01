@@ -20,6 +20,8 @@ import {
 
 import data from "@shared/texts/data-science-and-engineering/index.json";
 
+import s from "./data-science-and-engineering.module.scss";
+
 const content = [
   {
     image: <Data />,
@@ -58,7 +60,14 @@ export default function DSE() {
         pathname={ROUTES.dataScnAndEngnrng.root}
       />
       <Layout>
-        <Hero data={data.hero} heroImg={HeroImg} backgroundKey="dse" />
+        <Hero
+          isDynamicImage
+          data={data.hero}
+          heroImg={HeroImg}
+          backgroundKey="dse"
+          textContainerClassName={s.textContainer}
+          heroImgClassName={s.heroImg}
+        />
         <Results />
         <Technologies />
         <div className="sectionWrapper">
@@ -67,7 +76,10 @@ export default function DSE() {
             href={ROUTES.dataScnAndEngnrng.root}
           />
         </div>
-        <CaseStudies />
+
+        <div className="sectionWrapper">
+          <CaseStudies />
+        </div>
         <Engagement />
         <Solutions />
       </Layout>

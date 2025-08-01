@@ -14,6 +14,7 @@ export const Hero = () => {
             title={data.hero.title}
             text={data.hero.tagText}
             buttonText={data.hero.btnText}
+            className={s.heroText}
           />
         </div>
 

@@ -10,6 +10,8 @@ import { Industries } from "@sections/services/industries/industries";
 
 import Layout from "@shared/components/layout/layout";
 
+import s from "./expertise.module.scss";
+
 export default function ExpertisePage() {
   return (
     <>
@@ -19,7 +21,16 @@ export default function ExpertisePage() {
         pathname={ROUTES.expertise}
       />
       <Layout>
-        <Hero data={data.hero} heroImg={HeroImg} backgroundKey="blue" />
+        <div className="sectionWrapper">
+          <Hero
+            data={data.hero}
+            heroImg={HeroImg}
+            backgroundKey="blue"
+            isDynamicImage
+            textContainerClassName={s.textContainer}
+            heroImgClassName={s.heroImg}
+          />
+        </div>
         <Solutions />
         <Consulting />
         <Industries />

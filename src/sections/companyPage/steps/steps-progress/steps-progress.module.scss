@@ -3,14 +3,24 @@
 .root {
   @include fontJetBrains;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 150%;
   letter-spacing: -0.08em;
   color: rgba(255, 255, 255, 0.6);
 
   position: absolute;
-  top: 10%;
+  z-index: 200;
+  top: 0;
+  height: 100%;
   left: 50%;
+
+  // Hide on mobile/tablet, show on laptop+
+  display: none;
+
+  @include media("laptop") {
+    display: block;
+    font-size: 24px;
+  }
 
   li {
     margin-bottom: 534px;
@@ -21,6 +31,11 @@
 
     transform: translate(-50%, -50%);
   }
+
+  & li:first-child {
+    transform: translate(-50%, -100%);
+  }
+
   & li:nth-child(4) {
     transform: translate(-50%, 0%);
   }

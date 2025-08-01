@@ -1,17 +1,28 @@
-import data from "@shared/texts/industries/index.json";
-
-import { Kansas } from "@shared/components/kansas/kansas";
-
 import s from "./hero.module.scss";
+import clsx from "clsx";
+import Image from "next/image";
+import HeroText from "@shared/components/hero-text/hero-text";
+import HeroImage from "@shared/assets/images/softwareServices/heroMobAppDev.png";
 
 export const Hero = () => {
   return (
-    <section className={s.root}>
-      <div className={s.container}>
-        <Kansas />
-        <h1 className={s.title}>Mobile App Development</h1>
-        <p className={s.text}>Designs that captivate, experiences that deliver.</p>
-        <button className={s.button}>{data.hero.btnText}</button>
+    <section className={clsx(s.wrapper, "wrapper")}>
+      <div className={clsx(s.container, "container")}>
+        <Image
+          priority
+          sizes="(max-width: 1024px) 100vw, 1300px"
+          className={s.main_image}
+          src={HeroImage}
+          quality={100}
+          alt={"Hero Image"}
+        />
+
+        <HeroText
+          className={s.content}
+          title={"Mobile App Development"}
+          text={`Designs that captivate, experiences that deliver.`}
+          buttonText={"Contact us"}
+        />
       </div>
     </section>
   );

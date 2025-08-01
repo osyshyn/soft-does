@@ -1,40 +1,61 @@
-@import "@styles/global.scss";
+@import "@styles/mixins";
 
 .root {
   @include fontJetBrains;
   color: white;
-  padding: 140px 160px;
+}
 
-  ul {
-    display: flex;
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  @include media("tablet") {
     gap: 40px;
-    justify-content: space-around;
+  }
 
-    li {
-      box-sizing: border-box;
+  @include media("tabletVertical") {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 370px;
-      height: 370px;
+  @include media("desktop") {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  li {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 230px;
+    padding: 16px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #333333;
+
+    transition: border 0.4s ease-in-out;
+
+    &:hover {
+      border: 1px solid #cfec57;
+
+      .number {
+        color: #cfec57;
+      }
+    }
+
+    @include media("phoneL") {
+      height: 300px;
+    }
+
+    @include media("tablet") {
       padding: 32px;
+      height: 370px;
+    }
 
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid #333333;
-
-      transition: border 0.4s ease-in-out;
-
+    @include media("desktop") {
       &:nth-child(odd) {
         margin-top: 110px;
-      }
-
-      &:hover {
-        border: 1px solid #cfec57;
-
-        .number {
-          color: #cfec57;
-        }
       }
     }
   }
@@ -47,12 +68,16 @@
 
   .text {
     font-weight: 300;
-    font-size: 24px;
+    font-size: 16px;
     line-height: 150%;
     letter-spacing: -0.08em;
     text-align: right;
 
     max-width: 120px;
+
+    @include media("tablet") {
+      font-size: 24px;
+    }
   }
 }
 
@@ -63,15 +88,24 @@
 
   .number {
     font-weight: 300;
-    font-size: 54px;
+    font-size: 32px;
     line-height: 150%;
     letter-spacing: -0.08em;
 
     transition: color 0.4s ease-in-out;
+
+    @include media("tablet") {
+      font-size: 54px;
+    }
   }
 
   .arrowIcon {
-    width: 35px;
-    height: 35px;
+    width: 20px;
+    height: 20px;
+
+    @include media("tablet") {
+      width: 35px;
+      height: 35px;
+    }
   }
 }

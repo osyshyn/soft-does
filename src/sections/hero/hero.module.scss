@@ -5,196 +5,106 @@
   position: relative;
   z-index: 0;
   overflow: hidden;
+  height: calc(100vh - 100px);
+  max-height: 995px;
+  min-height: 500px;
 
-  padding-top: 40px;
-  padding-bottom: 325px;
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  @include media("tablet") {
-    background-size: 100% 100% !important;
-    padding-top: 120px;
-    padding-bottom: 180px;
-  }
-
-  @include media("tabletVertical") {
-  }
-
-  @include media("desktop") {
-    padding-top: 236px;
-    padding-bottom: 236px;
-  }
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 
 .container {
   position: relative;
   z-index: 100;
-}
-
-.content {
-  width: 100%;
   height: 100%;
-  position: relative;
-  z-index: 1;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @include media("tablet") {
-    align-items: flex-start;
-  }
-}
-
-.tagContainer {
-  margin-bottom: 8px;
-
-  @include media("tablet") {
-    margin-bottom: 24px;
-  }
-}
-
-.title {
-  @include fontJetBrains;
-  text-transform: uppercase;
-  font-size: 48px;
-  font-weight: 300;
-  line-height: 100%;
-  letter-spacing: -0.08em;
-  text-align: center;
-
-  margin-bottom: 32px;
-  max-width: 949px;
-
-  span {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(207, 235, 87, 0.4) 0%,
-        rgba(207, 235, 87, 0) 100%
-      ),
-      #ffffff;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    --text-fill-color: transparent;
-  }
-
-  @include media("tablet") {
-    margin-bottom: 48px;
-    font-size: 120px;
-    text-align: left;
-  }
+  width: 100%;
 }
 
 .text {
-  @include fontAbel;
-  font-size: 14px;
-  line-height: 150%;
-  font-weight: 400;
-  text-align: center;
-
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 32px;
-
-  max-width: 380px;
-
-  @include media("tablet") {
-    margin-bottom: 48px;
-    font-size: 18px;
-    line-height: 140%;
-    text-align: left;
-  }
-}
-
-.button {
-  @include fontJetBrains;
-  font-weight: 200;
-  font-size: 18px;
-  line-height: 100%;
-  letter-spacing: -0.08em;
-  text-transform: uppercase;
-  color: #000;
-
-  min-width: 271px;
-  min-height: 58px;
-  padding: 10px;
-
-  border-radius: 8px;
-  background:
-    conic-gradient(from 25deg at 14% 50%, #e2ff66 0deg, #8da720 360deg), #ffffff;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - 30px),
-    calc(100% - 30px) 100%,
-    0 100%
-  );
-
-  cursor: pointer;
-
   position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: font-weight 1s ease;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: conic-gradient(from 25deg at 14% 50%, #e2ff66, #8da720);
-    z-index: -1;
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: transform 1s ease;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  @media (min-width: 300px) and (max-width: 500px) and (max-height: 800px) {
+    align-items: center;
   }
 
-  &:hover {
-    font-weight: 300;
-    &::before {
-      transform: scaleX(10);
-    }
+  @media (min-width: 500px) and (max-height: 700px) {
+    align-items: center;
+  }
+
+  @media (min-width: 650px) and (max-height: 800px) {
+    align-items: center;
+  }
+
+  @media (min-width: 700px) and (max-height: 900px) {
+    align-items: center;
   }
 
   @include media("tablet") {
-    min-height: 78px;
-    padding: 30px 40px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__content {
+    align-items: center;
+    justify-content: center;
+
+    @include media("tablet") {
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
   }
 }
 
 .heroImage {
   position: absolute;
-  bottom: -30%;
+  bottom: 0%;
   right: 50%;
-  transform: translate(50%, 100%);
+  transform: translate(50%, 0%);
 
-  max-width: 350px;
+  width: 100%;
 
   img {
     object-fit: contain;
+    width: 100%;
+    height: 100%;
   }
 
-  height: auto;
+  @media (min-width: 320px) and (max-width: 500px) and (max-height: 800px) {
+    display: none;
+  }
+
+  @media (min-width: 500px) and (max-height: 700px) {
+    display: none;
+  }
+
+  @media (min-width: 650px) and (max-height: 800px) {
+    display: none;
+  }
+
+  @media (min-width: 700px) and (max-height: 900px) {
+    display: none;
+  }
 
   @include media("tablet") {
-    max-width: 600px;
-    bottom: 0%;
-    right: -5%;
-    transform: translate(0%, 30%);
-  }
-
-  @include media("tabletVertical") {
     transform: translate(0%, 0%);
+    max-width: 600px;
+    right: 0%;
   }
 
-  @include media("laptop") {
-    max-width: 800px;
+  @media (min-width: 1024px) and (max-height: 700px) {
+    display: block;
   }
 
   @include media("desktop") {
-    bottom: 0;
-    right: -5%;
+    bottom: 50%;
+    transform: translate(0%, 50%);
   }
 }

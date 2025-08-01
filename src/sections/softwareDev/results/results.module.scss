@@ -62,12 +62,6 @@
     }
   }
 
-  @include media("laptop") {
-    ul {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
   @include media("tablet") {
     ul {
       grid-template-columns: repeat(2, 1fr);
@@ -85,6 +79,12 @@
         height: 90px;
         background-color: #cfec57;
       }
+    }
+  }
+
+  @include media("laptop") {
+    ul {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 }

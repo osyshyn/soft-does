@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import s from "./Header.module.scss";
 import Link from "next/link";
@@ -8,6 +9,7 @@ import ServicesModalMobile from "./sercices-modal-mobile/sercices-modal-mobile";
 import MenuBurger from "./menu-burger/menu-burger";
 import clsx from "clsx";
 import { useLockScroll } from "@shared/components/lenis/lenis";
+import { ROUTES } from "@shared/constants/routes";
 
 interface HeaderProps {
   posts?: boolean;
@@ -19,7 +21,7 @@ const navItems = [
   { label: "Expertise", href: "/expertise" },
   { label: "Industries", href: "/industries" },
   { label: "Success Stories", href: "/portfolio" },
-  { label: "Solution Hub", href: "/" },
+  // { label: "Solution Hub", href: "/" },
   { label: "Company", href: "/company" },
   { label: "Insights", href: "/insights" },
 ];
@@ -36,14 +38,6 @@ export default function Header({ posts, isLanding }: HeaderProps) {
     typeof window !== "undefined" &&
     window.location.hostname.startsWith("landing.");
   const homeLink = isLandingDomain ? "https://softdoes.com" : "/";
-
-  const scrollToContacts = () => {
-    const element = document.getElementById("contacts");
-
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const handleServicesModalOpen = () => {
     if (isMobile) {
@@ -62,7 +56,7 @@ export default function Header({ posts, isLanding }: HeaderProps) {
   };
 
   return (
-    <header className={clsx(s.wrapper, "wrapper")} id="header">
+    <header id="header" className={clsx(s.wrapper, "wrapper")}>
       <div
         className={clsx(s.main, isMenuOpen && s.main_open, "container")}
         id="header"
@@ -107,11 +101,16 @@ export default function Header({ posts, isLanding }: HeaderProps) {
               )}
             </>
           )}
-          <button onClick={scrollToContacts}>Contact us</button>
+
+          <div>
+            <Link href={ROUTES.contact}>
+              <button>Contact us</button>
+            </Link>
+          </div>
         </div>
-        <div className={s.main_button}>
-          <button onClick={scrollToContacts}>Contact us</button>
-        </div>
+        <Link href={ROUTES.contact} className={s.main_button}>
+          <button>Contact us</button>
+        </Link>
 
         <MenuBurger toggleMenu={onClickCloseMenu} isMenuOpen={isMenuOpen} />
 

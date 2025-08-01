@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+.kansas {
+  margin-bottom: 24px;
+}
+
 .title {
   @include fontJetBrains;
 
@@ -14,9 +18,13 @@
   font-weight: 300;
   line-height: 100%;
   letter-spacing: -0.08em;
+  margin-bottom: 32px;
+  text-align: center;
 
-  max-width: 600px;
-  margin-bottom: 48px;
+  @include media(tablet) {
+    text-align: left;
+    margin-bottom: 48px;
+  }
 }
 
 .tagText {
@@ -26,9 +34,15 @@
   line-height: 140%;
   color: rgba(255, 255, 255, 0.6);
 
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 
   max-width: 523px;
+  text-align: center;
+
+  @include media(tablet) {
+    text-align: left;
+    margin-bottom: 48px;
+  }
 }
 
 .button {
