@@ -150,19 +150,6 @@ export const fetchFullBlogPostList = async (postId?: string) => {
         };
     };
 
-    const getAssets = (arr: any[]) => Array.isArray(arr) ? arr.map(getAsset).filter(Boolean) : [];
-
-    const getEntry = (ref: any) => ref && entryMap[ref.sys.id]
-        ? {
-            id: entryMap[ref.sys.id].sys.id,
-            ...entryMap[ref.sys.id].fields,
-        }
-        : null;
-
-    const getEntries = (arr: any[]) => Array.isArray(arr)
-        ? arr.map(getEntry).filter(Boolean)
-        : [];
-
     return entries.items.map((item: any) => {
         const f = item.fields;
 
@@ -179,6 +166,8 @@ export const fetchFullBlogPostList = async (postId?: string) => {
             };
         }
 
+       
+
         let category = null;
         if (f.category && entryMap[f.category.sys.id]) {
             const catEntry = entryMap[f.category.sys.id];
@@ -194,16 +183,6 @@ export const fetchFullBlogPostList = async (postId?: string) => {
                 id: entry.sys.id,
                 title: entry.fields.title,
                 url: entry.fields.url || null,
-            } : null;
-        };
-
-        const getStep = (ref: any) => {
-            const entry = ref && ref.sys && entryMap[ref.sys.id];
-            return entry ? {
-                id: entry.sys.id,
-                stepNumber: entry.fields.stepNumber,
-                stepTitle: entry.fields.stepTitle,
-                stepDescription: entry.fields.stepDescription,
             } : null;
         };
 
@@ -226,6 +205,19 @@ export const fetchFullBlogPostList = async (postId?: string) => {
                 .filter(Boolean);
         }
 
+        let callToAction = null;
+        if (f.callToAction && entryMap[f.callToAction.sys.id]) {
+            const ctaEntry = entryMap[f.callToAction.sys.id];
+            callToAction = {
+                id: ctaEntry.sys.id,
+                ctaImage: ctaEntry.fields.ctaImage
+                    ? getAsset(ctaEntry.fields.ctaImage)
+                    : null,
+                ctaTitle: ctaEntry.fields.ctaTitle || null,
+                ctaDescription: ctaEntry.fields.ctaDescription || null,
+                ctaButton: getButton(ctaEntry.fields.ctaButton)
+            };
+        }
 
         return {
             id: item.sys.id,
@@ -269,7 +261,7 @@ export const fetchFullBlogPostList = async (postId?: string) => {
                 }).filter(Boolean)
                 : [],
             postContent: f.postContent ?? null,
-            callToAction: getEntry(f.callToAction),
+            callToAction,
             comments,
             sidebarContactTitle: f.sidebarContactTitle ?? null,
             sidebarContactButton: getButton(f.sidebarContactButton),

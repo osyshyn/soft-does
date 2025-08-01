@@ -16,29 +16,95 @@ import { Plus } from "@shared/assets/icons/blog/plus";
 import Robot from "@shared/assets/images/blog/robot.png";
 
 import s from "./post.module.scss";
-import {useEffect, useRef, useState} from "react";
-import {fetchBlog, fetchFullBlogPostList} from "../api/contentful/api";
+import { useEffect, useRef, useState } from "react";
+import { fetchBlog, fetchFullBlogPostList } from "../api/contentful/api";
 
 import getSimilarArticles from "@shared/utils/getSimilarArticles";
-import {IBlogPost} from "../../types/contentful/BlogPost";
+import { IBlogPost } from "../../types/contentful/BlogPost";
+import { BLOCKS, Document } from "@contentful/rich-text-types";
+import {CallToAction} from "@sections/blog/post/cta/callToAction";
 
 const colors = ["#173B91", "#BF81FF", "#D75186"];
+
+function getHeadingIndices(content: any[]) {
+  return content
+      .map((node, idx) =>
+          node.nodeType === 'heading-2' || node.nodeType === 'heading-3' ? idx : null
+      )
+      .filter(idx => idx !== null);
+}
+function markSquareParagraph(content: any[]) {
+  const headingIndices = getHeadingIndices(content);
+  if (!headingIndices.length) return content;
+  const middleHeadingIdx = headingIndices[Math.floor(headingIndices.length / 2)];
+  let pIdx = -1;
+  for (let i = middleHeadingIdx + 1; i < content.length; ++i) {
+    if (content[i].nodeType === 'paragraph') {
+      pIdx = i;
+      break;
+    }
+  }
+  if (pIdx === -1) return content;
+  const patched = [...content];
+  patched[pIdx] = {
+    ...patched[pIdx],
+    addBlackSquare: true,
+  };
+  return patched;
+}
+function renderRichTextWithBlackSquareAfterParagraph(doc: Document, options: Options) {
+  if (!doc || !doc.content) return null;
+  const newContent = markSquareParagraph(doc.content);
+  let squareAdded = false;
+  const customOptions: Options = {
+    ...options,
+    renderNode: {
+      ...options.renderNode,
+      [BLOCKS.PARAGRAPH]: (node, children) => {
+        const result = (
+            <p className={s.text}>
+              {children}
+            </p>
+        );
+        if (node.addBlackSquare && !squareAdded) {
+          squareAdded = true;
+          return (
+              <>
+                {result}
+                <CallToAction />
+              </>
+          );
+        }
+        return result;
+      },
+    },
+  };
+  return documentToReactComponents(
+      { ...doc, content: newContent },
+      customOptions
+  );
+}
 
 export default function PostPage() {
   const router = useRouter();
   const { id } = router.query;
 
   const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (id) {
-      fetchFullBlogPostList(String(id)).then(setPosts);
+      setLoading(true);
+      fetchFullBlogPostList(String(id)).then((data) => {
+        setPosts(data);
+        setLoading(false);
+      });
     }
   }, [id]);
 
   const ICONS = [Facebook, Tg, Whatsapp, X, Plus];
 
-  const postContent = Array.isArray(posts) && posts[0]?.postContent
+  const postContent = Array.isArray(posts) && posts[0]?.postContent;
 
   type Heading = { id: string; text: string };
   const headings: Heading[] = [];
@@ -51,7 +117,7 @@ export default function PostPage() {
     });
   }
 
-  const headingRefs = useRef<{[key: string]: HTMLHeadingElement | null}>({});
+  const headingRefs = useRef<{ [key: string]: HTMLHeadingElement | null }>({});
 
   const [activeHeading, setActiveHeading] = useState<string | null>(null);
 
@@ -82,26 +148,26 @@ export default function PostPage() {
         const idx = postContent.content.findIndex((n: any) => n === node);
         const id = `heading-${idx}`;
         return (
-          <h2
-            className={s.title}
-            id={id}
-            ref={el => { headingRefs.current[id] = el; }}
-          >
-            {children}
-          </h2>
+            <h2
+                className={s.title}
+                id={id}
+                ref={el => { headingRefs.current[id] = el; }}
+            >
+              {children}
+            </h2>
         );
       },
       'heading-3': (node, children) => {
         const idx = postContent.content.findIndex((n: any) => n === node);
         const id = `heading-${idx}`;
         return (
-          <h3
-            className={s.title}
-            id={id}
-            ref={el => { headingRefs.current[id] = el; }}
-          >
-            {children}
-          </h3>
+            <h3
+                className={s.title}
+                id={id}
+                ref={el => { headingRefs.current[id] = el; }}
+            >
+              {children}
+            </h3>
         );
       },
       'paragraph': (node, children) => <p className={s.text}>{children}</p>,
@@ -134,192 +200,202 @@ export default function PostPage() {
   const carousel = Array.isArray(posts) && posts[0]?.heroCarousel && posts[0].heroCarousel || [];
   const heroTitle = Array.isArray(posts) && posts[0]?.title && posts[0].title;
   const heroDescription = Array.isArray(posts) && posts[0]?.heroDescription && posts[0].heroDescription;
+  const authorAvatar = Array.isArray(posts) && posts[0]?.author?.authorAvatar.url;
+
+  const ctaEntry = Array.isArray(posts) && posts[0]?.callToAction
+
+  const ctaProps = ctaEntry ? {
+    ctaImage: ctaEntry.ctaImage?.url || ctaEntry.ctaImage || null,
+    ctaTitle: ctaEntry.ctaTitle || null,
+    ctaDescription: ctaEntry.ctaDescription || null,
+    ctaButton: ctaEntry.ctaButton || null,
+  } : null;
+
+  if (loading || !Array.isArray(posts) || !posts[0]) {
+    return null;
+  }
 
   return (
-    <>
-      <SEO title='' description='' pathname={`/posts/${id}`} />
-      <Layout posts={true}>
-        <Hero
-            title={heroTitle}
-            desc={heroDescription}
-            button1={heroButton1}
-            button2={heroButton2}
-            carousel={carousel}
-        />
-        {stepTitle && steps.length > 0 && (
-            <Simplify title={stepTitle} steps={steps} />
-        )}
-        <section className={s.post}>
-          <div className={s.layout}>
-            <div className={`${s.leftSide} ${s.sticky}`}>
-              <p>Share:</p>
-              <ul>
-                {ICONS.map((Icon, i) => (
-                    <li key={i}><Icon /></li>
-                ))}
-              </ul>
-            </div>
-
-            <div className={s.content}>
-              {postContent && documentToReactComponents(postContent, richTextOptions)}
-
-              <div className={s.comments}>
-                <div>
-                  <h2>Comments</h2>
-                  <p>{(Array.isArray(posts) && posts[0]?.comments?.length) || 0} comments</p>
-                </div>
+      <>
+        <SEO title='' description='' pathname={`/posts/${id}`} />
+        <Layout posts={true}>
+          <Hero
+              title={heroTitle}
+              desc={heroDescription}
+              button1={heroButton1}
+              button2={heroButton2}
+              carousel={carousel}
+          />
+          {stepTitle && steps.length > 0 && (
+              <Simplify title={stepTitle} steps={steps} />
+          )}
+          <section className={s.post}>
+            <div className={s.layout}>
+              <div className={`${s.leftSide} ${s.sticky}`}>
+                <p>Share:</p>
                 <ul>
-                  {Array.isArray(posts) && posts[0]?.comments?.length > 0 ? (
-                    posts[0].comments.map((comment: any, index: number) => (
-                      <li key={index}>
-                        <div>
-                          <div className={s.pfp} style={{ backgroundColor: colors[index % colors.length] }}>
-                          {comment.authorAvatar && comment.authorAvatar.url ? (
-                              <img
-                                  src={comment.authorAvatar.url}
-                                  alt={comment.authorName || comment.author || 'avatar'}
-                                  style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    borderRadius: '50%',
-                                    objectFit: 'cover'
-                                  }}
-                              />
-                          ) : (
-                              (comment.authorName || comment.author || '').slice(0, 1)
-                          )}
-                        </div>
-                          <div>
-                            <p>{comment.authorName || comment.author}</p>
-                            <p>{formatDate(comment.createdAt || comment.date)}</p>
-                          </div>
-                        </div>
-                        <p>{comment.commentText || comment.text}</p>
-                      </li>
-                    ))
-                  ) : (
-                    <li>No comments yet.</li>
-                  )}
-                </ul>
-              </div>
-
-              <div className={s.articles}>
-                <h2>Similar articles</h2>
-                <ul>
-                  {similarArticles.length === 0 && <li>No similar articles found.</li>}
-                  {similarArticles.map(article => (
-                      <li key={article.id} className={s.similarArticleItem}>
-                        <Image
-                            aria-hidden
-                            alt={article.author?.authorName || "Author"}
-                            src={
-                              article.mainImage?.url
-                                  ? article.mainImage.url.startsWith('//')
-                                      ? `https:${article.mainImage.url}`
-                                      : article.mainImage.url
-                                  : Robot.src
-                            }
-                            className={s.image}
-                            width={300}
-                            height={200}
-                        />
-                        <div>
-                          <div>
-                            <h3>{typeof article.author === 'object' && article.author !== null && 'authorName' in article.author ? article.author.authorName : "Unknown Author"}</h3>
-                            <p>{typeof article.author === 'object' && article.author !== null && 'authorRole' in article.author ? article.author.authorRole : ""}</p>
-                          </div>
-                          {article.testimonialText && (
-                              <p>
-                                {typeof article.testimonialText === "string"
-                                    ? article.testimonialText
-                                    : documentToReactComponents(article.testimonialText as any)}
-                              </p>
-                          )}
-                          <Link href={`/posts/${article.id}`}>
-                            <button>Read more</button>
-                          </Link>
-                        </div>
-                      </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className={`${s.rightSide} ${s.sticky}`}>
-              <div>
-                <div className={s.authorImg}>
-                  <img
-                      src={(Array.isArray(posts) && posts[0]?.author?.authorAvatar.url)}
-                      alt={(Array.isArray(posts) && posts[0]?.author?.authorName) || (Array.isArray(posts) && posts[0]?.author) || 'avatar'}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        borderRadius: '50%',
-                        objectFit: 'cover'
-                      }}
-                  />
-
-                </div>
-                <div>
-                  <p>{(Array.isArray(posts) && posts[0]?.author?.authorName)}</p>
-                  <p>{(Array.isArray(posts) && posts[0]?.author?.authorRole)}</p>
-                </div>
-              </div>
-
-              <div>
-                <div>
-                  <p>Table of contents</p>
-                  <div className={s.line}></div>
-                </div>
-                <ul>
-                  {headings.map((heading) => (
-                      <li key={heading.id}>
-                        <a
-                            href={`#${heading.id}`}
-                            className={
-                              heading.id === activeHeading
-                                  ? s.activeLink
-                                  : s.inactiveLink
-                            }
-                        >
-                          {heading.text}
-                        </a>
-                      </li>
+                  {ICONS.map((Icon, i) => (
+                      <li key={i}><Icon /></li>
                   ))}
                 </ul>
               </div>
 
-              {(Array.isArray(posts) && posts[0]?.sidebarContactTitle)  ? (
-                  <div className={s.sidebarContact}>
-                    <p>
-                      {Array.isArray(posts) && posts[0]?.sidebarContactTitle
-                          && posts[0].sidebarContactTitle
-                          }
-                    </p>
+              <div className={s.content}>
+                {postContent && renderRichTextWithBlackSquareAfterParagraph(postContent, richTextOptions)}
 
-                    {(Array.isArray(posts) && posts[0]?.sidebarContactButton)  ? (
-                        (() => {
-                          const btn =
-                              Array.isArray(posts) && posts[0]?.sidebarContactButton
-                                  && posts[0].sidebarContactButton
+                {ctaProps && <CallToAction {...ctaProps} />}
 
-                          return btn.url && btn.title ? (
-                              <Link href={btn.url}>
-                                <button className={s.buttonWhite}>{btn.title}</button>
-                              </Link>
-                          ) : btn.title ? (
-                              <button className={s.buttonWhite}>{btn.title}</button>
-                          ) : null;
-                        })()
-                    ) : null}
+                <div className={s.comments}>
+                  <div>
+                    <h2>Comments</h2>
+                    <p>{(Array.isArray(posts) && posts[0]?.comments?.length) || 0} comments</p>
                   </div>
-              ) : null}
+                  <ul>
+                    {Array.isArray(posts) && posts[0]?.comments?.length > 0 ? (
+                        posts[0].comments.map((comment: any, index: number) => (
+                            <li key={index}>
+                              <div>
+                                <div className={s.pfp} style={{ backgroundColor: colors[index % colors.length] }}>
+                                  {comment.authorAvatar && comment.authorAvatar.url ? (
+                                      <img
+                                          src={comment.authorAvatar.url}
+                                          alt={comment.authorName || comment.author || 'avatar'}
+                                          style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            borderRadius: '50%',
+                                            objectFit: 'cover'
+                                          }}
+                                      />
+                                  ) : (
+                                      (comment.authorName || comment.author || '').slice(0, 1)
+                                  )}
+                                </div>
+                                <div>
+                                  <p>{comment.authorName || comment.author}</p>
+                                  <p>{formatDate(comment.createdAt || comment.date)}</p>
+                                </div>
+                              </div>
+                              <p>{comment.commentText || comment.text}</p>
+                            </li>
+                        ))
+                    ) : (
+                        <li>No comments yet.</li>
+                    )}
+                  </ul>
+                </div>
 
+                <div className={s.articles}>
+                  <h2>Similar articles</h2>
+                  <ul>
+                    {similarArticles.length === 0 && <li>No similar articles found.</li>}
+                    {similarArticles.map(article => (
+                        <li key={article.id} className={s.similarArticleItem}>
+                          <Image
+                              aria-hidden
+                              alt={article.author?.authorName || "Author"}
+                              src={
+                                article.mainImage?.url
+                                    ? article.mainImage.url.startsWith('//')
+                                        ? `https:${article.mainImage.url}`
+                                        : article.mainImage.url
+                                    : Robot.src
+                              }
+                              className={s.image}
+                              width={300}
+                              height={200}
+                          />
+                          <div>
+                            <div>
+                              <h3>{typeof article.author === 'object' && article.author !== null && 'authorName' in article.author ? article.author.authorName : "Unknown Author"}</h3>
+                              <p>{typeof article.author === 'object' && article.author !== null && 'authorRole' in article.author ? article.author.authorRole : ""}</p>
+                            </div>
+                            {article.testimonialText && (
+                                <p>
+                                  {typeof article.testimonialText === "string"
+                                      ? article.testimonialText
+                                      : documentToReactComponents(article.testimonialText as any)}
+                                </p>
+                            )}
+                            <Link href={`/posts/${article.id}`}>
+                              <button>Read more</button>
+                            </Link>
+                          </div>
+                        </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
 
+              <div className={`${s.rightSide} ${s.sticky}`}>
+                <div>
+                  <div className={s.authorImg}>
+                    <img
+                        src={authorAvatar}
+                        alt={(Array.isArray(posts) && posts[0]?.author?.authorName) || (Array.isArray(posts) && posts[0]?.author) || 'avatar'}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          borderRadius: '50%',
+                          objectFit: 'cover'
+                        }}
+                    />
+                  </div>
+                  <div>
+                    <p>{(Array.isArray(posts) && posts[0]?.author?.authorName)}</p>
+                    <p>{(Array.isArray(posts) && posts[0]?.author?.authorRole)}</p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <p>Table of contents</p>
+                    <div className={s.line}></div>
+                  </div>
+                  <ul>
+                    {headings.map((heading) => (
+                        <li key={heading.id}>
+                          <a
+                              href={`#${heading.id}`}
+                              className={
+                                heading.id === activeHeading
+                                    ? s.activeLink
+                                    : s.inactiveLink
+                              }
+                          >
+                            {heading.text}
+                          </a>
+                        </li>
+                    ))}
+                  </ul>
+                </div>
+                {(Array.isArray(posts) && posts[0]?.sidebarContactTitle) ? (
+                    <div className={s.sidebarContact}>
+                      <p>
+                        {Array.isArray(posts) && posts[0]?.sidebarContactTitle
+                            && posts[0].sidebarContactTitle
+                        }
+                      </p>
+                      {(Array.isArray(posts) && posts[0]?.sidebarContactButton) ? (
+                          (() => {
+                            const btn =
+                                Array.isArray(posts) && posts[0]?.sidebarContactButton
+                                && posts[0].sidebarContactButton
+
+                            return btn.url && btn.title ? (
+                                <Link href={btn.url}>
+                                  <button className={s.buttonWhite}>{btn.title}</button>
+                                </Link>
+                            ) : btn.title ? (
+                                <button className={s.buttonWhite}>{btn.title}</button>
+                            ) : null;
+                          })()
+                      ) : null}
+                    </div>
+                ) : null}
+              </div>
             </div>
-          </div>
-        </section>
-      </Layout>
-    </>
+          </section>
+        </Layout>
+      </>
   );
 }
