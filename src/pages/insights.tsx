@@ -25,7 +25,6 @@ export default function Insights() {
       <SEO title="SOFT DOES" description="SOFT DOES is company, that will help your bussines grow!" pathname={ROUTES.insights} />
       <Layout>
         <Hero />
-        {/*<Topics posts={posts} />*/}
         <Releases posts={posts} />
       </Layout>
     </>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import s from "./posts.module.scss";
+import s from "../../../insights/releases/releases.module.scss";
+
 import { fetchPostsByCategory } from "../../../../pages/api/contentful/api";
 import Image from "next/image";
 import People from "@assets/images/blog/people-work.png";
@@ -77,7 +78,7 @@ export const CategoryPosts = () => {
                                         ? post.testimonialText
                                         : documentToReactComponents(post.testimonialText))}
                             </div>
-                            <Link className={s.btn} href={`/blog/${post.slug}`}>
+                            <Link className={s.btn} href={`/posts/${post.sys.id}`}>
                                 Read more
                             </Link>
                         </div>

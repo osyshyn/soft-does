@@ -192,7 +192,7 @@ export default function PostPage() {
   const carousel = Array.isArray(posts) && posts[0]?.heroCarousel && posts[0].heroCarousel || [];
   const heroTitle = Array.isArray(posts) && posts[0]?.title && posts[0].title;
   const heroDescription = Array.isArray(posts) && posts[0]?.heroDescription && posts[0].heroDescription;
-  const authorAvatar = Array.isArray(posts) && posts[0]?.author?.authorAvatar.url;
+  const authorAvatar = Array.isArray(posts) && posts[0]?.author?.authorAvatar?.url || null;
 
   const ctaEntry = Array.isArray(posts) && posts[0]?.callToAction
 
@@ -304,11 +304,11 @@ export default function PostPage() {
                               <p>{typeof article.author === 'object' && article.author !== null && 'authorRole' in article.author ? article.author.authorRole : ""}</p>
                             </div>
                             {article.testimonialText && (
-                                <p>
+                                <div className={s.testimonialText}>
                                   {typeof article.testimonialText === "string"
                                       ? article.testimonialText
                                       : documentToReactComponents(article.testimonialText as any)}
-                                </p>
+                                </div>
                             )}
                             <Link href={`/posts/${article.id}`}>
                               <button>Read more</button>
@@ -354,6 +354,13 @@ export default function PostPage() {
                                     ? s.activeLink
                                     : s.inactiveLink
                               }
+                              onClick={e => {
+                                e.preventDefault();
+                                const el = document.getElementById(heading.id);
+                                if (el) {
+                                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }
+                              }}
                           >
                             {heading.text}
                           </a>

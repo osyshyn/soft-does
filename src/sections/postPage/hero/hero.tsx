@@ -82,11 +82,8 @@ export const Hero = ({ title, desc, button1, button2, carousel = [] }: HeroProps
                             );
                         })}
                     </Swiper>
-
-
-
                 ) : (
-                    <p>No images in carousel</p>
+                    <></>
                 )}
             </div>
         </section>
