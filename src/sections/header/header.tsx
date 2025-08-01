@@ -47,6 +47,15 @@ export default function Header({ posts, isLanding }: HeaderProps) {
     }
   };
 
+  const scrollToContacts = () => {
+    const element = document.getElementById("contacts");
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      // element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const onClickCloseMenu = () => {
     if (isServicesModalMobileOpen) {
       setIsServicesModalMobileOpen(!isMenuOpen);
@@ -77,8 +86,8 @@ export default function Header({ posts, isLanding }: HeaderProps) {
           </Link>
         )}
 
-        <div className={`${s.main_nav} ${isMenuOpen ? s.main_nav_open : ""}`}>
-          {!isLanding && (
+        {!isLanding && (
+          <div className={`${s.main_nav} ${isMenuOpen ? s.main_nav_open : ""}`}>
             <>
               {navItems.map((item) =>
                 item.isModal ? (
@@ -100,19 +109,28 @@ export default function Header({ posts, isLanding }: HeaderProps) {
                 )
               )}
             </>
-          )}
 
-          <div>
-            <Link href={ROUTES.contact}>
-              <button>Contact us</button>
-            </Link>
+            <div>
+              <Link href={ROUTES.contact}>
+                <button>Contact us</button>
+              </Link>
+            </div>
           </div>
-        </div>
-        <Link href={ROUTES.contact} className={s.main_button}>
-          <button>Contact us</button>
-        </Link>
+        )}
 
-        <MenuBurger toggleMenu={onClickCloseMenu} isMenuOpen={isMenuOpen} />
+        {isLanding ? (
+          <div className={clsx(s.main_button, s.main_button_landing)}>
+            <button onClick={scrollToContacts}>Contact us</button>
+          </div>
+        ) : (
+          <Link href={ROUTES.contact} className={s.main_button}>
+            <button>Contact us</button>
+          </Link>
+        )}
+
+        {!isLanding && (
+          <MenuBurger toggleMenu={onClickCloseMenu} isMenuOpen={isMenuOpen} />
+        )}
 
         {isServicesModalOpen && (
           <ServicesModal

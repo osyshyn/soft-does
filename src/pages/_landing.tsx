@@ -6,7 +6,7 @@ import { ROUTES } from "@shared/constants/routes";
 import { Certificates } from "@sections/home/certificates/certificates";
 import { ServiceSection } from "@sections/home/service-section/service-section";
 import { AboutUs } from "@sections/home/about-us/about-us";
-import { ContactsForm } from "@sections/home/contacts-form/contacts-form";
+import { ContactsForm } from "@sections/contacts-form/contacts-form";
 
 import softwareDevelopment from "@assets/images/main/software-development.png";
 import aiAndMachineLearning from "@assets/images/main/ai-machine-learning.png";
@@ -19,7 +19,7 @@ import Layout from "@shared/components/layout/layout";
 import { ContactUsHero } from "@sections/home/contact-us-hero/contactUsHero";
 
 const Testimonials = dynamic(
-  () => import("@sections/home/testimonials/testimonials")
+  () => import("@sections/testimonials/testimonials")
 );
 
 const Industries = dynamic(
@@ -72,13 +72,17 @@ export default function Home() {
           img={uiUxDesign}
           {...data.uiUxDesign}
         />
-        <ServiceSection
-          link="/"
-          currentColor="#515151"
-          img={architectureAndConsulting}
-          isRight
-          {...data.architectureAndConsulting}
-        />
+
+        <div className="sectionWrapper">
+          <ServiceSection
+            link="/"
+            currentColor="#515151"
+            img={architectureAndConsulting}
+            isRight
+            {...data.architectureAndConsulting}
+          />
+        </div>
+
         <Testimonials />
         <AboutUs />
         <ContactsForm />
