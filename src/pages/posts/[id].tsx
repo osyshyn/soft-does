@@ -26,63 +26,55 @@ import {CallToAction} from "@sections/blog/post/cta/callToAction";
 
 const colors = ["#173B91", "#BF81FF", "#D75186"];
 
-function getHeadingIndices(content: any[]) {
-  return content
-      .map((node, idx) =>
-          node.nodeType === 'heading-2' || node.nodeType === 'heading-3' ? idx : null
-      )
-      .filter(idx => idx !== null);
-}
-function markSquareParagraph(content: any[]) {
-  const headingIndices = getHeadingIndices(content);
-  if (!headingIndices.length) return content;
-  const middleHeadingIdx = headingIndices[Math.floor(headingIndices.length / 2)];
-  let pIdx = -1;
-  for (let i = middleHeadingIdx + 1; i < content.length; ++i) {
-    if (content[i].nodeType === 'paragraph') {
-      pIdx = i;
-      break;
-    }
-  }
-  if (pIdx === -1) return content;
-  const patched = [...content];
-  patched[pIdx] = {
-    ...patched[pIdx],
-    addBlackSquare: true,
-  };
-  return patched;
-}
-function renderRichTextWithBlackSquareAfterParagraph(doc: Document, options: Options) {
+function renderRichTextWithCallToActionInMiddle(doc: Document, options: Options, headingRefs: React.RefObject<{ [key: string]: HTMLHeadingElement | null }>) {
   if (!doc || !doc.content) return null;
-  const newContent = markSquareParagraph(doc.content);
-  let squareAdded = false;
+  const content = doc.content;
+  const middleIdx = Math.floor(content.length / 2);
+  let ctaInserted = false;
   const customOptions: Options = {
     ...options,
     renderNode: {
       ...options.renderNode,
       [BLOCKS.PARAGRAPH]: (node, children) => {
+        const idx = content.findIndex(n => n === node);
+        const result = <p className={s.text}>{children}</p>;
+        if (!ctaInserted && idx === middleIdx) {
+          ctaInserted = true;
+          return <>{result}<CallToAction /></>;
+        }
+        return result;
+      },
+      [BLOCKS.HEADING_2]: (node, children) => {
+        const idx = content.findIndex(n => n === node);
+        const id = `heading-${idx}`;
         const result = (
-            <p className={s.text}>
-              {children}
-            </p>
+          <h2 className={s.title} id={id} ref={el => { headingRefs.current[id] = el; }}>
+            {children}
+          </h2>
         );
-        if (node.addBlackSquare && !squareAdded) {
-          squareAdded = true;
-          return (
-              <>
-                {result}
-                <CallToAction />
-              </>
-          );
+        if (!ctaInserted && idx === middleIdx) {
+          ctaInserted = true;
+          return <>{result}<CallToAction /></>;
+        }
+        return result;
+      },
+      [BLOCKS.HEADING_3]: (node, children) => {
+        const idx = content.findIndex(n => n === node);
+        const id = `heading-${idx}`;
+        const result = (
+          <h3 className={s.title} id={id} ref={el => { headingRefs.current[id] = el; }}>
+            {children}
+          </h3>
+        );
+        if (!ctaInserted && idx === middleIdx) {
+          ctaInserted = true;
+          return <>{result}<CallToAction /></>;
         }
         return result;
       },
     },
   };
-  return documentToReactComponents(
-      { ...doc, content: newContent },
-      customOptions
-  );
+  return documentToReactComponents(doc, customOptions);
 }
 
 export default function PostPage() {
@@ -144,7 +136,7 @@ export default function PostPage() {
 
   const richTextOptions: Options = {
     renderNode: {
-      'heading-2': (node, children) => {
+      [BLOCKS.HEADING_2]: (node, children) => {
         const idx = postContent.content.findIndex((n: any) => n === node);
         const id = `heading-${idx}`;
         return (
@@ -157,7 +149,7 @@ export default function PostPage() {
             </h2>
         );
       },
-      'heading-3': (node, children) => {
+      [BLOCKS.HEADING_3]: (node, children) => {
         const idx = postContent.content.findIndex((n: any) => n === node);
         const id = `heading-${idx}`;
         return (
@@ -170,7 +162,7 @@ export default function PostPage() {
             </h3>
         );
       },
-      'paragraph': (node, children) => <p className={s.text}>{children}</p>,
+      [BLOCKS.PARAGRAPH]: (node, children) => <p className={s.text}>{children}</p>,
     },
   };
 
@@ -241,7 +233,8 @@ export default function PostPage() {
               </div>
 
               <div className={s.content}>
-                {postContent && renderRichTextWithBlackSquareAfterParagraph(postContent, richTextOptions)}
+                {postContent && renderRichTextWithCallToActionInMiddle(postContent, richTextOptions, headingRefs)}
+
 
                 {ctaProps && <CallToAction {...ctaProps} />}
 
