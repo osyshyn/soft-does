@@ -1,4 +1,4 @@
-@import "@styles/global.scss";
+@use "styles/global" as *;
 
 .post {
   @include fontPoppins;
@@ -14,7 +14,7 @@
   }
 
   .inactiveLink {
-    color: #A0A0A0;
+    color: #a0a0a0;
     font-weight: 400;
     transition: color 0.2s;
     cursor: pointer;
@@ -150,7 +150,7 @@
       border-radius: 100px;
       background-color: #e2ff66;
 
-      img{
+      img {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -231,7 +231,13 @@
       border-radius: 8px;
       border: 1px solid #111111;
       background-color: #f3f4f8;
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 30px),
+        calc(100% - 30px) 100%,
+        0 100%
+      );
       transition: background-color 0.3s ease-in-out;
 
       cursor: pointer;
@@ -291,7 +297,13 @@
         min-height: 60px;
         padding: 30px 88px;
         border-radius: 8px;
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% calc(100% - 30px),
+          calc(100% - 30px) 100%,
+          0 100%
+        );
 
         cursor: pointer;
 
@@ -451,7 +463,13 @@
       background: transparent;
       border-radius: 8px;
       border: 1px solid #111111;
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 30px),
+        calc(100% - 30px) 100%,
+        0 100%
+      );
       transition: background-color 0.3s ease-in-out;
 
       cursor: pointer;
@@ -467,6 +485,6 @@
   }
 }
 
-.testimonialText{
-  flex: 1
+.testimonialText {
+  flex: 1;
 }

@@ -1,4 +1,4 @@
-@import "@styles/_mixins.scss";
+@use "styles/global" as *;
 
 .wrapper {
   padding-top: 140px;

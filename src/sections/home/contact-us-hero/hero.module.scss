@@ -1,7 +1,6 @@
-@import "@styles/global.scss";
+@use "styles/global" as *;
 
 .wrapper {
-  // min-height: 100vh;
   height: 100%;
   max-height: 1200px;
 
@@ -14,29 +13,10 @@
   color: white;
   overflow: hidden;
 
-  // display: flex;
-  // align-items: center;
-
   @include media(tabletVertical) {
     max-height: 1500px;
     min-height: 815px;
   }
-
-  // @media (max-width: 1025px) {
-  //   flex-direction: column;
-  //   // margin-bottom: -60vh;
-  // }
-
-  // @media (max-width: 400px) {
-  //   align-items: baseline;
-  //   // margin-bottom: -60vh;
-  // }
-
-  // @media (max-width: 450px) {
-  //   // overflow-y: auto;
-  //   // margin-bottom: -35vh;
-  //   // margin-left: 30vw;
-  // }
 }
 
 .container {
@@ -160,48 +140,3 @@
     display: block;
   }
 }
-
-// .main_image {
-//   width: 50%;
-//   height: 100%;
-//   overflow: hidden;
-//   z-index: 0;
-//   position: relative;
-//   margin-bottom: -50vh;
-//   // margin-left: 40vw;
-//   bottom: 0;
-//   right: 0;
-//   transform: scale(1.75);
-//   transform-origin: center;
-
-//   @media (max-width: 1025px) {
-//     display: none;
-//     // transform: scale(1.2);
-//     // margin-bottom: -100vh;
-//   }
-
-//   @media (max-width: 650px) {
-//     transform: scale(1);
-//     // margin-bottom: -35vh;
-//     // margin-left: 30vw;
-//   }
-
-//   @media (max-width: 450px) {
-//     transform: scale(1);
-//     display: none;
-//     // margin-bottom: -35vh;
-//     // margin-left: 30vw;
-//   }
-
-//   @media (max-width: 376px) {
-//     transform: scale(1);
-//     display: none;
-//     // margin-bottom: -35vh;
-//     // margin-left: 30vw;
-//   }
-
-//   & canvas {
-//     position: absolute;
-//     bottom: 0;
-//   }
-// }

@@ -1,4 +1,4 @@
-@import "@styles/global.scss";
+@use "styles/global" as *;
 
 .root {
   @include fontPoppins;
@@ -52,11 +52,11 @@
             left: 0;
           }
 
-          .stepNumber{
+          .stepNumber {
             @include fontJetBrains;
             font-weight: 700;
             font-size: 100px;
-            color: #CFEC57;
+            color: #cfec57;
           }
         }
 

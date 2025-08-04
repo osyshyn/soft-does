@@ -1,4 +1,4 @@
-@import "@styles/mixins.scss";
+@use "styles/global" as *;
 
 .tagContainer {
   background-color: #37364b;

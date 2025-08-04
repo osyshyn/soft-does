@@ -1,4 +1,4 @@
-@import "@styles/global.scss";
+@use "styles/global" as *;
 
 .root {
   @include fontJetBrains;
@@ -17,7 +17,12 @@
 
   .block {
     display: flex;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
+    background:
+      linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.04),
+        rgba(255, 255, 255, 0.04)
+      ),
       conic-gradient(
         from 63deg at 30% 50%,
         rgba(64, 107, 224, 0.1) -90deg,
@@ -84,7 +89,9 @@
         padding: 34px 30px;
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        transition: border 0.5s ease-in-out, background-color 0.5s ease-in-out;
+        transition:
+          border 0.5s ease-in-out,
+          background-color 0.5s ease-in-out;
 
         p {
           font-weight: 200;

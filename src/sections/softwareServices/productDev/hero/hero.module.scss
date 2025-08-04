@@ -1,4 +1,4 @@
-@import "@styles/global.scss";
+@use "styles/global" as *;
 
 .wrapper {
   height: calc(100vh - 100px);

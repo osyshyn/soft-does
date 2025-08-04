@@ -1,11 +1,16 @@
-@import "@styles/global.scss";
+@use "styles/global" as *;
 
 .root {
   @include fontJetBrains;
   color: white;
   padding: 180px 160px 180px 160px;
 
-  background: conic-gradient(from 5deg at 100% 30%, #000000 90deg, #000000 300deg, #e2ff66 395deg);
+  background: conic-gradient(
+    from 5deg at 100% 30%,
+    #000000 90deg,
+    #000000 300deg,
+    #e2ff66 395deg
+  );
 
   .title {
     font-weight: 300;
@@ -34,7 +39,10 @@
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid #333333;
 
-    transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out, fill 0.7s ease-in-out;
+    transition:
+      background-color 0.7s ease-in-out,
+      color 0.7s ease-in-out,
+      fill 0.7s ease-in-out;
 
     &:hover {
       background-color: #cfec57;
