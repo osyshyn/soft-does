@@ -1,11 +1,9 @@
-User-Agent: *
+# *
+User-agent: *
 Allow: /
 
-User-Agent: Applebot
-Allow: /
+# Host
+Host: https://softdoes.com
 
-User-Agent: OpenAI-GPT3
-Allow: /
-
-User-Agent: GPT-4-Bot
-Allow: /
+# Sitemaps
+Sitemap: https://softdoes.com/sitemap.xml
