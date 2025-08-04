@@ -1,0 +1,73 @@
+@import "@styles/global.scss";
+
+.root{
+
+  display: flex;
+
+  max-width: 970px;
+  height: 420px;
+  background: #ECEBF9;
+  margin: 54px 0;
+  padding: 0 80px;
+  gap: 30px;
+
+  .image{
+    height: 100%;
+  }
+
+  div{
+    display: flex;
+    flex-direction: column;
+    padding: 48px 0;
+
+    h2{
+      margin-bottom: 32px;
+      font-size: 40px !important;
+      font-weight: 600;
+    }
+
+    p{
+      margin-bottom: 40px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .buttonGreen {
+      @include fontJetBrains;
+      font-weight: 200;
+      font-size: 18px;
+      line-height: 100%;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+      color: #000;
+      border-radius: 8px;
+
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: font-weight 1s ease;
+      padding: 30px 88px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: conic-gradient(from 25deg at 14% 50%, #e2ff66, #8da720);
+        z-index: -1;
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform 1s ease;
+      }
+
+      &:hover {
+        font-weight: 300;
+        &::before {
+          transform: scaleX(10);
+        }
+      }
+    }
+
+  }
+
+}

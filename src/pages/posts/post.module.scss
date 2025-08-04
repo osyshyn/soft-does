@@ -6,19 +6,89 @@
   padding-top: 160px;
   padding-bottom: 180px;
 
-  .title {
-    font-weight: 500;
-    line-height: 150%;
-    letter-spacing: 0%;
+  .activeLink {
+    color: #111111;
+    font-weight: 600;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
 
-    margin-bottom: 32px;
+  .inactiveLink {
+    color: #A0A0A0;
+    font-weight: 400;
+    transition: color 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      color: #111111;
+      font-weight: 600;
+    }
+  }
+
+  .layout {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .leftSide {
+    width: 60px;
+    min-width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .content {
-    h1 {
+    flex: 1 1 0%;
+    min-width: 0;
+    max-width: 935px;
+  }
+
+  .rightSide {
+    width: 288px;
+    min-width: 200px;
+  }
+
+  .sticky {
+    position: sticky;
+    top: 115px;
+    align-self: flex-start;
+    z-index: 2;
+  }
+
+  @media (max-width: 900px) {
+    .layout {
+      flex-direction: column;
+      gap: 0;
+    }
+    .leftSide,
+    .rightSide {
+      position: static !important;
+      width: 100%;
+      min-width: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  .title {
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 32px;
+
+    &:not(:first-of-type) {
+      margin-top: 54px;
+    }
+  }
+  .title[id^="heading-"] {
+    scroll-margin-top: 120px;
+  }
+
+  .content {
+    h2 {
       font-size: 48px;
     }
-    h2 {
+    h3 {
       font-size: 32px;
     }
   }
@@ -79,9 +149,15 @@
       height: 64px;
       border-radius: 100px;
       background-color: #e2ff66;
+
+      img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
-    div:last-child {
+    .sidebarContact {
       & > p:first-child {
         font-weight: 500;
         font-size: 18px;
@@ -108,7 +184,6 @@
       p {
         font-weight: 500;
         line-height: 24px;
-        letter-spacing: 5%;
         text-transform: uppercase;
         color: #111111;
       }
@@ -130,7 +205,7 @@
     }
   }
 
-  & > div:last-child {
+  .sidebarContact {
     padding: 24px;
     background-color: #f3f4f8;
 
@@ -325,14 +400,14 @@
 
   li {
     display: flex;
+    align-items: center;
     gap: 40px;
     padding: 16px 40px 16px 16px;
     background-color: #f3f4f8;
 
     img {
-      max-width: 364px;
-      width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: contain;
     }
 
     & > div {
@@ -340,10 +415,11 @@
       flex-direction: column;
       justify-content: center;
       gap: 32px;
+      margin: 17px 0;
 
       h3 {
         font-weight: 500;
-        font-size: 20px;
+        font-size: 20px !important;
         line-height: 90%;
         letter-spacing: 0;
         color: #111111;
@@ -389,4 +465,8 @@
   li:not(:last-of-type) {
     margin-bottom: 40px;
   }
+}
+
+.testimonialText{
+  flex: 1
 }

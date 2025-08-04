@@ -6,9 +6,9 @@
 
   padding: 0 160px 180px 160px;
 
-  & .article:first-child {
-    margin-bottom: 160px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
 
   button {
     cursor: pointer;
@@ -28,7 +28,7 @@
     text-transform: uppercase;
   }
 
-  button {
+  .moreBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,11 +45,13 @@
     letter-spacing: -0.08em;
     text-transform: uppercase;
     color: #ffffff;
+    text-decoration: none;
 
     .arrow {
       margin-left: 16px;
     }
   }
+
 }
 
 .container {
@@ -73,6 +75,7 @@
     }
 
     .image {
+      object-fit: cover;
       width: 50%;
       height: auto;
     }
@@ -98,6 +101,7 @@
 
 .description {
   @include fontAbel;
+  flex: 1;
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
@@ -124,3 +128,35 @@
   text-transform: uppercase;
   color: #ffffff;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.pagination button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  background: transparent;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 28px;
+  letter-spacing: 1.5px;
+  color: #fff;
+  min-width: 120px;
+  text-align: center;
+  user-select: none;
+}
+
