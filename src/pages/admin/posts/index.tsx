@@ -28,7 +28,7 @@ export default function PostsPage({ initialPosts }: { initialPosts: IPost[] }) {
         {posts.map((post) => (
           <li key={post._id} className={s.postItem}>
             <h2>Title: {post.title}</h2>
-            <p>By {post.author}</p>
+            <p>By {post.author?.authorName}</p>
             <div className={s.actions}>
               <Link href={`/admin/posts/edit/${post._id}`}>Edit </Link>
               <button onClick={() => deletePost(post._id)}>Delete</button>
