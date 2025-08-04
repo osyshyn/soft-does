@@ -1,4 +1,4 @@
-@import "@styles/global.scss";
+@use "styles/global" as *;
 
 .root {
   @include fontJetBrains;
@@ -87,7 +87,13 @@
   background-color: black;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 8px;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 30px),
+    calc(100% - 30px) 100%,
+    0 100%
+  );
 
   @include fontJetBrains;
   font-weight: 200;

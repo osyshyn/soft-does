@@ -1,9 +1,13 @@
-@import "@styles/global.scss";
+@use "styles/global" as *;
 
 .root {
-  background-image: url("../../../shared/assets/images/aiml/wave.png"), url("../../../shared//assets//images/aiml/stars.png");
+  background-image:
+    url("../../../shared/assets/images/aiml/wave.png"),
+    url("../../../shared//assets//images/aiml/stars.png");
   background-position: bottom, center;
-  background-size: 100% 50%, 70% 70%;
+  background-size:
+    100% 50%,
+    70% 70%;
   background-repeat: no-repeat;
 
   padding-top: 236px;
@@ -52,8 +56,15 @@
   min-height: 60px;
   padding: 30px 88px;
   border-radius: 8px;
-  background: conic-gradient(from 25deg at 14% 50%, #e2ff66 0deg, #8da720 360deg), #ffffff;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+  background:
+    conic-gradient(from 25deg at 14% 50%, #e2ff66 0deg, #8da720 360deg), #ffffff;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 30px),
+    calc(100% - 30px) 100%,
+    0 100%
+  );
 
   cursor: pointer;
 }

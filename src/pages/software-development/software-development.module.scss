@@ -1,4 +1,4 @@
-@import "@styles/_mixins.scss";
+@use "styles/global" as *;
 
 .textContainer {
   max-width: 800px;
