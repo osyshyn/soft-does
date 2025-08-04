@@ -1,0 +1,11 @@
+User-Agent: *
+Allow: /
+
+User-Agent: Applebot
+Allow: /
+
+User-Agent: OpenAI-GPT3
+Allow: /
+
+User-Agent: GPT-4-Bot
+Allow: /
