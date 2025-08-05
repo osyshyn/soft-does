@@ -18,14 +18,16 @@ export const Hero = () => {
           alt={"Hero Image"}
         />
 
-        <HeroText
-          className={s.content}
-          title={"Custom Software Development"}
-          text={`We create customised software and accompany you every step of the way:
+        <div className={s.textContainer}>
+          <HeroText
+            className={s.content}
+            title={"Custom Software Development"}
+            text={`We create customised software and accompany you every step of the way:
             from idea identification and software development to post-release
             support.`}
-          buttonText={"Contact us"}
-        />
+            buttonText={"Contact us"}
+          />
+        </div>
       </div>
     </section>
   );

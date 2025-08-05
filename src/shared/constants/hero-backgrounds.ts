@@ -9,8 +9,22 @@ import UserIdBg from "@assets/images/uiux/uiuxServices/userID_wave.png";
 import ArchitectureConsultingBg from "@assets/images/architecture-consulting/hero_wave.png";
 import AiDevBg from "@assets/images/aiml/aimlServices/aiDev_wave.png";
 import CaiSolutionsBg from "@assets/images/aiml/aimlServices/caiSolutions_wave.png";
+import AiOperationBg from "@assets/images/aiml/aimlServices/aiDP_wave.png";
+import MlmDevBg from "@assets/images/aiml/aimlServices/mlmd_wave.png";
+import DsDevBg from "@assets/images/dse/services/dss_wave.png";
+import DataAsBg from "@assets/images/dse/services/das_wave.png";
+import DataSgBg from "@assets/images/dse/services/dsag_wave.png";
+import BaBg from "@assets/images/architecture-consulting/services/ba_wave.png";
+import DtBg from "@assets/images/architecture-consulting/services/dt_wave.png";
+import ItBg from "@assets/images/architecture-consulting/services/itc_wave.png";
+import PmBg from "@assets/images/architecture-consulting/services/pm_wave.png";
+import PoBg from "@assets/images/architecture-consulting/services/po_wave.png";
+import CcsBg from "@assets/images/cloud/services/ccs_wave.png";
+import CmsBg from "@assets/images/cloud/services/cms_wave.png";
+import DciBg from "@assets/images/cloud/services/dci_wave.png";
 
 export const BACKGROUND_PRESETS = {
+  dark: `black`,
   black: `linear-gradient(180deg, #161D25 0%, #161D25 100%)`,
   hero: `linear-gradient(
 		-15deg,
@@ -95,4 +109,17 @@ export const BACKGROUND_PRESETS = {
   architectureConsulting: `url(${ArchitectureConsultingBg.src})`,
   aiDev: `url(${AiDevBg.src})`,
   caiSolutions: `url(${CaiSolutionsBg.src})`,
+  aiOperation: `url(${AiOperationBg.src})`,
+  mlmDev: `url(${MlmDevBg.src})`,
+  dsDev: `url(${DsDevBg.src})`,
+  dataAS: `url(${DataAsBg.src})`,
+  dataSG: `url(${DataSgBg.src})`,
+  architectureBA: `url(${BaBg.src})`,
+  architectureDT: `url(${DtBg.src})`,
+  architectureIT: `url(${ItBg.src})`,
+  architecturePM: `url(${PmBg.src})`,
+  architecturePO: `url(${PoBg.src})`,
+  cloudCCS: `url(${CcsBg.src})`,
+  cloudCMS: `url(${CmsBg.src})`,
+  cloudDCI: `url(${DciBg.src})`,
 } as const;

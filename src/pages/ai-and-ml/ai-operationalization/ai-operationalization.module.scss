@@ -1,0 +1,44 @@
+@use "styles/global" as *;
+
+.textContainer {
+  max-width: none;
+  width: 100%;
+  max-width: none;
+
+  @include media("tablet") {
+    max-width: 520px;
+  }
+
+  @include media("laptop") {
+    max-width: 850px;
+  }
+}
+
+.heroImg {
+  bottom: 0%;
+  right: 50%;
+  max-width: 450px;
+
+  @include media("tablet") {
+    transform: translate(0%, 50%);
+    max-width: 600px;
+    right: -15%;
+    bottom: 54%;
+  }
+
+  @include media("tabletVertical") {
+    right: -4%;
+    bottom: 53%;
+  }
+
+  @include media("laptop") {
+    right: -8%;
+    bottom: 51%;
+  }
+
+  @include media("desktop") {
+    max-width: 800px;
+    right: -8%;
+    bottom: 50%;
+  }
+}
