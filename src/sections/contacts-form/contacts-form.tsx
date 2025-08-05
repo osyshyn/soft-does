@@ -5,7 +5,7 @@ import s from "./contacts-form.module.scss";
 import { Input } from "@shared/ui/input/input";
 import { Clip } from "@shared/assets/icons/clip";
 import clsx from "clsx";
-import { InlineWidget } from "react-calendly";
+// import { InlineWidget } from "react-calendly";
 
 export const ContactsForm = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
