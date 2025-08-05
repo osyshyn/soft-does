@@ -1,8 +1,11 @@
+"use client";
+
 import data from "@texts/main/index.json";
 import s from "./contacts-form.module.scss";
 import { Input } from "@shared/ui/input/input";
 import { Clip } from "@shared/assets/icons/clip";
 import clsx from "clsx";
+import { InlineWidget } from "react-calendly";
 
 export const ContactsForm = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -124,7 +127,7 @@ export const ContactsForm = () => {
         </div>
 
         <div className={s.calendarWrapper}>
-          <iframe
+          {/* <iframe
             // className='calendly-inline-widget'
             src="https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff"
             style={{ border: 0, width: "100%", height: "900px" }}
@@ -134,9 +137,13 @@ export const ContactsForm = () => {
             type="text/javascript"
             src="https://assets.calendly.com/assets/external/widget.js"
             async
-          ></script>
+          ></script> */}
+
+          {/* <InlineWidget url="https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff" /> */}
         </div>
       </div>
     </section>
   );
 };
+
+export default ContactsForm;
