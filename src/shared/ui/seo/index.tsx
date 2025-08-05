@@ -12,6 +12,6 @@ export const SEO: React.FC<IProps> = ({ pathname, title, description }) => (
     <meta key="description" name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="canonical" href={`https://softdoes.com/${pathname}`} />
+    <link rel="canonical" href={`https://softdoes.com${pathname}`} />
   </Head>
 );
