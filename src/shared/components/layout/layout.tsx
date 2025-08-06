@@ -8,6 +8,7 @@ import { Contacts } from "@sections/contacts/contacts";
 import Header from "@sections/header/header";
 import Footer from "@sections/footer/footer";
 import dynamic from "next/dynamic";
+import HeaderSSG from "@sections/header-ssg/header";
 
 const ContactsForm = dynamic(
   () => import("@sections/contacts-form/contacts-form"),
@@ -34,6 +35,7 @@ export default function Layout({
   return (
     <>
       <Header posts={posts} isLanding={isLanding} />
+      <HeaderSSG />
       <main>{children}</main>
       {talkToUs && <TalkToUs />}
       {faq && <FAQ />}
