@@ -8,6 +8,7 @@ interface IProps {
 
 export const SEO: React.FC<IProps> = ({ pathname, title, description }) => (
   <Head>
+    <meta name="robots" content="index, follow" />
     <title key="title">{title}</title>
     <meta key="description" name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
