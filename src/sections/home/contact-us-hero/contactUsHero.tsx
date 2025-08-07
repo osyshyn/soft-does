@@ -1,3 +1,5 @@
+"use client";
+
 import Spline from "@splinetool/react-spline";
 
 import s from "./hero.module.scss";

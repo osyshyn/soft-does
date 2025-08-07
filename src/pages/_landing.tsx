@@ -19,14 +19,16 @@ import Layout from "@shared/components/layout/layout";
 import { ContactUsHero } from "@sections/home/contact-us-hero/contactUsHero";
 
 const Testimonials = dynamic(
-  () => import("@sections/testimonials/testimonials")
+  () => import("@sections/testimonials/testimonials"),
+  { ssr: false }
 );
-
 const Industries = dynamic(
-  () => import("@sections/services/industries/industries")
+  () => import("@sections/services/industries/industries"),
+  { ssr: false }
 );
 const CaseStudies = dynamic(
-  () => import("@sections/case-studies/case-studies")
+  () => import("@sections/case-studies/case-studies"),
+  { ssr: false }
 );
 const ContactsForm = dynamic(
   () => import("@sections/contacts-form/contacts-form"),

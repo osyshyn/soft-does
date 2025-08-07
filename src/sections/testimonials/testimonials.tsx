@@ -1,3 +1,5 @@
+"use client";
+
 import data from "@texts/main/index.json";
 import Image from "next/image";
 import "swiper/css";
