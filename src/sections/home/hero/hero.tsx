@@ -1,3 +1,5 @@
+"use client";
+
 import data from "@texts/main/index.json";
 import Spline from "@splinetool/react-spline";
 
