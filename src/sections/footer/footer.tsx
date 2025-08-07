@@ -1,18 +1,9 @@
-"use client";
 import clsx from "clsx";
 import s from "./Footer.module.scss";
 import { ROUTES } from "@shared/constants/routes";
 import Link from "next/link";
 
 export default function Footer() {
-  const scrollToContacts = () => {
-    const element = document.getElementById("contacts");
-
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <footer className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx(s.footer, "container")} id="insights">
@@ -130,7 +121,7 @@ export default function Footer() {
           <div className={s.footer_line_column}>
             <h2>Soft Does</h2>
             <div className={s.footer_line_column_images}></div>
-            <button onClick={scrollToContacts}>Contact us</button>
+            <Link href={ROUTES.contact}>Contact us</Link>
             <p>
               ©Copyright 2024 Yalantis - Software engineering and IT consulting
               company. All rights reserved
