@@ -1,7 +1,5 @@
 "use client";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import React, { useEffect, useState } from "react";
 
 import artifactDevelopment from "@assets/images/main/artifact-intellagence-certificate.svg?url";
 import awsCertificate from "@assets/images/main/aws-certificate.svg?url";
@@ -25,29 +23,51 @@ const CERTIFICATES = [
 ];
 
 export const Certificates = () => {
+  const [SwiperCmp, setSwiperCmp] = useState<React.ComponentType<any> | null>(
+    null
+  );
+  const [SwiperSlideCmp, setSwiperSlideCmp] =
+    useState<React.ComponentType<any> | null>(null);
+  const [modules, setModules] = useState<any[]>([]);
+
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      try {
+        const react = await import("swiper/react");
+        const mods = await import("swiper/modules");
+        if (!mounted) return;
+        setSwiperCmp(() => react.Swiper);
+        setSwiperSlideCmp(() => react.SwiperSlide);
+        setModules([mods.Autoplay]);
+      } catch {
+        // no-op in non-browser environments
+      }
+    })();
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  if (!SwiperCmp || !SwiperSlideCmp) return null;
+
+  const Swiper = SwiperCmp as any;
+  const SwiperSlide = SwiperSlideCmp as any;
+
   return (
     <section className={s.root}>
       <Swiper
-        modules={[Autoplay]}
-        autoplay={{
-          delay: 1000,
-          disableOnInteraction: false,
-        }}
+        modules={modules}
+        autoplay={{ delay: 1000, disableOnInteraction: false }}
         loop={true}
         spaceBetween={80}
         centeredSlides={false}
         speed={1000}
         freeMode={true}
         breakpoints={{
-          320: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 4,
-          },
-          1050: {
-            slidesPerView: 5,
-          },
+          320: { slidesPerView: 2 },
+          768: { slidesPerView: 4 },
+          1050: { slidesPerView: 5 },
         }}
       >
         {CERTIFICATES.map((item, index) => (
