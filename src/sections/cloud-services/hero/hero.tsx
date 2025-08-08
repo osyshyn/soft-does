@@ -1,4 +1,8 @@
-import Spline from "@splinetool/react-spline";
+import dynamic from "next/dynamic";
+
+const Spline = dynamic(() => import("@shared/ui/spline"), {
+  ssr: false,
+});
 
 import data from "@texts/cloud-services/index.json";
 import s from "./hero.module.scss";

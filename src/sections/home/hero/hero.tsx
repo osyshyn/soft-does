@@ -1,7 +1,12 @@
 "use client";
 
 import data from "@texts/main/index.json";
-import Spline from "@splinetool/react-spline";
+
+import dynamic from "next/dynamic";
+
+const Spline = dynamic(() => import("@shared/ui/spline"), {
+  ssr: false,
+});
 
 import s from "./hero.module.scss";
 import clsx from "clsx";
