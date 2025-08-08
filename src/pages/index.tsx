@@ -44,8 +44,6 @@ export default function Home() {
         pathname={ROUTES.root}
       />
       <Layout>
-        <Hero />
-
         <Certificates />
         <ServiceSection
           link="/software-development"
