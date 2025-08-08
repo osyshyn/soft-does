@@ -1,7 +1,7 @@
 "use client";
 
 import data from "@texts/main/index.json";
-import Spline from "@splinetool/react-spline";
+import SafeSpline from "@shared/components/safe-spline/safe-spline";
 
 import s from "./hero.module.scss";
 import clsx from "clsx";
@@ -21,7 +21,7 @@ export const Hero = () => {
         </div>
 
         <div className={s.main_image}>
-          <Spline scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode" />
+          <SafeSpline scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode" />
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import Spline from "@splinetool/react-spline";
+import SafeSpline from "@shared/components/safe-spline/safe-spline";
 
 import s from "./hero.module.scss";
 import { HeroContactForm } from "@sections/hero-contacts-form/hero-contact-form";
@@ -18,7 +18,7 @@ export const ContactUsHero = () => {
         </div>
 
         <div className={s.main_image}>
-          <Spline scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode" />
+          <SafeSpline scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode" />
         </div>
       </div>
     </section>

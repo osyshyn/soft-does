@@ -1,4 +1,4 @@
-import Spline from "@splinetool/react-spline";
+import SafeSpline from "@shared/components/safe-spline/safe-spline";
 
 import data from "@texts/cloud-services/index.json";
 import s from "./hero.module.scss";
@@ -19,7 +19,7 @@ export const Hero = () => {
         </div>
 
         <div className={s.main_image}>
-          <Spline
+          <SafeSpline
             scene="https://prod.spline.design/pS-CwW5tkPfZHSKA/scene.splinecode"
             className={s.scene}
           />

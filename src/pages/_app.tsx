@@ -7,7 +7,6 @@ import Script from "next/script";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { LenisProvider } from "@shared/components/lenis/lenis";
-import { ErrorBoundary } from "react-error-boundary";
 
 import "swiper/css";
 import "swiper/css/grid";
@@ -88,11 +87,9 @@ export default function App({ Component, pageProps }: AppProps) {
         </>
       )}
 
-      <ErrorBoundary fallback={<div>Something went wrong</div>}>
-        <LenisProvider>
-          <Component {...pageProps} />
-        </LenisProvider>
-      </ErrorBoundary>
+      <LenisProvider>
+        <Component {...pageProps} />
+      </LenisProvider>
     </>
   );
 }
