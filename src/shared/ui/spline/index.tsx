@@ -14,6 +14,7 @@
 // }
 
 "use client";
+/* eslint-disable @typescript-eslint/no-namespace */
 
 import { useEffect, useState } from "react";
 
