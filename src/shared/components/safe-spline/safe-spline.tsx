@@ -1,9 +1,11 @@
-import dynamic from "next/dynamic";
-import React, { useEffect, useState } from "react";
+// import dynamic from "next/dynamic";
 
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  ssr: false,
-});
+// const Spline = dynamic(() => import("@splinetool/react-spline"), {
+//   ssr: false,
+// });
+
+import React, { useEffect, useState } from "react";
+import Spline from "@splinetool/react-spline";
 
 function isWebGLAvailable(): boolean {
   if (typeof window === "undefined" || typeof document === "undefined") {
@@ -33,6 +35,5 @@ export default function SafeSpline({ scene, className }: SafeSplineProps) {
   }, []);
 
   if (!canRender) return null;
-  // The Spline component is only loaded client-side and only when WebGL is available
   return <Spline scene={scene} className={className} />;
 }
