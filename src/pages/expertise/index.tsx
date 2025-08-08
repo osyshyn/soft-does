@@ -16,8 +16,8 @@ export default function ExpertisePage() {
   return (
     <>
       <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
+        title="Soft does Expertise"
+        description="Soft does Expertise is company, that will help your bussines grow!"
         pathname={ROUTES.expertise}
       />
       <Layout>
