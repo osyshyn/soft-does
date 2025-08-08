@@ -21,6 +21,8 @@ const nextConfig: NextConfig = {
       }
     );
 
+    config.resolve.alias["next/image"] = "next/image.js";
+
     return config;
   },
 

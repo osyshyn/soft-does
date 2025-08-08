@@ -1,5 +1,3 @@
-"use client";
-
 import data from "@texts/main/index.json";
 
 import dynamic from "next/dynamic";
