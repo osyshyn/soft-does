@@ -1,11 +1,19 @@
 "use client";
 
 import data from "@texts/main/index.json";
-import SafeSpline from "@shared/components/safe-spline/safe-spline";
+// import SafeSpline from "@shared/components/safe-spline/safe-spline";
 
 import s from "./hero.module.scss";
 import clsx from "clsx";
 import { Kansas } from "@shared/components/kansas/kansas";
+
+import dynamic from "next/dynamic";
+const SafeSpline = dynamic(
+  () => import("@shared/components/safe-spline/safe-spline"),
+  {
+    ssr: false,
+  }
+);
 
 export const Hero = () => {
   return (

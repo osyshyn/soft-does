@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
-// import { Hero } from "@sections/home/hero/hero";
+import { Hero } from "@sections/home/hero/hero";
 import { Certificates } from "@sections/home/certificates/certificates";
 import { ServiceSection } from "@sections/home/service-section/service-section";
 import { AboutUs } from "@sections/home/about-us/about-us";
@@ -44,6 +44,8 @@ export default function Home() {
         pathname={ROUTES.root}
       />
       <Layout>
+        <Hero />
+
         <Certificates />
         <ServiceSection
           link="/software-development"
