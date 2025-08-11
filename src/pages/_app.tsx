@@ -12,6 +12,32 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 
+import { Abel, Inter, JetBrains_Mono, Poppins } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jb",
+});
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  display: "swap",
+  variable: "--font-poppins",
+});
+
+const abel = Abel({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-abel",
+});
+
 declare global {
   interface Window {
     _hsq?: Array<[string, string?]>;
@@ -87,7 +113,11 @@ export default function App({ Component, pageProps }: AppProps) {
       )}
 
       <LenisProvider>
-        <Component {...pageProps} />
+        <div
+          className={`${inter.variable} ${jetbrains.variable} ${poppins.variable} ${abel.variable}`}
+        >
+          <Component {...pageProps} />
+        </div>
       </LenisProvider>
     </>
   );
