@@ -1,20 +1,11 @@
-"use client";
-
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { Autoplay } from "swiper/modules";
 
 import { Pin } from "@shared/assets/icons/pin-icon";
-import { Django } from "@shared/assets/icons/main/django";
-import { Node } from "@shared/assets/icons/main/node";
-import { CPlus } from "@shared/assets/icons/main/c-plus";
-import { Python } from "@shared/assets/icons/main/python";
-import { Html } from "@shared/assets/icons/main/html";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css";
 import s from "./service-section.module.scss";
 import clsx from "clsx";
+import { ServiceSwiper } from "./service-swiper";
 
 interface IProps {
   currentColor?: string;
@@ -25,8 +16,6 @@ interface IProps {
   isRight?: boolean;
   link: string;
 }
-
-const TECHNOLOGIES = [Django, Node, CPlus, Python, Html];
 
 export const ServiceSection = (props: IProps) => {
   return (
@@ -53,28 +42,7 @@ export const ServiceSection = (props: IProps) => {
             ))}
           </ul>
 
-          <div className={s.sliderWrapper}>
-            <Swiper
-              spaceBetween={16}
-              slidesPerView={3.4}
-              centeredSlides={false}
-              loop={true}
-              speed={2000}
-              freeMode={true}
-              autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-                stopOnLastSlide: false,
-              }}
-              modules={[Autoplay]}
-            >
-              {TECHNOLOGIES.map((Item, idx) => (
-                <SwiperSlide key={idx} className={s.slide}>
-                  <Item className={s.technologiesIcon} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+          <ServiceSwiper />
 
           <Link href={props.link} className={s.button}>
             {props.buttonText}

@@ -1,4 +1,8 @@
-import Spline from "@splinetool/react-spline";
+import dynamic from "next/dynamic";
+
+const Spline = dynamic(() => import("@shared/ui/spline"), {
+  ssr: false,
+});
 
 import s from "./hero.module.scss";
 import { HeroContactForm } from "@sections/hero-contacts-form/hero-contact-form";

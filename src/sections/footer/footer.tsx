@@ -1,93 +1,127 @@
-"use client";
 import clsx from "clsx";
 import s from "./Footer.module.scss";
+import { ROUTES } from "@shared/constants/routes";
+import Link from "next/link";
 
 export default function Footer() {
-  const scrollToContacts = () => {
-    const element = document.getElementById("contacts");
-
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <footer className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx(s.footer, "container")} id="insights">
         <div className={s.footer_line}>
           <div className={s.footer_line_column}>
-            <h4>Services</h4>
-            <a href="#">Custom software development</a>
-            <a href="#">Dedicated development teams</a>
-            <a href="#">IT consulting</a>
-            <a href="#">Digital transformation</a>
-            <a href="#">Staff augmentation services</a>
+            <h4>Navigation</h4>
+            <Link href={ROUTES.services}>Services</Link>
+            <Link href="/expertise">Expertise</Link>
+            <Link href={ROUTES.industries}>Industries</Link>
+            <Link href="/portfolio">Success stories</Link>
+            <Link href="/company">Company</Link>
+            <Link href="/insights">Insights</Link>
+          </div>
+
+          <div className={s.footer_line_column}>
+            <h4>Software Development</h4>
+            <Link href={ROUTES.softwareDev.customSoftDev}>
+              Custom Software Development
+            </Link>
+            <Link href={ROUTES.softwareDev.mobileAppDev}>
+              Mobile App Development
+            </Link>
+            <Link href={"/software-development/web-app-development"}>
+              Web Application Development
+            </Link>
+            <Link href={ROUTES.softwareDev.mvpDev}>MVP Development</Link>
+            <Link href={ROUTES.softwareDev.productDev}>
+              Product Development
+            </Link>
+            <Link href="#">API Integration Services</Link>
           </div>
           <div className={s.footer_line_column}>
-            <h4>Success stories</h4>
-            <a href="#">Clients</a>
-            <a href="#">Case studies</a>
-          </div>
-          <div className={s.footer_line_column}>
-            <h4>Company</h4>
-            <a href="#">About</a>
-            <a href="#">Mission and values</a>
-            <a href="#">International presence</a>
-            <a href="#">Management team</a>
-            <a href="#">Corporate social responsibility</a>
-            <a href="#">Industry contribution</a>
-            <a href="#">Our clients and awards</a>
-          </div>
-        </div>
-        <div className={s.footer_line}>
-          <div className={s.footer_line_column}>
-            <h4>Expertises</h4>
-            <a href="#">Technology</a>
-            <a href="#">Solutions</a>
-          </div>
-          <div className={s.footer_line_column}>
-            <h4>Yalantis solution hub</h4>
-            <a href="#">Yalantis IoT Accelerator</a>
-            <a href="#">Yalantis ERP system</a>
-            <a href="#">Yalantis Payments</a>
-            <a href="#">An AI-powered virtual assistant</a>
-            <a href="#">DevOps Accelerator</a>
-            <a href="#">Authorization Accelerator</a>
-            <a href="#">uCrop</a>
-          </div>
-          <div className={s.footer_line_column}>
-            <h4>Y-Quality</h4>
-          </div>
-          <div className={s.footer_line_column}>
-            <h4>Insights</h4>
-            <a href="#">FinTech</a>
-            <a href="#">Healthcare</a>
-            <a href="#">Transportation and mobility</a>
-            <a href="#">Manufacturing</a>
-            <a href="#">Smart Home and appliances</a>
-            <a href="#">Energy and resources</a>
-            <a href="#">Real estate</a>
-            <a href="#">All articles</a>
+            <h4>UI/UX Design</h4>
+            <Link href={ROUTES.uiUxDesign.userED}>User Experience Design</Link>
+            <Link href={ROUTES.uiUxDesign.userID}>User Interface Design</Link>
+            <Link href={ROUTES.uiUxDesign.productDS}>
+              Product Design Services
+            </Link>
           </div>
         </div>
         <div className={s.footer_line}>
           <div className={s.footer_line_column}>
-            <h4>Industries</h4>
-            <a href="#">Fintech</a>
-            <a href="#">Healthcare</a>
-            <a href="#">Transportation and mobility</a>
-            <a href="#">Manufacturing</a>
-            <a href="#">Smart home and appliances</a>
-            <a href="#">Software products</a>
-            <a href="#">Real estate</a>
-            <a href="#">Energy consumption management system</a>
+            <h4>AI & Machine Learning</h4>
+            <Link href={ROUTES.aiAndMl.aiDev}>
+              Artificial Intelligence Development
+            </Link>
+            <Link href={ROUTES.aiAndMl.mlMD}>
+              Machine Learning Model Development
+            </Link>
+            <Link href={ROUTES.aiAndMl.aiDPAuto}>
+              AI-Driven Process Automation
+            </Link>
+            <Link href={ROUTES.aiAndMl.aiOperation}>AI Operationalization</Link>
+            <Link href={ROUTES.aiAndMl.caiSolutions}>Custom AI Solutions</Link>
+          </div>
+          <div className={s.footer_line_column}>
+            <h4>Data Science & Engineering</h4>
+            <Link href={ROUTES.dataScnAndEngnrng.dataScience}>
+              Data Science Services
+            </Link>
+            <Link href={ROUTES.dataScnAndEngnrng.dataAnalytics}>
+              Data Analytics Solutions
+            </Link>
+            <Link href={ROUTES.dataScnAndEngnrng.enterpriseData}>
+              Enterprise Data Management
+            </Link>
+            <Link href={ROUTES.dataScnAndEngnrng.dataStrategy}>
+              Data Strategy and Governance
+            </Link>
+          </div>
+
+          <div className={s.footer_line_column}>
+            <h4>Architecture & Consulting Services</h4>
+            <Link href={ROUTES.architectureConsulting.businessAnalytics}>
+              Business Analytics
+            </Link>
+            <Link href={ROUTES.architectureConsulting.itConsulting}>
+              IT Consulting
+            </Link>
+            <Link href={ROUTES.architectureConsulting.digitalTransformation}>
+              Digital Transformation
+            </Link>
+            <Link href={ROUTES.architectureConsulting.productManagement}>
+              Product Management
+            </Link>
+            <Link href={ROUTES.architectureConsulting.productOwnership}>
+              Product Ownership
+            </Link>
+            <Link href={ROUTES.architectureConsulting.databaseDesign}>
+              Database Design & Development
+            </Link>
+            <Link href={ROUTES.architectureConsulting.codeAudits}>
+              Code Audits
+            </Link>
+          </div>
+        </div>
+        <div className={s.footer_line}>
+          <div className={s.footer_line_column}>
+            <h4>Cloud Services</h4>
+            <Link href={"/cloud-services/cloud-computing-solutions"}>
+              Cloud Computing Solutions
+            </Link>
+            <Link href={"/cloud-services/devops-and-cloud-infrastructure"}>
+              DevOps and Cloud Infrastructure
+            </Link>
+            <Link href={"/cloud-services/cloud-migration-services"}>
+              Cloud Migration Services
+            </Link>
+            <Link href={"/cloud-services/managed-cloud-services"}>
+              Managed Cloud Services
+            </Link>
           </div>
         </div>
         <div className={s.footer_line}>
           <div className={s.footer_line_column}>
             <h2>Soft Does</h2>
             <div className={s.footer_line_column_images}></div>
-            <button onClick={scrollToContacts}>Contact us</button>
+            <Link href={ROUTES.contact}>Contact us</Link>
             <p>
               ©Copyright 2024 Yalantis - Software engineering and IT consulting
               company. All rights reserved

@@ -1,0 +1,29 @@
+@use "styles/global" as *;
+
+.sliderWrapper {
+  overflow: hidden;
+
+  width: 100%;
+
+  cursor: grab;
+
+  border-radius: 8px;
+
+  margin-bottom: 32px;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  @include media(tabletVertical) {
+    width: 450px;
+  }
+}
+
+.technologiesIcon {
+  width: 44px;
+
+  @include media(laptop) {
+    width: 64px;
+  }
+}
