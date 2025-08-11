@@ -29,6 +29,29 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["res.cloudinary.com", "images.ctfassets.net"],
   },
+
+  async headers() {
+    return [
+      {
+        source: "/robots.txt",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, s-maxage=0, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/sitemap.xml",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, s-maxage=0, must-revalidate",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
