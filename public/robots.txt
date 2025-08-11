@@ -1,0 +1,13 @@
+User-Agent: *
+Allow: /
+Disallow: /admin
+User-Agent: Applebot
+Allow: /
+Disallow: /admin
+User-Agent: OpenAI-GPT3
+Allow: /
+Disallow: /admin
+User-Agent: GPT-4-Bot
+Allow: /
+Disallow: /admin
+Sitemap: https://softdoes.com/sitemap.xml
