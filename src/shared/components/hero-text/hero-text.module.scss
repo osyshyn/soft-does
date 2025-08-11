@@ -3,6 +3,8 @@
 .content {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
 }
 
 .kansas {
@@ -19,6 +21,17 @@
   letter-spacing: -0.08em;
   margin-bottom: 32px;
   text-align: center;
+
+  // Force word breaking to prevent overflow
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+
+  @include media(tablet) {
+    word-break: normal;
+    overflow-wrap: normal;
+  }
 
   @include media(tablet) {
     text-align: left;

@@ -84,15 +84,15 @@ export const Hero = ({
             <Image
               aria-hidden
               alt=""
+              quality={100}
               src={heroImg}
+              placeholder="blur"
               style={{
                 transform: isDynamicImage
                   ? `translate(${offset.x}px, ${offset.y}px)`
                   : `translate(0, 0)`,
                 transition: "transform 0.1s ease-out",
               }}
-              // width={heroImg}
-              // height={heroImg}
             />
           </div>
         )}

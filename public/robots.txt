@@ -10,4 +10,7 @@ Disallow: /admin
 User-Agent: GPT-4-Bot
 Allow: /
 Disallow: /admin
+
+Host: https://softdoes.com
+
 Sitemap: https://softdoes.com/sitemap.xml

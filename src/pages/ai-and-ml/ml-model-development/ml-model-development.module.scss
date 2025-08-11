@@ -1,0 +1,46 @@
+@use "styles/global" as *;
+
+.textContainer {
+  max-width: none;
+  width: 100%;
+
+  @include media("tablet") {
+    max-width: 600px;
+  }
+
+  @include media("tabletVertical") {
+    max-width: 730px;
+  }
+
+  @include media("laptop") {
+    max-width: 930px;
+  }
+
+  @include media("desktop") {
+    max-width: 1070px;
+  }
+}
+
+.heroImg {
+  bottom: 0%;
+  right: 40%;
+  max-width: 600px;
+  width: 140%;
+  object-fit: cover !important;
+
+  @include media("tablet") {
+    transform: translate(0%, 50%);
+    bottom: 30%;
+    max-width: 700px;
+    right: -3%;
+  }
+
+  @include media("laptop") {
+    right: -10%;
+    max-width: 700px;
+  }
+
+  @include media("desktop") {
+    max-width: 900px;
+  }
+}

@@ -1,10 +1,8 @@
-import data from "@shared/texts/aiml/aiDPAuto.json";
-
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
-import { Hero } from "@sections/hero_bg/hero";
+import { Hero } from "@sections/ai-and-ml/ai-driven-process-automation/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { Testimonials } from "@sections/testimonials/testimonials";
@@ -20,14 +18,7 @@ export default function AiDPAuto() {
         pathname={ROUTES.aiAndMl.aiDPAuto}
       />
       <Layout>
-        <Hero
-          data={data.hero}
-          bgImg="heroBg_aiDPAuto.png"
-          bgStyles={{
-            backgroundPosition: "right bottom",
-            backgroundSize: "contain",
-          }}
-        />
+        <Hero />
         <Results />
         <Technologies />
         <Testimonials />
