@@ -128,10 +128,10 @@ export default function Footer() {
             </p>
           </div>
           <div className={s.footer_line_column}>
-            <a>Cookies notice</a>
-            <a>Privacy notice</a>
-            <a>Quality policy</a>
-            <a>Yalantis Sustainability Policy</a>
+            <a href="#">Cookies notice</a>
+            <a href="#">Privacy notice</a>
+            <a href="#">Quality policy</a>
+            <a href="#">Yalantis Sustainability Policy</a>
           </div>
         </div>
       </div>

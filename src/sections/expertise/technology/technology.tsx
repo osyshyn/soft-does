@@ -31,17 +31,24 @@ export const Technology = () => {
   return (
     <section className={s.root}>
       <h2>Technology and business insights</h2>
-      <div className={s.container}>
+      <ul className={s.container}>
         {INFO.map((item, index) => (
-          <div className={s.elementBlock} key={index}>
-            <Image className={s.img} aria-hidden alt="" src={item.img.src} width={item.img.width} height={item.img.height} />
+          <li className={s.elementBlock} key={index}>
+            <Image
+              className={s.img}
+              aria-hidden
+              alt=""
+              src={item.img.src}
+              width={item.img.width}
+              height={item.img.height}
+            />
             <h3>{item.title}</h3>
             <p>{item.subtitle}</p>
             <p>{item.description}</p>
             <button>Read more</button>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 };

@@ -71,12 +71,12 @@ export default function Header({ posts, isLanding }: HeaderProps) {
         id="header"
       >
         {isLandingDomain ? (
-          <a
+          <Link
             href={homeLink}
             className={`${s.main_header} ${posts ? s.postPage : ""}`}
           >
             SOFT DOES
-          </a>
+          </Link>
         ) : (
           <Link
             href={homeLink}
