@@ -1,4 +1,3 @@
-# *
 User-agent: *
 Allow: /
 
@@ -11,8 +10,6 @@ Allow: /
 User-Agent: GPT-4-Bot
 Allow: /
 
-# Host
 Host: https://softdoes.com
 
-# Sitemaps
 Sitemap: https://softdoes.com/sitemap.xml
