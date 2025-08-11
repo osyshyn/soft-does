@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperCore } from "swiper";
-import "swiper/css";
 
 import Iphone from "@shared/assets/images/services/Iphone14Pro.png";
 import Notebook from "@shared/assets/images/services/Notebook.png";

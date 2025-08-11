@@ -3,8 +3,6 @@ import Image from "next/image";
 import s from "./hero.module.scss";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/autoplay";
 
 interface CarouselItem {
   image?: { url?: string; title?: string };

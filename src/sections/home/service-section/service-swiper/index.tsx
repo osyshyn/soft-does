@@ -1,7 +1,6 @@
 "use client";
 
 import { Autoplay } from "swiper/modules";
-import "swiper/css";
 
 import { Django } from "@shared/assets/icons/main/django";
 import { Node } from "@shared/assets/icons/main/node";
@@ -10,7 +9,6 @@ import { Python } from "@shared/assets/icons/main/python";
 import { Html } from "@shared/assets/icons/main/html";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css";
 import s from "./service-swiper.module.scss";
 
 const TECHNOLOGIES = [Django, Node, CPlus, Python, Html];

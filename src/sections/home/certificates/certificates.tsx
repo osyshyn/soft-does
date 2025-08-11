@@ -10,8 +10,6 @@ import pmCertificate from "@assets/images/main/pm-certificate.svg?url";
 import webDevelopmentFundamentals from "@assets/images/main/web-development-fundamentals.svg?url";
 import Image from "next/image";
 
-import "swiper/css";
-import "swiper/css/autoplay";
 import s from "./certificates.module.scss";
 
 const CERTIFICATES = [

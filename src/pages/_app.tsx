@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { LenisProvider } from "@shared/components/lenis/lenis";
 
 import "swiper/css";
+import "swiper/css/autoplay";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 
@@ -19,11 +20,13 @@ const inter = Inter({
   display: "swap",
   variable: "--font-inter",
 });
+
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-jb",
 });
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "600"],
@@ -90,12 +93,12 @@ export default function App({ Component, pageProps }: AppProps) {
           <Script
             id="hs-script-loader"
             src="//js-na2.hs-scripts.com/242390269.js"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
           <Script
             id="hs-script-loader"
             src="//js-na2.hs-scripts.com/242390269.js"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=AW-11547473176"
