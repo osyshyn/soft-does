@@ -27,11 +27,6 @@ const CaseStudies = dynamic(
   () => import("@sections/case-studies/case-studies")
 );
 
-const ContactsForm = dynamic(
-  () => import("@sections/contacts-form/contacts-form"),
-  { ssr: false }
-);
-
 export default function Home() {
   return (
     <>
@@ -89,7 +84,6 @@ export default function Home() {
         <Testimonials />
         <AboutUs />
 
-        <ContactsForm />
         <Industries />
         <CaseStudies />
       </Layout>

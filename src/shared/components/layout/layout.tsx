@@ -1,18 +1,27 @@
 import type { ReactNode } from "react";
 
-import { TalkToUs } from "@sections/talk-to-us/talk-to-us";
-import { FAQ } from "@sections/faq/faq";
+// import { TalkToUs } from "@sections/talk-to-us/talk-to-us";
 import { Contacts } from "@sections/contacts/contacts";
-// import { ContactsForm } from "@sections/contacts-form/contacts-form";
 
 import Header from "@sections/header/header";
-import Footer from "@sections/footer/footer";
 import dynamic from "next/dynamic";
 
 const ContactsForm = dynamic(
   () => import("@sections/contacts-form/contacts-form"),
   { ssr: false }
 );
+
+const Footer = dynamic(() => import("@sections/footer/footer"), {
+  ssr: true,
+});
+
+const FAQ = dynamic(() => import("@sections/faq/faq"), {
+  ssr: false,
+});
+
+const TalkToUs = dynamic(() => import("@sections/talk-to-us/talk-to-us"), {
+  ssr: false,
+});
 
 interface LayoutProps {
   children: ReactNode;

@@ -30,3 +30,5 @@ export const TalkToUs = () => {
     </div>
   );
 };
+
+export default TalkToUs;

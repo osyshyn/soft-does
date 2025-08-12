@@ -1,25 +1,12 @@
 import "@styles/global.scss";
 import "@styles/document.scss";
-import AOS, { AosOptions } from "aos";
 import type { AppProps } from "next/app";
-import "aos/dist/aos.css";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { LenisProvider } from "@shared/components/lenis/lenis";
 
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/grid";
-import "swiper/css/pagination";
-
-import { Abel, Inter, JetBrains_Mono, Poppins } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
+import { Abel, JetBrains_Mono, Poppins } from "next/font/google";
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
@@ -47,20 +34,10 @@ declare global {
   }
 }
 
-const aosOptions: AosOptions = {
-  duration: 1000,
-  easing: "ease-out-quad",
-  once: true,
-};
-
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   const isAdminRoute = router.pathname.startsWith("/admin");
-
-  useEffect(() => {
-    AOS.init(aosOptions);
-  }, []);
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -96,11 +73,6 @@ export default function App({ Component, pageProps }: AppProps) {
             strategy="lazyOnload"
           />
           <Script
-            id="hs-script-loader"
-            src="//js-na2.hs-scripts.com/242390269.js"
-            strategy="lazyOnload"
-          />
-          <Script
             src="https://www.googletagmanager.com/gtag/js?id=AW-11547473176"
             strategy="afterInteractive"
           />
@@ -117,7 +89,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <LenisProvider>
         <div
-          className={`${inter.variable} ${jetbrains.variable} ${poppins.variable} ${abel.variable}`}
+          className={`${jetbrains.variable} ${poppins.variable} ${abel.variable}`}
         >
           <Component {...pageProps} />
         </div>

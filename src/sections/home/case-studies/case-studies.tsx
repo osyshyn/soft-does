@@ -4,6 +4,10 @@ import clsx from "clsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Mousewheel, Pagination } from "swiper/modules";
 
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/pagination";
+
 import aiLaptop from "@assets/images/main/ai-laptop.png";
 import aiPhone from "@assets/images/main/ai-phone.png";
 import aiWebApp from "@assets/images/main/ai-web-app.png";
@@ -22,8 +26,16 @@ import designTwoPhones from "@assets/images/main/design-two-phones.png";
 const PHOTOS = {
   ai: [aiPhone, aiWebApp, aiLaptop],
   "cloud-services": [cloudServicesPhone, cloudServicesLaptop, designTwoPhones],
-  "data-science-engineering": [dataScienceWebApp, dataScienceLaptop, dataScienceGirlWithPhone],
-  "architecture-consulting-services": [architectureLaptop, architecturePhone, architectureTablet],
+  "data-science-engineering": [
+    dataScienceWebApp,
+    dataScienceLaptop,
+    dataScienceGirlWithPhone,
+  ],
+  "architecture-consulting-services": [
+    architectureLaptop,
+    architecturePhone,
+    architectureTablet,
+  ],
   "ui-ux-design": [designTwoPhones, designLaptop, designPhone],
 };
 
@@ -112,7 +124,9 @@ export const CaseStudies = () => (
                 <span className={clsx(s.tag, s.after)}>{item.after.tag}</span>
 
                 <h4 className={clsx(s.bottomTitle, s.after)}>
-                  <span className={clsx(s.titleNumber, s.after)}>{item.after.number}</span>
+                  <span className={clsx(s.titleNumber, s.after)}>
+                    {item.after.number}
+                  </span>
                   {item.after.title}
                 </h4>
 
