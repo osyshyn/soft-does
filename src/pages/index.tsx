@@ -40,6 +40,7 @@ export default function Home() {
 
         <Certificates />
         <ServiceSection
+          isImagePriority
           link="/software-development"
           currentColor="#173B91"
           img={softwareDevelopment}
@@ -47,6 +48,7 @@ export default function Home() {
         />
         <ServiceSection
           link="/ai-and-ml"
+          isImagePriority
           currentColor="#D75186"
           img={aiAndMachineLearning}
           isRight

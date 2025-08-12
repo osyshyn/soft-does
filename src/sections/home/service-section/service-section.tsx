@@ -15,6 +15,7 @@ interface IProps {
   buttonText: string;
   isRight?: boolean;
   link: string;
+  isImagePriority?: boolean;
 }
 
 export const ServiceSection = (props: IProps) => {
@@ -54,8 +55,10 @@ export const ServiceSection = (props: IProps) => {
             src={props.img.src}
             className={s.img}
             alt=""
+            sizes="300px, (max-width: 1280px) 350px, 450px"
             width={props.img.width}
             height={props.img.height}
+            priority={props.isImagePriority}
           />
         </div>
       </div>
