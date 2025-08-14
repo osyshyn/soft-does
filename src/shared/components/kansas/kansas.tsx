@@ -8,6 +8,7 @@ export const Kansas = () => {
       <p className={s.tagText}>Proudly based in kansas</p>
       <div className={s.imageContainer}>
         <Image
+          priority
           aria-hidden
           alt="Kansas flag"
           quality={100}

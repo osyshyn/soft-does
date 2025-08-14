@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import { Hero } from "@sections/home/hero/hero";
-import { Certificates } from "@sections/home/certificates/certificates";
 import { ServiceSection } from "@sections/home/service-section/service-section";
 import { AboutUs } from "@sections/home/about-us/about-us";
 
@@ -25,6 +24,11 @@ const Industries = dynamic(
 );
 const CaseStudies = dynamic(
   () => import("@sections/case-studies/case-studies")
+);
+
+const Certificates = dynamic(
+  () => import("@sections/home/certificates/certificates"),
+  { ssr: false }
 );
 
 export default function Home() {

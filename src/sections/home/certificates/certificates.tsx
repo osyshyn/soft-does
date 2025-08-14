@@ -1,4 +1,5 @@
 "use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
@@ -55,8 +56,13 @@ export const Certificates = () => {
             <Image
               alt={`Certificate ${index + 1}`}
               aria-hidden
+              priority
               src={item}
               className={s.image}
+              width={111}
+              height={111}
+              // placeholder="blur"
+              // blurDataURL={item}
             />
           </SwiperSlide>
         ))}
@@ -64,3 +70,5 @@ export const Certificates = () => {
     </section>
   );
 };
+
+export default Certificates;

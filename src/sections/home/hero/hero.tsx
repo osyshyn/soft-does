@@ -1,10 +1,11 @@
 import data from "@texts/main/index.json";
 
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
-const Spline = dynamic(() => import("@shared/ui/spline"), {
-  ssr: false,
-});
+// const Spline = dynamic(() => import("@shared/ui/spline"), {
+//   ssr: false,
+//   loading: () => null,
+// });
 
 import s from "./hero.module.scss";
 import clsx from "clsx";
@@ -23,9 +24,9 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className={s.main_image}>
+        {/* <div className={s.main_image}>
           <Spline scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode" />
-        </div>
+        </div> */}
       </div>
     </section>
   );
