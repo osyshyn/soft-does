@@ -10,6 +10,7 @@ import data from "@texts/main/index.json";
 import s from "./hero.module.scss";
 import clsx from "clsx";
 import { Kansas } from "@shared/components/kansas/kansas";
+import { HubSpotMeetings } from "@shared/components/hub-spot-meetings";
 
 export const Hero = () => {
   return (
@@ -19,9 +20,11 @@ export const Hero = () => {
           <Kansas />
           <h1 className={s.title}>{data.hero.title}</h1>
 
-          <div>
+          <HubSpotMeetings>{data.hero.buttonText}</HubSpotMeetings>
+
+          {/* <div>
             <button className={s.button}>{data.hero.buttonText}</button>
-          </div>
+          </div> */}
         </div>
 
         {/* <div className={s.main_image}>

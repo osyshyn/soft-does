@@ -2,6 +2,7 @@ import { Kansas } from "@shared/components/kansas/kansas";
 
 import s from "./hero-text.module.scss";
 import clsx from "clsx";
+import { HubSpotMeetings } from "../hub-spot-meetings";
 
 const HeroText = ({
   title,
@@ -26,7 +27,8 @@ const HeroText = ({
       </h1>
       <p className={s.tagText}>{text}</p>
       <div>
-        <button className={s.button}>{buttonText}</button>
+        <HubSpotMeetings>{buttonText}</HubSpotMeetings>
+        {/* <button className={s.button}>{buttonText}</button> */}
       </div>
     </div>
   );
