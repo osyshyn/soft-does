@@ -43,7 +43,9 @@ export const ServiceSection = (props: IProps) => {
             ))}
           </ul>
 
-          <ServiceSwiper />
+          <div className={s.swiperWrapper}>
+            <ServiceSwiper />
+          </div>
 
           <Link href={props.link} className={s.button}>
             {props.buttonText}

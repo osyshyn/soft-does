@@ -7,17 +7,37 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useEffect(() => {
-    const instance = new Lenis({
-      autoRaf: true,
-      lerp: 0.1,
-      prevent: (node) => node.id === "modal",
-    });
-    setLenis(instance);
-    return () => instance.destroy();
+    let cancelled = false;
+
+    const initLenis = async () => {
+      try {
+        const instance = new Lenis({
+          autoRaf: true,
+          lerp: 0.1,
+          prevent: (node) => node.id === "modal",
+        });
+
+        if (!cancelled) {
+          setLenis(instance);
+        }
+      } catch (error) {
+        console.warn("Lenis failed to initialize, using basic scroll:", error);
+        // Don't set lenis, keep it null for fallback
+      }
+    };
+
+    // Initialize Lenis in background
+    initLenis();
+
+    return () => {
+      cancelled = true;
+      if (lenis) {
+        lenis.destroy();
+      }
+    };
   }, []);
 
-  if (lenis === null) return children;
-
+  // Always render children, regardless of Lenis status
   return (
     <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>
   );

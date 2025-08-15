@@ -1,5 +1,16 @@
 @use "styles/global" as *;
 
+.container {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100vh;
+  // CSS Grid/Flexbox bug size workaround
+  // @see https://github.com/kenwheeler/slick/issues/982
+  // @see https://github.com/nolimits4web/swiper/issues/3599
+  min-height: 0;
+  min-width: 0;
+}
+
 .sliderWrapper {
   overflow: hidden;
 
@@ -26,4 +37,15 @@
   @include media(laptop) {
     width: 64px;
   }
+}
+
+.swpContainer {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100vh;
+  // CSS Grid/Flexbox bug size workaround
+  // @see https://github.com/kenwheeler/slick/issues/982
+  // @see https://github.com/nolimits4web/swiper/issues/3599
+  min-height: 0;
+  min-width: 0;
 }

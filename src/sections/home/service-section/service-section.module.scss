@@ -220,3 +220,21 @@
     transform: translateY(0);
   }
 }
+
+.swiperWrapper {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100vh;
+
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+
+  @include media(tablet) {
+    width: 450px;
+  }
+
+  @include media(tabletVertical) {
+    width: auto;
+  }
+}
