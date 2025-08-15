@@ -4,10 +4,6 @@ import clsx from "clsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Mousewheel, Pagination } from "swiper/modules";
 
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/pagination";
-
 import aiLaptop from "@assets/images/main/ai-laptop.png";
 import aiPhone from "@assets/images/main/ai-phone.png";
 import aiWebApp from "@assets/images/main/ai-web-app.png";

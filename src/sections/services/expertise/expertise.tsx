@@ -6,10 +6,6 @@ import { Grid, Pagination } from "swiper/modules";
 import type { Swiper as SwiperCore } from "swiper";
 import clsx from "clsx";
 
-import "swiper/css";
-import "swiper/css/grid";
-import "swiper/css/pagination";
-
 import s from "./expertise.module.scss";
 import { ProgressArrow } from "@shared/assets/icons/services/progress-arrow";
 import { Arrow } from "@shared/assets/icons/services/arrow";

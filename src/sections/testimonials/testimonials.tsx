@@ -10,9 +10,6 @@ import { Tip } from "@shared/assets/icons/tip";
 
 import s from "./testimonials.module.scss";
 
-import "swiper/css";
-import "swiper/css/autoplay";
-
 export const Testimonials = () => (
   <section className={s.root}>
     <h2 className={s.title}>{data.testimonials.title}</h2>

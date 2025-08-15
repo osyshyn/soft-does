@@ -3,9 +3,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
-import "swiper/css";
-import "swiper/css/autoplay";
-
 import artifactDevelopment from "@assets/images/main/artifact-intellagence-certificate.svg?url";
 import awsCertificate from "@assets/images/main/aws-certificate.svg?url";
 import developerEssentials from "@assets/images/main/developer-essentials.svg?url";

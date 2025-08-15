@@ -10,9 +10,6 @@ import { Tip } from "@shared/assets/icons/tip";
 
 import s from "./testimonials.module.scss";
 
-import "swiper/css";
-import "swiper/css/autoplay";
-
 export default function Testimonials() {
   return (
     <section className={s.root}>

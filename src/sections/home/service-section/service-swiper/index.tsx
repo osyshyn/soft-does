@@ -9,9 +9,6 @@ import { Python } from "@shared/assets/icons/main/python";
 import { Html } from "@shared/assets/icons/main/html";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css";
-import "swiper/css/autoplay";
-
 import s from "./service-swiper.module.scss";
 
 const TECHNOLOGIES = [Django, Node, CPlus, Python, Html];

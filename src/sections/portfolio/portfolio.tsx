@@ -4,10 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperCore } from "swiper";
 
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/navigation";
-
 import Iphone from "@shared/assets/images/services/Iphone14Pro.png";
 import Notebook from "@shared/assets/images/services/Notebook.png";
 import Notebook2 from "@shared/assets/images/services/2notebook.png";

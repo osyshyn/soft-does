@@ -8,6 +8,12 @@ import { LenisProvider } from "@shared/components/lenis/lenis";
 
 import { Abel, JetBrains_Mono, Poppins } from "next/font/google";
 
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css/grid";
+
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
