@@ -1,8 +1,5 @@
 import type { ReactNode } from "react";
 
-// import { TalkToUs } from "@sections/talk-to-us/talk-to-us";
-import { Contacts } from "@sections/contacts/contacts";
-
 import Header from "@sections/header/header";
 import dynamic from "next/dynamic";
 
@@ -21,6 +18,10 @@ const FAQ = dynamic(() => import("@sections/faq/faq"), {
 
 const TalkToUs = dynamic(() => import("@sections/talk-to-us/talk-to-us"), {
   ssr: false,
+});
+
+const Contacts = dynamic(() => import("@sections/contacts/contacts"), {
+  ssr: true,
 });
 
 interface LayoutProps {

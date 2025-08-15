@@ -18,7 +18,7 @@ const TECHNOLOGIES = [Django, Node, CPlus, Python, Html];
 
 export const ServiceSwiper = () => {
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <div className={s.sliderWrapper}>
         <Swiper
           spaceBetween={16}

@@ -40,6 +40,7 @@
   text-transform: uppercase;
 
   margin-bottom: 24px;
+  font-display: swap;
 
   @include media(tabletVertical) {
     font-size: 100px;
