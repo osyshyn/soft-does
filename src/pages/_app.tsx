@@ -67,11 +67,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       {!isAdminRoute && (
         <>
-          {/* <Script
+          <Script
             id="hs-script-loader"
             src="//js-na2.hs-scripts.com/242390269.js"
             strategy="lazyOnload"
-          /> */}
+          />
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=AW-11547473176"
             strategy="afterInteractive"
