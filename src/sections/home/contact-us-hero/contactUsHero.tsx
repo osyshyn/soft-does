@@ -8,8 +8,12 @@ import s from "./hero.module.scss";
 import { HeroContactForm } from "@sections/hero-contacts-form/hero-contact-form";
 import clsx from "clsx";
 import { Kansas } from "@shared/components/kansas/kansas";
+import { useNoContacts } from "providers/NoContactProvider";
 
 export const ContactUsHero = () => {
+  const { noContacts } = useNoContacts();
+  if (noContacts) return null;
+
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx(s.container, "container")}>

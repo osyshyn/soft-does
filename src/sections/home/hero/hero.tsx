@@ -11,16 +11,18 @@ import s from "./hero.module.scss";
 import clsx from "clsx";
 import { Kansas } from "@shared/components/kansas/kansas";
 import { HubSpotMeetings } from "@shared/components/hub-spot-meetings";
+import { useNoContacts } from "providers/NoContactProvider";
 
 export const Hero = () => {
+  const { noContacts } = useNoContacts();
+
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx(s.container, "container")}>
         <div className={s.content}>
           <Kansas />
           <h1 className={s.title}>{data.hero.title}</h1>
-
-          <HubSpotMeetings>{data.hero.buttonText}</HubSpotMeetings>
+          <div>{!noContacts && <HubSpotMeetings>{data.hero.buttonText}</HubSpotMeetings>}</div>
 
           {/* <div>
             <button className={s.button}>{data.hero.buttonText}</button>

@@ -1,9 +1,15 @@
+// 'use client';
 import data from "@texts/main/index.json";
 import s from "./contacts-form.module.scss";
 import { Input } from "@shared/ui/input/input";
 import { Clip } from "@shared/assets/icons/clip";
+import { useNoContacts } from "providers/NoContactProvider";
 
 export const HeroContactForm = () => {
+  const { noContacts } = useNoContacts();
+
+  if (noContacts) return null;
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

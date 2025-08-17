@@ -1,3 +1,4 @@
+'use client';
 import data from "@shared/texts/contact/index.json";
 
 import { SEO } from "@shared/ui/seo";
@@ -9,8 +10,19 @@ import { Contacts } from "@sections/contactPage/contacts";
 
 import HeroImg from "@assets/images/contact/hero.png";
 import s from "./contact.module.scss";
+import { useNoContacts } from 'providers/NoContactProvider'
+import Router from 'next/router'
+import { useEffect } from 'react'
 
 export default function ContactPage() {
+  const { noContacts } = useNoContacts();
+
+  useEffect(() => {
+    if (noContacts) Router.replace('/#nocontacts');
+  }, [noContacts]);
+
+  if (noContacts) return null;
+
   return (
     <>
       <SEO

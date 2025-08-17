@@ -1,47 +1,48 @@
-import { useState } from "react";
-import Link from "next/link";
-import { IPost } from "@models/Post";
-import PostModel from "@models/Post";
+import PostModel, { IPost } from '@models/Post';
+import { useState } from 'react';
 
-import { withAdminAuth } from "@shared/utils/withAdminAuth";
+import { withAdminAuth } from '@shared/utils/withAdminAuth';
 
-import s from "./posts.module.scss";
-import connectDB from "lib/mongoose";
+import connectDB from 'lib/mongoose';
+import s from './posts.module.scss';
+import PreservingLink from '@shared/components/preserving-link/preserving-link';
 
 export default function PostsPage({ initialPosts }: { initialPosts: IPost[] }) {
-  const [posts, setPosts] = useState<IPost[]>(initialPosts);
+	const [posts, setPosts] = useState<IPost[]>(initialPosts);
 
-  const deletePost = async (id: string) => {
-    const confirmed = confirm("Are you sure you want to delete this post?");
-    if (!confirmed) return;
+	const deletePost = async (id: string) => {
+		const confirmed = confirm('Are you sure you want to delete this post?');
+		if (!confirmed) return;
 
-    const res = await fetch(`/api/posts/${id}`, { method: "DELETE" });
-    if (res.ok) {
-      setPosts((prev) => prev.filter((post) => post._id !== id));
-    }
-  };
+		const res = await fetch(`/api/posts/${id}`, { method: 'DELETE' });
+		if (res.ok) {
+			setPosts(prev => prev.filter(post => post._id !== id));
+		}
+	};
 
-  return (
-    <div className={s.wrapper}>
-      <h1>Manage Posts</h1>
-      <ul className={s.postList}>
-        {posts.map((post) => (
-          <li key={post._id} className={s.postItem}>
-            <h2>Title: {post.title}</h2>
-            <p>By {post.author?.authorName}</p>
-            <div className={s.actions}>
-              <Link href={`/admin/posts/edit/${post._id}`}>Edit </Link>
-              <button onClick={() => deletePost(post._id)}>Delete</button>
-            </div>
-          </li>
-        ))}
-      </ul>
+	return (
+		<div className={s.wrapper}>
+			<h1>Manage Posts</h1>
+			<ul className={s.postList}>
+				{posts.map(post => (
+					<li key={post._id} className={s.postItem}>
+						<h2>Title: {post.title}</h2>
+						<p>By {post.author?.authorName}</p>
+						<div className={s.actions}>
+							<PreservingLink href={`/admin/posts/edit/${post._id}`}>
+								Edit{' '}
+							</PreservingLink>
+							<button onClick={() => deletePost(post._id)}>Delete</button>
+						</div>
+					</li>
+				))}
+			</ul>
 
-      <Link href="/admin/posts/create" className={s.createButton}>
-        + Create New Post
-      </Link>
-    </div>
-  );
+			<PreservingLink href='/admin/posts/create' className={s.createButton}>
+				+ Create New Post
+			</PreservingLink>
+		</div>
+	);
 }
 
 // export const getServerSideProps = withAdminAuth(async (ctx) => {
@@ -53,7 +54,7 @@ export default function PostsPage({ initialPosts }: { initialPosts: IPost[] }) {
 // });
 
 export const getServerSideProps = withAdminAuth(async () => {
-  await connectDB();
-  const posts = await PostModel.find().lean();
-  return { props: { initialPosts: JSON.parse(JSON.stringify(posts)) } };
+	await connectDB();
+	const posts = await PostModel.find().lean();
+	return { props: { initialPosts: JSON.parse(JSON.stringify(posts)) } };
 });

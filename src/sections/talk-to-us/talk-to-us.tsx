@@ -1,9 +1,14 @@
+'use client';
 import data from "@texts/main/index.json";
 import s from "./talk-to-us.module.scss";
 import { MouseEventHandler } from "react";
 import clsx from "clsx";
+import { useNoContacts } from "providers/NoContactProvider";
 
 export const TalkToUs = () => {
+  const { noContacts } = useNoContacts();
+  if (noContacts) return null;
+
   const onClick: MouseEventHandler = (e) => {
     e.preventDefault();
 
