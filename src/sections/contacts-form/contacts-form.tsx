@@ -1,138 +1,138 @@
-'use client';
+"use client";
 
-import data from '@texts/main/index.json';
-import s from './contacts-form.module.scss';
-import { Input } from '@shared/ui/input/input';
-import { Clip } from '@shared/assets/icons/clip';
-import clsx from 'clsx';
-import { useNoContacts } from 'providers/NoContactProvider'
+import data from "@texts/main/index.json";
+import s from "./contacts-form.module.scss";
+import { Input } from "@shared/ui/input/input";
+import { Clip } from "@shared/assets/icons/clip";
+import clsx from "clsx";
+import { useNoContacts } from "providers/NoContactProvider";
 
-// import { InlineWidget } from "react-calendly";
+import { InlineWidget } from "react-calendly";
 
 export const ContactsForm = () => {
-	const { noContacts } = useNoContacts();
-	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
+  const { noContacts } = useNoContacts();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-		const formElement = event.currentTarget;
-		const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(event.currentTarget);
 
-		const fileInput = event.currentTarget.querySelector(
-			'#contactsFiles'
-		) as HTMLInputElement;
-		const file = fileInput?.files?.[0];
+    const fileInput = event.currentTarget.querySelector(
+      "#contactsFiles"
+    ) as HTMLInputElement;
+    const file = fileInput?.files?.[0];
 
-		if (file) {
-			form.append('file', file);
-		}
+    if (file) {
+      form.append("file", file);
+    }
 
-		console.log(form);
+    console.log(form);
 
-		const response = await fetch('/api/sendEmail', {
-			method: 'POST',
-			body: form,
-		});
+    const response = await fetch("/api/sendEmail", {
+      method: "POST",
+      body: form,
+    });
 
-		const result = await response.json();
-		console.log(result.message);
-		formElement.reset();
+    const result = await response.json();
+    console.log(result.message);
+    formElement.reset();
 
-		if (fileInput) {
-			fileInput.value = '';
-		}
-	};
+    if (fileInput) {
+      fileInput.value = "";
+    }
+  };
 
-	if (noContacts) return null;
+  if (noContacts) return null;
 
-	return (
-		<section className={clsx(s.wrapper, 'wrapper')}>
-			<div className={clsx(s.root, 'container')}>
-				<div className={s.formWrapper}>
-					<h2 className={s.title}>{data.contactsForm.title}</h2>
-					<form onSubmit={handleSubmit}>
-						<div className={s.inputWrapper}>
-							<Input
-								type='text'
-								id='contactsName'
-								name='name'
-								label={data.contactsForm.form.name.title}
-								required
-							/>
-							<Input
-								type='email'
-								id='contactsEmail'
-								name='email'
-								label={data.contactsForm.form.email.title}
-								required
-							/>
-							<Input
-								type='text'
-								id='contactsCompany'
-								name='company'
-								label={data.contactsForm.form.company.title}
-							/>
-							<Input
-								type='tel'
-								id='contactsNumber'
-								name='number'
-								label={data.contactsForm.form.number.title}
-							/>
-						</div>
+  return (
+    <section className={clsx(s.wrapper, "wrapper")}>
+      <div className={clsx(s.root, "container")}>
+        <div className={s.formWrapper}>
+          <h2 className={s.title}>{data.contactsForm.title}</h2>
+          <form onSubmit={handleSubmit}>
+            <div className={s.inputWrapper}>
+              <Input
+                type="text"
+                id="contactsName"
+                name="name"
+                label={data.contactsForm.form.name.title}
+                required
+              />
+              <Input
+                type="email"
+                id="contactsEmail"
+                name="email"
+                label={data.contactsForm.form.email.title}
+                required
+              />
+              <Input
+                type="text"
+                id="contactsCompany"
+                name="company"
+                label={data.contactsForm.form.company.title}
+              />
+              <Input
+                type="tel"
+                id="contactsNumber"
+                name="number"
+                label={data.contactsForm.form.number.title}
+              />
+            </div>
 
-						<Input
-							id='contactsText'
-							name='message'
-							label={data.contactsForm.form.textField.title}
-							isTextarea={true}
-							className={s.textarea}
-						/>
+            <Input
+              id="contactsText"
+              name="message"
+              label={data.contactsForm.form.textField.title}
+              isTextarea={true}
+              className={s.textarea}
+            />
 
-						<div className={s.fileWrapper}>
-							<input type='file' className={s.fileInput} id='contactsFiles' />
-							<label htmlFor='contactsFiles' className={s.fileLabel}>
-								<Clip className={s.clipIcon} />
-								{data.contactsForm.form.file.title}
-							</label>
-							<p className={s.fileFormats}>
-								{data.contactsForm.form.file.formats}
-							</p>
-						</div>
+            <div className={s.fileWrapper}>
+              <input type="file" className={s.fileInput} id="contactsFiles" />
+              <label htmlFor="contactsFiles" className={s.fileLabel}>
+                <Clip className={s.clipIcon} />
+                {data.contactsForm.form.file.title}
+              </label>
+              <p className={s.fileFormats}>
+                {data.contactsForm.form.file.formats}
+              </p>
+            </div>
 
-						<div className={s.checkboxWrapper}>
-							<Input
-								type='checkbox'
-								id='privacy'
-								defaultChecked
-								required
-								label={
-									<span className={s.checkboxText}>
-										{data.contactsForm.form.privacyPolicy.text}
-									</span>
-								}
-								className={s.privacy}
-							/>
+            <div className={s.checkboxWrapper}>
+              <Input
+                type="checkbox"
+                id="privacy"
+                defaultChecked
+                required
+                label={
+                  <span className={s.checkboxText}>
+                    {data.contactsForm.form.privacyPolicy.text}
+                  </span>
+                }
+                className={s.privacy}
+              />
 
-							<Input
-								type='checkbox'
-								id='updates'
-								defaultChecked
-								label={
-									<span className={s.checkboxText}>
-										{data.contactsForm.form.updates.text}
-									</span>
-								}
-								className={s.privacy}
-							/>
-						</div>
+              <Input
+                type="checkbox"
+                id="updates"
+                defaultChecked
+                label={
+                  <span className={s.checkboxText}>
+                    {data.contactsForm.form.updates.text}
+                  </span>
+                }
+                className={s.privacy}
+              />
+            </div>
 
-						<button className={s.formButton} type='submit'>
-							{data.contactsForm.buttonText}
-						</button>
-					</form>
-				</div>
+            <button className={s.formButton} type="submit">
+              {data.contactsForm.buttonText}
+            </button>
+          </form>
+        </div>
 
-				<div className={s.calendarWrapper}>
-					{/* <iframe
+        <div className={s.calendarWrapper}>
+          {/* <iframe
             // className='calendly-inline-widget'
             src="https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff"
             style={{ border: 0, width: "100%", height: "900px" }}
@@ -144,11 +144,11 @@ export const ContactsForm = () => {
             async
           ></script> */}
 
-					{/* <InlineWidget url="https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff" /> */}
-				</div>
-			</div>
-		</section>
-	);
+          <InlineWidget url="https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff" />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default ContactsForm;
