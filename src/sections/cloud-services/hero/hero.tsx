@@ -1,13 +1,17 @@
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
-const Spline = dynamic(() => import("@shared/ui/spline"), {
-  ssr: false,
-});
+// const Spline = dynamic(() => import("@shared/ui/spline"), {
+//   ssr: false,
+// });
+
+const SplineProvider = React.lazy(() => import("@splinetool/react-spline"));
 
 import data from "@texts/cloud-services/index.json";
 import s from "./hero.module.scss";
 import HeroText from "@shared/components/hero-text/hero-text";
 import clsx from "clsx";
+import { Suspense } from "react";
+import React from "react";
 
 export const Hero = () => {
   return (
@@ -23,10 +27,12 @@ export const Hero = () => {
         </div>
 
         <div className={s.main_image}>
-          <Spline
-            scene="https://prod.spline.design/pS-CwW5tkPfZHSKA/scene.splinecode"
-            className={s.scene}
-          />
+          <Suspense fallback={null}>
+            <SplineProvider
+              scene="https://prod.spline.design/pS-CwW5tkPfZHSKA/scene.splinecode"
+              className={s.scene}
+            />
+          </Suspense>
         </div>
       </div>
     </section>

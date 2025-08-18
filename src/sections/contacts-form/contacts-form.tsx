@@ -46,7 +46,7 @@ export const ContactsForm = () => {
 
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
-      <div className={clsx(s.root, "container")}>
+      <div id="contacts-form" className={clsx(s.root, "container")}>
         <div className={s.formWrapper}>
           <h2 className={s.title}>{data.contactsForm.title}</h2>
           <form onSubmit={handleSubmit}>
@@ -132,18 +132,6 @@ export const ContactsForm = () => {
         </div>
 
         <div className={s.calendarWrapper}>
-          {/* <iframe
-            // className='calendly-inline-widget'
-            src="https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff"
-            style={{ border: 0, width: "100%", height: "900px" }}
-            // https://calendly.com/comebackagency/30min?embed_domain=comebackagency.com&embed_type=Inline&hide_gdpr_banner=1&background_color=15123d&text_color=ffffff&primary_color=ffffff
-          ></iframe>
-          <script
-            type="text/javascript"
-            src="https://assets.calendly.com/assets/external/widget.js"
-            async
-          ></script> */}
-
           <InlineWidget url="https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff" />
         </div>
       </div>
