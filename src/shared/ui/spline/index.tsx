@@ -1,61 +1,75 @@
 "use client";
-/* eslint-disable @typescript-eslint/no-namespace */
 
-import { useEffect, useState } from "react";
+import React from "react";
+import Spline from "@splinetool/react-spline/next";
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "spline-viewer": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      > & { url: string };
-    }
-  }
+interface SplineProps {
+  scene: string;
+  className?: string;
 }
 
-function isBotOrHeadless() {
-  if (typeof navigator === "undefined") return true;
-  const ua = navigator.userAgent.toLowerCase();
-  return (
-    /bot|crawler|spider|lighthouse|headless|vercel|node/.test(ua) ||
-    (navigator as any).webdriver === true
-  );
-}
+export const SplineProvider = ({ scene, className }: SplineProps) => {
+  return <Spline scene={scene} className={className} />;
+};
 
-type Props = { scene: string; className?: string };
+// "use client";
+// /* eslint-disable @typescript-eslint/no-namespace */
 
-export default function SafeSpline({ scene, className }: Props) {
-  const [ready, setReady] = useState(false);
+// import { useEffect, useState } from "react";
 
-  useEffect(() => {
-    if (isBotOrHeadless()) return;
+// declare global {
+//   namespace JSX {
+//     interface IntrinsicElements {
+//       "spline-viewer": React.DetailedHTMLProps<
+//         React.HTMLAttributes<HTMLElement>,
+//         HTMLElement
+//       > & { url: string };
+//     }
+//   }
+// }
 
-    let cancelled = false;
+// function isBotOrHeadless() {
+//   if (typeof navigator === "undefined") return true;
+//   const ua = navigator.userAgent.toLowerCase();
+//   return (
+//     /bot|crawler|spider|lighthouse|headless|vercel|node/.test(ua) ||
+//     (navigator as any).webdriver === true
+//   );
+// }
 
-    // @ts-ignore
-    if (
-      typeof customElements !== "undefined" &&
-      customElements.get?.("spline-viewer")
-    ) {
-      setReady(true);
-      return;
-    }
+// type Props = { scene: string; className?: string };
 
-    const s = document.createElement("script");
-    s.type = "module";
-    s.src = "https://unpkg.com/@splinetool/viewer/build/spline-viewer.js";
-    s.onload = () => !cancelled && setReady(true);
-    document.head.appendChild(s);
+// export default function SafeSpline({ scene, className }: Props) {
+//   const [ready, setReady] = useState(false);
 
-    return () => {
-      cancelled = true;
-      document.head.removeChild(s);
-    };
-  }, []);
+//   useEffect(() => {
+//     if (isBotOrHeadless()) return;
 
-  if (!ready) return null;
+//     let cancelled = false;
 
-  // @ts-expect-error: web component
-  return <spline-viewer url={scene} class={className} />;
-}
+//     // @ts-ignore
+//     if (
+//       typeof customElements !== "undefined" &&
+//       customElements.get?.("spline-viewer")
+//     ) {
+//       setReady(true);
+//       return;
+//     }
+
+//     const s = document.createElement("script");
+//     s.type = "module";
+//     s.src = "https://unpkg.com/@splinetool/viewer/build/spline-viewer.js";
+//     s.onload = () => !cancelled && setReady(true);
+//     document.head.appendChild(s);
+
+//     return () => {
+//       cancelled = true;
+//       document.head.removeChild(s);
+//     };
+//   }, []);
+
+//   if (!ready) return null;
+
+//   // @ts-expect-error: web component
+//   return <spline-viewer url={scene} class={className} />;
+// }
