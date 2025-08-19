@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
 import { BACKGROUND_PRESETS } from "@shared/constants/hero-backgrounds";

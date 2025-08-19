@@ -1,4 +1,4 @@
-import data from "@shared/texts/expertise/index.json";
+import data from "@shared/texts/expertise";
 import Image from "next/image";
 
 import { Kansas } from "@shared/components/kansas/kansas";

@@ -1,9 +1,9 @@
-"use client";
 import { Kansas } from "@shared/components/kansas/kansas";
 
 import s from "./hero-text.module.scss";
 import clsx from "clsx";
-import { useNoContacts } from "providers/NoContactProvider";
+import { HideContacts } from "providers/NoContactProvider";
+import { ScrollToContact } from "../scroll-to-contact";
 
 const HeroText = ({
   title,
@@ -18,15 +18,6 @@ const HeroText = ({
   buttonText: string;
   className?: string;
 }) => {
-  const { noContacts } = useNoContacts();
-
-  const handleClick = () => {
-    const contactsForm = document.getElementById("contacts");
-    if (contactsForm) {
-      contactsForm.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <div className={clsx(s.content, className)}>
       <div className={s.kansas}>
@@ -37,11 +28,9 @@ const HeroText = ({
       </h1>
       <p className={s.tagText}>{text}</p>
       <div>
-        {!noContacts && (
-          <button onClick={handleClick} className={s.button}>
-            {buttonText}
-          </button>
-        )}
+        <HideContacts>
+          <ScrollToContact className={s.button}>{buttonText}</ScrollToContact>
+        </HideContacts>
       </div>
     </div>
   );
