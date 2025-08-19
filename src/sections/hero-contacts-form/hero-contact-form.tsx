@@ -1,4 +1,4 @@
-// 'use client';
+"use client";
 import data from "@texts/main/index.json";
 import s from "./contacts-form.module.scss";
 import { Input } from "@shared/ui/input/input";

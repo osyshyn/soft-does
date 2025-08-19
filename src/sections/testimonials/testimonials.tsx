@@ -1,3 +1,5 @@
+"use client";
+
 import data from "@texts/main/index.json";
 import Image from "next/image";
 
@@ -14,7 +16,6 @@ export const Testimonials = () => (
   <section className={s.root}>
     <h2 className={s.title}>{data.testimonials.title}</h2>
 
-    {/* new wrapper */}
     <div className="container">
       <Swiper
         slidesPerView={"auto"}

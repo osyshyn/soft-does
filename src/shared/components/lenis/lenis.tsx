@@ -1,3 +1,5 @@
+"use client";
+
 import React, { createContext, useContext, useEffect, useState } from "react";
 import Lenis from "lenis";
 
@@ -12,13 +14,27 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
     const initLenis = async () => {
       try {
         const instance = new Lenis({
-          autoRaf: true,
-          lerp: 0.1,
-          prevent: (node) => node.id === "modal",
+          // autoRaf: true,
+          // lerp: 0.1,
+          // prevent: (node) => node.id === "modal",
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          orientation: "vertical",
+          gestureOrientation: "vertical",
+          smoothWheel: true,
+          touchMultiplier: 2,
+          infinite: false,
         });
 
         if (!cancelled) {
           setLenis(instance);
+
+          // Start the animation loop
+          function raf(time: number) {
+            instance.raf(time);
+            requestAnimationFrame(raf);
+          }
+          requestAnimationFrame(raf);
         }
       } catch (error) {
         console.warn("Lenis failed to initialize, using basic scroll:", error);

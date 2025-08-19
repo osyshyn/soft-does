@@ -1,6 +1,8 @@
-import { useContext } from 'react';
-import { AccordionContext } from '../accordion-context/accordion-context';
-import { AccordionItemContext } from '../accordion-item-context/accordion-item-context';
+"use client";
+
+import { useContext } from "react";
+import { AccordionContext } from "../accordion-context/accordion-context";
+import { AccordionItemContext } from "../accordion-item-context/accordion-item-context";
 
 interface IProps {
   children: React.ReactNode;
@@ -12,7 +14,7 @@ export const AccordionTrigger = ({ children, className }: IProps) => {
   const accordionItemContext = useContext(AccordionItemContext);
 
   const onClick = () => {
-    accordionContext.setActiveQuestion(p =>
+    accordionContext.setActiveQuestion((p) =>
       p === accordionItemContext.value ? null : accordionItemContext.value
     );
   };

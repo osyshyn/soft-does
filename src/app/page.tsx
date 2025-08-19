@@ -27,8 +27,7 @@ const CaseStudies = dynamic(
 );
 
 const Certificates = dynamic(
-  () => import("@sections/home/certificates/certificates"),
-  { ssr: false }
+  () => import("@sections/home/certificates/certificates")
 );
 
 export default function Home() {
