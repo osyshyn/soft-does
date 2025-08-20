@@ -1,12 +1,12 @@
 "use client";
 
 import data from "@shared/texts/expertise";
-import Link from "next/link";
 import ArrowUpAndRightIcon from "@shared/assets/icons/arrow-up-right.svg";
 
 import s from "./solutions.module.scss";
 import clsx from "clsx";
 import useIsMobile from "@shared/hooks/useIsMobile";
+import PreservingLink from "@shared/components/preserving-link/preserving-link";
 
 export const Solutions = () => {
   const isMobile = useIsMobile(1024);
@@ -37,10 +37,10 @@ const List = ({ items }: { items: { title: string; href: string }[] }) => {
 
       {items.map((item, index) => (
         <li key={index}>
-          <Link className={s.link} href={item.href}>
+          <PreservingLink className={s.link} href={item.href}>
             <p>{item.title}</p>
             <ArrowUpAndRightIcon className={s.img} />
-          </Link>
+          </PreservingLink>
         </li>
       ))}
     </ul>

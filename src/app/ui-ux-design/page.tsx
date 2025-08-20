@@ -14,7 +14,7 @@ import data from "@shared/texts/ui-ux-design/index.json";
 import { User, Interface, Light } from "@assets/icons/services/uiux/icons";
 import { ServicesList } from "@sections/services-list/services-list";
 
-import s from "./ui-ux-design.module.scss";
+import s from "@styles/pages/ui-ux-design.module.scss";
 
 import HeroImg from "@assets/images/uiux/heroObject1.png";
 

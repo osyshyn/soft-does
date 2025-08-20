@@ -19,7 +19,7 @@ import { Rocket } from "@shared/assets/icons/rocket";
 import { Gear } from "@shared/assets/icons/gear";
 import { Puzzle } from "@shared/assets/icons/puzzle";
 
-import s from "./software-development.module.scss";
+import s from "@styles/pages/software-development.module.scss";
 
 import Layout from "@shared/components/layout/layout";
 

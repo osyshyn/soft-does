@@ -2,7 +2,6 @@ import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
-// import { Hero } from "@sections/ai-and-ml/hero/hero";
 import { Hero } from "@sections/hero/hero";
 import { Results } from "@sections/softwareDev/results/results";
 import { Technologies } from "@sections/technologies/technologies";

@@ -20,7 +20,7 @@ import {
 
 import data from "@shared/texts/data-science-and-engineering/index.json";
 
-import s from "./data-science-and-engineering.module.scss";
+import s from "@styles/pages/data-science-and-engineering.module.scss";
 
 const content = [
   {

@@ -22,7 +22,7 @@ import {
 
 import data from "@shared/texts/architecture-consulting/index.json";
 
-import s from "./architecture-consulting.module.scss";
+import s from "@styles/pages/architecture-consulting.module.scss";
 
 const content = [
   {
