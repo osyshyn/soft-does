@@ -1,4 +1,4 @@
-import { SEO } from "@shared/ui/seo";
+import { Metadata } from "next";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
@@ -21,6 +21,18 @@ import {
 import data from "@shared/texts/data-science-and-engineering/index.json";
 
 import s from "@styles/pages/data-science-and-engineering.module.scss";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.dataScience.title,
+    description: seo.dataScience.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.dataScnAndEngnrng.root}`,
+    },
+  };
+}
 
 const content = [
   {
@@ -53,33 +65,26 @@ import HeroImg from "@assets/images/dse/heroObject.png";
 
 export default function DSE() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.dataScnAndEngnrng.root}
+    <Layout>
+      <Hero
+        isDynamicImage
+        data={data.hero}
+        heroImg={HeroImg}
+        backgroundKey="dse"
+        textContainerClassName={s.textContainer}
+        heroImgClassName={s.heroImg}
       />
-      <Layout>
-        <Hero
-          isDynamicImage
-          data={data.hero}
-          heroImg={HeroImg}
-          backgroundKey="dse"
-          textContainerClassName={s.textContainer}
-          heroImgClassName={s.heroImg}
-        />
-        <Results />
-        <Technologies />
-        <div className="sectionWrapper">
-          <ServicesList services={content} />
-        </div>
+      <Results />
+      <Technologies />
+      <div className="sectionWrapper">
+        <ServicesList services={content} />
+      </div>
 
-        <div className="sectionWrapper">
-          <CaseStudies />
-        </div>
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+      <div className="sectionWrapper">
+        <CaseStudies />
+      </div>
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }

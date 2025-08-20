@@ -1,6 +1,5 @@
 import data from "@shared/texts/aiml/caiSolutions.json";
 
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
@@ -14,29 +13,35 @@ import { Solutions } from "@sections/solutions/solutions";
 import HeroObj from "@assets/images/aiml/aimlServices/heroObject_caiSolutions.png";
 import s from "./custom-ai-solutions.module.scss";
 
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.aiAndMl.caiSolutions.title,
+    description: seo.aiAndMl.caiSolutions.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.aiAndMl.caiSolutions}`,
+    },
+  };
+}
+
 export default function CaiSolutions() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.aiAndMl.caiSolutions}
+    <Layout>
+      <Hero
+        data={data.hero}
+        heroImg={HeroObj}
+        isDynamicImage
+        heroImgClassName={s.heroImg}
+        textContainerClassName={s.textContainer}
+        backgroundKey="caiSolutions"
       />
-      <Layout>
-        <Hero
-          data={data.hero}
-          heroImg={HeroObj}
-          isDynamicImage
-          heroImgClassName={s.heroImg}
-          textContainerClassName={s.textContainer}
-          backgroundKey="caiSolutions"
-        />
-        <Results />
-        <Technologies />
-        <Testimonials />
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+      <Results />
+      <Technologies />
+      <Testimonials />
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }

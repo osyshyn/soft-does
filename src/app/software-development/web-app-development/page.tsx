@@ -1,4 +1,3 @@
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 
 import { Hero } from "@sections/softwareServices/webAppDev/hero/hero";
@@ -10,22 +9,28 @@ import { Solutions } from "@sections/solutions/solutions";
 
 import Layout from "@shared/components/layout/layout";
 
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.softwareDev.webAppDev.title,
+    description: seo.softwareDev.webAppDev.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.softwareDev.webAppDev}`,
+    },
+  };
+}
+
 export default function WebAppDev() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.softwareDev.webAppDev}
-      />
-      <Layout>
-        <Hero />
-        <Results />
-        <Technologies />
-        <Testimonials />
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+    <Layout>
+      <Hero />
+      <Results />
+      <Technologies />
+      <Testimonials />
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }

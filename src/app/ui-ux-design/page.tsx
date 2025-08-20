@@ -1,4 +1,3 @@
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
@@ -17,6 +16,19 @@ import { ServicesList } from "@sections/services-list/services-list";
 import s from "@styles/pages/ui-ux-design.module.scss";
 
 import HeroImg from "@assets/images/uiux/heroObject1.png";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.uiUxDesign.title,
+    description: seo.uiUxDesign.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.uiUxDesign.root}`,
+    },
+  };
+}
 
 const content = [
   {
@@ -41,33 +53,26 @@ const content = [
 
 export default function Uiux() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.uiUxDesign.root}
+    <Layout>
+      <Hero
+        data={data.hero}
+        heroImg={HeroImg}
+        backgroundKey="uiux"
+        isDynamicImage
+        textContainerClassName={s.textContainer}
+        heroImgClassName={s.heroImg}
       />
-      <Layout>
-        <Hero
-          data={data.hero}
-          heroImg={HeroImg}
-          backgroundKey="uiux"
-          isDynamicImage
-          textContainerClassName={s.textContainer}
-          heroImgClassName={s.heroImg}
-        />
-        <Results />
-        <Technologies />
-        <div className="sectionWrapper">
-          <ServicesList services={content} />
-        </div>
-        <Engagement />
-        <div className="sectionWrapper">
-          <CaseStudies />
-        </div>
-        <Testimonials />
-        <Solutions />
-      </Layout>
-    </>
+      <Results />
+      <Technologies />
+      <div className="sectionWrapper">
+        <ServicesList services={content} />
+      </div>
+      <Engagement />
+      <div className="sectionWrapper">
+        <CaseStudies />
+      </div>
+      <Testimonials />
+      <Solutions />
+    </Layout>
   );
 }

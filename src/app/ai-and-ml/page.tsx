@@ -1,4 +1,3 @@
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
@@ -12,6 +11,19 @@ import { Solutions } from "@sections/solutions/solutions";
 import data from "@shared/texts/ai-and-ml/index.json";
 
 import HeroImage from "@assets/images/aiml/hero-x2.png";
+
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.aiAndMl.title,
+    description: seo.aiAndMl.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.aiAndMl.root}`,
+    },
+  };
+}
 
 import {
   AiDev,
@@ -58,35 +70,28 @@ const content = [
 
 export default function Aiml() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.aiAndMl.root}
+    <Layout>
+      <Hero
+        data={data.hero}
+        heroImg={HeroImage}
+        backgroundKey="aiml"
+        textContainerClassName={s.textContainer}
+        heroImgClassName={s.heroImg}
+        isDynamicImage
       />
-      <Layout>
-        <Hero
-          data={data.hero}
-          heroImg={HeroImage}
-          backgroundKey="aiml"
-          textContainerClassName={s.textContainer}
-          heroImgClassName={s.heroImg}
-          isDynamicImage
-        />
 
-        <Results />
-        <Technologies />
+      <Results />
+      <Technologies />
 
-        <div className="sectionWrapper">
-          <ServicesList services={content} />
-        </div>
+      <div className="sectionWrapper">
+        <ServicesList services={content} />
+      </div>
 
-        <div className="sectionWrapper">
-          <CaseStudies />
-        </div>
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+      <div className="sectionWrapper">
+        <CaseStudies />
+      </div>
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }

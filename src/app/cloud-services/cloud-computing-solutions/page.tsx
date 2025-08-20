@@ -1,6 +1,5 @@
 import data from "@shared/texts/cloud/ccs.json";
 
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
@@ -15,29 +14,35 @@ import HeroObj from "@assets/images/cloud/services/ccs_object.png";
 
 import s from "./cloud-computing-solutions.module.scss";
 
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.cloudServices.ccs.title,
+    description: seo.cloudServices.ccs.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.cloudServices.ccs}`,
+    },
+  };
+}
+
 export default function CCS() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.cloudServices.ccs}
+    <Layout>
+      <Hero
+        data={data.hero}
+        heroImg={HeroObj}
+        heroImgClassName={s.heroImg}
+        textContainerClassName={s.textContainer}
+        backgroundKey="cloudCCS"
+        isDynamicImage
       />
-      <Layout>
-        <Hero
-          data={data.hero}
-          heroImg={HeroObj}
-          heroImgClassName={s.heroImg}
-          textContainerClassName={s.textContainer}
-          backgroundKey="cloudCCS"
-          isDynamicImage
-        />
-        <Results />
-        <Technologies />
-        <Testimonials />
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+      <Results />
+      <Technologies />
+      <Testimonials />
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }

@@ -1,4 +1,4 @@
-import { SEO } from "@shared/ui/seo";
+import { Metadata } from "next";
 import { ROUTES } from "@shared/constants/routes";
 
 import { Hero } from "@sections/services/hero/hero";
@@ -10,30 +10,36 @@ import { Solutions } from "@sections/solutions/solutions";
 import { Portfolio } from "@sections/services/portfolio/portfolio";
 
 import s from "./services.module.scss";
+
 import Layout from "@shared/components/layout/layout";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.services.title,
+    description: seo.services.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.services}`,
+    },
+  };
+}
 
 export default function Services() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.services}
-      />
-      <Layout>
-        <Hero />
-        <Expertise />
-        <Engagement />
-        <Industries />
+    <Layout>
+      <Hero />
+      <Expertise />
+      <Engagement />
+      <Industries />
 
-        <div className={s.section}>
-          <TalkToUs />
-        </div>
+      <div className={s.section}>
+        <TalkToUs />
+      </div>
 
-        <Solutions />
+      <Solutions />
 
-        <Portfolio />
-      </Layout>
-    </>
+      <Portfolio />
+    </Layout>
   );
 }

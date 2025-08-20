@@ -14,6 +14,19 @@ import { Solutions } from "@sections/solutions/solutions";
 import HeroObj from "@assets/images/aiml/aimlServices/heroObject_aiDev.png";
 import s from "./ai-development.module.scss";
 
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.aiAndMl.aiDev.title,
+    description: seo.aiAndMl.aiDev.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.aiAndMl.aiDev}`,
+    },
+  };
+}
+
 export default function AiDev() {
   return (
     <>

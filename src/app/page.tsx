@@ -1,7 +1,7 @@
 import data from "@texts/main/index.json";
 import dynamic from "next/dynamic";
+import { Metadata } from "next";
 
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import { Hero } from "@sections/home/hero/hero";
 import { ServiceSection } from "@sections/home/service-section/service-section";
@@ -29,68 +29,73 @@ const Certificates = dynamic(
   () => import("@sections/home/certificates/certificates")
 );
 
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.default.home.title,
+    description: seo.default.home.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.root}`,
+    },
+  };
+}
+
 export default function Home() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.root}
+    <Layout>
+      <Hero />
+
+      <Certificates />
+      <ServiceSection
+        isImagePriority
+        link={ROUTES.softwareDev.root}
+        currentColor="#173B91"
+        img={softwareDevelopment}
+        {...data.softwareDevelopment}
       />
-      <Layout>
-        <Hero />
+      <ServiceSection
+        link={ROUTES.aiAndMl.root}
+        isImagePriority
+        currentColor="#D75186"
+        img={aiAndMachineLearning}
+        isRight
+        {...data.aiMachineLearning}
+      />
+      <ServiceSection
+        link={ROUTES.cloudServices.root}
+        currentColor="#F28B82"
+        img={cloudServices}
+        {...data.cloudServices}
+      />
+      <ServiceSection
+        link={ROUTES.dataScnAndEngnrng.root}
+        currentColor="#BF81FF"
+        img={dataScienceAndEngeneering}
+        isRight
+        {...data.dataScienceAndEngeneering}
+      />
+      <ServiceSection
+        link={ROUTES.uiUxDesign.root}
+        currentColor="#2741FF"
+        img={uiUxDesign}
+        {...data.uiUxDesign}
+      />
 
-        <Certificates />
+      <div className="sectionWrapper">
         <ServiceSection
-          isImagePriority
-          link={ROUTES.softwareDev.root}
-          currentColor="#173B91"
-          img={softwareDevelopment}
-          {...data.softwareDevelopment}
-        />
-        <ServiceSection
-          link={ROUTES.aiAndMl.root}
-          isImagePriority
-          currentColor="#D75186"
-          img={aiAndMachineLearning}
+          link={ROUTES.architectureConsulting.root}
+          currentColor="#515151"
+          img={architectureAndConsulting}
           isRight
-          {...data.aiMachineLearning}
+          {...data.architectureAndConsulting}
         />
-        <ServiceSection
-          link={ROUTES.cloudServices.root}
-          currentColor="#F28B82"
-          img={cloudServices}
-          {...data.cloudServices}
-        />
-        <ServiceSection
-          link={ROUTES.dataScnAndEngnrng.root}
-          currentColor="#BF81FF"
-          img={dataScienceAndEngeneering}
-          isRight
-          {...data.dataScienceAndEngeneering}
-        />
-        <ServiceSection
-          link={ROUTES.uiUxDesign.root}
-          currentColor="#2741FF"
-          img={uiUxDesign}
-          {...data.uiUxDesign}
-        />
+      </div>
+      <Testimonials />
+      <AboutUs />
 
-        <div className="sectionWrapper">
-          <ServiceSection
-            link={ROUTES.architectureConsulting.root}
-            currentColor="#515151"
-            img={architectureAndConsulting}
-            isRight
-            {...data.architectureAndConsulting}
-          />
-        </div>
-        <Testimonials />
-        <AboutUs />
-
-        <Industries />
-        <CaseStudies />
-      </Layout>
-    </>
+      <Industries />
+      <CaseStudies />
+    </Layout>
   );
 }

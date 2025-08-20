@@ -1,6 +1,5 @@
 import data from "@shared/texts/cloud/cms.json";
 
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
@@ -15,29 +14,35 @@ import HeroObj from "@assets/images/cloud/services/cms_object.png";
 
 import s from "./cloud-migration-services.module.scss";
 
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.cloudServices.cloudMigration.title,
+    description: seo.cloudServices.cloudMigration.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.cloudServices.cloudMigration}`,
+    },
+  };
+}
+
 export default function CMS() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.cloudServices.cloudMigration}
+    <Layout>
+      <Hero
+        data={data.hero}
+        heroImg={HeroObj}
+        heroImgClassName={s.heroImg}
+        textContainerClassName={s.textContainer}
+        backgroundKey="cloudCMS"
+        isDynamicImage
       />
-      <Layout>
-        <Hero
-          data={data.hero}
-          heroImg={HeroObj}
-          heroImgClassName={s.heroImg}
-          textContainerClassName={s.textContainer}
-          backgroundKey="cloudCMS"
-          isDynamicImage
-        />
-        <Results />
-        <Technologies />
-        <Testimonials />
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+      <Results />
+      <Technologies />
+      <Testimonials />
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }

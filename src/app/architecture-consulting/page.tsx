@@ -1,4 +1,3 @@
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
@@ -23,6 +22,18 @@ import {
 import data from "@shared/texts/architecture-consulting/index.json";
 
 import s from "@styles/pages/architecture-consulting.module.scss";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.architectureConsulting.title,
+    description: seo.architectureConsulting.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.architectureConsulting.root}`,
+    },
+  };
+}
 
 const content = [
   {
@@ -71,37 +82,31 @@ const content = [
 ];
 
 import HeroImg from "@assets/images/architecture-consulting/hero_object.png";
+import { Metadata } from "next";
 
 export default function DSE() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.dataScnAndEngnrng.root}
+    <Layout>
+      <Hero
+        isDynamicImage
+        data={data.hero}
+        heroImg={HeroImg}
+        backgroundKey="architectureConsulting"
+        textContainerClassName={s.textContainer}
+        heroImgClassName={s.heroImg}
       />
-      <Layout>
-        <Hero
-          isDynamicImage
-          data={data.hero}
-          heroImg={HeroImg}
-          backgroundKey="architectureConsulting"
-          textContainerClassName={s.textContainer}
-          heroImgClassName={s.heroImg}
-        />
 
-        <Results />
-        <Technologies />
-        <div className="sectionWrapper">
-          <ServicesList services={content} />
-        </div>
+      <Results />
+      <Technologies />
+      <div className="sectionWrapper">
+        <ServicesList services={content} />
+      </div>
 
-        <div className="sectionWrapper">
-          <CaseStudies />
-        </div>
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+      <div className="sectionWrapper">
+        <CaseStudies />
+      </div>
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }

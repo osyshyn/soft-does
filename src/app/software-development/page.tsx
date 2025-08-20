@@ -1,4 +1,4 @@
-import { SEO } from "@shared/ui/seo";
+import { Metadata } from "next";
 import { ROUTES } from "@shared/constants/routes";
 
 import data from "@shared/texts/softwareDev/index.json";
@@ -62,6 +62,18 @@ const SERVICES = [
   },
 ];
 
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.default.softwareDevelopment.title,
+    description: seo.default.softwareDevelopment.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.softwareDev.root}`,
+    },
+  };
+}
+
 export default function SoftwareDev() {
   const prepareTagText = () => {
     return (
@@ -81,39 +93,32 @@ export default function SoftwareDev() {
   };
 
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.softwareDev.root}
+    <Layout>
+      <Hero
+        data={{
+          ...data.hero,
+          tagText: prepareTagText(),
+        }}
+        heroImg={heroObject1}
+        backgroundKey="customSoftwareDev"
+        isDynamicImage
+        textContainerClassName={s.textContainer}
+        heroImgClassName={s.heroImg}
       />
-      <Layout>
-        <Hero
-          data={{
-            ...data.hero,
-            tagText: prepareTagText(),
-          }}
-          heroImg={heroObject1}
-          backgroundKey="customSoftwareDev"
-          isDynamicImage
-          textContainerClassName={s.textContainer}
-          heroImgClassName={s.heroImg}
-        />
 
-        <Results />
-        <Technologies />
+      <Results />
+      <Technologies />
 
-        <div className="sectionWrapper">
-          <ServicesList services={SERVICES} />
-        </div>
+      <div className="sectionWrapper">
+        <ServicesList services={SERVICES} />
+      </div>
 
-        <div className="sectionWrapper">
-          <CaseStudies />
-        </div>
-        <Engagement />
-        <Solutions />
-        <Industries />
-      </Layout>
-    </>
+      <div className="sectionWrapper">
+        <CaseStudies />
+      </div>
+      <Engagement />
+      <Solutions />
+      <Industries />
+    </Layout>
   );
 }
