@@ -1,4 +1,6 @@
-import { createContext, Dispatch, SetStateAction } from 'react';
+"use client";
+
+import { createContext, Dispatch, SetStateAction } from "react";
 
 interface ContextProps {
   activeQuestion: null | string;

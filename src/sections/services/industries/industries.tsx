@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { MouseEventHandler } from "react";
 
 import finance from "@assets/images/main/industries-finance.png";
 import healtcare from "@assets/images/main/industries-healthcare.png";
@@ -30,16 +29,6 @@ const INDUSTRIES = {
 type Key = keyof typeof INDUSTRIES;
 
 export const Industries = () => {
-  const onClick: MouseEventHandler = (e) => {
-    e.preventDefault();
-
-    const contacts = document.querySelector("#contacts");
-
-    if (!contacts) return;
-
-    contacts.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx("container")}>
@@ -66,7 +55,7 @@ export const Industries = () => {
                 className={s.image}
               />
 
-              <div className={s.itemContentWrapper} onClick={onClick}>
+              <div className={s.itemContentWrapper}>
                 <p className={s.text}>{item.title}</p>
                 <ArrowUpAndRight className={s.arrowUpAndRight} />
               </div>

@@ -1,8 +1,4 @@
-// import dynamic from "next/dynamic";
-
-// const Spline = dynamic(() => import("@shared/ui/spline"), {
-//   ssr: false,
-// });
+"use client";
 
 const SplineProvider = React.lazy(() => import("@splinetool/react-spline"));
 
@@ -12,7 +8,6 @@ import clsx from "clsx";
 import { Kansas } from "@shared/components/kansas/kansas";
 import { useNoContacts } from "providers/NoContactProvider";
 import { Suspense } from "react";
-// import { SplineProvider } from "@shared/ui/spline";
 import React from "react";
 
 export const ContactUsHero = () => {

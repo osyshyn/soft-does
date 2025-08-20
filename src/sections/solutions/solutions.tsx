@@ -1,18 +1,16 @@
 "use client";
 
-import data from "@shared/texts/expertise/index.json";
-
+import data from "@shared/texts/expertise";
 import ArrowUpAndRightIcon from "@shared/assets/icons/arrow-up-right.svg";
 
 import s from "./solutions.module.scss";
 import clsx from "clsx";
 import useIsMobile from "@shared/hooks/useIsMobile";
+import PreservingLink from "@shared/components/preserving-link/preserving-link";
 
 export const Solutions = () => {
   const isMobile = useIsMobile(1024);
   const items = isMobile ? data.solutions.categories : data.solutions.list;
-
-  console.log(isMobile, items);
 
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
@@ -26,7 +24,7 @@ export const Solutions = () => {
   );
 };
 
-const List = ({ items }: { items: string[] }) => {
+const List = ({ items }: { items: { title: string; href: string }[] }) => {
   return (
     <ul className={s.list}>
       <li className={s.firstCell}>
@@ -37,10 +35,12 @@ const List = ({ items }: { items: string[] }) => {
         </p>
       </li>
 
-      {items.map((title, index) => (
-        <li key={index} className={s.link}>
-          <p>{title}</p>
-          <ArrowUpAndRightIcon className={s.img} />
+      {items.map((item, index) => (
+        <li key={index}>
+          <PreservingLink className={s.link} href={item.href}>
+            <p>{item.title}</p>
+            <ArrowUpAndRightIcon className={s.img} />
+          </PreservingLink>
         </li>
       ))}
     </ul>

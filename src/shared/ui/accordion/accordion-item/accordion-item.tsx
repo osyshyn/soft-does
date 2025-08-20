@@ -1,6 +1,8 @@
-import { useContext } from 'react';
-import { AccordionItemContext } from '../accordion-item-context/accordion-item-context';
-import { AccordionContext } from '../accordion-context/accordion-context';
+"use client";
+
+import { useContext } from "react";
+import { AccordionItemContext } from "../accordion-item-context/accordion-item-context";
+import { AccordionContext } from "../accordion-context/accordion-context";
 
 interface IProps {
   children: React.JSX.Element;
@@ -19,7 +21,7 @@ export const AccordionItem = ({ children, className, value }: IProps) => {
     return false;
   };
 
-  const open = opened() ? 'open' : 'closed';
+  const open = opened() ? "open" : "closed";
   return (
     <AccordionItemContext.Provider value={{ value, open }}>
       <div className={className} id={value} data-open={open}>

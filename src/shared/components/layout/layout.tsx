@@ -4,21 +4,16 @@ import Header from "@sections/header/header";
 import dynamic from "next/dynamic";
 
 const ContactsForm = dynamic(
-  () => import("@sections/contacts-form/contacts-form"),
-  { ssr: false }
+  () => import("@sections/contacts-form/contacts-form")
 );
 
 const Footer = dynamic(() => import("@sections/footer/footer"), {
   ssr: true,
 });
 
-const FAQ = dynamic(() => import("@sections/faq/faq"), {
-  ssr: false,
-});
+const FAQ = dynamic(() => import("@sections/faq/faq"), {});
 
-const TalkToUs = dynamic(() => import("@sections/talk-to-us/talk-to-us"), {
-  ssr: false,
-});
+const TalkToUs = dynamic(() => import("@sections/talk-to-us/talk-to-us"), {});
 
 const Contacts = dynamic(() => import("@sections/contacts/contacts"), {
   ssr: true,

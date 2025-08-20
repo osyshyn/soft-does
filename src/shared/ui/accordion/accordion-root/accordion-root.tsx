@@ -1,5 +1,7 @@
-import { useState } from 'react';
-import { AccordionContext } from '../accordion-context/accordion-context';
+"use client";
+
+import { useState } from "react";
+import { AccordionContext } from "../accordion-context/accordion-context";
 
 interface IProps {
   children: React.ReactNode;

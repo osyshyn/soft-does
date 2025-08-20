@@ -1,8 +1,10 @@
-import { useContext, useRef } from 'react';
-import { AccordionItemContext } from '../accordion-item-context/accordion-item-context';
-import { clsx } from 'clsx';
+"use client";
 
-import s from './accordion-content.module.scss';
+import { useContext, useRef } from "react";
+import { AccordionItemContext } from "../accordion-item-context/accordion-item-context";
+import { clsx } from "clsx";
+
+import s from "./accordion-content.module.scss";
 
 interface IProps {
   children: React.JSX.Element;
@@ -17,7 +19,7 @@ export const AccordionContent = ({ children, className }: IProps) => {
   return (
     <div
       className={clsx(s.root, className)}
-      style={{ '--height-var': `${height}px` } as React.CSSProperties}
+      style={{ "--height-var": `${height}px` } as React.CSSProperties}
       ref={ref}
       data-open={open}
     >

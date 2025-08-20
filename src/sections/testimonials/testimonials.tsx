@@ -1,3 +1,5 @@
+"use client";
+
 import data from "@texts/main/index.json";
 import Image from "next/image";
 
@@ -5,7 +7,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import Upwork from "@shared/assets/images/industries/upwork.png";
-import Avatar from "@shared/assets/images/industries/reviews.png";
 import { Tip } from "@shared/assets/icons/tip";
 
 import s from "./testimonials.module.scss";
@@ -14,7 +15,6 @@ export const Testimonials = () => (
   <section className={s.root}>
     <h2 className={s.title}>{data.testimonials.title}</h2>
 
-    {/* new wrapper */}
     <div className="container">
       <Swiper
         slidesPerView={"auto"}
@@ -48,14 +48,9 @@ export const Testimonials = () => (
             </div>
 
             <div className={s.bottomContentWrapper}>
-              <Image
-                aria-hidden
-                alt=""
-                src={Avatar.src}
-                width={Avatar.width}
-                height={Avatar.height}
-                className={s.avatar}
-              />
+              <div className={s.avatar}>
+                <Image aria-hidden alt="" src={Upwork} />
+              </div>
               <div className={s.bottomContentTitleAndDateWrapper}>
                 <h3 className={s.reviewTitle}>{item.name}</h3>
                 <span className={s.date}>{item.date}</span>
