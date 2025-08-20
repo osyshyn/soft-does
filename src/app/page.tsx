@@ -43,13 +43,13 @@ export default function Home() {
         <Certificates />
         <ServiceSection
           isImagePriority
-          link="/software-development"
+          link={ROUTES.softwareDev.root}
           currentColor="#173B91"
           img={softwareDevelopment}
           {...data.softwareDevelopment}
         />
         <ServiceSection
-          link="/ai-and-ml"
+          link={ROUTES.aiAndMl.root}
           isImagePriority
           currentColor="#D75186"
           img={aiAndMachineLearning}
@@ -57,20 +57,20 @@ export default function Home() {
           {...data.aiMachineLearning}
         />
         <ServiceSection
-          link="/cloud-services"
+          link={ROUTES.cloudServices.root}
           currentColor="#F28B82"
           img={cloudServices}
           {...data.cloudServices}
         />
         <ServiceSection
-          link="/"
+          link={ROUTES.dataScnAndEngnrng.root}
           currentColor="#BF81FF"
           img={dataScienceAndEngeneering}
           isRight
           {...data.dataScienceAndEngeneering}
         />
         <ServiceSection
-          link="/"
+          link={ROUTES.uiUxDesign.root}
           currentColor="#2741FF"
           img={uiUxDesign}
           {...data.uiUxDesign}
@@ -78,7 +78,7 @@ export default function Home() {
 
         <div className="sectionWrapper">
           <ServiceSection
-            link="/"
+            link={ROUTES.architectureConsulting.root}
             currentColor="#515151"
             img={architectureAndConsulting}
             isRight

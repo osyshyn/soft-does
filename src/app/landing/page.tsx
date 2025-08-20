@@ -6,7 +6,6 @@ import { ROUTES } from "@shared/constants/routes";
 import { Certificates } from "@sections/home/certificates/certificates";
 import { ServiceSection } from "@sections/home/service-section/service-section";
 import { AboutUs } from "@sections/home/about-us/about-us";
-// import { ContactsForm } from "@sections/contacts-form/contacts-form";
 
 import softwareDevelopment from "@assets/images/main/software-development.png";
 import aiAndMachineLearning from "@assets/images/main/ai-machine-learning.png";
@@ -29,8 +28,7 @@ const CaseStudies = dynamic(
   () => import("@sections/case-studies/case-studies")
 );
 const ContactsForm = dynamic(
-  () => import("@sections/contacts-form/contacts-form"),
-  { ssr: false }
+  () => import("@sections/contacts-form/contacts-form")
 );
 
 export default function Home() {
@@ -45,33 +43,35 @@ export default function Home() {
         <ContactUsHero />
         <Certificates />
         <ServiceSection
-          link="/software-development"
+          isImagePriority
+          link={ROUTES.softwareDev.root}
           currentColor="#173B91"
           img={softwareDevelopment}
           {...data.softwareDevelopment}
         />
         <ServiceSection
-          link="/ai-and-ml"
+          link={ROUTES.aiAndMl.root}
+          isImagePriority
           currentColor="#D75186"
           img={aiAndMachineLearning}
           isRight
           {...data.aiMachineLearning}
         />
         <ServiceSection
-          link="/cloud-services"
+          link={ROUTES.cloudServices.root}
           currentColor="#F28B82"
           img={cloudServices}
           {...data.cloudServices}
         />
         <ServiceSection
-          link="/"
+          link={ROUTES.dataScnAndEngnrng.root}
           currentColor="#BF81FF"
           img={dataScienceAndEngeneering}
           isRight
           {...data.dataScienceAndEngeneering}
         />
         <ServiceSection
-          link="/"
+          link={ROUTES.uiUxDesign.root}
           currentColor="#2741FF"
           img={uiUxDesign}
           {...data.uiUxDesign}
@@ -79,7 +79,7 @@ export default function Home() {
 
         <div className="sectionWrapper">
           <ServiceSection
-            link="/"
+            link={ROUTES.architectureConsulting.root}
             currentColor="#515151"
             img={architectureAndConsulting}
             isRight
