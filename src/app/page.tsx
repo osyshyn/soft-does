@@ -25,7 +25,6 @@ const Industries = dynamic(
 const CaseStudies = dynamic(
   () => import("@sections/case-studies/case-studies")
 );
-
 const Certificates = dynamic(
   () => import("@sections/home/certificates/certificates")
 );

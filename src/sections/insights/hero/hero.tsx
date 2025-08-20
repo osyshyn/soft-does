@@ -1,3 +1,5 @@
+"use client";
+
 import data from "@shared/texts/industries/index.json";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -45,7 +47,10 @@ export const Hero = () => {
         <h1 className={s.title}>
           <span>Soft does</span> Insights
         </h1>
-        <p className={s.text}>We transform market insights into globally beloved apps that power your business</p>
+        <p className={s.text}>
+          We transform market insights into globally beloved apps that power
+          your business
+        </p>
         <button className={s.button}>{data.hero.btnText}</button>
       </div>
       <Image
