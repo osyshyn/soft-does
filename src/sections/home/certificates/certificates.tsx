@@ -3,23 +3,25 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
-import artifactDevelopment from "@assets/images/main/artifact-intellagence-certificate.svg?url";
-import awsCertificate from "@assets/images/main/aws-certificate.svg?url";
-import developerEssentials from "@assets/images/main/developer-essentials.svg?url";
-import ibmCoCreation from "@assets/images/main/ibm-co-creation.svg?url";
-import pmCertificate from "@assets/images/main/pm-certificate.svg?url";
-import webDevelopmentFundamentals from "@assets/images/main/web-development-fundamentals.svg?url";
+import AwsCloud from "@assets/icons/certificates/aws-cloud.png";
+import CoCreator from "@assets/icons/certificates/co-creator.png";
+import DevEssentials from "@assets/icons/certificates/dev-essentials.png";
+import ProjectManagement from "@assets/icons/certificates/project-management.png";
+import WebDevelopmentWithPython from "@assets/icons/certificates/web-development-with-python.png";
+import WebDevelopment from "@assets/icons/certificates/web-development.png";
+import AiFundamentals from "@assets/icons/certificates/ai-fundamentals.png";
 import Image from "next/image";
 
 import s from "./certificates.module.scss";
 
 const CERTIFICATES = [
-  artifactDevelopment,
-  awsCertificate,
-  developerEssentials,
-  ibmCoCreation,
-  pmCertificate,
-  webDevelopmentFundamentals,
+  CoCreator,
+  WebDevelopment,
+  ProjectManagement,
+  WebDevelopmentWithPython,
+  AiFundamentals,
+  DevEssentials,
+  AwsCloud,
 ];
 
 export const Certificates = () => {
@@ -56,10 +58,8 @@ export const Certificates = () => {
               priority
               src={item}
               className={s.image}
-              width={111}
-              height={111}
-              // placeholder="blur"
-              // blurDataURL={item}
+              quality={100}
+              placeholder="blur"
             />
           </SwiperSlide>
         ))}
