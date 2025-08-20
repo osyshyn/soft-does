@@ -33,8 +33,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const seo = await import("@shared/texts/seo/index.json");
 
   return {
-    title: seo.default.home.title,
-    description: seo.default.home.description,
+    title: seo.home.title,
+    description: seo.home.description,
     alternates: {
       canonical: `https://softdoes.com${ROUTES.root}`,
     },

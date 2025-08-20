@@ -1,3 +1,5 @@
+"use client";
+
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Arrow } from "@shared/assets/icons/short-arrow-right";
 import People from "@shared/assets/images/blog/people-work.png";
@@ -5,10 +7,8 @@ import Image from "next/image";
 import { IBlogMain } from "../../../types/contentful/BlogPost";
 import s from "./releases.module.scss";
 import PreservingLink from "@shared/components/preserving-link/preserving-link";
-
-interface ReleasesProps {
-  posts: IBlogMain[];
-}
+import { useState, useEffect } from "react";
+import { fetchBlog } from "app/api/contentful/api";
 
 function groupByCategory(posts: IBlogMain[]) {
   const map: Record<string, IBlogMain[]> = {};
@@ -20,7 +20,17 @@ function groupByCategory(posts: IBlogMain[]) {
   return map;
 }
 
-export const Releases = ({ posts }: ReleasesProps) => {
+export const Releases = () => {
+  const [posts, setPosts] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetchBlog().then(setPosts);
+  }, []);
+
+  useEffect(() => {
+    console.log(posts);
+  }, [posts]);
+
   const grouped = groupByCategory(posts);
 
   const featuredPosts = grouped["featured"] || [];
