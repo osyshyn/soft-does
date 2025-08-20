@@ -1,4 +1,3 @@
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 
 import HeroImage from "@assets/images/softwareServices/heroMVPDev_object.png";
@@ -12,33 +11,39 @@ import { Solutions } from "@sections/solutions/solutions";
 import s from "./mvp-development.module.scss";
 import Layout from "@shared/components/layout/layout";
 
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.softwareDev.mvpDev.title,
+    description: seo.softwareDev.mvpDev.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.softwareDev.mvpDev}`,
+    },
+  };
+}
+
 export default function MvpDev() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.softwareDev.mvpDev}
+    <Layout>
+      <Hero
+        heroImg={HeroImage}
+        data={{
+          title: "MVP Development",
+          tagText: "Designs that captivate, experiences that deliver.",
+          btnText: "Contact us",
+        }}
+        backgroundKey="mvpDev"
+        isDynamicImage
+        heroImgClassName={s.heroImg}
+        textContainerClassName={s.textContainer}
       />
-      <Layout>
-        <Hero
-          heroImg={HeroImage}
-          data={{
-            title: "MVP Development",
-            tagText: "Designs that captivate, experiences that deliver.",
-            btnText: "Contact us",
-          }}
-          backgroundKey="mvpDev"
-          isDynamicImage
-          heroImgClassName={s.heroImg}
-          textContainerClassName={s.textContainer}
-        />
-        <Results />
-        <Technologies />
-        <Testimonials />
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+      <Results />
+      <Technologies />
+      <Testimonials />
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }

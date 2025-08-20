@@ -1,4 +1,3 @@
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 
 import { Hero } from "@sections/hero/hero";
@@ -12,37 +11,43 @@ import data from "@shared/texts/company/index.json";
 import s from "./company.module.scss";
 
 import Layout from "@shared/components/layout/layout";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.company.title,
+    description: seo.company.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.company}`,
+    },
+  };
+}
 
 export default function Company() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.company}
-      />
-      <Layout>
-        <div className={"sectionWrapper"}>
-          <Hero
-            data={data.hero}
-            heroImg={HeroImage}
-            backgroundKey="turquoise"
-            heroImgClassName={s.heroImg}
-            textContainerClassName={s.textContainer}
-            isDynamicImage
-          />
-        </div>
+    <Layout>
+      <div className={"sectionWrapper"}>
+        <Hero
+          data={data.hero}
+          heroImg={HeroImage}
+          backgroundKey="turquoise"
+          heroImgClassName={s.heroImg}
+          textContainerClassName={s.textContainer}
+          isDynamicImage
+        />
+      </div>
 
-        <div className={"sectionWrapper"}>
-          <Results />
-        </div>
+      <div className={"sectionWrapper"}>
+        <Results />
+      </div>
 
-        <div className={"sectionWrapper"}>
-          <Stats />
-        </div>
+      <div className={"sectionWrapper"}>
+        <Stats />
+      </div>
 
-        <Steps />
-      </Layout>
-    </>
+      <Steps />
+    </Layout>
   );
 }

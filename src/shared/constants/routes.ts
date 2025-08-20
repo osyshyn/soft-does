@@ -74,9 +74,12 @@ export const ROUTES = {
   industries: "/industries",
 
   insights: "/insights",
+
   category: "/blog/category/[category]",
 
   company: "/company",
 
   contact: "/contact",
+
+  portfolio: "/portfolio",
 };

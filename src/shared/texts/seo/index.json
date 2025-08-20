@@ -1,0 +1,178 @@
+{
+  "home": {
+    "title": "Custom Software & Digital Transformation | SoftDoes",
+    "description": "SoftDoes delivers best software development services—from digital transformation to custom enterprise solutions—with dedicated development teams and consulting"
+  },
+  "aiAndMl": {
+    "title": "AI & Machine Learning Services | SoftDoes",
+    "description": "Transform your business with custom AI solutions, machine learning models, and intelligent automation. SoftDoes delivers cutting-edge AI development services.",
+    "aiDev": {
+      "title": "AI Development & Custom Solutions | SoftDoes",
+      "description": "SoftDoes offers AI development services, delivering custom AI solutions, machine learning models, and intelligent automation to enhance business performance"
+    },
+    "aiDPAuto": {
+      "title": "Intelligent Process Automation Solutions | SoftDoes",
+      "description": "SoftDoes offers AI-driven process automation services, streamlining workflows, reducing costs, and enhancing operational efficiency with intelligent solutions"
+    },
+    "aiOperation": {
+      "title": "Operationalizing Machine Learning for Business | SoftDoes",
+      "description": "SoftDoes delivers intelligent process automation solutions that streamline workflows, reduce costs, and boost efficiency with cutting-edge AI technologies"
+    },
+    "caiSolutions": {
+      "title": "Custom AI Solutions for Business Innovation | SoftDoes",
+      "description": "SoftDoes delivers custom AI solutions, designing intelligent systems tailored to your business needs, enhancing efficiency, and driving innovation"
+    },
+    "mlMD": {
+      "title": "ML Model Development & Predictive Solutions | SoftDoes",
+      "description": "SoftDoes offers machine learning model development and predictive modeling solutions to help businesses leverage AI for smarter decisions and growth"
+    }
+  },
+  "softwareDev": {
+    "title": "Agile Software Development & Consulting Services | SoftDoes",
+    "description": "SoftDoes offers agile software development, custom app development, enterprise software engineering, and software development consulting for businesses",
+    "apiIntegration": {
+      "title": "Systems Integration & API Solutions Services | SoftDoes",
+      "description": "SoftDoes offers systems integration solutions and API services to connect platforms seamlessly and boost business efficiency"
+    },
+    "customSoftDev": {
+      "title": "Custom Software & App Development Services | SoftDoes",
+      "description": "SoftDoes provides custom software development, bespoke apps, and tailored software solutions to meet unique business needs"
+    },
+    "mobileAppDev": {
+      "title": "Mobile App Development Services & Solutions | SoftDoes",
+      "description": "SoftDoes offers mobile app development services, enterprise mobile solutions, cross-platform and native apps, delivered by expert mobile app developers"
+    },
+    "mvpDev": {
+      "title": "MVP & Product Prototype Development Services | SoftDoes",
+      "description": "SoftDoes helps startups with MVP development and product prototype services, turning ideas into functional, testable solutions for early-stage validation"
+    },
+    "webAppDev": {
+      "title": "Web App Development & Custom Solutions | SoftDoes",
+      "description": "SoftDoes provides web app development services, building custom web applications, enterprise web apps, and single-page applications for seamless performance"
+    },
+    "productDev": {
+      "title": "Product Development & Engineering Services | SoftDoes",
+      "description": "SoftDoes delivers product development, digital product engineering, and end-to-end design services for innovative software solutions"
+    }
+  },
+  "cloudServices": {
+    "title": "Cloud Computing & Infrastructure Services | SoftDoes",
+    "description": "SoftDoes delivers cloud computing solutions, infrastructure management, multi-cloud services, and cloud strategy consulting as a leading cloud provider",
+    "ccs": {
+      "title": "Enterprise Cloud Computing & Secure Solutions | SoftDoes",
+      "description": "SoftDoes provides cloud computing services, hybrid cloud solutions, scalable cloud infrastructure, and cloud migration strategy for secure enterprise success"
+    },
+    "cloudMigration": {
+      "title": "Cloud Migration Services & Data Specialists | SoftDoes",
+      "description": "SoftDoes offers expert cloud migration services with proven specialists in data migration to cloud, ensuring secure, seamless, and efficient transformation"
+    },
+    "devOps": {
+      "title": "DevOps & Cloud Infrastructure as Code Setup | SoftDoes",
+      "description": "SoftDoes provides infrastructure as code and cloud infrastructure setup services, helping businesses automate, scale, and secure their cloud environments"
+    },
+    "managedCloud": {
+      "title": "Managed Cloud Services & Infrastructure Support | SoftDoes",
+      "description": "SoftDoes delivers managed cloud services with expert cloud operations management, infrastructure optimization, and 24/7 monitoring and support"
+    }
+  },
+  "dataScience": {
+    "title": "Data Engineering & Infrastructure Consulting | SoftDoes",
+    "description": "SoftDoes provides data-driven engineering and data infrastructure consulting, helping businesses build scalable systems and unlock actionable insights",
+    "dataAnalytics": {
+      "title": "Data Analytics & Predictive Insights Solutions | SoftDoes",
+      "description": "SoftDoes provides advanced data analytics solutions, predictive analytics consulting, and real-time insights for smarter business decisions"
+    },
+    "dataScience": {
+      "title": "Data Science Consulting & Analytics Services | SoftDoes",
+      "description": "SoftDoes provides data science consulting, machine learning analytics, data modeling, and real-time insights for smarter business decisions"
+    },
+    "dataStrategy": {
+      "title": "Data Strategy & Governance Consulting | SoftDoes",
+      "description": "SoftDoes offers data strategy and governance consulting, enterprise data governance, and data architecture solutions for secure, compliant management"
+    },
+    "enterpriseData": {
+      "title": "Enterprise Data Management & Platform Services | SoftDoes",
+      "description": "SoftDoes delivers enterprise data management, data lifecycle management, master data services, data quality, integration, and consolidation solutions"
+    }
+  },
+  "uiUxDesign": {
+    "title": "User-Centric UI/UX Design Solutions | SoftDoes",
+    "description": "SoftDoes delivers user-centric design solutions, creating intuitive, engaging, and visually appealing interfaces for web and mobile applications",
+    "productDS": {
+      "title": "Product Design Services for Web & Mobile | SoftDoes",
+      "description": "SoftDoes provides product design services, creating intuitive, user-focused interfaces and experiences for web and mobile applications that drive engagement"
+    },
+    "userED": {
+      "title": "User & Customer Experience Design Services | SoftDoes",
+      "description": "SoftDoes offers user experience design, customer experience design, usability testing, and interaction design services to create intuitive and engaging apps"
+    },
+    "userID": {
+      "title": "User Interface Design Services for Web & Mobile | SoftDoes",
+      "description": "SoftDoes provides user interface design services, crafting intuitive, visually appealing interfaces for web and mobile applications that enhance usability"
+    }
+  },
+  "architectureConsulting": {
+    "title": "Enterprise & Software Architecture Services | SoftDoes",
+    "description": "SoftDoes provides enterprise architecture services, software & system architecture consulting, and cloud architecture solutions to optimize your IT strategy",
+    "businessAnalytics": {
+      "title": "Business Analytics Services | SoftDoes",
+      "description": "Custom business analytics services including intelligent automation, intelligent chatbots, and intelligent workflows. SoftDoes delivers cutting-edge business analytics services."
+    },
+    "codeAudits": {
+      "title": "Code Audits Services | SoftDoes",
+      "description": "Custom code audits services including intelligent automation, intelligent chatbots, and intelligent workflows. SoftDoes delivers cutting-edge code audits services."
+    },
+    "databaseDesign": {
+      "title": "Database Design & Development Services | SoftDoes",
+      "description": "Custom database design and development services including intelligent automation, intelligent chatbots, and intelligent workflows. SoftDoes delivers cutting-edge database design and development services."
+    },
+    "digitalTransformation": {
+      "title": "Digital Transformation Services | SoftDoes",
+      "description": "Custom digital transformation services including intelligent automation, intelligent chatbots, and intelligent workflows. SoftDoes delivers cutting-edge digital transformation services."
+    },
+    "itConsulting": {
+      "title": "IT Consulting Services | SoftDoes",
+      "description": "Custom IT consulting services including intelligent automation, intelligent chatbots, and intelligent workflows. SoftDoes delivers cutting-edge IT consulting services."
+    },
+    "productManagement": {
+      "title": "Product Management Services | SoftDoes",
+      "description": "Custom product management services including intelligent automation, intelligent chatbots, and intelligent workflows. SoftDoes delivers cutting-edge product management services."
+    }
+  },
+  "services": {
+    "title": "Full Range of Software Services & Solutions | SoftDoes",
+    "description": "Explore SoftDoes’ software services overview, offering a full range of solutions from custom software development to AI, cloud, and data engineering expertise"
+  },
+  "expertise": {
+    "title": "Expert Software Solutions & Expertise Areas | SoftDoes",
+    "description": "Explore SoftDoes’ areas of expertise, delivering expert software solutions across AI, cloud, data engineering, DevOps, and full-cycle application development"
+  },
+  "industries": {
+    "title": "Industry-Specific Software Solutions & Services | SoftDoes",
+    "description": "SoftDoes provides industry-specific software solutions, serving retail, healthcare, and other sectors with custom software development and expert services"
+  },
+  "portfolio": {
+    "title": "Our Software Development Projects & Case Studies | SoftDoes",
+    "description": "Discover SoftDoes’ portfolio of software development projects, custom software examples, and case studies showcasing our expertise in delivering real results"
+  },
+  "company": {
+    "title": "Meet Our Team & Company Culture Insights | SoftDoes",
+    "description": "Meet our team at SoftDoes — a group of innovators dedicated to building custom software solutions, driving digital transformation, and empowering businesses"
+  },
+  "contact": {
+    "title": "Contact Our Team & Schedule a Consultation | SoftDoes",
+    "description": "Have a project in mind? Contact our team at SoftDoes to schedule a consultation and discover how our experts can help bring your software vision to life"
+  },
+  "insights": {
+    "title": "Tech Insights & Software Development Articles | SoftDoes",
+    "description": "Explore SoftDoes’ tech thought leadership, software development articles, and data science insights to stay updated on the latest trends and best practices"
+  },
+  "blog": {
+    "title": "Blog | SoftDoes",
+    "description": "Read our latest articles on software development, AI, cloud computing, and digital transformation. Expert insights from SoftDoes team."
+  },
+  "posts": {
+    "title": "Blog Posts | SoftDoes",
+    "description": "Discover in-depth articles and technical insights on software development, AI, and technology trends from SoftDoes experts."
+  }
+}

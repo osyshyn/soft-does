@@ -1,6 +1,5 @@
 import data from "@shared/texts/architecture-consulting/product-management.json";
 
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
@@ -14,29 +13,34 @@ import { Solutions } from "@sections/solutions/solutions";
 import HeroObj from "@assets/images/architecture-consulting/services/pm_object.png";
 import s from "./product-management.module.scss";
 
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.architectureConsulting.productManagement.title,
+    description: seo.architectureConsulting.productManagement.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.architectureConsulting.productManagement}`,
+    },
+  };
+}
 export default function ProductManagement() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.architectureConsulting.productManagement}
+    <Layout>
+      <Hero
+        data={data.hero}
+        heroImg={HeroObj}
+        heroImgClassName={s.heroImg}
+        textContainerClassName={s.textContainer}
+        backgroundKey="architecturePM"
+        isDynamicImage
       />
-      <Layout>
-        <Hero
-          data={data.hero}
-          heroImg={HeroObj}
-          heroImgClassName={s.heroImg}
-          textContainerClassName={s.textContainer}
-          backgroundKey="architecturePM"
-          isDynamicImage
-        />
-        <Results />
-        <Technologies />
-        <Testimonials />
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+      <Results />
+      <Technologies />
+      <Testimonials />
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }

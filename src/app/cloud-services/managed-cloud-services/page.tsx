@@ -1,6 +1,5 @@
 import data from "@shared/texts/cloud/mcs.json";
 
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
@@ -14,28 +13,34 @@ import { Solutions } from "@sections/solutions/solutions";
 import HeroObj from "@assets/images/cloud/services/mcs_object.png";
 import s from "./managed-cloud-services.module.scss";
 
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.cloudServices.managedCloud.title,
+    description: seo.cloudServices.managedCloud.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.cloudServices.managedCloud}`,
+    },
+  };
+}
+
 export default function MCS() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.cloudServices.managedCloud}
+    <Layout>
+      <Hero
+        data={data.hero}
+        heroImg={HeroObj}
+        heroImgClassName={s.heroImg}
+        textContainerClassName={s.textContainer}
+        backgroundKey="dark"
       />
-      <Layout>
-        <Hero
-          data={data.hero}
-          heroImg={HeroObj}
-          heroImgClassName={s.heroImg}
-          textContainerClassName={s.textContainer}
-          backgroundKey="dark"
-        />
-        <Results />
-        <Technologies />
-        <Testimonials />
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+      <Results />
+      <Technologies />
+      <Testimonials />
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }

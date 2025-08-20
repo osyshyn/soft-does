@@ -1,4 +1,3 @@
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 
 import { Hero } from "@sections/hero/hero";
@@ -12,33 +11,39 @@ import data from "@shared/texts/industries/index.json";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 
 import s from "./industries.module.scss";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.industries.title,
+    description: seo.industries.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.industries}`,
+    },
+  };
+}
 
 export default function IndustriesPage() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.industries}
+    <Layout>
+      <Hero
+        data={data.hero}
+        heroImg={HeroImg}
+        backgroundKey="pink"
+        isDynamicImage
+        heroImgClassName={s.heroImg}
+        textContainerClassName={s.textContainer}
       />
-      <Layout>
-        <Hero
-          data={data.hero}
-          heroImg={HeroImg}
-          backgroundKey="pink"
-          isDynamicImage
-          heroImgClassName={s.heroImg}
-          textContainerClassName={s.textContainer}
-        />
-        <Industries />
-        <Solutions />
-        <Testimonials />
-        <Engagement />
+      <Industries />
+      <Solutions />
+      <Testimonials />
+      <Engagement />
 
-        <div className="sectionWrapper">
-          <Portfolio />
-        </div>
-      </Layout>
-    </>
+      <div className="sectionWrapper">
+        <Portfolio />
+      </div>
+    </Layout>
   );
 }

@@ -1,4 +1,3 @@
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 
 import { Hero } from "@sections/cloud-services/hero/hero";
@@ -16,6 +15,19 @@ import { Up } from "@shared/assets/icons/services/cloud-services/up";
 import { Gear } from "@shared/assets/icons/services/cloud-services/gear";
 import { Sync } from "@shared/assets/icons/services/cloud-services/sync";
 import { Lock } from "@shared/assets/icons/services/cloud-services/lock";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.cloudServices.title,
+    description: seo.cloudServices.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.cloudServices.root}`,
+    },
+  };
+}
 
 const SERVICES = [
   {
@@ -46,26 +58,19 @@ const SERVICES = [
 
 export default function CloudServices() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.cloudServices.root}
-      />
-      <Layout>
-        <Hero />
-        <Results />
-        <Technologies />
-        <div className="sectionWrapper">
-          <ServicesList services={SERVICES} />
-        </div>
-        <div className="sectionWrapper">
-          <CaseStudies />
-        </div>
-        <Engagement />
-        <Solutions />
-        <Industries />
-      </Layout>
-    </>
+    <Layout>
+      <Hero />
+      <Results />
+      <Technologies />
+      <div className="sectionWrapper">
+        <ServicesList services={SERVICES} />
+      </div>
+      <div className="sectionWrapper">
+        <CaseStudies />
+      </div>
+      <Engagement />
+      <Solutions />
+      <Industries />
+    </Layout>
   );
 }

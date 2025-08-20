@@ -39,11 +39,15 @@ declare global {
 }
 
 export const metadata = {
-  title: "SOFT DOES",
-  description: "SOFT DOES is company, that will help your business grow!",
+  title: "Custom Software & Digital Transformation | SoftDoes",
+  description:
+    "SoftDoes delivers best software development services—from digital transformation to custom enterprise solutions—with dedicated development teams and consulting",
   robots: "index, follow",
   verification: {
     msvalidate: "B318AD364B2B8B51BA2CD9973949B158",
+  },
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 

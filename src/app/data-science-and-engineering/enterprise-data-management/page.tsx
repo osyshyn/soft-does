@@ -1,6 +1,5 @@
 import data from "@shared/texts/ui-ux-design/productDS.json";
 
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
@@ -14,28 +13,34 @@ import { Solutions } from "@sections/solutions/solutions";
 import HeroObj from "@assets/images/dse/services/edm_object.png";
 import s from "./enterprise-data-management.module.scss";
 
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await import("@shared/texts/seo/index.json");
+
+  return {
+    title: seo.dataScience.enterpriseData.title,
+    description: seo.dataScience.enterpriseData.description,
+    alternates: {
+      canonical: `https://softdoes.com${ROUTES.dataScnAndEngnrng.enterpriseData}`,
+    },
+  };
+}
+
 export default function Enterprise() {
   return (
-    <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.dataScnAndEngnrng.enterpriseData}
+    <Layout>
+      <Hero
+        data={data.hero}
+        heroImg={HeroObj}
+        heroImgClassName={s.heroImg}
+        textContainerClassName={s.textContainer}
+        backgroundKey="dark"
       />
-      <Layout>
-        <Hero
-          data={data.hero}
-          heroImg={HeroObj}
-          heroImgClassName={s.heroImg}
-          textContainerClassName={s.textContainer}
-          backgroundKey="dark"
-        />
-        <Results />
-        <Technologies />
-        <Testimonials />
-        <Engagement />
-        <Solutions />
-      </Layout>
-    </>
+      <Results />
+      <Technologies />
+      <Testimonials />
+      <Engagement />
+      <Solutions />
+    </Layout>
   );
 }
