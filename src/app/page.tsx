@@ -42,8 +42,97 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: "SoftDoes",
+        legalName: "SoftDoes LLC",
+        url: "https://softdoes.com/",
+        logo: "https://softdoes.com/logo.png",
+        description:
+          "SoftDoes is a trusted software development and tech consulting firm offering custom software, AI, cloud, data engineering and DevOps services.",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Kansas City",
+          addressRegion: "MO",
+          addressCountry: "US",
+        },
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          email: "info@softdoes.com",
+          telephone: "+1-000-000-0000",
+          availableLanguage: ["English"],
+        },
+        sameAs: [
+          "https://www.linkedin.com/company/softdoes/",
+          "https://twitter.com/softdoes",
+          "https://www.facebook.com/softdoes",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        url: "https://softdoes.com/",
+        name: "SoftDoes – Software Development Services",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://softdoes.com/search/?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "WebPage",
+        url: "https://softdoes.com/",
+        name: "SoftDoes – Custom Software & Consulting",
+        isPartOf: {
+          "@id": "https://softdoes.com/#website",
+        },
+        mainEntity: {
+          "@id": "https://softdoes.com/#organization",
+        },
+      },
+      {
+        "@type": "Service",
+        serviceType: "Custom Software Development",
+        description:
+          "Full-cycle web, mobile and enterprise custom software development tailored to unique business needs.",
+        provider: { "@id": "https://softdoes.com/#organization" },
+      },
+      {
+        "@type": "Service",
+        serviceType: "AI & Machine Learning Solutions",
+        description:
+          "AI, machine learning and automation solutions for predictive insights and intelligent workflows.",
+        provider: { "@id": "https://softdoes.com/#organization" },
+      },
+      {
+        "@type": "Service",
+        serviceType: "Cloud Infrastructure & DevOps",
+        description:
+          "Cloud migration, infrastructure automation, CI/CD pipelines and managed cloud services.",
+        provider: { "@id": "https://softdoes.com/#organization" },
+      },
+      {
+        "@type": "Service",
+        serviceType: "Data Engineering & Analytics",
+        description:
+          "Data pipeline design, data warehouses, analytics dashboards, real-time and predictive analytics solutions.",
+        provider: { "@id": "https://softdoes.com/#organization" },
+      },
+    ],
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero />
 
       <Certificates />
