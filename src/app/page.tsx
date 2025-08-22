@@ -38,6 +38,35 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: `https://softdoes.com${ROUTES.root}`,
     },
+    openGraph: {
+      title: "Custom Software & Digital Transformation | SoftDoes",
+      description: "SoftDoes delivers best software development services—from digital transformation to custom enterprise solutions—with dedicated development teams and consulting",
+      url: "https://softdoes.com/",
+      siteName: "SoftDoes",
+      images: [
+        {
+          url: "https://softdoes.com/images/logo.png",
+        },
+        {
+          url: "https://softdoes.com/images/logo.png",
+          width: 180,
+          height: 110,
+        },
+        {
+          url: "https://softdoes.com/images/logo.png",
+          width: 600,
+          height: 315,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@softdoes",
+      creator: "@softdoes",
+      title: "Custom Software & Digital Transformation | SoftDoes",
+      description: "SoftDoes delivers best software development services—from digital transformation to custom enterprise solutions—with dedicated development teams and consulting",
+      images: ["https://softdoes.com/images/logo.png"],
+    },
   };
 }
 
