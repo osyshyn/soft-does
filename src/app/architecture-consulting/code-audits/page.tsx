@@ -27,8 +27,78 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function CodeAudits() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Code Audits",
+    "provider": {
+      "@type": "Organization",
+      "name": "SoftDoes",
+      "url": "https://softdoes.com/architecture-consulting/code-audits",
+      "logo": "https://softdoes.com/logo.png",
+      "sameAs": "https://www.linkedin.com/company/softdoes",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-913-787-7997",
+        "contactType": "Customer Service",
+        "availableLanguage": "English"
+      }
+    },
+    "description": "Ensure your software's reliability and security with SoftDoes' comprehensive code audit services, identifying vulnerabilities and optimizing performance.",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://softdoes.com/architecture-consulting/code-audits",
+      "priceCurrency": "USD",
+      "price": "Pricing based on project scope",
+      "eligibleRegion": {
+        "@type": "Place",
+        "name": "Worldwide"
+      }
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Enterprises and organizations seeking to enhance software quality and security through expert code audits"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Worldwide"
+    },
+    "additionalType": "https://schema.org/ProfessionalService",
+    "mainEntityOfPage": "https://softdoes.com/architecture-consulting/code-audits",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://softdoes.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Architecture & Consulting Services",
+          "item": "https://softdoes.com/architecture-consulting"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Code Audits",
+          "item": "https://softdoes.com/architecture-consulting/code-audits"
+        }
+      ]
+    }
+  }
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero
         data={data.hero}
         heroImg={HeroObj}

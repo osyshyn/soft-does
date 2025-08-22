@@ -26,8 +26,71 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Company() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "SoftDoes",
+    url: "https://softdoes.com/company",
+    logo: "https://softdoes.com/logo.png",
+    sameAs: "https://www.linkedin.com/company/softdoes",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+1-913-787-7997",
+      contactType: "Customer Service",
+      availableLanguage: "English",
+    },
+    description:
+      "SoftDoes is a Kansas-based software development company specializing in custom software solutions, AI & machine learning, cloud services, data science, UI/UX design, and architecture consulting. With over 25,000 projects completed and a client base of over 300, SoftDoes delivers scalable and reliable software tailored to business needs.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kansas",
+      addressCountry: "US",
+    },
+    founder: {
+      "@type": "Person",
+      name: "Orest",
+      jobTitle: "Founder & CEO",
+    },
+    foundingDate: "2018-03-01",
+    employee: {
+      "@type": "Organization",
+      name: "SoftDoes",
+    },
+    department: {
+      "@type": "Organization",
+      name: "Software Development",
+    },
+    award: "12+",
+    numberOfEmployees: "50-200",
+    mainEntityOfPage: "https://softdoes.com/company",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://softdoes.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Company",
+          item: "https://softdoes.com/company",
+        },
+      ],
+    },
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <div className={"sectionWrapper"}>
         <Hero
           data={data.hero}

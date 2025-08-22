@@ -28,8 +28,81 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function CCS() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Cloud Computing Solutions",
+    provider: {
+      "@type": "Organization",
+      name: "SoftDoes",
+      url: "https://softdoes.com/cloud-services/cloud-computing-solutions",
+      logo: "https://softdoes.com/logo.png",
+      sameAs: "https://www.linkedin.com/company/softdoes",
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+1-913-787-7997",
+        contactType: "Customer Service",
+        availableLanguage: "English",
+      },
+    },
+    description:
+      "Comprehensive cloud computing solutions designed to enhance scalability, security, and efficiency for businesses of all sizes.",
+    offers: {
+      "@type": "Offer",
+      url: "https://softdoes.com/cloud-services/cloud-computing-solutions",
+      priceCurrency: "USD",
+      price: "Pricing based on project scope",
+      eligibleRegion: {
+        "@type": "Place",
+        name: "Worldwide",
+      },
+    },
+    audience: {
+      "@type": "Audience",
+      audienceType:
+        "Businesses seeking scalable and secure cloud computing solutions",
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "Worldwide",
+    },
+    additionalType: "https://schema.org/ProfessionalService",
+    mainEntityOfPage:
+      "https://softdoes.com/cloud-services/cloud-computing-solutions",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://softdoes.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Cloud Services",
+          item: "https://softdoes.com/cloud-services",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Cloud Computing Solutions",
+          item: "https://softdoes.com/cloud-services/cloud-computing-solutions",
+        },
+      ],
+    },
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero
         data={data.hero}
         heroImg={HeroObj}

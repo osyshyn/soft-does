@@ -24,9 +24,79 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function ContactPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Contact Us",
+    url: "https://softdoes.com/contact",
+    mainEntity: {
+      "@type": "Organization",
+      name: "SoftDoes",
+      url: "https://softdoes.com",
+      logo: "https://softdoes.com/logo.png",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+1-213-401-9311",
+          contactType: "Customer Service",
+          areaServed: "US",
+          availableLanguage: "English",
+        },
+        {
+          "@type": "ContactPoint",
+          email: "hello@softdoes.com",
+          contactType: "Project Inquiries",
+          areaServed: "Worldwide",
+          availableLanguage: "English",
+        },
+        {
+          "@type": "ContactPoint",
+          email: "careers@softdoes.com",
+          contactType: "Careers",
+          areaServed: "Worldwide",
+          availableLanguage: "English",
+        },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "123 Main St",
+        addressLocality: "Kansas City",
+        addressRegion: "KS",
+        postalCode: "66101",
+        addressCountry: "US",
+      },
+    },
+    description:
+      "Reach out to SoftDoes for project inquiries, career opportunities, or general questions. We're here to assist you with your software development needs.",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://softdoes.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Contact Us",
+          item: "https://softdoes.com/contact",
+        },
+      ],
+    },
+  };
+
   return (
     <HideContacts>
       <Layout talkToUs={false} faq={false} contacts={false}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+
         <Hero
           data={data.hero}
           heroImg={HeroImg}

@@ -19,8 +19,69 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Insights() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Insights",
+    url: "https://softdoes.com/insights",
+    description:
+      "Technical insights and software development articles from SoftDoes that help businesses stay at the forefront of technology.",
+    publisher: {
+      "@type": "Organization",
+      name: "SoftDoes",
+      url: "https://softdoes.com",
+      logo: "https://softdoes.com/logo.png",
+      sameAs: "https://www.linkedin.com/company/softdoes",
+    },
+    mainEntityOfPage: "https://softdoes.com/insights",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://softdoes.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Insights",
+          item: "https://softdoes.com/insights",
+        },
+      ],
+    },
+    article: {
+      "@type": "Blog",
+      headline: "Tech Insights & Software Development Articles",
+      description:
+        "Latest articles and analysis from SoftDoes on software development, technology trends, and innovations.",
+      datePublished: "2024-01-01",
+      dateModified: "2024-01-01",
+      author: {
+        "@type": "Person",
+        name: "SoftDoes Team",
+        url: "https://softdoes.com/about",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "SoftDoes",
+        url: "https://softdoes.com",
+        logo: "https://softdoes.com/logo.png",
+        sameAs: "https://www.linkedin.com/company/softdoes",
+      },
+    },
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero />
       <Releases />
     </Layout>

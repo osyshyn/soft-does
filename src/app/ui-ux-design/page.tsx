@@ -52,8 +52,73 @@ const content = [
 ];
 
 export default function Uiux() {
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "UI/UX Design Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "SoftDoes",
+      "url": "https://softdoes.com/ui-ux-design",
+      "logo": "https://softdoes.com/logo.png",
+      "sameAs": "https://www.linkedin.com/company/softdoes",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-913-787-7997",
+        "contactType": "Customer Service",
+        "availableLanguage": "English"
+      }
+    },
+    "description": "SoftDoes offers comprehensive UI/UX design services, including user experience design, user interface design, and product design services, tailored to meet your business needs.",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://softdoes.com/ui-ux-design",
+      "priceCurrency": "USD",
+      "price": "Pricing based on project scope",
+      "eligibleRegion": {
+        "@type": "Place",
+        "name": "Worldwide"
+      }
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Enterprises and organizations seeking to enhance their software user interfaces and user experiences"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Worldwide"
+    },
+    "additionalType": "https://schema.org/ProfessionalService",
+    "mainEntityOfPage": "https://softdoes.com/ui-ux-design",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://softdoes.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "UI/UX Design",
+          "item": "https://softdoes.com/ui-ux-design"
+        }
+      ]
+    }
+  }
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
+      
       <Hero
         data={data.hero}
         heroImg={HeroImg}

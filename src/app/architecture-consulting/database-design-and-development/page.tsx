@@ -27,8 +27,70 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function DatabaseDesignAndDevelopment() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Database Design & Development",
+    provider: {
+      "@type": "Organization",
+      name: "SoftDoes",
+      url: "https://softdoes.com/architecture-consulting/database-design-and-development",
+      logo: "https://softdoes.com/images/logo.png",
+      sameAs: [
+        "https://twitter.com/softdoes",
+        "https://www.linkedin.com/company/softdoes",
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1234 Main St",
+        addressLocality: "Kansas City",
+        addressRegion: "KS",
+        postalCode: "66101",
+        addressCountry: "US",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+1-913-787-7997",
+        contactType: "Customer Service",
+        areaServed: "US",
+        availableLanguage: "English",
+      },
+    },
+    description:
+      "SoftDoes offers expert database design and development services, specializing in scalable, secure, and high-performance database architectures tailored to your business needs.",
+    offers: {
+      "@type": "Offer",
+      url: "https://softdoes.com/architecture-consulting/database-design-and-development",
+      priceCurrency: "USD",
+      eligibleRegion: "US",
+      price: "Contact for pricing",
+      priceValidUntil: "2025-12-31",
+    },
+    areaServed: "US",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Businesses seeking scalable and secure database solutions",
+    },
+    keywords: [
+      "Database Design",
+      "Database Development",
+      "Scalable Databases",
+      "Secure Databases",
+      "High-Performance Databases",
+      "Database Architecture",
+    ],
+    mainEntityOfPage:
+      "https://softdoes.com/architecture-consulting/database-design-and-development",
+  };
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero
         data={data.hero}
         heroImg={HeroObj}

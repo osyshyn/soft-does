@@ -92,8 +92,72 @@ export default function SoftwareDev() {
     );
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Software Development",
+    "provider": {
+      "@type": "Organization",
+      "name": "SoftDoes",
+      "url": "https://softdoes.com/software-development",
+      "logo": "https://softdoes.com/logo.png",
+      "sameAs": "https://www.linkedin.com/company/softdoes",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-913-787-7997",
+        "contactType": "Customer Service",
+        "availableLanguage": "English"
+      }
+    },
+    "description": "SoftDoes offers comprehensive software development services, including custom software development, mobile app development, web application development, MVP development, product development, and API integration services. We specialize in delivering scalable, reliable, and high-performance software solutions tailored to meet your business objectives.",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://softdoes.com/software-development",
+      "priceCurrency": "USD",
+      "price": "Pricing based on project scope",
+      "eligibleRegion": {
+        "@type": "Place",
+        "name": "Worldwide"
+      }
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Enterprises and organizations seeking to develop custom software solutions"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Worldwide"
+    },
+    "additionalType": "https://schema.org/ProfessionalService",
+    "mainEntityOfPage": "https://softdoes.com/software-development",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://softdoes.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Software Development",
+          "item": "https://softdoes.com/software-development"
+        }
+      ]
+    }
+  }
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero
         data={{
           ...data.hero,

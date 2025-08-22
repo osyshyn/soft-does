@@ -28,8 +28,49 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function ProductDS() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Product Design Services",
+    provider: {
+      "@type": "Organization",
+      name: "SoftDoes",
+      url: "https://softdoes.com/ui-ux-design/product-design-services",
+      logo: "https://softdoes.com/logo.png",
+      sameAs: "https://www.linkedin.com/company/softdoes",
+    },
+    description:
+      "Comprehensive product design from concept to launch, including research, prototyping, and testing to create successful digital products.",
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      eligibleRegion: {
+        "@type": "Place",
+        name: "USA",
+      },
+      url: "https://softdoes.com/ui-ux-design/product-design-services",
+    },
+    audience: {
+      "@type": "Audience",
+      description:
+        "End-to-end product design from concept to launch, including research, prototyping, and testing to deliver successful digital products.",
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "USA",
+    },
+    additionalType: "https://schema.org/ProfessionalService",
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero
         data={data.hero}
         heroImg={HeroObj}

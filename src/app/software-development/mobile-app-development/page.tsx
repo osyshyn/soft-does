@@ -23,8 +23,81 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function MobileAppDev() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Mobile App Development",
+    provider: {
+      "@type": "Organization",
+      name: "SoftDoes",
+      url: "https://softdoes.com/software-development/mobile-app-development",
+      logo: "https://softdoes.com/logo.png",
+      sameAs: "https://www.linkedin.com/company/softdoes",
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+1-913-787-7997",
+        contactType: "Customer Service",
+        availableLanguage: "English",
+      },
+    },
+    description:
+      "Comprehensive mobile app development services, from ideation to launch, including design, engineering, and scaling to create innovative digital products.",
+    offers: {
+      "@type": "Offer",
+      url: "https://softdoes.com/software-development/mobile-app-development",
+      priceCurrency: "USD",
+      price: "Pricing based on project scope",
+      eligibleRegion: {
+        "@type": "Place",
+        name: "Worldwide",
+      },
+    },
+    audience: {
+      "@type": "Audience",
+      audienceType:
+        "Startups, enterprises, and organizations seeking end-to-end mobile app development services",
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "Worldwide",
+    },
+    additionalType: "https://schema.org/ProfessionalService",
+    mainEntityOfPage:
+      "https://softdoes.com/software-development/mobile-app-development",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://softdoes.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Software Development",
+          item: "https://softdoes.com/software-development",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Mobile App Development",
+          item: "https://softdoes.com/software-development/mobile-app-development",
+        },
+      ],
+    },
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero />
       <Results />
       <Technologies />

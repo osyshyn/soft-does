@@ -22,8 +22,81 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function AiDPAuto() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "AI-Driven Process Automation",
+    provider: {
+      "@type": "Organization",
+      name: "SoftDoes",
+      url: "https://softdoes.com/ai-and-ml/ai-driven-process-automation",
+      logo: "https://softdoes.com/logo.png",
+      sameAs: "https://www.linkedin.com/company/softdoes",
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+1-913-787-7997",
+        contactType: "Customer Service",
+        availableLanguage: "English",
+      },
+    },
+    description:
+      "Implement AI-driven automation solutions to streamline operations, reduce manual tasks, and enhance decision-making processes.",
+    offers: {
+      "@type": "Offer",
+      url: "https://softdoes.com/ai-and-ml/ai-driven-process-automation",
+      priceCurrency: "USD",
+      price: "Pricing based on project scope",
+      eligibleRegion: {
+        "@type": "Place",
+        name: "Worldwide",
+      },
+    },
+    audience: {
+      "@type": "Audience",
+      audienceType:
+        "Businesses seeking to automate processes using AI technologies",
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "Worldwide",
+    },
+    additionalType: "https://schema.org/ProfessionalService",
+    mainEntityOfPage:
+      "https://softdoes.com/ai-and-ml/ai-driven-process-automation",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://softdoes.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "AI & Machine Learning",
+          item: "https://softdoes.com/ai-and-ml",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "AI-Driven Process Automation",
+          item: "https://softdoes.com/ai-and-ml/ai-driven-process-automation",
+        },
+      ],
+    },
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero />
       <Results />
       <Technologies />

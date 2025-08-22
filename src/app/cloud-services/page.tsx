@@ -57,8 +57,71 @@ const SERVICES = [
 ];
 
 export default function CloudServices() {
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Cloud Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "SoftDoes",
+      "url": "https://softdoes.com/cloud-services",
+      "logo": "https://softdoes.com/logo.png",
+      "sameAs": "https://www.linkedin.com/company/softdoes",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-913-787-7997",
+        "contactType": "Customer Service",
+        "availableLanguage": "English"
+      }
+    },
+    "description": "SoftDoes offers comprehensive cloud services, including cloud computing solutions, DevOps and cloud infrastructure, cloud migration services, and managed cloud services, tailored to meet your business needs.",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://softdoes.com/cloud-services",
+      "priceCurrency": "USD",
+      "price": "Pricing based on project scope",
+      "eligibleRegion": {
+        "@type": "Place",
+        "name": "Worldwide"
+      }
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Enterprises and organizations seeking to leverage cloud technologies for business transformation"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Worldwide"
+    },
+    "additionalType": "https://schema.org/ProfessionalService",
+    "mainEntityOfPage": "https://softdoes.com/cloud-services",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://softdoes.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cloud Services",
+          "item": "https://softdoes.com/cloud-services"
+        }
+      ]
+    }
+  }
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Hero />
       <Results />
       <Technologies />

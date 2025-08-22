@@ -27,8 +27,80 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function CaiSolutions() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Custom AI Solutions",
+    provider: {
+      "@type": "Organization",
+      name: "SoftDoes",
+      url: "https://softdoes.com/ai-and-ml/custom-ai-solutions",
+      logo: "https://softdoes.com/logo.png",
+      sameAs: "https://www.linkedin.com/company/softdoes",
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+1-913-787-7997",
+        contactType: "Customer Service",
+        availableLanguage: "English",
+      },
+    },
+    description:
+      "Tailored AI solutions designed to address unique business challenges, enhancing operational efficiency and decision-making processes.",
+    offers: {
+      "@type": "Offer",
+      url: "https://softdoes.com/ai-and-ml/custom-ai-solutions",
+      priceCurrency: "USD",
+      price: "Pricing based on project scope",
+      eligibleRegion: {
+        "@type": "Place",
+        name: "Worldwide",
+      },
+    },
+    audience: {
+      "@type": "Audience",
+      audienceType:
+        "Enterprises and organizations seeking to leverage custom AI solutions for strategic advantage",
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "Worldwide",
+    },
+    additionalType: "https://schema.org/ProfessionalService",
+    mainEntityOfPage: "https://softdoes.com/ai-and-ml/custom-ai-solutions",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://softdoes.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "AI & Machine Learning",
+          item: "https://softdoes.com/ai-and-ml",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Custom AI Solutions",
+          item: "https://softdoes.com/ai-and-ml/custom-ai-solutions",
+        },
+      ],
+    },
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero
         data={data.hero}
         heroImg={HeroObj}

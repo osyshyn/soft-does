@@ -69,8 +69,72 @@ const content = [
 ];
 
 export default function Aiml() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "AI & Machine Learning Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "SoftDoes",
+      "url": "https://softdoes.com/ai-and-ml",
+      "logo": "https://softdoes.com/logo.png",
+      "sameAs": "https://www.linkedin.com/company/softdoes",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-913-787-7997",
+        "contactType": "Customer Service",
+        "availableLanguage": "English"
+      }
+    },
+    "description": "SoftDoes offers comprehensive AI & Machine Learning services, including custom AI solutions, machine learning model development, AI-driven process automation, and AI operationalization, tailored to meet your business needs.",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://softdoes.com/ai-and-ml",
+      "priceCurrency": "USD",
+      "price": "Pricing based on project scope",
+      "eligibleRegion": {
+        "@type": "Place",
+        "name": "Worldwide"
+      }
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Enterprises and organizations seeking to leverage AI and machine learning for business transformation"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Worldwide"
+    },
+    "additionalType": "https://schema.org/ProfessionalService",
+    "mainEntityOfPage": "https://softdoes.com/ai-and-ml",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://softdoes.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI & Machine Learning",
+          "item": "https://softdoes.com/ai-and-ml"
+        }
+      ]
+    }
+  }
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero
         data={data.hero}
         heroImg={HeroImage}
