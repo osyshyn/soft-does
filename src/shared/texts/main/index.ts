@@ -1,4 +1,17 @@
-{
+import AirtableIcon from "@shared/assets/icons/testimonials/airtable.png";
+import CranePickIcon from "@shared/assets/icons/testimonials/cranePick.png";
+import GoPlumberIcon from "@shared/assets/icons/testimonials/goplumber.png";
+import AibesIcon from "@shared/assets/icons/testimonials/aibes.png";
+import KerwellIcon from "@shared/assets/icons/testimonials/kerwell.png";
+import EdsbyIcon from "@shared/assets/icons/testimonials/edsby.png";
+import NicheCanvasIcon from "@shared/assets/icons/testimonials/nichecanvas.png";
+import SugarloafIcon from "@shared/assets/icons/testimonials/sugarloaf.png";
+import Miracleon22ndstreetIcon from "@shared/assets/icons/testimonials/niracleon22ndstreet.png";
+import Upwork from "@shared/assets/images/industries/upwork.png";
+import DaniloMalisicIcon from "@shared/assets/icons/testimonials/danilo-malisic.webp";
+
+
+const data = {
   "hero": {
     "title": "Partner in Innovative Software Development",
     "tagText": "proudly based in kansas",
@@ -279,73 +292,121 @@
     "title": "Testimonials",
     "list": [
       {
-        "title": "Airtable Expert Needed",
-        "review": "\"Orest was a pleasure to work with. He was very diligent, smart and technically competent and patient as we worked through our Airtable project on successfully getting a ecommerce erp together in Airtable\"",
+        "review": ["\"Orest was a pleasure to work with. He was very diligent, smart and technically competent and patient as we worked through our Airtable project on successfully getting a ecommerce erp together in Airtable\""],
         "date": "Dec 22, 2023 - Oct 7, 2024",
-        "name": "Alex Johnson"
+        "name": "Alex Johnson",
+        "title": "Airtable Expert Needed",
+        "logo": AirtableIcon
       },
       {
-        "title": "Webflow",
         "review": [
           "\"Working with Orest has been a fantastic experience. Our project required a mix of technical skill and attention to detail, and he handled every aspect with precision. He developed efficient, scalable solutions that saved us time and effort, quickly troubleshooting and adapting as new requirements came up.",
           "Orest’s proactive communication and thorough testing made the project smooth and successful. I look forward to working with him on future projects and highly recommend him to anyone in need of a dedicated, knowledgeable, and reliable developer.\""
         ],
         "date": "Oct 4, 2023 - Oct 23, 2024",
-        "name": "Webflow"
+        "name": "Webflow",
+        "title": "Webflow",
+        "logo": CranePickIcon,
+        "style": {
+          "backgroundColor": "#1a1a1a",
+        } 
       },
       {
         "title": "Add/Optimize New and Existing Features on Website",
-        "review": "\"Orest is professional and responds promptly to ensure deadlines are met. I was designed a great-looking website with exceptional functionality. My website is complicated and has a lot of moving parts that were difficult to design. Orest completed the challenging tasks that came with building with website and enhanced the user interface. I would 100% recommend to everyone looking to build a website.\"",
+        "review": ["\"Orest is professional and responds promptly to ensure deadlines are met. I was designed a great-looking website with exceptional functionality. My website is complicated and has a lot of moving parts that were difficult to design. Orest completed the challenging tasks that came with building with website and enhanced the user interface. I would 100% recommend to everyone looking to build a website.\""],
         "date": "Dec 2, 2023 - May 28, 2024",
-        "name": "Michael Thompson"
+        "name": "Michael Thompson",
+        "logo": GoPlumberIcon,
+        "style": {
+          "backgroundColor": "#000",
+        } 
       },
       {
         "title": "Refine Power Pages Website",
-        "review": "\"We are very happy with Orest's and his team's work. They were professional and timely. Creating a website is both technical and artistic, requiring multiple iterations. Orest walked us through the process, made sure to understand our requirements and also added his thoughts on best practices. All was very much appreciated.\"",
+        "review": ["\"We are very happy with Orest's and his team's work. They were professional and timely. Creating a website is both technical and artistic, requiring multiple iterations. Orest walked us through the process, made sure to understand our requirements and also added his thoughts on best practices. All was very much appreciated.\""],
         "date": "Apr 11, 2024 - May 1, 2024",
-        "name": "Carter Creative Studio"
+        "name": "Carter Creative Studio",
+        "logo": AibesIcon,
+        "style": {
+          "backgroundColor": "#fff",
+          "width": "75%",
+          "height": "75%"
+        } 
       },
       {
         "title": "Klayvio API integration and PDP page design",
-        "review": "\"Orest was fantastic! His punctuality, clear communication, and friendly personality makes him the best developer I've worked with on Upwork. Deadlines were met, communication was seamless, and his skillset was outstanding. In short, he was really great to work with and was very fair and transparent on pricing -- we will be using his services again in the future. Highly recommended!!\"",
+        "review": ["\"Orest was fantastic! His punctuality, clear communication, and friendly personality makes him the best developer I've worked with on Upwork. Deadlines were met, communication was seamless, and his skillset was outstanding. In short, he was really great to work with and was very fair and transparent on pricing -- we will be using his services again in the future. Highly recommended!!\""],
         "date": "Feb 10, 2024 - Apr 9, 2024",
-        "name": "Jessica Reynolds"
+        "name": "Jessica Reynolds",
+        "logo": KerwellIcon,
+        "style": {
+          "backgroundColor": "#fff"
+        } 
       },
       {
         "title": "Shopify Developer for Custom Color Swatches Section with Dynamic Blocks and Metafield Integration",
-        "review": "\"The process was seamless, with every detail and requirement meticulously addressed. The attention to detail, analytical thinking, preparedness, and knowledge were evident throughout. Thank you.\"",
+        "review": ["\"The process was seamless, with every detail and requirement meticulously addressed. The attention to detail, analytical thinking, preparedness, and knowledge were evident throughout. Thank you.\""],
         "date": "Apr 1, 2024 - Apr 6, 2024",
-        "name": "Daniel Foster"
+        "name": "Daniel Foster",
+        "logo": NicheCanvasIcon,
+        "style": {
+          "backgroundColor": "#fff",
+          "width": "80%",
+          "height": "80%"
+        } 
       },
       {
         "title": "Fixes to staged website and production implementation",
-        "review": "\"Did as good a job as we could have hoped for in challenging, time-constrained circumstances. Quite technical; was able to achieve some difficult tasks. A handful of things took longer than expected and there were occasional regressions where work had to be re-done, but it was a complex project with many moving parts. In all, the project was a success. Would re-hire and serve as a reference.\"",
+        "review": ["\"Did as good a job as we could have hoped for in challenging, time-constrained circumstances. Quite technical; was able to achieve some difficult tasks. A handful of things took longer than expected and there were occasional regressions where work had to be re-done, but it was a complex project with many moving parts. In all, the project was a success. Would re-hire and serve as a reference.\""],
         "date": "Jan 26, 2024 - Feb 29, 2024",
-        "name": "Olivia Williams"
+        "name": "Olivia Williams",
+        "logo": EdsbyIcon,
+        "style": {
+          "backgroundColor": "#fff"
+        } 
       },
       {
         "title": "Multi-party calendaring tool",
-        "review": "\"Could not say more positive things. He treated the job personally and did all he could to deliver the project on time and in a finished manner. Bug fixes, follow up and communication throughout the project could not have been better. If you want someone you can trust to get the job done, hire Orest.\"",
+        "review": ["\"Could not say more positive things. He treated the job personally and did all he could to deliver the project on time and in a finished manner. Bug fixes, follow up and communication throughout the project could not have been better. If you want someone you can trust to get the job done, hire Orest.\""],
         "date": "Jul 13, 2023 - Jan 17, 2024",
-        "name": "James Anderson"
+        "name": "James Anderson",
+        "logo": SugarloafIcon,
+        "style": {
+          "backgroundColor": "#fff",
+          "width": "95%",
+          "height": "95%"
+        } 
       },
       {
         "title": "Website coder/admin",
-        "review": "\"I am astounded by the quality and completeness of his work. He wears his heart on his sleeve, and puts all of himself into everything he does. Just because you may not hear from him for a while does not mean he’s not working. It means he’s concentrating and working very hard. I could not be happier. I can’t wait to work with him again.\"",
+        "review": ["\"I am astounded by the quality and completeness of his work. He wears his heart on his sleeve, and puts all of himself into everything he does. Just because you may not hear from him for a while does not mean he’s not working. It means he’s concentrating and working very hard. I could not be happier. I can’t wait to work with him again.\""],
         "date": "Oct 6, 2023 - Dec 23, 2024",
-        "name": "Ethan Brown"
+        "name": "Ethan Brown",
+        "logo": Miracleon22ndstreetIcon,
       },
       {
         "title": "ReactJS and ReactNative Developer needed to build frontend for existing backend",
-        "review": "\"Orest is prompt in his communication and quick to deliver work. Modifications after delivery were turned around within 24 hours. He produces high-quality work and he works hard to understand the product so that he can provide his expert opinion on different aspects of the system. It was an absolute pleasure working with Orest, and he will be my go-to for any front-end development in the future. Orest is worth his weight in gold! Thanks for the tremendous work!\"",
+        "review": ["\"Orest is prompt in his communication and quick to deliver work. Modifications after delivery were turned around within 24 hours. He produces high-quality work and he works hard to understand the product so that he can provide his expert opinion on different aspects of the system. It was an absolute pleasure working with Orest, and he will be my go-to for any front-end development in the future. Orest is worth his weight in gold! Thanks for the tremendous work!\""],
         "date": "Oct 11, 2023 - Jun, 2024",
-        "name": "Sophia Miller"
+        "name": "Sophia Miller",
+        "logo": Upwork,
+        "style": {
+          "width": "95%",
+          "height": "95%",
+          "backgroundColor": "#73bb44"
+        } 
       },
       {
         "title": "Experienced Developer Needed with Drupal + Hosting Experience",
-        "review": "\"Thanks for your help! You made working on this project easy. Anyone looking for a freelancer that has expertise and ease of communication look no further. Orest is the person for the job.\"",
+        "review": ["\"Thanks for your help! You made working on this project easy. Anyone looking for a freelancer that has expertise and ease of communication look no further. Orest is the person for the job.\""],
         "date": "Jul 17, 2023 - Jul 17, 2024",
-        "name": "Ryan Davis"
+        "name": "Ryan Davis",
+        "logo": DaniloMalisicIcon,
+        "style": {
+          "width": "135%",
+          "height": "135%",
+          "backgroundColor": "#fff"
+        } 
       }
     ]
   },
@@ -429,3 +490,5 @@
     ]
   }
 }
+
+export default data;

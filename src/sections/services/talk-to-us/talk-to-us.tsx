@@ -1,5 +1,5 @@
 'use client';
-import data from "@texts/main/index.json";
+import data from "@texts/main/index";
 import s from "./talk-to-us.module.scss";
 import { MouseEventHandler } from "react";
 import { useNoContacts } from "providers/NoContactProvider";

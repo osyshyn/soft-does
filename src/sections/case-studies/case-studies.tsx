@@ -1,6 +1,6 @@
 "use client";
 
-import data from "@texts/main/index.json";
+import data from "@texts/main/index";
 import { useRef } from "react";
 import { useScroll } from "framer-motion";
 

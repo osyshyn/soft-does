@@ -1,4 +1,4 @@
-import data from "@texts/main/index.json";
+import data from "@texts/main/index";
 
 import s from "./hero.module.scss";
 import clsx from "clsx";

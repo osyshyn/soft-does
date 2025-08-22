@@ -1,5 +1,5 @@
 import { ArrowUpAndRight } from '@shared/assets/icons/arrow-up-and-right';
-import data from '@texts/main/index.json';
+import data from '@texts/main/index';
 import s from './contacts.module.scss';
 import PreservingLink from '@shared/components/preserving-link/preserving-link'
 

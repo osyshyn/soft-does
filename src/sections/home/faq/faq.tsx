@@ -2,7 +2,7 @@ import { Accordion } from '@shared/ui/accordion';
 import { FaqAccordionItem } from '@shared/components/faq-accordion-item/faq-accordion-item';
 import img from '@assets/images/main/faq-image.png';
 
-import data from '@texts/main/index.json';
+import data from '@texts/main/index';
 import s from './faq.module.scss';
 import Image from 'next/image';
 

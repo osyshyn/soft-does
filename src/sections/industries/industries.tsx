@@ -12,7 +12,7 @@ import energy from "@assets/images/main/industries-energy.png";
 
 import { ArrowUpAndRight } from "@shared/assets/icons/arrow-up-and-right";
 
-import data from "@texts/main/index.json";
+import data from "@texts/main/index";
 import s from "./industries.module.scss";
 
 const INDUSTRIES = {

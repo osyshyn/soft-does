@@ -1,4 +1,4 @@
-import data from "@texts/main/index.json";
+import data from "@texts/main/index";
 import dynamic from "next/dynamic";
 
 import { SEO } from "@shared/ui/seo";

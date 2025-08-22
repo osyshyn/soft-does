@@ -1,4 +1,4 @@
-import data from "@texts/main/index.json";
+import data from "@texts/main/index";
 import s from "./talk-to-us.module.scss";
 import clsx from "clsx";
 import { ScrollToContact } from "@shared/components/scroll-to-contact";

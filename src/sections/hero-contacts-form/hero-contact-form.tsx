@@ -1,5 +1,5 @@
 "use client";
-import data from "@texts/main/index.json";
+import data from "@texts/main/index";
 import s from "./contacts-form.module.scss";
 import { Input } from "@shared/ui/input/input";
 import { Clip } from "@shared/assets/icons/clip";

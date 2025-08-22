@@ -1,4 +1,4 @@
-import data from "@texts/main/index.json";
+import data from "@texts/main/index";
 import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";

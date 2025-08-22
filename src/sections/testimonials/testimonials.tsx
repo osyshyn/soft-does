@@ -1,6 +1,6 @@
 "use client";
 
-import data from "@texts/main/index.json";
+import data from "@texts/main/index";
 import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -43,13 +43,27 @@ export const Testimonials = () => (
                   height={Upwork.height}
                 />
               </div>
-              <p className={s.reviewText}>{item.review}</p>
+              <div className={s.reviewText}>{item.review.map((review) => <p key={review}>{review}</p>)}</div>
               <Tip className={s.arrowDown} />
             </div>
 
             <div className={s.bottomContentWrapper}>
-              <div className={s.avatar}>
-                <Image aria-hidden alt="" src={Upwork} />
+              <div
+                className={s.avatar}
+                style={{
+                  backgroundColor: item.style?.backgroundColor,
+                }}
+              >
+                <Image
+                  aria-hidden
+                  alt=""
+                  src={item.logo ? item.logo : Upwork}
+                  style={{
+                    width: item.style?.width,
+                    height: item.style?.height,
+                  }}
+                  sizes="70px"
+                />
               </div>
               <div className={s.bottomContentTitleAndDateWrapper}>
                 <h3 className={s.reviewTitle}>{item.name}</h3>
