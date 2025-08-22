@@ -23,6 +23,18 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: `https://softdoes.com${ROUTES.cloudServices.managedCloud}`,
     },
+    openGraph: {
+      title: seo.cloudServices.managedCloud.openGraph.title,
+      description: seo.cloudServices.managedCloud.openGraph.description,
+      url: seo.cloudServices.managedCloud.openGraph.url,
+      images: seo.cloudServices.managedCloud.openGraph.images,
+      type: seo.cloudServices.managedCloud.openGraph.type as "website",
+    },
+    twitter: {
+      title: seo.cloudServices.managedCloud.twitter.title,
+      description: seo.cloudServices.managedCloud.twitter.description,
+      images: seo.cloudServices.managedCloud.twitter.images,
+    },
   };
 }
 

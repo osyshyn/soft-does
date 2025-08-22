@@ -27,6 +27,18 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: `https://softdoes.com${ROUTES.uiUxDesign.root}`,
     },
+    openGraph: {
+      title: seo.uiUxDesign.openGraph.title,
+      description: seo.uiUxDesign.openGraph.description,
+      url: seo.uiUxDesign.openGraph.url,
+      images: seo.uiUxDesign.openGraph.images,
+      type: seo.uiUxDesign.openGraph.type as "website",
+    },
+    twitter: {
+      title: seo.uiUxDesign.twitter.title,
+      description: seo.uiUxDesign.twitter.description,
+      images: seo.uiUxDesign.twitter.images,
+    },
   };
 }
 

@@ -23,6 +23,18 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: `https://softdoes.com${ROUTES.architectureConsulting.databaseDesign}`,
     },
+    openGraph: {
+      title: seo.architectureConsulting.databaseDesign.openGraph.title,
+      description: seo.architectureConsulting.databaseDesign.openGraph.description,
+      url: seo.architectureConsulting.databaseDesign.openGraph.url,
+      images: seo.architectureConsulting.databaseDesign.openGraph.images,
+      type: seo.architectureConsulting.databaseDesign.openGraph.type as "website",
+    },
+    twitter: {
+      title: seo.architectureConsulting.databaseDesign.twitter.title,
+      description: seo.architectureConsulting.databaseDesign.twitter.description,
+      images: seo.architectureConsulting.databaseDesign.twitter.images,
+    },
   };
 }
 

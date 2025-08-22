@@ -23,6 +23,18 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: `https://softdoes.com${ROUTES.aiAndMl.caiSolutions}`,
     },
+    openGraph: {
+      title: seo.aiAndMl.caiSolutions.openGraph.title,
+      description: seo.aiAndMl.caiSolutions.openGraph.description,
+      url: seo.aiAndMl.caiSolutions.openGraph.url,
+      images: seo.aiAndMl.caiSolutions.openGraph.images,
+      type: seo.aiAndMl.caiSolutions.openGraph.type as "website",
+    },
+    twitter: {
+      title: seo.aiAndMl.caiSolutions.twitter.title,
+      description: seo.aiAndMl.caiSolutions.twitter.description,
+      images: seo.aiAndMl.caiSolutions.twitter.images,
+    },
   };
 }
 

@@ -18,6 +18,18 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: `https://softdoes.com${ROUTES.uiUxDesign.userED}`,
     },
+    openGraph: {
+      title: seo.uiUxDesign.userED.openGraph.title,
+      description: seo.uiUxDesign.userED.openGraph.description,
+      url: seo.uiUxDesign.userED.openGraph.url,
+      images: seo.uiUxDesign.userED.openGraph.images,
+      type: seo.uiUxDesign.userED.openGraph.type as "website",
+    },
+    twitter: {
+      title: seo.uiUxDesign.userED.twitter.title,
+      description: seo.uiUxDesign.userED.twitter.description,
+      images: seo.uiUxDesign.userED.twitter.images,
+    },
   };
 }
 

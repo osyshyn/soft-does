@@ -39,33 +39,16 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: `https://softdoes.com${ROUTES.root}`,
     },
     openGraph: {
-      title: "Custom Software & Digital Transformation | SoftDoes",
-      description: "SoftDoes delivers best software development services—from digital transformation to custom enterprise solutions—with dedicated development teams and consulting",
-      url: "https://softdoes.com/",
-      siteName: "SoftDoes",
-      images: [
-        {
-          url: "https://softdoes.com/images/logo.png",
-        },
-        {
-          url: "https://softdoes.com/images/logo.png",
-          width: 180,
-          height: 110,
-        },
-        {
-          url: "https://softdoes.com/images/logo.png",
-          width: 600,
-          height: 315,
-        },
-      ],
+      title: seo.home.openGraph.title,
+      description: seo.home.openGraph.description,
+      url: seo.home.openGraph.url,
+      images: seo.home.openGraph.images,
+      type: seo.home.openGraph.type as "website",
     },
     twitter: {
-      card: "summary_large_image",
-      site: "@softdoes",
-      creator: "@softdoes",
-      title: "Custom Software & Digital Transformation | SoftDoes",
-      description: "SoftDoes delivers best software development services—from digital transformation to custom enterprise solutions—with dedicated development teams and consulting",
-      images: ["https://softdoes.com/images/logo.png"],
+      title: seo.home.twitter.title,
+      description: seo.home.twitter.description,
+      images: seo.home.twitter.images,
     },
   };
 }

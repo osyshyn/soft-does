@@ -21,6 +21,18 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: `https://softdoes.com${ROUTES.softwareDev.mvpDev}`,
     },
+    openGraph: {
+      title: seo.softwareDev.mvpDev.openGraph.title,
+      description: seo.softwareDev.mvpDev.openGraph.description,
+      url: seo.softwareDev.mvpDev.openGraph.url,
+      images: seo.softwareDev.mvpDev.openGraph.images,
+      type: seo.softwareDev.mvpDev.openGraph.type as "website",
+    },
+    twitter: {
+      title: seo.softwareDev.mvpDev.twitter.title,
+      description: seo.softwareDev.mvpDev.twitter.description,
+      images: seo.softwareDev.mvpDev.twitter.images,
+    },
   };
 }
 
