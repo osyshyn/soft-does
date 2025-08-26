@@ -25,14 +25,17 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       title: seo.architectureConsulting.digitalTransformation.openGraph.title,
-      description: seo.architectureConsulting.digitalTransformation.openGraph.description,
+      description:
+        seo.architectureConsulting.digitalTransformation.openGraph.description,
       url: seo.architectureConsulting.digitalTransformation.openGraph.url,
       images: seo.architectureConsulting.digitalTransformation.openGraph.images,
-      type: seo.architectureConsulting.digitalTransformation.openGraph.type as "website",
+      type: seo.architectureConsulting.digitalTransformation.openGraph
+        .type as "website",
     },
     twitter: {
       title: seo.architectureConsulting.digitalTransformation.twitter.title,
-      description: seo.architectureConsulting.digitalTransformation.twitter.description,
+      description:
+        seo.architectureConsulting.digitalTransformation.twitter.description,
       images: seo.architectureConsulting.digitalTransformation.twitter.images,
     },
   };
@@ -41,68 +44,236 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function DigitalTransformation() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: "Digital Transformation Consulting",
-    provider: {
-      "@type": "Organization",
-      name: "SoftDoes",
-      url: "https://softdoes.com/architecture-consulting/digital-transformation",
-      logo: "https://softdoes.com/logo.png",
-      sameAs: "https://www.linkedin.com/company/softdoes",
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+1-913-787-7997",
-        contactType: "Customer Service",
-        availableLanguage: "English",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://softdoes.com/#organization",
+        name: "SoftDoes",
+        url: "https://softdoes.com/",
+        logo: "https://softdoes.com/images/logo.png",
+        areaServed: ["US"],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          telephone: "+12134019311",
+          email: "hello@softdoes.com",
+          availableLanguage: ["English"],
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Services",
+          itemListElement: [
+            {
+              "@type": "OfferCatalog",
+              name: "Software Development",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/web-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Web App Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mvp-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "MVP & Product Prototype Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/custom-software-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom Software & App Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/product-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Development & Engineering Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mobile-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Mobile App Development Services & Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/api-integration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Systems Integration & API Solutions Services | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "AI & ML",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "AI Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-operationalization",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Operationalizing Machine Learning for Business | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ml-model-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "ML Model Development & Predictive Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-driven-process-automation",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Intelligent Process Automation Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/custom-ai-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom AI Solutions for Business Innovation | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "Cloud Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/managed-cloud-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Managed Cloud Services & Infrastructure Support | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/devops-and-cloud-infrastructure",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "DevOps & Cloud Infrastructure as Code Setup | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-migration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Cloud Migration Services & Data Specialists | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-computing-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Enterprise Cloud Computing & Secure Solutions | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "UI/UX Design",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-interface-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User Interface Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-experience-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User & Customer Experience Design Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/product-design-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+              ],
+            },
+          ],
+        },
       },
-    },
-    description:
-      "Comprehensive digital transformation consulting services to help organizations modernize their IT infrastructure, integrate advanced technologies, and optimize business processes for enhanced efficiency and competitiveness.",
-    offers: {
-      "@type": "Offer",
-      url: "https://softdoes.com/architecture-consulting/digital-transformation",
-      priceCurrency: "USD",
-      price: "Pricing based on project scope",
-      eligibleRegion: {
-        "@type": "Place",
-        name: "Worldwide",
+      {
+        "@type": "WebSite",
+        "@id": "https://softdoes.com/#website",
+        url: "https://softdoes.com/",
+        name: "SoftDoes",
+        publisher: { "@id": "https://softdoes.com/#organization" },
       },
-    },
-    audience: {
-      "@type": "Audience",
-      audienceType:
-        "Organizations seeking to modernize their IT infrastructure and business processes",
-    },
-    areaServed: {
-      "@type": "Place",
-      name: "Worldwide",
-    },
-    additionalType: "https://schema.org/ProfessionalService",
-    mainEntityOfPage:
-      "https://softdoes.com/architecture-consulting/digital-transformation",
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://softdoes.com",
+      {
+        "@type": "WebPage",
+        url: "https://softdoes.com/architecture-consulting/digital-transformation",
+        name: "Digital Transformation Services | SoftDoes",
+        description:
+          "Custom digital transformation services including intelligent automation, intelligent chatbots, and intelligent workflows. SoftDoes delivers cutting-edge digital transformation services.",
+        isPartOf: { "@id": "https://softdoes.com/#website" },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://softdoes.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Architecture Consulting",
+              item: "https://softdoes.com/architecture-consulting/",
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: "Digital Transformation",
+              item: "https://softdoes.com/architecture-consulting/digital-transformation/",
+            },
+          ],
         },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Architecture & Consulting Services",
-          item: "https://softdoes.com/architecture-consulting",
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Digital Transformation",
-          item: "https://softdoes.com/architecture-consulting/digital-transformation",
-        },
-      ],
-    },
+        areaServed: ["US"],
+      },
+    ],
   };
 
   return (

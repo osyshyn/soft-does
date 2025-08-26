@@ -25,14 +25,17 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       title: seo.architectureConsulting.databaseDesign.openGraph.title,
-      description: seo.architectureConsulting.databaseDesign.openGraph.description,
+      description:
+        seo.architectureConsulting.databaseDesign.openGraph.description,
       url: seo.architectureConsulting.databaseDesign.openGraph.url,
       images: seo.architectureConsulting.databaseDesign.openGraph.images,
-      type: seo.architectureConsulting.databaseDesign.openGraph.type as "website",
+      type: seo.architectureConsulting.databaseDesign.openGraph
+        .type as "website",
     },
     twitter: {
       title: seo.architectureConsulting.databaseDesign.twitter.title,
-      description: seo.architectureConsulting.databaseDesign.twitter.description,
+      description:
+        seo.architectureConsulting.databaseDesign.twitter.description,
       images: seo.architectureConsulting.databaseDesign.twitter.images,
     },
   };
@@ -41,59 +44,238 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function DatabaseDesignAndDevelopment() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: "Database Design & Development",
-    provider: {
-      "@type": "Organization",
-      name: "SoftDoes",
-      url: "https://softdoes.com/architecture-consulting/database-design-and-development",
-      logo: "https://softdoes.com/images/logo.png",
-      sameAs: [
-        "https://twitter.com/softdoes",
-        "https://www.linkedin.com/company/softdoes",
-      ],
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "1234 Main St",
-        addressLocality: "Kansas City",
-        addressRegion: "KS",
-        postalCode: "66101",
-        addressCountry: "US",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://softdoes.com/#organization",
+        name: "SoftDoes",
+        url: "https://softdoes.com/",
+        logo: "https://softdoes.com/images/logo.png",
+        areaServed: ["US"],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          telephone: "+12134019311",
+          email: "hello@softdoes.com",
+          availableLanguage: ["English"],
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Services",
+          itemListElement: [
+            {
+              "@type": "OfferCatalog",
+              name: "Software Development",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/web-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Web App Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mvp-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "MVP & Product Prototype Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/custom-software-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom Software & App Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/product-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Development & Engineering Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mobile-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Mobile App Development Services & Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/api-integration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Systems Integration & API Solutions Services | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "AI & ML",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "AI Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-operationalization",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Operationalizing Machine Learning for Business | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ml-model-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "ML Model Development & Predictive Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-driven-process-automation",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Intelligent Process Automation Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/custom-ai-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom AI Solutions for Business Innovation | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "Cloud Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/managed-cloud-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Managed Cloud Services & Infrastructure Support | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/devops-and-cloud-infrastructure",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "DevOps & Cloud Infrastructure as Code Setup | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-migration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Cloud Migration Services & Data Specialists | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-computing-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Enterprise Cloud Computing & Secure Solutions | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "UI/UX Design",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-interface-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User Interface Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-experience-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User & Customer Experience Design Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/product-design-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+              ],
+            },
+          ],
+        },
       },
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+1-913-787-7997",
-        contactType: "Customer Service",
-        areaServed: "US",
-        availableLanguage: "English",
+      {
+        "@type": "WebSite",
+        "@id": "https://softdoes.com/#website",
+        url: "https://softdoes.com/",
+        name: "SoftDoes",
+        publisher: { "@id": "https://softdoes.com/#organization" },
       },
-    },
-    description:
-      "SoftDoes offers expert database design and development services, specializing in scalable, secure, and high-performance database architectures tailored to your business needs.",
-    offers: {
-      "@type": "Offer",
-      url: "https://softdoes.com/architecture-consulting/database-design-and-development",
-      priceCurrency: "USD",
-      eligibleRegion: "US",
-      price: "Contact for pricing",
-      priceValidUntil: "2025-12-31",
-    },
-    areaServed: "US",
-    audience: {
-      "@type": "Audience",
-      audienceType: "Businesses seeking scalable and secure database solutions",
-    },
-    keywords: [
-      "Database Design",
-      "Database Development",
-      "Scalable Databases",
-      "Secure Databases",
-      "High-Performance Databases",
-      "Database Architecture",
+      {
+        "@type": "WebPage",
+        url: "https://softdoes.com/architecture-consulting/database-design-and-development",
+        name: "Database Design & Development Services | SoftDoes",
+        description:
+          "Custom database design and development services including intelligent automation, intelligent chatbots, and intelligent workflows. SoftDoes delivers cutting-edge database design and development services.",
+        isPartOf: { "@id": "https://softdoes.com/#website" },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://softdoes.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Architecture Consulting",
+              item: "https://softdoes.com/architecture-consulting/",
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: "Database Design And Development",
+              item: "https://softdoes.com/architecture-consulting/database-design-and-development/",
+            },
+          ],
+        },
+        areaServed: ["US"],
+      },
     ],
-    mainEntityOfPage:
-      "https://softdoes.com/architecture-consulting/database-design-and-development",
   };
+
   return (
     <Layout>
       <script

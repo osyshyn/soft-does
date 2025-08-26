@@ -33,56 +33,230 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Insights() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Insights",
-    url: "https://softdoes.com/insights",
-    description:
-      "Technical insights and software development articles from SoftDoes that help businesses stay at the forefront of technology.",
-    publisher: {
-      "@type": "Organization",
-      name: "SoftDoes",
-      url: "https://softdoes.com",
-      logo: "https://softdoes.com/logo.png",
-      sameAs: "https://www.linkedin.com/company/softdoes",
-    },
-    mainEntityOfPage: "https://softdoes.com/insights",
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://softdoes.com",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Insights",
-          item: "https://softdoes.com/insights",
-        },
-      ],
-    },
-    article: {
-      "@type": "Blog",
-      headline: "Tech Insights & Software Development Articles",
-      description:
-        "Latest articles and analysis from SoftDoes on software development, technology trends, and innovations.",
-      datePublished: "2024-01-01",
-      dateModified: "2024-01-01",
-      author: {
-        "@type": "Person",
-        name: "SoftDoes Team",
-        url: "https://softdoes.com/about",
-      },
-      publisher: {
+    "@graph": [
+      {
         "@type": "Organization",
+        "@id": "https://softdoes.com/#organization",
         name: "SoftDoes",
-        url: "https://softdoes.com",
-        logo: "https://softdoes.com/logo.png",
-        sameAs: "https://www.linkedin.com/company/softdoes",
+        url: "https://softdoes.com/",
+        logo: "https://softdoes.com/images/logo.png",
+        areaServed: ["US"],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          telephone: "+12134019311",
+          email: "hello@softdoes.com",
+          availableLanguage: ["English"],
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Services",
+          itemListElement: [
+            {
+              "@type": "OfferCatalog",
+              name: "Software Development",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/web-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Web App Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mvp-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "MVP & Product Prototype Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/custom-software-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom Software & App Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/product-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Development & Engineering Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mobile-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Mobile App Development Services & Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/api-integration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Systems Integration & API Solutions Services | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "AI & ML",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "AI Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-operationalization",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Operationalizing Machine Learning for Business | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ml-model-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "ML Model Development & Predictive Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-driven-process-automation",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Intelligent Process Automation Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/custom-ai-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom AI Solutions for Business Innovation | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "Cloud Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/managed-cloud-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Managed Cloud Services & Infrastructure Support | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/devops-and-cloud-infrastructure",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "DevOps & Cloud Infrastructure as Code Setup | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-migration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Cloud Migration Services & Data Specialists | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-computing-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Enterprise Cloud Computing & Secure Solutions | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "UI/UX Design",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-interface-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User Interface Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-experience-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User & Customer Experience Design Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/product-design-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+              ],
+            },
+          ],
+        },
       },
-    },
+      {
+        "@type": "WebSite",
+        "@id": "https://softdoes.com/#website",
+        url: "https://softdoes.com/",
+        name: "SoftDoes",
+        publisher: { "@id": "https://softdoes.com/#organization" },
+      },
+      {
+        "@type": "WebPage",
+        url: "https://softdoes.com/insights",
+        name: "Tech Insights & Software Development Articles | SoftDoes",
+        description:
+          "Explore SoftDoes’ tech thought leadership, software development articles, and data science insights to stay updated on the latest trends and best practices",
+        isPartOf: { "@id": "https://softdoes.com/#website" },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://softdoes.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Insights",
+              item: "https://softdoes.com/insights/",
+            },
+          ],
+        },
+        areaServed: ["US"],
+      },
+    ],
   };
 
   return (

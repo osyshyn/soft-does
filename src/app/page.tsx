@@ -59,79 +59,225 @@ export default function Home() {
     "@graph": [
       {
         "@type": "Organization",
+        "@id": "https://softdoes.com/#organization",
         name: "SoftDoes",
-        legalName: "SoftDoes LLC",
         url: "https://softdoes.com/",
-        logo: "https://softdoes.com/logo.png",
-        description:
-          "SoftDoes is a trusted software development and tech consulting firm offering custom software, AI, cloud, data engineering and DevOps services.",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Kansas City",
-          addressRegion: "MO",
-          addressCountry: "US",
-        },
+        logo: "https://softdoes.com/images/logo.png",
+        areaServed: ["US"],
         contactPoint: {
           "@type": "ContactPoint",
-          contactType: "customer service",
-          email: "info@softdoes.com",
-          telephone: "+1-000-000-0000",
+          contactType: "sales",
+          telephone: "+12134019311",
+          email: "hello@softdoes.com",
           availableLanguage: ["English"],
         },
-        sameAs: [
-          "https://www.linkedin.com/company/softdoes/",
-          "https://twitter.com/softdoes",
-          "https://www.facebook.com/softdoes",
-        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Services",
+          itemListElement: [
+            {
+              "@type": "OfferCatalog",
+              name: "Software Development",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/web-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Web App Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mvp-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "MVP & Product Prototype Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/custom-software-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom Software & App Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/product-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Development & Engineering Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mobile-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Mobile App Development Services & Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/api-integration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Systems Integration & API Solutions Services | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "AI & ML",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "AI Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-operationalization",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Operationalizing Machine Learning for Business | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ml-model-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "ML Model Development & Predictive Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-driven-process-automation",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Intelligent Process Automation Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/custom-ai-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom AI Solutions for Business Innovation | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "Cloud Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/managed-cloud-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Managed Cloud Services & Infrastructure Support | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/devops-and-cloud-infrastructure",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "DevOps & Cloud Infrastructure as Code Setup | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-migration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Cloud Migration Services & Data Specialists | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-computing-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Enterprise Cloud Computing & Secure Solutions | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "UI/UX Design",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-interface-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User Interface Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-experience-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User & Customer Experience Design Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/product-design-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+              ],
+            },
+          ],
+        },
       },
       {
         "@type": "WebSite",
+        "@id": "https://softdoes.com/#website",
         url: "https://softdoes.com/",
-        name: "SoftDoes – Software Development Services",
+        name: "SoftDoes",
+        publisher: { "@id": "https://softdoes.com/#organization" },
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://softdoes.com/search/?q={search_term_string}",
+          target:
+            "https://www.google.com/search?q=site:softdoes.com+{search_term_string}",
           "query-input": "required name=search_term_string",
         },
       },
       {
         "@type": "WebPage",
         url: "https://softdoes.com/",
-        name: "SoftDoes – Custom Software & Consulting",
-        isPartOf: {
-          "@id": "https://softdoes.com/#website",
+        name: "Custom Software & Digital Transformation | SoftDoes",
+        description:
+          "SoftDoes delivers best software development services—from digital transformation to custom enterprise solutions—with dedicated development teams and consulting",
+        isPartOf: { "@id": "https://softdoes.com/#website" },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://softdoes.com/",
+            },
+          ],
         },
-        mainEntity: {
-          "@id": "https://softdoes.com/#organization",
-        },
-      },
-      {
-        "@type": "Service",
-        serviceType: "Custom Software Development",
-        description:
-          "Full-cycle web, mobile and enterprise custom software development tailored to unique business needs.",
-        provider: { "@id": "https://softdoes.com/#organization" },
-      },
-      {
-        "@type": "Service",
-        serviceType: "AI & Machine Learning Solutions",
-        description:
-          "AI, machine learning and automation solutions for predictive insights and intelligent workflows.",
-        provider: { "@id": "https://softdoes.com/#organization" },
-      },
-      {
-        "@type": "Service",
-        serviceType: "Cloud Infrastructure & DevOps",
-        description:
-          "Cloud migration, infrastructure automation, CI/CD pipelines and managed cloud services.",
-        provider: { "@id": "https://softdoes.com/#organization" },
-      },
-      {
-        "@type": "Service",
-        serviceType: "Data Engineering & Analytics",
-        description:
-          "Data pipeline design, data warehouses, analytics dashboards, real-time and predictive analytics solutions.",
-        provider: { "@id": "https://softdoes.com/#organization" },
+        areaServed: ["US"],
       },
     ],
   };

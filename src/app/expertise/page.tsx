@@ -39,63 +39,230 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function ExpertisePage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: "MVP Development",
-    provider: {
-      "@type": "Organization",
-      name: "SoftDoes",
-      url: "https://softdoes.com",
-      logo: "https://softdoes.com/logo.png",
-      sameAs: [
-        "https://www.linkedin.com/company/softdoes",
-        "https://twitter.com/softdoes",
-      ],
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+1-913-787-7997",
-        contactType: "Customer Service",
-        areaServed: "US",
-        availableLanguage: "English",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://softdoes.com/#organization",
+        name: "SoftDoes",
+        url: "https://softdoes.com/",
+        logo: "https://softdoes.com/images/logo.png",
+        areaServed: ["US"],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          telephone: "+12134019311",
+          email: "hello@softdoes.com",
+          availableLanguage: ["English"],
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Services",
+          itemListElement: [
+            {
+              "@type": "OfferCatalog",
+              name: "Software Development",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/web-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Web App Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mvp-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "MVP & Product Prototype Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/custom-software-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom Software & App Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/product-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Development & Engineering Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mobile-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Mobile App Development Services & Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/api-integration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Systems Integration & API Solutions Services | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "AI & ML",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "AI Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-operationalization",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Operationalizing Machine Learning for Business | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ml-model-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "ML Model Development & Predictive Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-driven-process-automation",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Intelligent Process Automation Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/custom-ai-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom AI Solutions for Business Innovation | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "Cloud Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/managed-cloud-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Managed Cloud Services & Infrastructure Support | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/devops-and-cloud-infrastructure",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "DevOps & Cloud Infrastructure as Code Setup | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-migration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Cloud Migration Services & Data Specialists | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-computing-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Enterprise Cloud Computing & Secure Solutions | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "UI/UX Design",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-interface-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User Interface Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-experience-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User & Customer Experience Design Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/product-design-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+              ],
+            },
+          ],
+        },
       },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "123 Main St",
-        addressLocality: "Kansas City",
-        addressRegion: "KS",
-        postalCode: "66101",
-        addressCountry: "US",
+      {
+        "@type": "WebSite",
+        "@id": "https://softdoes.com/#website",
+        url: "https://softdoes.com/",
+        name: "SoftDoes",
+        publisher: { "@id": "https://softdoes.com/#organization" },
       },
-    },
-    description:
-      "SoftDoes offers expert MVP development services, transforming market insights into globally beloved apps that power your business. With over 350 completed projects and a team of 40+ software engineers, we specialize in creating scalable, reliable software solutions tailored to your needs.",
-    areaServed: "US",
-    industry: "Software Development",
-    offers: {
-      "@type": "Offer",
-      url: "https://softdoes.com/software-development/mvp-development",
-      priceCurrency: "USD",
-      eligibleRegion: "US",
-      price: "Contact for pricing",
-      priceValidUntil: "2025-12-31",
-      serviceOutput: {
-        "@type": "CreativeWork",
-        name: "MVP Development",
+      {
+        "@type": "WebPage",
+        url: "https://softdoes.com/expertise",
+        name: "Expert Software Solutions & Expertise Areas | SoftDoes",
         description:
-          "Development of Minimum Viable Products to test and validate business ideas with real users.",
+          "Explore SoftDoes’ areas of expertise, delivering expert software solutions across AI, cloud, data engineering, DevOps, and full-cycle application development",
+        isPartOf: { "@id": "https://softdoes.com/#website" },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://softdoes.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Expertise",
+              item: "https://softdoes.com/expertise/",
+            },
+          ],
+        },
+        areaServed: ["US"],
       },
-    },
-    additionalType: "https://schema.org/SoftwareApplication",
-    softwareRequirements: "Java, React, Node.js, PostgreSQL, AWS",
-    applicationCategory: "BusinessApplication",
-    audience: {
-      "@type": "Audience",
-      audienceType: "Startups, Entrepreneurs, Product Managers",
-    },
-    providerMobility: "https://softdoes.com/expertise",
-    serviceAudience: {
-      "@type": "Audience",
-      audienceType: "Businesses seeking to launch MVPs",
-    },
+    ],
   };
 
   return (

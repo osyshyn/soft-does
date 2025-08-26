@@ -43,31 +43,208 @@ export default function UserID() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@id": "https://softdoes.com/#organization",
         "@type": "Organization",
+        "@id": "https://softdoes.com/#organization",
         name: "SoftDoes",
         url: "https://softdoes.com/",
-        logo: "https://softdoes.com/logo.png",
-        description:
-          "SoftDoes is a trusted software development and tech consulting firm offering custom software, AI, cloud, data engineering and DevOps services.",
+        logo: "https://softdoes.com/images/logo.png",
+        areaServed: ["US"],
         contactPoint: {
           "@type": "ContactPoint",
-          contactType: "customer service",
-          email: "info@softdoes.com",
-          telephone: "+1-000-000-0000",
+          contactType: "sales",
+          telephone: "+12134019311",
+          email: "hello@softdoes.com",
           availableLanguage: ["English"],
         },
-        sameAs: [
-          "https://www.linkedin.com/company/softdoes/",
-          "https://twitter.com/softdoes",
-          "https://www.facebook.com/softdoes",
-        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Services",
+          itemListElement: [
+            {
+              "@type": "OfferCatalog",
+              name: "Software Development",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/web-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Web App Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mvp-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "MVP & Product Prototype Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/custom-software-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom Software & App Development Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/product-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Development & Engineering Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/mobile-app-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Mobile App Development Services & Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/software-development/api-integration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Systems Integration & API Solutions Services | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "AI & ML",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "AI Development & Custom Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-operationalization",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Operationalizing Machine Learning for Business | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ml-model-development",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "ML Model Development & Predictive Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/ai-driven-process-automation",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Intelligent Process Automation Solutions | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ai-and-ml/custom-ai-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom AI Solutions for Business Innovation | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "Cloud Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/managed-cloud-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Managed Cloud Services & Infrastructure Support | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/devops-and-cloud-infrastructure",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "DevOps & Cloud Infrastructure as Code Setup | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-migration-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Cloud Migration Services & Data Specialists | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/cloud-services/cloud-computing-solutions",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Enterprise Cloud Computing & Secure Solutions | SoftDoes",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "OfferCatalog",
+              name: "UI/UX Design",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-interface-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User Interface Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/user-experience-design",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "User & Customer Experience Design Services | SoftDoes",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  url: "https://softdoes.com/ui-ux-design/product-design-services",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Product Design Services for Web & Mobile | SoftDoes",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://softdoes.com/#website",
+        url: "https://softdoes.com/",
+        name: "SoftDoes",
+        publisher: { "@id": "https://softdoes.com/#organization" },
       },
       {
         "@type": "WebPage",
         url: "https://softdoes.com/ui-ux-design/user-interface-design",
-        name: "User Interface Design Services | SoftDoes",
-        isPartOf: { "@id": "https://softdoes.com/#organization" },
+        name: "User Interface Design Services for Web & Mobile | SoftDoes",
+        description:
+          "SoftDoes provides user interface design services, crafting intuitive, visually appealing interfaces for web and mobile applications that enhance usability",
+        isPartOf: { "@id": "https://softdoes.com/#website" },
         breadcrumb: {
           "@type": "BreadcrumbList",
           itemListElement: [
@@ -80,35 +257,29 @@ export default function UserID() {
             {
               "@type": "ListItem",
               position: 2,
-              name: "UI/UX Design",
-              item: "https://softdoes.com/ui-ux-design",
+              name: "UI UX Design",
+              item: "https://softdoes.com/ui-ux-design/",
             },
             {
               "@type": "ListItem",
               position: 3,
               name: "User Interface Design",
-              item: "https://softdoes.com/ui-ux-design/user-interface-design",
+              item: "https://softdoes.com/ui-ux-design/user-interface-design/",
             },
           ],
         },
+        areaServed: ["US"],
         mainEntity: {
           "@type": "Service",
           "@id":
             "https://softdoes.com/ui-ux-design/user-interface-design#service",
-          serviceType: "User Interface Design Services",
+          name: "User Interface Design",
+          serviceType: "User Interface Design",
           provider: { "@id": "https://softdoes.com/#organization" },
-          description:
-            "SoftDoes provides user interface design services, crafting intuitive, visually appealing interfaces for web and mobile applications.",
-          audience: {
-            "@type": "BusinessAudience",
-            industry: ["SaaS", "Retail", "Healthcare", "Finance"],
-          },
+          areaServed: ["US"],
           offers: {
             "@type": "Offer",
             url: "https://softdoes.com/ui-ux-design/user-interface-design",
-            price: "On request",
-            priceCurrency: "USD",
-            availability: "https://schema.org/InStock",
           },
         },
       },
