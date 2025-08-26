@@ -25,9 +25,8 @@ const Industries = dynamic(
 const CaseStudies = dynamic(
   () => import("@sections/case-studies/case-studies")
 );
-const Certificates = dynamic(
-  () => import("@sections/home/certificates/certificates")
-);
+
+import Certificates from "@sections/home/certificates/certificates";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await import("@shared/texts/seo/index.json");
