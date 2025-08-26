@@ -51,7 +51,7 @@ const CERTS: Triple[] = [
 
 const SIZE = 111;
 
-export default function Certificates() {
+export const Certificates = () => {
   return (
     <section className={s.root}>
       <Swiper
@@ -91,4 +91,6 @@ export default function Certificates() {
       </Swiper>
     </section>
   );
-}
+};
+
+export default Certificates;
