@@ -98,7 +98,7 @@ export const ServicesModal = ({ isOpen, onClose }: ServicesModalProps) => {
 
   return (
     <div className={s.block} onClick={handleOverlayClick}>
-      <div id="modal" className={s.block__content}>
+      <div id="lenis-modal" className={s.block__content}>
         <button
           aria-label="close services modal"
           className={s.block__close}

@@ -14,9 +14,7 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
     const initLenis = async () => {
       try {
         const instance = new Lenis({
-          // autoRaf: true,
-          // lerp: 0.1,
-          // prevent: (node) => node.id === "modal",
+          prevent: (node) => node.id === "lenis-modal",
           duration: 1.2,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           orientation: "vertical",

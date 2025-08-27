@@ -31,8 +31,8 @@ const ServicesModalMobile = ({ isOpen, onClose }: ServicesModalMobileProps) => {
     <div className={s.mobileModal} onClick={handleOverlayClick}>
       <div className={s.mobileModal__content}>
         <ReactRemoveScroll enabled={isOpen}>
-          {/* id="modal" need to be here to prevent Lenis scroll from being locked */}
-          <div id="modal" className={s.mobileModal__scroll}>
+          {/* id="lenis-modal" need to be here to prevent Lenis scroll from being locked */}
+          <div id="lenis-modal" className={s.mobileModal__scroll}>
             <ServiceItem service={SoftwareDevelopment} />
             <ServiceItem service={ArchitectureAndConsultingServices} />
             <ServiceItem service={AIAndMachineLearning} />
