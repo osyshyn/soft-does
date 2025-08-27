@@ -6,27 +6,35 @@
 
   display: flex;
   flex-direction: column;
-  gap: 160px;
+  gap: 90px;
 
   button {
     cursor: pointer;
   }
+
+  @include media("laptop") {
+    gap: 160px;
+  }
 }
 
-.captionContainer {
+.category {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 56px;
+  margin-bottom: 20px;
 
-  h2 {
+  @include media("laptop") {
+    margin-bottom: 40px;
+  }
+
+  &__title {
     font-weight: 300;
-    font-size: 54px;
+    font-size: $FontSize-h2;
     line-height: 120%;
     letter-spacing: -0.08em;
     text-transform: uppercase;
   }
 
-  .moreBtn {
+  &__moreBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,7 +59,7 @@
     color: #ffffff;
     text-decoration: none;
 
-    .arrow {
+    &__arrow {
       margin-left: 16px;
     }
   }
@@ -62,6 +70,17 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   gap: 30px;
+
+  li {
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.3);
+    }
+  }
 
   @include media("laptop") {
     grid-template-columns: 1fr 1fr;

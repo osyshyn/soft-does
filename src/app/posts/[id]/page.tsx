@@ -10,7 +10,6 @@ import { useParams } from "next/navigation";
 import { Hero } from "@sections/postPage/hero/hero";
 import { Simplify } from "@sections/postPage/simplify/simplify";
 import Layout from "@shared/components/layout/layout";
-import { SEO } from "@shared/ui/seo";
 
 import { Facebook } from "@shared/assets/icons/blog/facebook";
 import { Plus } from "@shared/assets/icons/blog/plus";
@@ -222,7 +221,6 @@ export default function PostPage() {
 
   return (
     <>
-      <SEO title="" description="" pathname={`/posts/${id}`} />
       <Layout posts={true}>
         <Hero
           title={heroTitle}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/router";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import s from "../../../insights/releases/releases.module.scss";
 
@@ -27,8 +27,7 @@ type Post = {
 };
 
 export const CategoryPosts = () => {
-  const router = useRouter();
-  const { category } = router.query;
+  const { category } = useParams();
   const [posts, setPosts] = useState<Post[]>([]);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);

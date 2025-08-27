@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useParams } from "next/navigation";
 import s from "./hero.module.scss";
 import { fetchCategoryById } from "../../../../app/api/contentful/api";
 
 export const CategoryHero = () => {
-  const router = useRouter();
-  const { category } = router.query;
+  const { category } = useParams();
   const [categoryName, setCategoryName] = useState<string | null>(null);
 
   useEffect(() => {

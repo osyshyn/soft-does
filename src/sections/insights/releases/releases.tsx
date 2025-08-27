@@ -46,7 +46,7 @@ export const Releases = () => {
     <section className={"wrapper"}>
       <div className={clsx(s.root, "container")}>
         {featuredPosts.length > 0 && (
-          <div className={s.article}>
+          <div>
             <div className={s.captionContainer}></div>
             <ul className={s.container}>
               {featuredPosts.slice(0, 4).map((post) => (
@@ -65,16 +65,18 @@ export const Releases = () => {
           const categoryId = posts[0]?.category?.id || "unknown";
 
           return (
-            <div key={category} className={s.article}>
-              <div className={s.captionContainer}>
-                <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
+            <div key={category}>
+              <div className={s.category}>
+                <h2 className={s.category__title}>
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </h2>
                 {hasMore && (
                   <PreservingLink
                     href={`/blog/category/${categoryId}`}
-                    className={s.moreBtn}
+                    className={s.category__moreBtn}
                   >
                     More
-                    <Arrow className={s.arrow} />
+                    <Arrow className={s.category__arrow} />
                   </PreservingLink>
                 )}
               </div>
