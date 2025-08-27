@@ -1,8 +1,8 @@
-'use client';
+"use client";
 import data from "@texts/main/index";
 import s from "./talk-to-us.module.scss";
 import { MouseEventHandler } from "react";
-import { useNoContacts } from "providers/NoContactProvider";
+import { useNoContacts } from "@shared/providers/no-contact-provider";
 
 export const TalkToUs = () => {
   const { noContacts } = useNoContacts();

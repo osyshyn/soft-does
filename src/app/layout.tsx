@@ -1,7 +1,7 @@
 import "@styles/global.scss";
 import "@styles/document.scss";
 
-import { ClientProviders } from "@shared/components/providers/client-providers";
+import { Providers } from "@shared/providers";
 import Script from "next/script";
 
 import { Abel, JetBrains_Mono, Poppins } from "next/font/google";
@@ -98,13 +98,13 @@ export default function RootLayout({
           `}
         </Script>
 
-        <ClientProviders>
+        <Providers>
           <div
             className={`${jetbrains.variable} ${poppins.variable} ${abel.variable}`}
           >
             {children}
           </div>
-        </ClientProviders>
+        </Providers>
       </body>
     </html>
   );

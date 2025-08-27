@@ -1,7 +1,7 @@
 import { ROUTES } from "@shared/constants/routes";
 
 import { Hero } from "@sections/cloud-services/hero/hero";
-import { Results } from "@sections/softwareDev/results/results";
+import { Results } from "@sections/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { ServicesList } from "@sections/services-list/services-list";
 import CaseStudies from "@sections/case-studies/case-studies";

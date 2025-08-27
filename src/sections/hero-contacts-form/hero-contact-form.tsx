@@ -3,7 +3,7 @@ import data from "@texts/main/index";
 import s from "./contacts-form.module.scss";
 import { Input } from "@shared/ui/input/input";
 import { Clip } from "@shared/assets/icons/clip";
-import { useNoContacts } from "providers/NoContactProvider";
+import { useNoContacts } from "@shared/providers/no-contact-provider";
 
 export const HeroContactForm = () => {
   const { noContacts } = useNoContacts();

@@ -6,7 +6,7 @@ import s from "./hero.module.scss";
 import { HeroContactForm } from "@sections/hero-contacts-form/hero-contact-form";
 import clsx from "clsx";
 import { Kansas } from "@shared/components/kansas/kansas";
-import { useNoContacts } from "providers/NoContactProvider";
+import { useNoContacts } from "@shared/providers/no-contact-provider";
 import { Suspense } from "react";
 import React from "react";
 
