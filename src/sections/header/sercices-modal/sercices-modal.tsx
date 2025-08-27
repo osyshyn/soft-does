@@ -1,14 +1,33 @@
 import React from "react";
 import s from "./services-modal.module.scss";
 
-import AwsCloud from "@assets/icons/certificates/aws-cloud.png";
-import CoCreator from "@assets/icons/certificates/co-creator.png";
-import DevEssentials from "@assets/icons/certificates/dev-essentials.png";
-import ProjectManagement from "@assets/icons/certificates/project-management.png";
-import WebDevelopmentWithPython from "@assets/icons/certificates/web-development-with-python.png";
-import WebDevelopment from "@assets/icons/certificates/web-development.png";
-import AiFundamentals from "@assets/icons/certificates/ai-fundamentals.png";
-import Image from "next/image";
+import Co1x from "@assets/icons/certificates/co-creator-80@1x.png";
+import Co2x from "@assets/icons/certificates/co-creator-80@2x.png";
+import Co3x from "@assets/icons/certificates/co-creator-80@3x.png";
+
+import Web1x from "@assets/icons/certificates/web-development-80@1x.png";
+import Web2x from "@assets/icons/certificates/web-development-80@2x.png";
+import Web3x from "@assets/icons/certificates/web-development-80@3x.png";
+
+import PM1x from "@assets/icons/certificates/project-management-80@1x.png";
+import PM2x from "@assets/icons/certificates/project-management-80@2x.png";
+import PM3x from "@assets/icons/certificates/project-management-80@3x.png";
+
+import Py1x from "@assets/icons/certificates/web-development-with-python-80@1x.png";
+import Py2x from "@assets/icons/certificates/web-development-with-python-80@2x.png";
+import Py3x from "@assets/icons/certificates/web-development-with-python-80@3x.png";
+
+import Ai1x from "@assets/icons/certificates/ai-fundamentals-80@1x.png";
+import Ai2x from "@assets/icons/certificates/ai-fundamentals-80@2x.png";
+import Ai3x from "@assets/icons/certificates/ai-fundamentals-80@3x.png";
+
+import Dev1x from "@assets/icons/certificates/dev-essentials-80@1x.png";
+import Dev2x from "@assets/icons/certificates/dev-essentials-80@2x.png";
+import Dev3x from "@assets/icons/certificates/dev-essentials-80@3x.png";
+
+import Aws1x from "@assets/icons/certificates/aws-cloud-80@1x.png";
+import Aws2x from "@assets/icons/certificates/aws-cloud-80@2x.png";
+import Aws3x from "@assets/icons/certificates/aws-cloud-80@3x.png";
 
 import { useLockScroll } from "@shared/components/lenis/lenis";
 import {
@@ -38,15 +57,24 @@ interface ServiceList {
   list: ServiceItem[];
 }
 
-const CERTIFICATES = [
-  CoCreator,
-  WebDevelopment,
-  ProjectManagement,
-  WebDevelopmentWithPython,
-  AiFundamentals,
-  DevEssentials,
-  AwsCloud,
+type Triple = { name: string; x1: string; x2: string; x3: string };
+
+const CERTS: Triple[] = [
+  { name: "co-creator", x1: Co1x.src, x2: Co2x.src, x3: Co3x.src },
+  { name: "web-development", x1: Web1x.src, x2: Web2x.src, x3: Web3x.src },
+  { name: "project-management", x1: PM1x.src, x2: PM2x.src, x3: PM3x.src },
+  {
+    name: "web-development-with-python",
+    x1: Py1x.src,
+    x2: Py2x.src,
+    x3: Py3x.src,
+  },
+  { name: "ai-fundamentals", x1: Ai1x.src, x2: Ai2x.src, x3: Ai3x.src },
+  { name: "dev-essentials", x1: Dev1x.src, x2: Dev2x.src, x3: Dev3x.src },
+  { name: "aws-cloud", x1: Aws1x.src, x2: Aws2x.src, x3: Aws3x.src },
 ];
+
+const SIZE = 111;
 
 export {
   AIAndMachineLearning,
@@ -130,18 +158,18 @@ const Certificates = () => {
       <p className={s.certificates__label}>Our certificates</p>
 
       <ul className={s.certificates__list}>
-        {CERTIFICATES.map((item, index) => (
+        {CERTS.map(({ name, x1, x2, x3 }, index) => (
           <li className={s.certificates__item} key={index}>
-            <Image
-              alt={`Certificate ${index + 1}`}
-              aria-hidden
-              priority
-              src={item}
+            <img
+              alt={`${name} certificate`}
+              width={SIZE}
+              height={SIZE}
+              sizes={`${SIZE}px`}
+              src={x1}
+              srcSet={`${x1} 1x, ${x2} 2x, ${x3} 3x`}
+              loading="lazy"
+              decoding="async"
               className={s.image}
-              quality={100}
-              placeholder="blur"
-              width={80}
-              height={80}
             />
           </li>
         ))}

@@ -1,6 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
 import Co1x from "@assets/icons/certificates/co-creator@1x.png";
 import Co2x from "@assets/icons/certificates/co-creator@2x.png";
@@ -57,6 +58,11 @@ export const Certificates = () => {
       <Swiper
         loop
         speed={1000}
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         spaceBetween={80}
         roundLengths
         centeredSlides={false}
