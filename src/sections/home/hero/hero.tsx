@@ -6,7 +6,12 @@ import { Kansas } from "@shared/components/kansas/kansas";
 import { HideContacts } from "@shared/providers/no-contact-provider";
 import React from "react";
 import { ScrollToContact } from "@shared/components/scroll-to-contact";
-import SplineComponent from "@shared/ui/spline";
+// import SplineComponent from "@shared/ui/spline";
+import dynamic from "next/dynamic";
+
+const SplineComponent = dynamic(() => import("@shared/ui/spline"), {
+  ssr: true,
+});
 
 export const Hero = () => {
   return (
