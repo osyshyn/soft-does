@@ -1,7 +1,7 @@
 import { ROUTES } from "@shared/constants/routes";
 
-import { Hero } from "@sections/softwareServices/webAppDev/hero/hero";
-import { Results } from "@sections/softwareDev/results/results";
+import { Hero } from "@sections/software-services/web-app-dev/hero/hero";
+import { Results } from "@sections/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { Testimonials } from "@sections/testimonials/testimonials";
 import { Engagement } from "@sections/engagement-options/engagement-options";

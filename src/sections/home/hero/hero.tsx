@@ -3,7 +3,7 @@ import data from "@texts/main/index";
 import s from "./hero.module.scss";
 import clsx from "clsx";
 import { Kansas } from "@shared/components/kansas/kansas";
-import { HideContacts } from "providers/NoContactProvider";
+import { HideContacts } from "@shared/providers/no-contact-provider";
 import React from "react";
 import { ScrollToContact } from "@shared/components/scroll-to-contact";
 import SplineComponent from "@shared/ui/spline";

@@ -2,7 +2,7 @@ import { Kansas } from "@shared/components/kansas/kansas";
 
 import s from "./hero-text.module.scss";
 import clsx from "clsx";
-import { HideContacts } from "providers/NoContactProvider";
+import { HideContacts } from "@shared/providers/no-contact-provider";
 import { ScrollToContact } from "../scroll-to-contact";
 
 const HeroText = ({

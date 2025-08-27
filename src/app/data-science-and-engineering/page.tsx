@@ -3,8 +3,7 @@ import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
 import { Hero } from "@sections/hero/hero";
-// import { Hero } from "@sections/dse/hero/hero";
-import { Results } from "@sections/softwareDev/results/results";
+import { Results } from "@sections/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { ServicesList } from "@sections/services-list/services-list";
 import CaseStudies from "@sections/case-studies/case-studies";

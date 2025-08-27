@@ -2,7 +2,7 @@ import { ROUTES } from "@shared/constants/routes";
 
 import HeroImage from "@assets/images/softwareServices/apiIntegrationServices_object.png";
 import { Hero } from "@sections/hero/hero";
-import { Results } from "@sections/softwareDev/results/results";
+import { Results } from "@sections/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { Testimonials } from "@sections/testimonials/testimonials";
 import { Engagement } from "@sections/engagement-options/engagement-options";

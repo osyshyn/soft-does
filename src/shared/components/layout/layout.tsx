@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 
-import Header from "@sections/header/header";
+import Header from "@shared/components/header/header";
 import dynamic from "next/dynamic";
 
-const ContactsForm = dynamic(
-  () => import("@sections/contacts-form/contacts-form")
+const ContactInfo = dynamic(
+  () => import("@sections/contact/contact-info/contact-info")
 );
 
-const Footer = dynamic(() => import("@sections/footer/footer"), {
+const Footer = dynamic(() => import("@shared/components/footer/footer"), {
   ssr: true,
 });
 
@@ -15,7 +15,7 @@ const FAQ = dynamic(() => import("@sections/faq/faq"), {});
 
 const TalkToUs = dynamic(() => import("@sections/talk-to-us/talk-to-us"), {});
 
-const Contacts = dynamic(() => import("@sections/contacts/contacts"), {
+const Contacts = dynamic(() => import("@sections/contact/form/form"), {
   ssr: true,
 });
 
@@ -42,8 +42,8 @@ export default function Layout({
       <main>{children}</main>
       {talkToUs && <TalkToUs />}
       {faq && <FAQ />}
-      {contacts && <Contacts />}
-      <ContactsForm />
+      {contacts && <ContactInfo />}
+      <Contacts />
       <Footer />
     </>
   );

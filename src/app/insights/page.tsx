@@ -1,10 +1,10 @@
 import { ROUTES } from "@shared/constants/routes";
 
-import { Hero } from "@sections/insights/hero/hero";
 import { Releases } from "@sections/insights/releases/releases";
 
 import Layout from "@shared/components/layout/layout";
 import { Metadata } from "next/types";
+import { Hero } from "@sections/insights/hero/hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await import("@shared/texts/seo/index.json");

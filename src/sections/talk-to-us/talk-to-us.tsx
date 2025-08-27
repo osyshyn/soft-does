@@ -2,7 +2,7 @@ import data from "@texts/main/index";
 import s from "./talk-to-us.module.scss";
 import clsx from "clsx";
 import { ScrollToContact } from "@shared/components/scroll-to-contact";
-import { HideContacts } from "providers/NoContactProvider";
+import { HideContacts } from "@shared/providers/no-contact-provider";
 
 export const TalkToUs = () => {
   return (

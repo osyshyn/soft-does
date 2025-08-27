@@ -4,12 +4,12 @@ import { ROUTES } from "@shared/constants/routes";
 import Layout from "@shared/components/layout/layout";
 
 import { Hero } from "@sections/hero/hero";
-import { Contacts } from "@sections/contactPage/contacts";
 
 import HeroImg from "@assets/images/contact/hero.png";
 import s from "./contact.module.scss";
-import { HideContacts } from "providers/NoContactProvider";
+import { HideContacts } from "@shared/providers/no-contact-provider";
 import { Metadata } from "next";
+import MapInfo from "@sections/contact/map-info/map-info";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await import("@shared/texts/seo/index.json");
@@ -282,7 +282,7 @@ export default function ContactPage() {
           heroImgClassName={s.heroImg}
           textContainerClassName={s.textContainer}
         />
-        <Contacts data={data.contacts} />
+        <MapInfo data={data.contacts} />
       </Layout>
     </HideContacts>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useNoContacts } from "providers/NoContactProvider";
+import { useNoContacts } from "@shared/providers/no-contact-provider";
 
 export function useRouterWithHash() {
   const router = useRouter();

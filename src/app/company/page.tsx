@@ -1,9 +1,9 @@
 import { ROUTES } from "@shared/constants/routes";
 
 import { Hero } from "@sections/hero/hero";
-import { Results } from "@sections/companyPage/results/results";
-import { Stats } from "@sections/companyPage/stats/stats";
-import { Steps } from "@sections/companyPage/steps/steps";
+import { Results } from "@sections/company/results/results";
+import { Stats } from "@sections/company/stats/stats";
+import { Steps } from "@sections/company/steps/steps";
 
 import HeroImage from "@assets/images/company/hero.png";
 import data from "@shared/texts/company/index.json";
