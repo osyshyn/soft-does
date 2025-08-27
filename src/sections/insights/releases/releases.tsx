@@ -1,14 +1,14 @@
 "use client";
 
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Arrow } from "@shared/assets/icons/short-arrow-right";
-import People from "@shared/assets/images/blog/people-work.png";
-import Image from "next/image";
 import { IBlogMain } from "../../../types/contentful/BlogPost";
-import s from "./releases.module.scss";
 import PreservingLink from "@shared/components/preserving-link/preserving-link";
 import { useState, useEffect } from "react";
 import { fetchBlog } from "app/api/contentful/api";
+import { BlogCard } from "@shared/components/cards";
+
+import s from "./releases.module.scss";
+import clsx from "clsx";
 
 function groupByCategory(posts: IBlogMain[]) {
   const map: Record<string, IBlogMain[]> = {};
@@ -43,117 +43,52 @@ export const Releases = () => {
     });
 
   return (
-    <section className={s.root}>
-      {featuredPosts.length > 0 && (
-        <article className={s.article}>
-          <div className={s.captionContainer}></div>
-          <ul className={s.container}>
-            {featuredPosts.slice(0, 4).map((post) => (
-              <li key={post.id}>
-                <Image
-                  aria-hidden
-                  alt={post.author?.authorName || "Author"}
-                  src={
-                    post.mainImage?.url
-                      ? post.mainImage.url.startsWith("//")
-                        ? `https:${post.mainImage.url}`
-                        : post.mainImage.url
-                      : People
-                  }
-                  className={s.image}
-                  width={300}
-                  height={200}
-                />
-                <div className={s.info}>
-                  <div>
-                    <p className={s.title}>
-                      {post.author?.authorName || "Unknown Author"}
-                    </p>
-                    <p className={s.subtitle}>
-                      {post.author?.authorRole || ""}
-                    </p>
-                  </div>
-                  <div className={s.description}>
-                    {post.testimonialText &&
-                      (typeof post.testimonialText === "string"
-                        ? post.testimonialText
-                        : documentToReactComponents(post.testimonialText))}
-                  </div>
-                  <PreservingLink className={s.btn} href={`/posts/${post.id}`}>
-                    Read more
-                  </PreservingLink>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </article>
-      )}
-
-      {otherCategories.map(([category, posts]) => {
-        const mainPosts = posts.slice(0, 4);
-        const hasMore = posts.length > 4;
-
-        const categoryId = posts[0]?.category?.id || "unknown";
-
-        return (
-          <article key={category} className={s.article}>
-            <div className={s.captionContainer}>
-              <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
-              {hasMore && (
-                <PreservingLink
-                  href={`/blog/category/${categoryId}`}
-                  className={s.moreBtn}
-                >
-                  More
-                  <Arrow className={s.arrow} />
-                </PreservingLink>
-              )}
-            </div>
+    <section className={"wrapper"}>
+      <div className={clsx(s.root, "container")}>
+        {featuredPosts.length > 0 && (
+          <div className={s.article}>
+            <div className={s.captionContainer}></div>
             <ul className={s.container}>
-              {mainPosts.map((post) => (
+              {featuredPosts.slice(0, 4).map((post) => (
                 <li key={post.id}>
-                  <Image
-                    aria-hidden
-                    alt={post.author?.authorName || "Author"}
-                    src={
-                      post.mainImage?.url
-                        ? post.mainImage.url.startsWith("//")
-                          ? `https:${post.mainImage.url}`
-                          : post.mainImage.url
-                        : People
-                    }
-                    className={s.image}
-                    width={300}
-                    height={200}
-                  />
-                  <div className={s.info}>
-                    <div>
-                      <p className={s.title}>
-                        {post.author?.authorName || "Unknown Author"}
-                      </p>
-                      <p className={s.subtitle}>
-                        {post.author?.authorRole || ""}
-                      </p>
-                    </div>
-                    <div className={s.description}>
-                      {post.testimonialText &&
-                        (typeof post.testimonialText === "string"
-                          ? post.testimonialText
-                          : documentToReactComponents(post.testimonialText))}
-                    </div>
-                    <PreservingLink
-                      className={s.btn}
-                      href={`/posts/${post.id}`}
-                    >
-                      Read more
-                    </PreservingLink>
-                  </div>
+                  <BlogCard post={post} />
                 </li>
               ))}
             </ul>
-          </article>
-        );
-      })}
+          </div>
+        )}
+
+        {otherCategories.map(([category, posts]) => {
+          const mainPosts = posts.slice(0, 4);
+          const hasMore = posts.length > 4;
+
+          const categoryId = posts[0]?.category?.id || "unknown";
+
+          return (
+            <div key={category} className={s.article}>
+              <div className={s.captionContainer}>
+                <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
+                {hasMore && (
+                  <PreservingLink
+                    href={`/blog/category/${categoryId}`}
+                    className={s.moreBtn}
+                  >
+                    More
+                    <Arrow className={s.arrow} />
+                  </PreservingLink>
+                )}
+              </div>
+              <ul className={s.container}>
+                {mainPosts.map((post) => (
+                  <li key={post.id}>
+                    <BlogCard post={post} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 };
