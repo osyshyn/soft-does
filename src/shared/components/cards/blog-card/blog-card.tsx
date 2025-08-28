@@ -5,6 +5,7 @@ import PreservingLink from "@shared/components/preserving-link/preserving-link";
 
 import s from "./blog-card.module.scss";
 import { IBlogMain } from "types/contentful/BlogPost";
+import Button from "@shared/components/buttons";
 
 interface IBlogCardProps {
   post: IBlogMain;
@@ -46,8 +47,10 @@ const BlogCard = ({ post }: IBlogCardProps) => {
           </div>
         </div>
 
-        <PreservingLink className={s.card__btn} href={`/posts/${post.id}`}>
-          Read more
+        <PreservingLink href={`/posts/${post.id}`}>
+          <Button variant="secondary" size="md" className={s.card__btn}>
+            Read more
+          </Button>
         </PreservingLink>
       </div>
     </article>

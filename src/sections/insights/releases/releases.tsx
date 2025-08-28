@@ -9,6 +9,8 @@ import { BlogCard } from "@shared/components/cards";
 
 import s from "./releases.module.scss";
 import clsx from "clsx";
+import Button from "@shared/components/buttons";
+import { H3 } from "@shared/components/typography";
 
 function groupByCategory(posts: IBlogMain[]) {
   const map: Record<string, IBlogMain[]> = {};
@@ -67,16 +69,18 @@ export const Releases = () => {
           return (
             <div key={category}>
               <div className={s.category}>
-                <h2 className={s.category__title}>
+                <H3 className={s.category__title}>
                   {category.charAt(0).toUpperCase() + category.slice(1)}
-                </h2>
+                </H3>
                 {hasMore && (
                   <PreservingLink
+                    className={s.category__btn}
                     href={`/blog/category/${categoryId}`}
-                    className={s.category__moreBtn}
                   >
-                    More
-                    <Arrow className={s.category__arrow} />
+                    <Button variant="secondary" size="lg">
+                      More
+                      <Arrow className={s.category__arrow} />
+                    </Button>
                   </PreservingLink>
                 )}
               </div>

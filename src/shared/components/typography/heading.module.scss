@@ -1,0 +1,84 @@
+@use "styles/global" as *;
+
+.heading {
+  margin: 0;
+  line-height: 1.2;
+  color: inherit;
+}
+
+.h1 {
+  font-size: $FontSize-Title;
+}
+
+.h2 {
+  font-size: $FontSize-h2;
+}
+
+.h3 {
+  font-size: $FontSize-h3;
+}
+
+.h4 {
+  font-size: 20px;
+  line-height: 1.25;
+  margin-bottom: 14px;
+
+  @include media("phoneXL") {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  @include media("tablet") {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  @include media("desktop") {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+}
+
+// H5 - Extra small heading
+.h5 {
+  font-size: 18px;
+  line-height: 1.3;
+  margin-bottom: 12px;
+
+  @include media("phoneXL") {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+
+  @include media("tablet") {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  @include media("desktop") {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+}
+
+// H6 - Smallest heading
+.h6 {
+  font-size: 16px;
+  line-height: 1.35;
+  margin-bottom: 10px;
+
+  @include media("phoneXL") {
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+
+  @include media("tablet") {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  @include media("desktop") {
+    font-size: 19px;
+    margin-bottom: 16px;
+  }
+}
