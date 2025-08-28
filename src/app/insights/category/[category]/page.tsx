@@ -4,11 +4,16 @@ import { CategoryPosts } from "@sections/blog/category/posts/posts";
 
 export default function Category() {
   return (
-    <>
-      <Layout>
-        <CategoryHero />
-        <CategoryPosts />
-      </Layout>
-    </>
+    <Layout>
+      <CategoryHero />
+
+      <div className="sectionWrapper">
+        <div className="wrapper">
+          <div className="container">
+            <CategoryPosts />
+          </div>
+        </div>
+      </div>
+    </Layout>
   );
 }

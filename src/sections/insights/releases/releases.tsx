@@ -75,7 +75,7 @@ export const Releases = () => {
                 {hasMore && (
                   <PreservingLink
                     className={s.category__btn}
-                    href={`/blog/category/${categoryId}`}
+                    href={`/insights/category/${categoryId}`}
                   >
                     <Button variant="secondary" size="lg">
                       More

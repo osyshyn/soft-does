@@ -2,26 +2,29 @@
 
 .root {
   background-color: black;
-  padding-top: 236px;
-  padding-bottom: 236px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   color: white;
   position: relative;
 
-  margin-bottom: 140px;
+  margin-bottom: 60px;
 
   display: flex;
   justify-content: center;
 
   border-bottom: 1px solid #ffffff29;
+
+  @include media("tablet") {
+    padding-top: 236px;
+    padding-bottom: 236px;
+    margin-bottom: 140px;
+  }
 }
 
 .title {
   @include fontJetBrains;
   text-transform: uppercase;
-  font-size: 120px;
   font-weight: 300;
-  line-height: 100%;
-  letter-spacing: -0.08em;
 
   max-width: 949px;
   margin-bottom: 48px;

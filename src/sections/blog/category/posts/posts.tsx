@@ -4,16 +4,13 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import s from "../../../insights/releases/releases.module.scss";
 
-import People from "@assets/images/blog/people-work.png";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Document } from "@contentful/rich-text-types";
-import Image from "next/image";
 import { fetchPostsByCategory } from "../../../../app/api/contentful/api";
 import { IAuthor } from "../../../../types/contentful/BlogPost";
 
 import { paginArrowActive as PaginArrowActive } from "@assets/icons/paginArrowActive";
 import { paginArrowDis as PaginArrowDis } from "@assets/icons/paginArrowDis";
-import PreservingLink from "@shared/components/preserving-link/preserving-link";
+import { BlogCard } from "@shared/components/cards";
 
 type Post = {
   sys: { id: string };
@@ -55,40 +52,16 @@ export const CategoryPosts = () => {
       <ul className={s.container}>
         {posts.map((post) => (
           <li key={post.sys.id}>
-            <Image
-              aria-hidden
-              alt={post.title}
-              src={
-                post.image?.url
-                  ? post.image.url.startsWith("//")
-                    ? `https:${post.image.url}`
-                    : post.image.url
-                  : People
-              }
-              className={s.image}
-              width={300}
-              height={200}
+            <BlogCard
+              post={{
+                ...post,
+                id: post.sys.id,
+              }}
             />
-            <div className={s.info}>
-              <div>
-                <p className={s.title}>
-                  {post.author?.authorName || "Unknown Author"}
-                </p>
-                <p className={s.subtitle}>{post.author?.authorRole || ""}</p>
-              </div>
-              <div className={s.description}>
-                {post.testimonialText &&
-                  (typeof post.testimonialText === "string"
-                    ? post.testimonialText
-                    : documentToReactComponents(post.testimonialText))}
-              </div>
-              <PreservingLink className={s.btn} href={`/posts/${post.sys.id}`}>
-                Read more
-              </PreservingLink>
-            </div>
           </li>
         ))}
       </ul>
+
       <div className={s.pagination}>
         <button
           onClick={() => setPage((p) => Math.max(1, p - 1))}

@@ -8,7 +8,7 @@ import { IBlogMain } from "types/contentful/BlogPost";
 import Button from "@shared/components/buttons";
 
 interface IBlogCardProps {
-  post: IBlogMain;
+  post: IBlogMain | any;
 }
 
 const BlogCard = ({ post }: IBlogCardProps) => {
