@@ -1,0 +1,33 @@
+@use "styles/global" as *;
+
+.textContainer {
+  max-width: none;
+  width: 100%;
+
+  @include media("tablet") {
+    max-width: 750px;
+  }
+}
+
+.heroImg {
+  bottom: -5% !important;
+  max-width: 600px;
+
+  @include media("tablet") {
+    bottom: -10% !important;
+    transform: translate(0%, 0%) !important;
+    right: -10% !important;
+    max-width: 700px !important;
+  }
+
+  @include media("laptop") {
+    max-width: 600px;
+    bottom: 50% !important;
+    transform: translate(0%, 50%) !important;
+    right: -5% !important;
+  }
+
+  @include media("desktop") {
+    max-width: 900px !important;
+  }
+}

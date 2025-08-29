@@ -1,5 +1,6 @@
 $breakpointsPhoneM: 375px;
 $breakpointsPhoneL: 425px;
+$breakpointsPhoneXL: 600px;
 $breakpointsTablet: 768px;
 $breakpointsTabletVertical: 1024px;
 $breakpointsLaptop: 1280px;
@@ -8,6 +9,7 @@ $breakpointsDesktop: 1440px;
 $breakpoints: (
   "phoneM": $breakpointsPhoneM,
   "phoneL": $breakpointsPhoneL,
+  "phoneXL": $breakpointsPhoneXL,
   "tablet": $breakpointsTablet,
   "tabletVertical": $breakpointsTabletVertical,
   "laptop": $breakpointsLaptop,
@@ -18,6 +20,8 @@ $breakpoints: (
   desktop: $breakpointsDesktop;
   laptop: $breakpointsLaptop;
   phoneM: $breakpointsPhoneM;
+  phoneL: $breakpointsPhoneL;
+  phoneXL: $breakpointsPhoneXL;
   tablet: $breakpointsTablet;
   tabletVertical: $breakpointsTabletVertical;
 }

@@ -75,7 +75,7 @@ export const ROUTES = {
 
   insights: "/insights",
 
-  category: "/blog/category/[category]",
+  category: "/insights/category/[category]",
 
   company: "/company",
 

@@ -3,6 +3,7 @@
 import { useCallback } from "react";
 import s from "./scroll-to-contact.module.scss";
 import clsx from "clsx";
+import Button from "../buttons";
 
 interface ScrollToContactProps {
   children: React.ReactNode;
@@ -29,14 +30,14 @@ const ScrollToContact: React.FC<ScrollToContactProps> = ({
   }, []);
 
   return (
-    <button
+    <Button
+      size="lg"
       onClick={handleClick}
       className={clsx(className ? className : s.button)}
-      type="button"
       aria-label="Scroll to contact form"
     >
       {children}
-    </button>
+    </Button>
   );
 };
 

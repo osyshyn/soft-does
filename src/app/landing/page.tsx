@@ -1,7 +1,6 @@
 import data from "@texts/main/index";
 import dynamic from "next/dynamic";
 
-import { SEO } from "@shared/ui/seo";
 import { ROUTES } from "@shared/constants/routes";
 import { Certificates } from "@sections/home/certificates/certificates";
 import { ServiceSection } from "@sections/home/service-section/service-section";
@@ -32,11 +31,6 @@ const ContactsForm = dynamic(() => import("@sections/contact/form/form"));
 export default function Home() {
   return (
     <>
-      <SEO
-        title="SOFT DOES"
-        description="SOFT DOES is company, that will help your bussines grow!"
-        pathname={ROUTES.root}
-      />
       <Layout isLanding={true}>
         <ContactUsHero />
         <Certificates />

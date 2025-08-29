@@ -27,11 +27,10 @@ const HeroText = ({
         {titleSpan && <span>{titleSpan}</span>} {title}
       </h1>
       <p className={s.tagText}>{text}</p>
-      <div>
-        <HideContacts>
-          <ScrollToContact className={s.button}>{buttonText}</ScrollToContact>
-        </HideContacts>
-      </div>
+
+      <HideContacts>
+        <ScrollToContact>{buttonText}</ScrollToContact>
+      </HideContacts>
     </div>
   );
 };

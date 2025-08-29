@@ -1,10 +1,13 @@
 import { ROUTES } from "@shared/constants/routes";
 
-import { Releases } from "@sections/insights/releases/releases";
-
+import { Hero } from "@sections/hero/hero";
+import HeroImg from "@assets/images/insights/hero.png";
 import Layout from "@shared/components/layout/layout";
-import { Metadata } from "next/types";
-import { Hero } from "@sections/insights/hero/hero";
+import data from "@shared/texts/insights/index.json";
+import s from "./insights.module.scss";
+
+import { Metadata } from "next";
+import { Releases } from "@sections/insights/releases/releases";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await import("@shared/texts/seo/index.json");
@@ -268,8 +271,20 @@ export default function Insights() {
         }}
       />
 
-      <Hero />
-      <Releases />
+      <div className={"sectionWrapper"}>
+        <Hero
+          data={data.hero}
+          heroImg={HeroImg}
+          backgroundKey="green"
+          isDynamicImage
+          heroImgClassName={s.heroImg}
+          textContainerClassName={s.textContainer}
+        />
+      </div>
+
+      <div className={"sectionWrapper"}>
+        <Releases />
+      </div>
     </Layout>
   );
 }

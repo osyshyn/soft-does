@@ -1,0 +1,88 @@
+@use "styles/global" as *;
+
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  gap: 30px;
+
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  @include media(phoneXL) {
+    height: 334px;
+    flex-direction: row;
+  }
+
+  &__image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 6 / 5;
+
+    @include media(phoneXL) {
+      aspect-ratio: unset;
+      max-width: 364px;
+      max-height: 300px;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      position: absolute;
+      inset: 0;
+      object-position: center;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__info {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__title {
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 90%;
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 90%;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &__descriptionContainer {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+  }
+
+  &__description {
+    overflow: hidden;
+    height: 100%;
+    @include fontAbel;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: rgba(255, 255, 255, 0.6);
+
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    max-height: calc(1.4em * 5);
+  }
+}
