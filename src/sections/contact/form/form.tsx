@@ -8,37 +8,47 @@ import clsx from "clsx";
 import { useNoContacts } from "@shared/providers/no-contact-provider";
 
 import { InlineWidget } from "react-calendly";
+import { addDataLayer } from "@shared/utils";
+import { usePathname } from "next/navigation";
 
 export const Form = () => {
+  const path = usePathname();
   const { noContacts } = useNoContacts();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    try {
+      event.preventDefault();
 
-    const formElement = event.currentTarget;
-    const form = new FormData(event.currentTarget);
+      const formElement = event.currentTarget;
+      const form = new FormData(event.currentTarget);
 
-    const fileInput = event.currentTarget.querySelector(
-      "#contactsFiles"
-    ) as HTMLInputElement;
-    const file = fileInput?.files?.[0];
+      const fileInput = event.currentTarget.querySelector(
+        "#contactsFiles"
+      ) as HTMLInputElement;
+      const file = fileInput?.files?.[0];
 
-    if (file) {
-      form.append("file", file);
-    }
+      if (file) {
+        form.append("file", file);
+      }
 
-    console.log(form);
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        body: form,
+      });
 
-    const response = await fetch("/api/sendEmail", {
-      method: "POST",
-      body: form,
-    });
+      await response.json();
 
-    const result = await response.json();
-    console.log(result.message);
-    formElement.reset();
+      if (response.ok) {
+        addDataLayer(path);
+      }
 
-    if (fileInput) {
-      fileInput.value = "";
+      formElement.reset();
+
+      if (fileInput) {
+        fileInput.value = "";
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 

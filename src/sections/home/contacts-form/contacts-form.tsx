@@ -1,37 +1,51 @@
+"use client";
+
 import data from "@texts/main/index";
 import s from "./contacts-form.module.scss";
 import { Input } from "@shared/ui/input/input";
 import { Clip } from "@shared/assets/icons/clip";
+import { addDataLayer } from "@shared/utils";
+import { usePathname } from "next/navigation";
 
 export const ContactsForm = () => {
+  const path = usePathname();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    try {
+      event.preventDefault();
 
-    const formElement = event.currentTarget;
-    const form = new FormData(event.currentTarget);
+      const formElement = event.currentTarget;
+      const form = new FormData(event.currentTarget);
 
-    const fileInput = event.currentTarget.querySelector(
-      "#contactsFiles"
-    ) as HTMLInputElement;
-    const file = fileInput?.files?.[0];
+      const fileInput = event.currentTarget.querySelector(
+        "#contactsFiles"
+      ) as HTMLInputElement;
+      const file = fileInput?.files?.[0];
 
-    if (file) {
-      form.append("file", file);
-    }
+      if (file) {
+        form.append("file", file);
+      }
 
-    console.log(form);
+      console.log(form);
 
-    const response = await fetch("/api/sendEmail", {
-      method: "POST",
-      body: form,
-    });
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        body: form,
+      });
 
-    const result = await response.json();
-    console.log(result.message);
-    formElement.reset();
+      await response.json();
 
-    if (fileInput) {
-      fileInput.value = "";
+      if (response.ok) {
+        addDataLayer(path);
+      }
+
+      formElement.reset();
+
+      if (fileInput) {
+        fileInput.value = "";
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
