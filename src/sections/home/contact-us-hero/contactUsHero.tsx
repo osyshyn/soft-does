@@ -3,14 +3,19 @@
 const SplineProvider = React.lazy(() => import("@splinetool/react-spline"));
 
 import s from "./hero.module.scss";
-import { HeroContactForm } from "@sections/hero-contacts-form/hero-contact-form";
 import clsx from "clsx";
 import { Kansas } from "@shared/components/kansas/kansas";
 import { useNoContacts } from "@shared/providers/no-contact-provider";
 import { Suspense } from "react";
 import React from "react";
+import { ContactForm } from "@shared/components/contact-form";
 
-export const ContactUsHero = () => {
+interface ContactUsHeroProps {
+  title: string;
+  subtitle: string;
+}
+
+export const ContactUsHero = ({ title, subtitle }: ContactUsHeroProps) => {
   const { noContacts } = useNoContacts();
   if (noContacts) return null;
 
@@ -20,14 +25,21 @@ export const ContactUsHero = () => {
         <div className={s.content}>
           <Kansas />
 
-          <HeroContactForm />
+          <ContactForm
+            title={title}
+            subtitle={subtitle}
+            dataLayer={{
+              event: "hero_form_submit",
+              form_name: "Hero Contact Us",
+              form_id: "hero-contact-us-form",
+            }}
+          />
         </div>
 
         <div className={s.main_image}>
           <Suspense fallback={null}>
             <SplineProvider scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode" />
           </Suspense>
-          {/* <Spline scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode" /> */}
         </div>
       </div>
     </section>

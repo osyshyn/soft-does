@@ -1,63 +1,68 @@
 "use client";
 
-import data from "@texts/main/index";
 import s from "./form.module.scss";
-import { Input } from "@shared/ui/input/input";
-import { Clip } from "@shared/assets/icons/clip";
 import clsx from "clsx";
 import { useNoContacts } from "@shared/providers/no-contact-provider";
 
 import { InlineWidget } from "react-calendly";
-import { addDataLayer } from "@shared/utils";
-import { usePathname } from "next/navigation";
+import { ContactForm } from "@shared/components/contact-form";
 
-export const Form = () => {
-  const path = usePathname();
+interface FormProps {
+  title: string;
+  subtitle?: string;
+}
+
+export const ContactWithWidget = ({ title, subtitle }: FormProps) => {
   const { noContacts } = useNoContacts();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    try {
-      event.preventDefault();
+  // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  //   try {
+  //     event.preventDefault();
 
-      const formElement = event.currentTarget;
-      const form = new FormData(event.currentTarget);
+  //     const formElement = event.currentTarget;
+  //     const form = new FormData(event.currentTarget);
 
-      const fileInput = event.currentTarget.querySelector(
-        "#contactsFiles"
-      ) as HTMLInputElement;
-      const file = fileInput?.files?.[0];
+  //     const fileInput = event.currentTarget.querySelector(
+  //       "#contactsFiles"
+  //     ) as HTMLInputElement;
+  //     const file = fileInput?.files?.[0];
 
-      if (file) {
-        form.append("file", file);
-      }
+  //     if (file) {
+  //       form.append("file", file);
+  //     }
 
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        body: form,
-      });
+  //     const response = await fetch("/api/send-email", {
+  //       method: "POST",
+  //       body: form,
+  //     });
 
-      await response.json();
+  //     await response.json();
 
-      if (response.ok) {
-        addDataLayer(path);
-      }
+  //     if (response.ok) {
+  //       addDataLayer({
+  //         event: "form_submit",
+  //         form_name: "Contact Us",
+  //         path: path,
+  //         form_id: "contact-form",
+  //       });
+  //     }
 
-      formElement.reset();
+  //     formElement.reset();
 
-      if (fileInput) {
-        fileInput.value = "";
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     if (fileInput) {
+  //       fileInput.value = "";
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   if (noContacts) return null;
 
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
       <div id="contacts-form" className={clsx(s.root, "container")}>
-        <div className={s.formWrapper}>
+        {/* <div className={s.formWrapper}>
           <h2 className={s.title}>{data.contactsForm.title}</h2>
           <form onSubmit={handleSubmit}>
             <div className={s.inputWrapper}>
@@ -139,7 +144,17 @@ export const Form = () => {
               {data.contactsForm.buttonText}
             </button>
           </form>
-        </div>
+        </div> */}
+
+        <ContactForm
+          title={title}
+          subtitle={subtitle}
+          dataLayer={{
+            event: "footer_form_submit",
+            form_name: "Footer Contact Us",
+            form_id: "footer-contact-us-form",
+          }}
+        />
 
         <div className={s.calendarWrapper}>
           <InlineWidget url="https://calendly.com/softdoes/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff" />
@@ -149,4 +164,4 @@ export const Form = () => {
   );
 };
 
-export default Form;
+export default ContactWithWidget;

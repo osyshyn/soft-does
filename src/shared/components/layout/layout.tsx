@@ -15,7 +15,7 @@ const FAQ = dynamic(() => import("@sections/faq/faq"), {});
 
 const TalkToUs = dynamic(() => import("@sections/talk-to-us/talk-to-us"), {});
 
-const Contacts = dynamic(() => import("@sections/contact/form/form"), {
+const ContactWithWidget = dynamic(() => import("@sections/contact/form/form"), {
   ssr: true,
 });
 
@@ -43,7 +43,7 @@ export default function Layout({
       {talkToUs && <TalkToUs />}
       {faq && <FAQ />}
       {contacts && <ContactInfo />}
-      <Contacts />
+      <ContactWithWidget title={"TALK TO US"} />
       <Footer />
     </>
   );

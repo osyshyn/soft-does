@@ -26,13 +26,17 @@ const Industries = dynamic(
 const CaseStudies = dynamic(
   () => import("@sections/case-studies/case-studies")
 );
-const ContactsForm = dynamic(() => import("@sections/contact/form/form"));
 
 export default function Home() {
   return (
     <>
       <Layout isLanding={true}>
-        <ContactUsHero />
+        <ContactUsHero
+          title={"Your App. The First Version. By Tomorrow."}
+          subtitle={
+            "We’ll design and build the first working version of your app in just 24 hours — mobile, web, or both."
+          }
+        />
         <Certificates />
         <ServiceSection
           isImagePriority
@@ -81,7 +85,6 @@ export default function Home() {
 
         <Testimonials />
         <AboutUs />
-        <ContactsForm />
         <Industries />
         <CaseStudies />
       </Layout>

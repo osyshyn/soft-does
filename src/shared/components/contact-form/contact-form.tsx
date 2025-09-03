@@ -1,14 +1,29 @@
 "use client";
 
 import data from "@texts/main/index";
-import s from "./contacts-form.module.scss";
+import s from "./contact-form.module.scss";
 import { Input } from "@shared/ui/input/input";
 import { Clip } from "@shared/assets/icons/clip";
 import { useNoContacts } from "@shared/providers/no-contact-provider";
 import { addDataLayer } from "@shared/utils";
 import { usePathname } from "next/navigation";
 
-export const HeroContactForm = () => {
+interface ContactFormProps {
+  title: string;
+  subtitle?: string;
+  dataLayer?: {
+    event: string;
+    form_name: string;
+    path?: string;
+    form_id: string;
+  };
+}
+
+export const ContactForm = ({
+  title,
+  subtitle,
+  dataLayer,
+}: ContactFormProps) => {
   const path = usePathname();
   const { noContacts } = useNoContacts();
 
@@ -38,7 +53,12 @@ export const HeroContactForm = () => {
       await response.json();
 
       if (response.ok) {
-        addDataLayer(path);
+        addDataLayer({
+          event: dataLayer?.event || "form_submit",
+          form_name: dataLayer?.form_name || "Contact Us",
+          path: path,
+          form_id: dataLayer?.form_id || "contact-form",
+        });
       }
 
       formElement.reset();
@@ -54,11 +74,8 @@ export const HeroContactForm = () => {
   return (
     <section className={s.root}>
       <div className={s.formWrapper}>
-        <h2 className={s.title}>Your App. The First Version. By Tomorrow.</h2>
-        <h5 className={s.subtitle}>
-          We’ll design and build the first working version of your app in just
-          24 hours — mobile, web, or both.
-        </h5>
+        <h2 className={s.title}>{title}</h2>
+        <h5 className={s.subtitle}>{subtitle}</h5>
         <form onSubmit={handleSubmit}>
           <div className={s.inputWrapper}>
             <Input
@@ -147,3 +164,5 @@ export const HeroContactForm = () => {
     </section>
   );
 };
+
+export default ContactForm;
