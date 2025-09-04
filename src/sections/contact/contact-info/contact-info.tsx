@@ -6,6 +6,7 @@ import clsx from "clsx";
 import s from "./contact-info.module.scss";
 import PreservingLink from "@shared/components/preserving-link/preserving-link";
 import { useNoContacts } from "@shared/providers/no-contact-provider";
+import { H5, TextMd } from "@shared/components/typography";
 
 export const ContactInfo = () => {
   const { noContacts } = useNoContacts();
@@ -18,13 +19,14 @@ export const ContactInfo = () => {
           {Object.values(data.contacts).map((item) => (
             <li key={item.contact} className={s.listItem}>
               <div className={s.itemContentWrapper}>
-                <p className={s.listItemTitle}>{item.title}</p>
+                <TextMd className={s.listItemTitle}>{item.title}</TextMd>
+
                 <PreservingLink
                   href={item.to}
                   target="_blank"
                   className={s.listItemLink}
                 >
-                  <p>{item.contact}</p>
+                  <H5>{item.contact}</H5>
                   <ArrowUpAndRight className={s.arrowIcon} />
                 </PreservingLink>
               </div>

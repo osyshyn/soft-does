@@ -5,6 +5,13 @@
   color: #fff;
   overflow: hidden;
   padding-bottom: 90px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media (min-width: 550px) {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 
   @include media("tablet") {
     padding-bottom: 160px;
@@ -12,38 +19,36 @@
 }
 
 .title {
-  @include fontJetBrains;
-  font-size: 40px;
-  font-weight: 300;
-  line-height: 90%;
-  letter-spacing: -0.08em;
-  text-transform: uppercase;
   text-align: center;
   color: #fff;
 
-  margin-bottom: 32px;
+  margin-bottom: $Spacing-sm;
 
-  @include media(tabletVertical) {
-    font-size: 120px;
-  }
-
-  @include media("tablet") {
-    margin-bottom: 80px;
+  @include media(laptop) {
+    margin-bottom: $Spacing-lg;
   }
 }
 
-/* limit carousel width & keep it centred */
 .container {
-  max-width: $Container-Width; // 1600px
+  max-width: $Container-Width;
   margin: 0 auto;
   overflow: hidden;
 }
 
 .swiper {
   overflow: hidden;
-
+  align-items: stretch;
   cursor: grab;
-  width: 100%; // fill the .container but no more
+  width: 100%;
+
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .swiper-slide {
+    height: auto;
+    display: flex;
+  }
 
   &:active {
     cursor: grabbing;
@@ -76,34 +81,38 @@
 }
 
 .slide {
-  max-width: 90%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-
-  @media (min-width: 445px) {
-    max-width: 80%;
-  }
 
   @include media("tablet") {
     max-width: 510px;
   }
 }
 
+.swiper-slide {
+  height: auto;
+  display: flex;
+}
+
 .topContentWrapper {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: 460px;
-  margin-bottom: 44px;
+  margin-bottom: 24px;
   padding: 20px;
   position: relative;
+  flex: 1;
+  min-height: 350px;
 
   background: linear-gradient(to bottom, #1a1a1a 0%, #1a1a1a38 40%);
   border: 1px solid #262626;
   border-radius: 20px;
 
   @include media("tablet") {
-    padding: 40px;
+    margin-bottom: 44px;
+    padding: 28px;
+    min-height: 460px;
   }
 }
 
@@ -111,9 +120,21 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  width: 104px;
-  padding: 16px;
-  margin-bottom: 30px;
+  width: 85px;
+  padding: 12px;
+  margin-bottom: 24px;
+
+  @include media("tablet") {
+    width: 104px;
+    padding: 16px;
+    margin-bottom: 30px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
   background: #1a1a1a;
   border: 1px solid #262626;
@@ -146,6 +167,10 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 150%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   p {
     margin-bottom: 10px;
@@ -164,16 +189,20 @@
 
 .date {
   @include fontAbel;
-  font-size: 14px;
-  font-weight: 300;
-
-  color: #808080;
+  color: $Dark-Gray;
 }
 
 .avatar {
-  width: 70px;
-  height: 70px;
+  margin-left: 5px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+
+  @include media("tablet") {
+    width: 70px;
+    height: 70px;
+    margin-left: 0px;
+  }
 
   overflow: hidden;
   display: flex;

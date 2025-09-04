@@ -14,6 +14,7 @@ import { ArrowUpAndRight } from "@shared/assets/icons/arrow-up-and-right";
 
 import data from "@texts/main/index";
 import s from "./industries.module.scss";
+import { H2 } from "@shared/components/typography";
 
 const INDUSTRIES = {
   finance,
@@ -41,7 +42,7 @@ export const Industries = () => {
 
   return (
     <section className={s.root}>
-      <h2 className={s.title}>{data.industries.title}</h2>
+      <H2 className={s.title}>{data.industries.title}</H2>
       <ul className={s.list}>
         {data.industries.list.map((item) => (
           <li
@@ -49,7 +50,8 @@ export const Industries = () => {
             className={s.listItem}
             style={
               {
-                "--current-color-variable": item.color || "rgba(255, 255, 255, 0.2)",
+                "--current-color-variable":
+                  item.color || "rgba(255, 255, 255, 0.2)",
               } as React.CSSProperties
             }
           >

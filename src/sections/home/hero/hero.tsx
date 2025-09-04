@@ -2,12 +2,9 @@ import data from "@texts/main/index";
 
 import s from "./hero.module.scss";
 import clsx from "clsx";
-import { Kansas } from "@shared/components/kansas/kansas";
-import { HideContacts } from "@shared/providers/no-contact-provider";
 import React from "react";
-import { ScrollToContact } from "@shared/components/scroll-to-contact";
-// import SplineComponent from "@shared/ui/spline";
 import dynamic from "next/dynamic";
+import HeroText from "@shared/components/hero-text/hero-text";
 
 const SplineComponent = dynamic(() => import("@shared/ui/spline"), {
   ssr: true,
@@ -17,16 +14,12 @@ export const Hero = () => {
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx(s.container, "container")}>
-        <div className={s.content}>
-          <Kansas />
-          <h1 className={s.title}>{data.hero.title}</h1>
-
-          <HideContacts>
-            <ScrollToContact className={s.button}>
-              {data.hero.buttonText}
-            </ScrollToContact>
-          </HideContacts>
-        </div>
+        <HeroText
+          title={data.hero.title}
+          // text={data.hero.tagText}
+          buttonText={data.hero.buttonText}
+          titleClassName={s.title}
+        />
 
         <div className={s.main_image}>
           <SplineComponent scene="https://prod.spline.design/LDRcjRsDe2GYbfYq/scene.splinecode" />

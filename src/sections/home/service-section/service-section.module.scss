@@ -1,9 +1,6 @@
 @use "styles/global" as *;
 
 .wrapper {
-  padding-top: 140px;
-  padding-bottom: 140px;
-
   background: conic-gradient(
     from 270deg at 50% 50%,
     rgba(119, 63, 188, 0.1) -79.72deg,
@@ -39,14 +36,22 @@
 .root {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  // align-items: center;
+  gap: 24px;
   flex-grow: 1;
 
   color: white;
 
   @include media(tabletVertical) {
+    gap: 48px;
     flex-direction: row;
   }
+}
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .leftWrapper {
@@ -68,14 +73,7 @@
 }
 
 .title {
-  @include fontJetBrains;
-  font-weight: 200;
-  font-size: 40px;
-
-  text-transform: uppercase;
   text-align: center;
-
-  margin-bottom: 16px;
 
   &::before {
     content: ">";
@@ -93,14 +91,13 @@
     color: var(--current-color-variable);
   }
 
-  @include media(laptop) {
-    font-size: 80px;
-    max-width: 750px;
+  @include media(tabletVertical) {
+    max-width: 600px;
     text-align: start;
   }
 
   &.isRightTitle {
-    @include media(laptop) {
+    @include media(tabletVertical) {
       text-align: end;
     }
   }
@@ -114,8 +111,6 @@
   display: grid;
   gap: 16px;
 
-  margin-bottom: 32px;
-
   @include media(tabletVertical) {
     grid-template-columns: 1fr 1fr;
   }
@@ -128,10 +123,6 @@
 }
 
 .pinListItem {
-  @include fontAbel;
-  font-weight: 300;
-  font-size: 20px;
-
   display: flex;
   gap: 8px;
 }
@@ -144,8 +135,6 @@
   cursor: grab;
 
   border-radius: 8px;
-
-  margin-bottom: 32px;
 
   &:active {
     cursor: grabbing;
@@ -165,21 +154,11 @@
 }
 
 .button {
-  @include fontJetBrains;
-  font-weight: 300;
-  font-size: 18px;
-  text-transform: uppercase;
-  text-align: center;
+  width: 100%;
+  max-width: 178px;
 
-  box-sizing: border-box;
-  padding: 27px;
-  border: 2px solid #fff;
-  border-radius: 8px;
-
-  cursor: pointer;
-
-  @include media(tabletVertical) {
-    width: 178px;
+  button {
+    width: 100%;
   }
 }
 
@@ -194,8 +173,8 @@
 }
 
 .img {
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
   animation: float 4s ease-in-out infinite;
 
   @include media(tablet) {

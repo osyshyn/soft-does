@@ -1,11 +1,11 @@
 @use "styles/global" as *;
 
-.answer {
-  @include fontAbel;
-  font-weight: 400;
-  font-size: 16px;
+.accordionContent {
+  padding-top: 0px !important;
+}
 
-  color: rgba(#fff, 0.5);
+.answer {
+  color: $Dark-Gray;
 }
 
 .accordionItem {
@@ -13,13 +13,14 @@
 }
 
 .iconWrapper {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  width: fit-content;
-
-  padding: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
 
   border: 1px solid gray;
   border-radius: 4px;
@@ -31,11 +32,17 @@
   .accordionItem[data-open="open"] & {
     background-color: #d0ec57;
   }
+
+  @include media("tablet") {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
 }
 
 .plusIcon {
-  width: 16px;
-  height: 16px;
+  width: 100%;
+  height: 100%;
 
   transition-property: all;
   transition-duration: 200ms;
@@ -46,10 +53,10 @@
     color: #000;
   }
 
-  @include media(laptop) {
-    width: 24px;
-    height: 24px;
-  }
+  // @include media(laptop) {
+  //   width: 22px;
+  //   height: 22px;
+  // }
 }
 
 .accordionQuestion {
@@ -58,16 +65,16 @@
   align-items: center;
   gap: 12px;
 
-  padding: 32px 24px;
+  padding: 14px;
 
   cursor: pointer;
+
+  @include media("tablet") {
+    padding: 24px;
+  }
 }
 
 .question {
-  @include fontJetBrains;
-  font-weight: 300;
-  font-size: 18px;
-
   &:active {
     outline: none;
   }

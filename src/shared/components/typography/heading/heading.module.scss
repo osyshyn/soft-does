@@ -1,0 +1,51 @@
+@use "styles/global" as *;
+
+.heading {
+  @include fontJetBrains;
+  line-height: 1.2;
+  color: inherit;
+}
+
+.h1 {
+  font-size: $FontSize-h1;
+  font-weight: 200;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+}
+
+.h2 {
+  font-size: $FontSize-h2;
+  font-weight: 200;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+}
+
+.h3 {
+  font-size: $FontSize-h3;
+  font-weight: 200;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+}
+
+.h4 {
+  font-size: $FontSize-h4;
+}
+
+// H5 - Extra small heading
+.h5 {
+  font-size: $FontSize-h5;
+  font-weight: 200;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+}
+
+// H6 - Smallest heading
+.h6 {
+  font-size: $FontSize-h6;
+  font-weight: 200;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+}

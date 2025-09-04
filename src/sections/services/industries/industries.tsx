@@ -14,6 +14,7 @@ import { ArrowUpAndRight } from "@shared/assets/icons/arrow-up-and-right";
 import data from "@texts/main/index";
 import s from "./industries.module.scss";
 import clsx from "clsx";
+import { H2, TextXl } from "@shared/components/typography";
 
 const INDUSTRIES = {
   finance,
@@ -32,7 +33,7 @@ export const Industries = () => {
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx("container")}>
-        <h2 className={s.title}>{data.industries.title}</h2>
+        <H2 className={s.title}>{data.industries.title}</H2>
 
         <ul className={s.list}>
           {data.industries.list.map((item) => (
@@ -56,7 +57,7 @@ export const Industries = () => {
               />
 
               <div className={s.itemContentWrapper}>
-                <p className={s.text}>{item.title}</p>
+                <TextXl>{item.title}</TextXl>
                 <ArrowUpAndRight className={s.arrowUpAndRight} />
               </div>
             </li>

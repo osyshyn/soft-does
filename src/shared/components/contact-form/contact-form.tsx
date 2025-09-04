@@ -7,6 +7,8 @@ import { Clip } from "@shared/assets/icons/clip";
 import { useNoContacts } from "@shared/providers/no-contact-provider";
 import { addDataLayer } from "@shared/utils";
 import { usePathname } from "next/navigation";
+import { H3, TextLg, TextMd } from "../typography";
+import Button from "../buttons";
 
 interface ContactFormProps {
   title: string;
@@ -74,8 +76,10 @@ export const ContactForm = ({
   return (
     <section className={s.root}>
       <div className={s.formWrapper}>
-        <h2 className={s.title}>{title}</h2>
-        <h5 className={s.subtitle}>{subtitle}</h5>
+        <div className={s.titleWrapper}>
+          <H3 className={s.title}>{title}</H3>
+          <TextLg className={s.subtitle}>{subtitle}</TextLg>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className={s.inputWrapper}>
             <Input
@@ -122,11 +126,11 @@ export const ContactForm = ({
             <input type="file" className={s.fileInput} id="contactsFiles" />
             <label htmlFor="contactsFiles" className={s.fileLabel}>
               <Clip className={s.clipIcon} />
-              {data.contactsForm.form.file.title}
+              <TextLg>{data.contactsForm.form.file.title}</TextLg>
             </label>
-            <p className={s.fileFormats}>
+            <TextMd className={s.fileFormats}>
               {data.contactsForm.form.file.formats}
-            </p>
+            </TextMd>
           </div>
 
           <div className={s.checkboxWrapper}>
@@ -135,11 +139,7 @@ export const ContactForm = ({
               id="privacy"
               defaultChecked
               required
-              label={
-                <span className={s.checkboxText}>
-                  {data.contactsForm.form.privacyPolicy.text}
-                </span>
-              }
+              label={data.contactsForm.form.privacyPolicy.text}
               className={s.privacy}
             />
 
@@ -147,18 +147,16 @@ export const ContactForm = ({
               type="checkbox"
               id="updates"
               defaultChecked
-              label={
-                <span className={s.checkboxText}>
-                  {data.contactsForm.form.updates.text}
-                </span>
-              }
+              label={data.contactsForm.form.updates.text}
               className={s.privacy}
             />
           </div>
 
-          <button className={s.formButton} type="submit">
-            {data.contactsForm.buttonText}
-          </button>
+          <div className={s.button}>
+            <Button variant="white" size="lg" type="submit">
+              {data.contactsForm.buttonText}
+            </Button>
+          </div>
         </form>
       </div>
     </section>

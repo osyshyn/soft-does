@@ -1,0 +1,32 @@
+@use "styles/global" as *;
+
+.text {
+  @include fontAbel;
+  margin: 0;
+  font-size: $FontSize-text-md;
+}
+
+.text-2xl {
+  font-size: $FontSize-text-2xl;
+  font-weight: 400;
+}
+
+.text-xl {
+  font-size: $FontSize-text-xl;
+  font-weight: 400;
+}
+
+.text-md {
+  font-size: $FontSize-text-md;
+  font-weight: 400;
+}
+
+.text-lg {
+  font-size: $FontSize-text-lg;
+  font-weight: 400;
+}
+
+.text-sm {
+  font-size: $FontSize-text-sm;
+  font-weight: 400;
+}

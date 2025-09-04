@@ -10,20 +10,11 @@
 }
 
 .title {
-  @include fontJetBrains;
-  font-weight: 300;
-  font-size: 40px;
-
   text-transform: uppercase;
 
   margin-bottom: 20px;
 
   @include media(laptop) {
-    font-weight: 300;
-    font-size: 120px;
-    line-height: 90%;
-    letter-spacing: -0.08em;
-
     margin-bottom: 80px;
   }
 }

@@ -10,21 +10,17 @@
   color: white;
 
   overflow: hidden;
-
-  padding-top: 36px;
-  padding-bottom: 36px;
-
-  @include media(laptop) {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
 }
 
 .container {
   display: flex;
   align-items: center;
-  gap: 65px;
   flex-direction: column;
+  gap: 35px;
+
+  @include media(laptop) {
+    gap: 60px;
+  }
 }
 
 .head {
@@ -32,10 +28,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px;
   flex-direction: column;
+  gap: 35px;
 
-  @include media(desktop) {
+  @include media(laptop) {
+    gap: 60px;
+  }
+
+  @include media(laptop) {
     flex-direction: row;
   }
 }
@@ -48,36 +48,22 @@
   align-items: center;
 
   &__title {
-    @include fontJetBrains;
-    font-weight: 300;
-    font-size: 40px;
-    letter-spacing: -0.08em;
-    line-height: 90%;
     text-align: center;
 
-    text-transform: uppercase;
-
-    margin-bottom: 20px;
+    margin-bottom: $Spacing-sm;
 
     @include media(laptop) {
-      font-size: 120px;
-
-      margin-bottom: 40px;
+      margin-bottom: $Spacing-lg;
     }
   }
 
   &__description {
-    @include fontAbel;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 150%;
-    letter-spacing: -0.04em;
     max-width: 652px;
 
     text-align: center;
   }
 
-  @include media(desktop) {
+  @include media(laptop) {
     align-items: start;
 
     &__title {
@@ -94,10 +80,12 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  // gap: 16px;
+  max-width: 450px;
 
   @include media(laptop) {
     gap: 0;
+    max-width: 100%;
   }
 }
 
@@ -109,7 +97,12 @@
   align-items: center;
   letter-spacing: -0.08m;
 
-  padding: 24px 16px;
+  padding: 16px 14px;
+
+  @include media(laptop) {
+    padding: 24px 16px;
+  }
+
   border-radius: 8px;
   border: 1px solid black;
   clip-path: polygon(
@@ -123,6 +116,7 @@
   &:nth-child(1) {
     background-color: white;
 
+    margin-left: 16px;
     @include media(laptop) {
       margin-left: 16px;
     }
@@ -131,14 +125,17 @@
   &:nth-child(2) {
     background-color: white;
 
-    @include media(laptop) {
-      margin-top: -8px;
-    }
+    margin-top: -8px;
+    // @include media(laptop) {
+    //   margin-top: -8px;
+    // }
   }
 
   &:nth-child(3) {
     background-color: #cfec57;
 
+    margin-left: 16px;
+    margin-top: -16px;
     @include media(laptop) {
       margin-left: 16px;
       margin-top: -16px;
@@ -155,17 +152,19 @@
 .listItemNumber {
   @include fontJetBrains;
   font-weight: 100;
-  font-size: 80px;
+  font-size: $FontSize-h4;
 
   color: black;
 
   display: flex;
+  align-items: center;
 
   &::before,
   &::after {
     content: "> ";
     padding: 0 16px;
-    font-size: 80px;
+    font-weight: 100;
+    font-size: $FontSize-h4;
   }
   &::after {
     content: " <";
@@ -186,6 +185,11 @@
 }
 
 .certificate {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+
+  @include media(tablet) {
+    width: 200px;
+    height: 200px;
+  }
 }

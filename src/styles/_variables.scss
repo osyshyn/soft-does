@@ -2,21 +2,35 @@
 @use "@styles/mixins" as *;
 
 // Typography
-$ButtonsText-Size-16: 16px;
-$FontSize-Body: 14px;
-$FontSize-Title: clamp(48px, 6.5vw, 120px);
-$FontSize-h2: clamp(36px, 6.5vw, 64px);
-$FontSize-h3: clamp(32px, 6.5vw, 54px);
+$FontSize-text-2xl: clamp(20px, 2vw, 24px);
+$FontSize-text-xl: clamp(18px, 2vw, 20px);
+$FontSize-text-lg: clamp(16px, 2vw, 18px);
+$FontSize-text-md: clamp(14px, 2vw, 16px);
+$FontSize-text-sm: clamp(12px, 2vw, 14px);
+
+$FontSize-h1: clamp(48px, 6.5vw, 100px);
+$FontSize-h2: clamp(36px, 5.5vw, 80px);
+$FontSize-h3: clamp(28px, 4.5vw, 64px);
+$FontSize-h4: clamp(24px, 3.5vw, 54px);
+$FontSize-h5: clamp(20px, 2.5vw, 36px);
+$FontSize-h6: clamp(18px, 2vw, 28px);
 
 $Container-Width: 1600px;
 
 // Colors
+$Black: #000;
+$White: #fff;
+
+$Dark-Gray: #808080;
 
 // Spacing
-// $Spacing-xs: 4px;
-// $Spacing-sm: 8px;
-// $Spacing-md: 16px;
-// $Spacing-lg: 32px;
+$Spacing-2xs: 8px;
+$Spacing-xs: 16px;
+$Spacing-sm: 24px;
+$Spacing-md: 32px;
+$Spacing-lg: 40px;
+$Spacing-xl: 80px;
+$Spacing-2xl: 140px;
 
 .wrapper {
   padding-left: 16px;
@@ -34,9 +48,19 @@ $Container-Width: 1600px;
 }
 
 .sectionWrapper {
-  padding-bottom: 90px;
+  padding-bottom: $Spacing-xl;
 
   @include media("tablet") {
-    padding-bottom: 160px;
+    padding-bottom: $Spacing-2xl;
+  }
+}
+
+.separateSectionWrapper {
+  padding-bottom: 60px;
+  padding-top: 60px;
+
+  @include media("tablet") {
+    padding-bottom: 120px;
+    padding-top: 120px;
   }
 }

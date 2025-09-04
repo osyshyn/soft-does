@@ -41,3 +41,5 @@ export const ServiceSwiper = () => {
     </div>
   );
 };
+
+export default ServiceSwiper;

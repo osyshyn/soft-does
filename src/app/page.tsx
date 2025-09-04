@@ -53,6 +53,63 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Home() {
+  const serviceSections = [
+    {
+      link: ROUTES.softwareDev.root,
+      currentColor: "#173B91",
+      img: softwareDevelopment,
+      isImagePriority: true,
+      isRight: false,
+      data: data.softwareDevelopment,
+      hasWrapper: true,
+    },
+    {
+      link: ROUTES.aiAndMl.root,
+      currentColor: "#D75186",
+      img: aiAndMachineLearning,
+      isImagePriority: true,
+      isRight: true,
+      data: data.aiMachineLearning,
+      hasWrapper: false,
+    },
+    {
+      link: ROUTES.cloudServices.root,
+      currentColor: "#F28B82",
+      img: cloudServices,
+      isImagePriority: false,
+      isRight: false,
+      data: data.cloudServices,
+      hasWrapper: false,
+    },
+    {
+      link: ROUTES.dataScnAndEngnrng.root,
+      currentColor: "#BF81FF",
+      img: dataScienceAndEngeneering,
+      isImagePriority: false,
+      isRight: true,
+      data: data.dataScienceAndEngeneering,
+      hasWrapper: false,
+    },
+    {
+      link: ROUTES.uiUxDesign.root,
+      currentColor: "#2741FF",
+      img: uiUxDesign,
+      isImagePriority: false,
+      isRight: false,
+      data: data.uiUxDesign,
+      hasWrapper: false,
+    },
+    {
+      link: ROUTES.architectureConsulting.root,
+      currentColor: "#515151",
+      img: architectureAndConsulting,
+      isImagePriority: false,
+      isRight: true,
+      data: data.architectureAndConsulting,
+      hasWrapper: true,
+    },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -293,54 +350,32 @@ export default function Home() {
       <Hero />
 
       <Certificates />
-      <ServiceSection
-        isImagePriority
-        link={ROUTES.softwareDev.root}
-        currentColor="#173B91"
-        img={softwareDevelopment}
-        {...data.softwareDevelopment}
-      />
-      <ServiceSection
-        link={ROUTES.aiAndMl.root}
-        isImagePriority
-        currentColor="#D75186"
-        img={aiAndMachineLearning}
-        isRight
-        {...data.aiMachineLearning}
-      />
-      <ServiceSection
-        link={ROUTES.cloudServices.root}
-        currentColor="#F28B82"
-        img={cloudServices}
-        {...data.cloudServices}
-      />
-      <ServiceSection
-        link={ROUTES.dataScnAndEngnrng.root}
-        currentColor="#BF81FF"
-        img={dataScienceAndEngeneering}
-        isRight
-        {...data.dataScienceAndEngeneering}
-      />
-      <ServiceSection
-        link={ROUTES.uiUxDesign.root}
-        currentColor="#2741FF"
-        img={uiUxDesign}
-        {...data.uiUxDesign}
-      />
 
       <div className="sectionWrapper">
-        <ServiceSection
-          link={ROUTES.architectureConsulting.root}
-          currentColor="#515151"
-          img={architectureAndConsulting}
-          isRight
-          {...data.architectureAndConsulting}
-        />
+        {serviceSections.map((section) => (
+          <ServiceSection
+            key={section.link}
+            link={section.link}
+            currentColor={section.currentColor}
+            img={section.img}
+            isImagePriority={section.isImagePriority}
+            isRight={section.isRight}
+            {...section.data}
+            className="separateSectionWrapper"
+          />
+        ))}
       </div>
-      <Testimonials />
-      <AboutUs />
 
-      <Industries />
+      <Testimonials />
+
+      <div className="sectionWrapper">
+        <AboutUs className="sectionWrapper" />
+      </div>
+
+      <div className="sectionWrapper">
+        <Industries />
+      </div>
+
       <CaseStudies />
     </Layout>
   );

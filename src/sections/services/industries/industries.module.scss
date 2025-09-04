@@ -1,32 +1,18 @@
 @use "styles/global" as *;
 
 .wrapper {
-  padding-top: 90px;
-  padding-bottom: 90px;
   background-color: #000;
   color: #fff;
   overflow: hidden;
-
-  @include media(laptop) {
-    padding-top: 160px;
-    padding-bottom: 160px;
-  }
 }
 
 .title {
-  @include fontJetBrains;
-  font-weight: 300;
-  font-size: 40px;
-
-  text-transform: uppercase;
   text-align: center;
 
-  margin-bottom: 20px;
+  margin-bottom: $Spacing-sm;
 
   @include media(laptop) {
-    font-size: 80px;
-
-    margin-bottom: 40px;
+    margin-bottom: $Spacing-lg;
   }
 }
 
@@ -36,23 +22,26 @@
   display: grid;
   gap: 16px;
 
-  @media (min-width: 550px) {
+  @media (min-width: 450px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 850px) {
+  @media (min-width: 700px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @include media(desktop) {
+  @media (min-width: 850px) {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  // @include media(desktop) {
+  //   grid-template-columns: repeat(4, 1fr);
+  // }
 }
 
 .listItem {
   box-sizing: border-box;
-  padding: 38px 32px;
-
+  padding: 16px;
   border: 1px solid rgba(#757575, 0.9);
 
   background:
@@ -65,9 +54,17 @@
 
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 0px;
   justify-content: center;
   align-items: center;
+
+  @include media(tablet) {
+    gap: 12px;
+  }
+
+  @include media(laptop) {
+    padding: 32px;
+  }
 }
 
 .itemContentWrapper {
@@ -89,23 +86,17 @@
 }
 
 .image {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 
   @include media(tablet) {
+    width: 150px;
+    height: 150px;
+  }
+
+  @include media(tabletVertical) {
     width: 200px;
     height: 200px;
-  }
-}
-
-.text {
-  @include fontJetBrains;
-  font-size: 18px;
-  font-weight: 400;
-  color: currentColor;
-
-  @include media(laptop) {
-    font-size: 26px;
   }
 }
 
@@ -114,6 +105,6 @@
   color: currentColor;
 
   @include media(laptop) {
-    width: 32px;
+    width: 24px;
   }
 }

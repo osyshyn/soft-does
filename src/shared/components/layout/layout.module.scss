@@ -1,0 +1,9 @@
+@use "styles/global" as *;
+
+.faq {
+  padding-top: 0px;
+
+  @include media(tabletVertical) {
+    padding-top: 100px;
+  }
+}

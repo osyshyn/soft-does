@@ -5,36 +5,34 @@
   flex-direction: column;
   width: 100%;
   max-width: 100%;
-}
 
-.kansas {
-  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+
+  @include media(tabletVertical) {
+    gap: 24px;
+    align-items: flex-start;
+  }
 }
 
 .title {
-  @include fontJetBrains;
-
-  text-transform: uppercase;
-  font-size: $FontSize-Title;
-  font-weight: 300;
-  line-height: 100%;
-  letter-spacing: -0.08em;
-  margin-bottom: 32px;
+  // margin-bottom: 32px;
   text-align: center;
 
   word-break: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
-  max-width: 100%;
 
   @include media(phoneXL) {
     word-break: normal;
     overflow-wrap: normal;
   }
 
-  @include media(tablet) {
+  @include media(tabletVertical) {
     text-align: left;
-    margin-bottom: 48px;
+    // margin-bottom: 48px;
   }
 }
 

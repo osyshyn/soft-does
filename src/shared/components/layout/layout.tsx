@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 
 import Header from "@shared/components/header/header";
 import dynamic from "next/dynamic";
+import clsx from "clsx";
+import s from "./layout.module.scss";
 
 const ContactInfo = dynamic(
   () => import("@sections/contact/contact-info/contact-info")
@@ -40,8 +42,18 @@ export default function Layout({
     <>
       <Header posts={posts} isLanding={isLanding} />
       <main>{children}</main>
-      {talkToUs && <TalkToUs />}
-      {faq && <FAQ />}
+
+      {talkToUs && (
+        <div className="sectionWrapper">
+          <TalkToUs />
+        </div>
+      )}
+
+      {faq && (
+        <div className={clsx(s.faq, "sectionWrapper")}>
+          <FAQ />
+        </div>
+      )}
       {contacts && <ContactInfo />}
       <ContactWithWidget title={"TALK TO US"} />
       <Footer />

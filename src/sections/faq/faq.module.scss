@@ -4,58 +4,22 @@
   background-color: #000;
   color: #fff;
   position: relative;
-  padding-top: 90px;
-  padding-bottom: 90px;
-
-  @include media(laptop) {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
-  gap: 80px;
-
-  @include media(laptop) {
-    flex-direction: row;
-    gap: 0px;
-  }
-}
-
-.img {
-  position: absolute;
-  display: none;
-  visibility: hidden;
-
-  @include media(laptop) {
-    display: block;
-    visibility: visible;
-
-    top: -230px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
 
 .title {
-  width: 100%;
-  padding: 0px;
   text-align: center;
 
-  @include fontJetBrains;
-  font-weight: 300;
-  font-size: 40px;
-
-  text-transform: uppercase;
+  margin-bottom: $Spacing-md;
 
   @include media(laptop) {
-    border-right: 2px solid rgba(#fff, 0.4);
-    padding: 180px 0px;
-    padding-right: 60px;
-    text-align: left;
+    margin-bottom: $Spacing-lg;
   }
 }
 
@@ -63,9 +27,4 @@
   width: 100%;
   display: grid;
   padding: 0px;
-
-  @include media(laptop) {
-    padding: 180px 0px;
-    padding-left: 60px;
-  }
 }

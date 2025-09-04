@@ -9,49 +9,25 @@
 }
 
 .title {
-  @include fontJetBrains;
-  font-weight: 300;
-  font-size: 25px;
   text-align: center;
-  text-transform: uppercase;
-
-  margin-bottom: 10px;
 
   @include media(tablet) {
     text-align: left;
-  }
-
-  @include media(laptop) {
-    font-size: 48px;
-    @include media(laptop) {
-      font-size: 48px;
-
-      margin-bottom: 20px;
-    }
   }
 }
 
 .subtitle {
-  @include fontJetBrains;
-  font-size: 12px;
-  font-weight: 100;
   text-align: center;
-  margin-bottom: 20px;
 
   @include media(tablet) {
     text-align: left;
-  }
-
-  @include media(laptop) {
-    font-size: 13px;
-
-    margin-bottom: 40px;
   }
 }
 
 .inputWrapper {
   display: grid;
   gap: 20px;
+  grid-template-columns: 1fr 1fr;
 
   & input {
     background-color: rgba(0, 0, 0, 0);
@@ -81,43 +57,14 @@
   }
 }
 
-.formButton {
-  @include fontAbel;
-  font-size: 18px;
-  font-weight: 200;
-  @include fontAbel;
-  font-size: 18px;
-  font-weight: 200;
-
-  background-color: #fff;
-  color: #000;
-  background-color: #fff;
-  color: #000;
-
+.button {
   width: 100%;
-  width: 100%;
+  max-width: 243px;
 
-  margin-top: 32px;
-  padding: 24px;
-  margin-top: 32px;
-  padding: 24px;
+  margin-top: 40px;
 
-  border-radius: 8px;
-  border-radius: 8px;
-
-  cursor: pointer;
-  cursor: pointer;
-
-  text-align: center;
-  text-transform: uppercase;
-  text-align: center;
-  text-transform: uppercase;
-
-  @include media(laptop) {
-    width: 243px;
-  }
-  @include media(laptop) {
-    width: 243px;
+  button {
+    width: 100%;
   }
 }
 
@@ -136,12 +83,12 @@
   margin-top: 40px;
 }
 
-.checkboxText {
-  @include fontAbel;
-  font-weight: 300;
-  font-size: 14px;
+.titleWrapper {
+  margin-bottom: $Spacing-md;
 
-  color: rgba(#fff, 0.5);
+  @include media(laptop) {
+    margin-bottom: $Spacing-lg;
+  }
 }
 
 .fileWrapper {
@@ -159,10 +106,6 @@
 }
 
 .fileLabel {
-  @include fontAbel;
-  font-weight: 300;
-  font-size: 18px;
-
   display: flex;
   align-items: center;
   gap: 4px;
@@ -173,11 +116,7 @@
 }
 
 .fileFormats {
-  @include fontAbel;
-  font-weight: 300;
-  font-size: 14px;
-
-  color: rgba(#fff, 0.5);
+  color: $Dark-Gray;
 }
 
 .clipIcon {

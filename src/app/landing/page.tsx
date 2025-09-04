@@ -84,7 +84,7 @@ export default function Home() {
         </div>
 
         <Testimonials />
-        <AboutUs />
+        <AboutUs className="sectionWrapper" />
         <Industries />
         <CaseStudies />
       </Layout>
