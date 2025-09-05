@@ -366,13 +366,11 @@ export default function Home() {
         ))}
       </div>
 
-      <Testimonials />
+      <div className="pageWrapper">
+        <Testimonials />
 
-      <div className="sectionWrapper">
         <AboutUs className="sectionWrapper" />
-      </div>
 
-      <div className="sectionWrapper">
         <Industries />
       </div>
 
