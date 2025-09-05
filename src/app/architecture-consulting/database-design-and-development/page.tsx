@@ -293,10 +293,12 @@ export default function DatabaseDesignAndDevelopment() {
         backgroundKey="dark"
       />
       <Results />
-      <Technologies />
-      <Testimonials />
-      <Engagement />
-      <Solutions />
+      <div className="pageWrapper">
+        <Technologies />
+        <Testimonials />
+        <Engagement />
+        <Solutions />
+      </div>
     </Layout>
   );
 }

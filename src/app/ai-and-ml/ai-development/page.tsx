@@ -303,10 +303,12 @@ export default function AiDev() {
         backgroundKey="aiDev"
       />
       <Results />
-      <Technologies />
+      <div className="pageWrapper">
+<Technologies />
       <Testimonials />
       <Engagement />
       <Solutions />
+</div>
     </Layout>
   );
 }

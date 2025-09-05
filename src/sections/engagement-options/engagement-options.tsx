@@ -8,7 +8,7 @@ import Light from "@shared/assets/images/services/light.png";
 
 import s from "./engagement-options.module.scss";
 import clsx from "clsx";
-import { H2, H6 } from "@shared/components/typography";
+import { H2, H6, TextMd } from "@shared/components/typography";
 
 const OPTIONS = [
   {
@@ -73,15 +73,15 @@ export const Engagement = () => {
               <ul>
                 <li className={s.point}>
                   <Pin className={s.pin} />
-                  {OPTIONS_INFO[index].a}
+                  <TextMd>{OPTIONS_INFO[index].a}</TextMd>
                 </li>
                 <li className={s.point}>
                   <Pin className={s.pin} />
-                  {OPTIONS_INFO[index].b}
+                  <TextMd>{OPTIONS_INFO[index].b}</TextMd>
                 </li>
                 <li className={s.point}>
                   <Pin className={s.pin} />
-                  {OPTIONS_INFO[index].c}
+                  <TextMd>{OPTIONS_INFO[index].c}</TextMd>
                 </li>
               </ul>
             </li>

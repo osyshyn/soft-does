@@ -304,10 +304,12 @@ export default function UserID() {
         textContainerClassName={s.textContainer}
       />
       <Results />
-      <Technologies />
+      <div className="pageWrapper">
+<Technologies />
       <Testimonials />
       <Engagement />
       <Solutions />
+</div>
     </Layout>
   );
 }

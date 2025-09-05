@@ -305,10 +305,12 @@ export default function CMS() {
         isDynamicImage
       />
       <Results />
-      <Technologies />
-      <Testimonials />
-      <Engagement />
-      <Solutions />
+      <div className="pageWrapper">
+        <Technologies />
+        <Testimonials />
+        <Engagement />
+        <Solutions />
+      </div>
     </Layout>
   );
 }

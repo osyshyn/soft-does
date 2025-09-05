@@ -303,10 +303,12 @@ export default function CaiSolutions() {
         backgroundKey="caiSolutions"
       />
       <Results />
-      <Technologies />
-      <Testimonials />
-      <Engagement />
-      <Solutions />
+      <div className="pageWrapper">
+        <Technologies />
+        <Testimonials />
+        <Engagement />
+        <Solutions />
+      </div>
     </Layout>
   );
 }

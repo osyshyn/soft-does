@@ -60,7 +60,10 @@ $Spacing-2xl: 140px;
   flex-direction: column;
   gap: $Spacing-xl;
 
+  padding-bottom: $Spacing-xl;
+
   @include media("tablet") {
+    padding-bottom: $Spacing-2xl;
     gap: $Spacing-2xl;
   }
 }

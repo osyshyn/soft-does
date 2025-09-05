@@ -16,6 +16,7 @@ import { React } from "@shared/assets/icons/technologies/react";
 
 import s from "./technologies.module.scss";
 import clsx from "clsx";
+import { H2 } from "@shared/components/typography";
 
 const TECHNOLOGIES = [
   Node,
@@ -39,7 +40,7 @@ export const Technologies = () => {
   return (
     <section className={"wrapper"}>
       <div className={clsx(s.root, "container")}>
-        <h2 className={s.title}>Technologies we work with </h2>
+        <H2 className={s.title}>Technologies we work with </H2>
         <ul>
           {TECHNOLOGIES.map((Item, index) => (
             <li key={index}>

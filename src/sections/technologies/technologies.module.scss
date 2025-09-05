@@ -3,27 +3,20 @@
 .root {
   @include fontJetBrains;
   color: white;
-  padding-bottom: 90px;
 
   .title {
-    font-size: $FontSize-h1;
-    font-weight: 300;
-    line-height: 90%;
-    letter-spacing: -0.08em;
-    text-transform: uppercase;
-
-    margin-bottom: 32px;
+    margin-bottom: $Spacing-sm;
     max-width: 896px;
 
     @include media("tablet") {
-      margin-bottom: 80px;
+      margin-bottom: $Spacing-lg;
     }
   }
 
   ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 12px;
 
     li {
       display: flex;
@@ -47,6 +40,7 @@
   @include media("tablet") {
     ul {
       grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
 
       li {
         padding: 25px;
@@ -54,12 +48,15 @@
     }
   }
 
-  @include media("laptop") {
-    padding-bottom: 180px;
+  @include media("tabletVertical") {
+    ul {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
 
+  @include media("desktopM") {
     ul {
       gap: 25px;
-      grid-template-columns: repeat(5, 1fr);
 
       li {
         padding: 52px;
@@ -74,6 +71,14 @@
   height: auto;
 
   @include media("phoneL") {
+    width: 50px;
+  }
+
+  @include media("tabletVertical") {
+    width: 60px;
+  }
+
+  @include media("desktopM") {
     width: 70px;
   }
 }
