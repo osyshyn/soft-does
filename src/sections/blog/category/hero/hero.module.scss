@@ -22,10 +22,6 @@
 }
 
 .title {
-  @include fontJetBrains;
-  text-transform: uppercase;
-  font-weight: 300;
-
   max-width: 949px;
   margin-bottom: 48px;
 

@@ -4,29 +4,19 @@
   @include fontJetBrains;
   background-color: black;
   color: #ffffff;
-  padding-bottom: 90px;
-
-  @include media("tablet") {
-    padding-bottom: 160px;
-  }
 }
 
 .content {
   h2 {
-    font-size: $FontSize-h1;
-    font-weight: 300;
-    line-height: 90%;
-    letter-spacing: -0.08em;
-    text-transform: uppercase;
-    margin-bottom: 32px;
+    margin-bottom: $Spacing-md;
 
-    @include media("tablet") {
-      margin-bottom: 80px;
+    @include media(laptop) {
+      margin-bottom: $Spacing-lg;
     }
   }
 
   .block {
-    padding: 40px 20px;
+    padding: 24px 16px;
 
     border: 0.5px solid rgba(255, 255, 255, 0.4);
     background:
@@ -44,7 +34,7 @@
       ),
       rgba(255, 255, 255, 0.04);
 
-    @include media(tabletVertical) {
+    @include media(tablet) {
       background:
         conic-gradient(
           from 80deg at 50% 23.3%,
@@ -62,6 +52,8 @@
     }
 
     @include media(laptop) {
+      padding: 40px 20px;
+
       background:
         conic-gradient(
           from 80deg at 34% 23.3%,
@@ -78,16 +70,12 @@
         rgba(255, 255, 255, 0.04);
     }
 
-    @include media(tablet) {
-      padding: 52px 30px;
-    }
-
     .list {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
 
-      @include media(tabletVertical) {
+      @include media(tablet) {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -100,12 +88,6 @@
         grid-row: span 2;
 
         .serviceTitle {
-          font-weight: 200;
-          line-height: 110%;
-          letter-spacing: -0.08em;
-          text-transform: uppercase;
-
-          font-size: 24px;
           padding-bottom: 16px;
 
           &::before,
@@ -128,13 +110,6 @@
         }
 
         .description {
-          @include fontAbel;
-          font-style: normal;
-          font-weight: 400;
-          font-size: 18px;
-          line-height: 150%;
-          letter-spacing: -0.04em;
-
           max-width: 382px;
         }
       }
@@ -156,8 +131,8 @@
 
         p {
           flex: 1 1 100%;
-          font-weight: 200;
-          font-size: 14px;
+          // font-weight: 200;
+          // font-size: 14px;
           text-transform: uppercase;
           transition: color 0.5s ease-in-out;
         }
@@ -183,12 +158,8 @@
           }
         }
 
-        @include media("tablet") {
+        @include media(tabletVertical) {
           padding: 12px 30px;
-
-          p {
-            font-size: 20px;
-          }
         }
       }
     }

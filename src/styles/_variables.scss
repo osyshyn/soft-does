@@ -55,6 +55,16 @@ $Spacing-2xl: 140px;
   }
 }
 
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $Spacing-xl;
+
+  @include media("tablet") {
+    gap: $Spacing-2xl;
+  }
+}
+
 .separateSectionWrapper {
   padding-bottom: 60px;
   padding-top: 60px;

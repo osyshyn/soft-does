@@ -275,20 +275,22 @@ export default function IndustriesPage() {
         }}
       />
 
-      <Hero
-        data={data.hero}
-        heroImg={HeroImg}
-        backgroundKey="pink"
-        isDynamicImage
-        heroImgClassName={s.heroImg}
-        textContainerClassName={s.textContainer}
-      />
-      <Industries />
-      <Solutions />
-      <Testimonials />
-      <Engagement />
-
       <div className="sectionWrapper">
+        <Hero
+          data={data.hero}
+          heroImg={HeroImg}
+          backgroundKey="pink"
+          isDynamicImage
+          heroImgClassName={s.heroImg}
+          textContainerClassName={s.textContainer}
+        />
+      </div>
+
+      <div className="pageWrapper">
+        <Industries />
+        <Solutions />
+        <Testimonials />
+        <Engagement />
         <Portfolio />
       </div>
     </Layout>

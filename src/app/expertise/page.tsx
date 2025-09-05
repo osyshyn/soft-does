@@ -284,9 +284,18 @@ export default function ExpertisePage() {
           heroImgClassName={s.heroImg}
         />
       </div>
-      <Solutions />
-      <Consulting />
-      <Industries />
+
+      <div className="sectionWrapper">
+        <Solutions />
+      </div>
+
+      <div className="sectionWrapper">
+        <Consulting />
+      </div>
+
+      <div className="sectionWrapper">
+        <Industries />
+      </div>
     </Layout>
   );
 }

@@ -6,15 +6,16 @@ import hero from "@assets/images/services/service-hero_shadow.png";
 
 import s from "./hero.module.scss";
 import clsx from "clsx";
+import { H1 } from "@shared/components/typography";
 
 export const Hero = () => {
   return (
     <section className={clsx(s.root, "wrapper")}>
       <div className={clsx(s.container, "container")}>
         <Kansas />
-        <h1 className={s.title}>
+        <H1 className={s.title}>
           <span>Soft does</span> services
-        </h1>
+        </H1>
         <p className={s.tagText}>
           Get software that scales, adapts, and drives results—no fluff, just
           the tools you need to grow.

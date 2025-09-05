@@ -8,6 +8,7 @@ import Light from "@shared/assets/images/services/light.png";
 
 import s from "./engagement-options.module.scss";
 import clsx from "clsx";
+import { H2, H6 } from "@shared/components/typography";
 
 const OPTIONS = [
   {
@@ -55,7 +56,7 @@ export const Engagement = () => {
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx(s.content, "container")}>
-        <h2 className={s.rootTitle}>Engagement Options</h2>
+        <H2 className={s.rootTitle}>Engagement Options</H2>
 
         <ul className={s.list}>
           {OPTIONS.map((item, index) => (
@@ -68,7 +69,7 @@ export const Engagement = () => {
                   height={item.image.height}
                 />
               </div>
-              <h3 className={s.title}>{item.title}</h3>
+              <H6 className={s.title}>{item.title}</H6>
               <ul>
                 <li className={s.point}>
                   <Pin className={s.pin} />

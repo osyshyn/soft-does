@@ -4,17 +4,12 @@
   background: #000;
   color: #fff;
   overflow: hidden;
-  padding-bottom: 90px;
   padding-left: 16px;
   padding-right: 16px;
 
   @media (min-width: 550px) {
     padding-left: 0px;
     padding-right: 0px;
-  }
-
-  @include media("tablet") {
-    padding-bottom: 160px;
   }
 }
 

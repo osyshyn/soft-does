@@ -5,6 +5,7 @@ import Consulting1 from "@assets/images/expertise/consulting1.png";
 import Consulting2 from "@assets/images/expertise/consulting2.png";
 
 import s from "./consulting.module.scss";
+import { H4, TextMd } from "@shared/components/typography";
 
 interface CardProps {
   img: StaticImageData;
@@ -16,8 +17,10 @@ interface CardProps {
 const Card = ({ img, title, text, imagePosition = "right" }: CardProps) => (
   <div className={clsx(s.block, { [s.reverse]: imagePosition === "left" })}>
     <div className={s.block__content}>
-      <h3 className={s.block__title}>{title}</h3>
-      <p className={s.block__text}>{text}</p>
+      <H4 as="p" className={s.block__title}>
+        {title}
+      </H4>
+      <TextMd className={s.block__text}>{text}</TextMd>
     </div>
     <div className={s.block__image}>
       <Image src={img} alt="" fill style={{ objectFit: "cover" }} />

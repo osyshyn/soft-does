@@ -5,14 +5,16 @@ interface HeadingProps {
   variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   children: React.ReactNode;
   className?: string;
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
 }
 
 export const Heading: React.FC<HeadingProps> = ({
   variant,
   children,
   className,
+  as,
 }) => {
-  const Component = variant;
+  const Component = as || variant;
 
   return (
     <Component className={`${s.heading} ${s[variant]} ${className || ""}`}>

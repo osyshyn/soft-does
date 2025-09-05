@@ -4,7 +4,7 @@ import s from "./hero-text.module.scss";
 import clsx from "clsx";
 import { HideContacts } from "@shared/providers/no-contact-provider";
 import { ScrollToContact } from "../scroll-to-contact";
-import { H1 } from "../typography";
+import { H1, TextLg } from "../typography";
 
 const HeroText = ({
   title,
@@ -31,7 +31,7 @@ const HeroText = ({
         {titleSpan && <span>{titleSpan}</span>} {title}
       </H1>
 
-      {text && <p className={s.tagText}>{text}</p>}
+      {text && <TextLg className={s.tagText}>{text}</TextLg>}
 
       <HideContacts>
         <ScrollToContact>{buttonText}</ScrollToContact>

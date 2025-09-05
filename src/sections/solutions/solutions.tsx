@@ -7,6 +7,7 @@ import s from "./solutions.module.scss";
 import clsx from "clsx";
 import useIsMobile from "@shared/hooks/useIsMobile";
 import PreservingLink from "@shared/components/preserving-link/preserving-link";
+import { H2, H6, TextLg, TextXl } from "@shared/components/typography";
 
 export const Solutions = () => {
   const isMobile = useIsMobile(1024);
@@ -15,7 +16,8 @@ export const Solutions = () => {
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx(s.content, "container")}>
-        <h2>{data.solutions.title}</h2>
+        <H2>{data.solutions.title}</H2>
+
         <div className={s.block}>
           <List items={items} />
         </div>
@@ -28,17 +30,17 @@ const List = ({ items }: { items: { title: string; href: string }[] }) => {
   return (
     <ul className={s.list}>
       <li className={s.firstCell}>
-        <h3 className={s.serviceTitle}>API Integration Services</h3>
-        <p className={s.description}>
+        <H6 className={s.serviceTitle}>API Integration Services</H6>
+        <TextLg className={s.description}>
           Create and enhance your software product with powerful and
           cost-effective technology
-        </p>
+        </TextLg>
       </li>
 
       {items.map((item, index) => (
         <li key={index}>
           <PreservingLink className={s.link} href={item.href}>
-            <p>{item.title}</p>
+            <TextXl>{item.title}</TextXl>
             <ArrowUpAndRightIcon className={s.img} />
           </PreservingLink>
         </li>
