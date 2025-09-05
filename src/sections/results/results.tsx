@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import s from "./results.module.scss";
+import { H2, Text2Xl } from "@shared/components/typography";
 
 export const Results = () => {
   return (
@@ -7,20 +8,30 @@ export const Results = () => {
       <div className={clsx(s.content, "container")}>
         <ul>
           <li>
-            <p className={s.number}>9</p>
-            <p className={s.text}>years on the market</p>
+            <H2 as="p" className={s.number}>
+              9
+            </H2>
+            <Text2Xl className={s.text}>years on the market</Text2Xl>
           </li>
           <li>
-            <p className={s.number}>73%</p>
-            <p className={s.text}>new clients come from referrals.</p>
+            <H2 as="p" className={s.number}>
+              73%
+            </H2>
+            <Text2Xl className={s.text}>
+              new clients come from referrals.
+            </Text2Xl>
           </li>
           <li>
-            <p className={s.number}>350+</p>
-            <p className={s.text}>finished projects</p>
+            <H2 as="p" className={s.number}>
+              350+
+            </H2>
+            <Text2Xl className={s.text}>finished projects</Text2Xl>
           </li>
           <li>
-            <p className={s.number}>40+</p>
-            <p className={s.text}>software engineers</p>
+            <H2 as="p" className={s.number}>
+              40+
+            </H2>
+            <Text2Xl className={s.text}>software engineers</Text2Xl>
           </li>
         </ul>
       </div>

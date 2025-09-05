@@ -3,7 +3,7 @@ import { Hero } from "@sections/hero/hero";
 import { GridPorfolio } from "@sections/grid-porfolio/grid-porfolio";
 
 import Layout from "@shared/components/layout/layout";
-import data from "@shared/texts/industries/index.json";
+import data from "@shared/texts/portfolio/index.json";
 import HeroImg from "@assets/images/portfolio/hero.png";
 import s from "./porfolio.module.scss";
 import { Metadata } from "next";

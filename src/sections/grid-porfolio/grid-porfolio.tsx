@@ -9,6 +9,8 @@ import Notebook2 from "@shared/assets/images/services/2notebook.png";
 
 import s from "./grid-porfolio.module.scss";
 import clsx from "clsx";
+import { H2 } from "@shared/components/typography";
+import Button from "@shared/components/buttons";
 
 const CATEGORIES = [
   "All project",
@@ -97,7 +99,7 @@ export const GridPorfolio = () => {
   return (
     <section className={clsx(s.root, "wrapper")}>
       <div className={clsx(s.container, "container")}>
-        <h2 className={s.title}>Works for our customers</h2>
+        <H2 className={s.title}>Works for our customers</H2>
         <div className={s.nav}>
           {CATEGORIES.map((category) => (
             <button
@@ -132,7 +134,9 @@ export const GridPorfolio = () => {
                 very start, they’ve been able to staff an effective development
                 team in no time and perform as expected.”
               </p>
-              <button className={s.readMore}>Read more</button>
+              <Button variant="secondary" className={s.readMore}>
+                Read more
+              </Button>
             </li>
           ))}
         </ul>
