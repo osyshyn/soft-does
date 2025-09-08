@@ -1,16 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-
-import Iphone from "@shared/assets/images/services/Iphone14Pro.png";
-import Notebook from "@shared/assets/images/services/Notebook.png";
-import Notebook2 from "@shared/assets/images/services/2notebook.png";
 
 import s from "./grid-porfolio.module.scss";
 import clsx from "clsx";
 import { H2 } from "@shared/components/typography";
-import Button from "@shared/components/buttons";
+import { PortfolioCard } from "@shared/components/cards";
+import { PROJECTS } from "@shared/mocks";
+import ListFilter from "@shared/components/list-filter/list-filter";
 
 const CATEGORIES = [
   "All project",
@@ -20,72 +17,6 @@ const CATEGORIES = [
   "UX",
   "UI",
   "Branding",
-];
-
-const PROJECTS = [
-  {
-    id: 1,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    category: "Web app",
-    img: Iphone,
-  },
-  {
-    id: 2,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    category: "Mobile app",
-    img: Notebook,
-  },
-  {
-    id: 3,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    category: "Development",
-    img: Notebook2,
-  },
-  {
-    id: 4,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    category: "UX",
-    img: Iphone,
-  },
-  {
-    id: 5,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    category: "UI",
-    img: Notebook,
-  },
-  {
-    id: 6,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    category: "Branding",
-    img: Notebook2,
-  },
-  {
-    id: 7,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    category: "Web app",
-    img: Iphone,
-  },
-  {
-    id: 8,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    category: "Mobile app",
-    img: Notebook,
-  },
-  {
-    id: 9,
-    title: "Simon Jones",
-    subtitle: "CIO in Healthcare",
-    category: "UX",
-    img: Notebook2,
-  },
 ];
 
 export const GridPorfolio = () => {
@@ -101,42 +32,22 @@ export const GridPorfolio = () => {
       <div className={clsx(s.container, "container")}>
         <H2 className={s.title}>Works for our customers</H2>
         <div className={s.nav}>
-          {CATEGORIES.map((category) => (
-            <button
-              key={category}
-              className={clsx(
-                s.filterButton,
-                activeCategory === category && s.active
-              )}
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </button>
-          ))}
+          <ListFilter
+            value={activeCategory}
+            onChange={setActiveCategory}
+            categories={CATEGORIES}
+          />
         </div>
 
         <ul className={s.projectsContainer}>
           {filteredProjects.map((project) => (
-            <li className={s.project} key={project.id}>
-              <Image
-                className={s.image}
-                src={project.img.src}
-                width={project.img.width}
-                height={project.img.height}
-                aria-hidden
-                alt=""
+            <li key={project.id}>
+              <PortfolioCard
+                img={project.img}
+                title={project.title}
+                subtitle={project.subtitle}
+                description={project.description}
               />
-              <h3 className={s.cardTitle}>{project.title}</h3>
-              <p className={s.subtitle}>{project.subtitle}</p>
-              <p className={s.description}>
-                “Yalantis has been a great fit for us because of their
-                experience, responsiveness, value, and time to market. From the
-                very start, they’ve been able to staff an effective development
-                team in no time and perform as expected.”
-              </p>
-              <Button variant="secondary" className={s.readMore}>
-                Read more
-              </Button>
             </li>
           ))}
         </ul>

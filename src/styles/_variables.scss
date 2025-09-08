@@ -20,6 +20,8 @@ $Container-Width: 1600px;
 // Colors
 $Black: #000;
 $White: #fff;
+$Yellow: #cfec57;
+$Orange: #f28b82;
 
 $Dark-Gray: #808080;
 
@@ -50,7 +52,7 @@ $Spacing-2xl: 140px;
 .sectionWrapper {
   padding-bottom: $Spacing-xl;
 
-  @include media("tablet") {
+  @include media("tabletVertical") {
     padding-bottom: $Spacing-2xl;
   }
 }
@@ -62,7 +64,7 @@ $Spacing-2xl: 140px;
 
   padding-bottom: $Spacing-xl;
 
-  @include media("tablet") {
+  @include media("tabletVertical") {
     padding-bottom: $Spacing-2xl;
     gap: $Spacing-2xl;
   }
@@ -72,7 +74,7 @@ $Spacing-2xl: 140px;
   padding-bottom: 60px;
   padding-top: 60px;
 
-  @include media("tablet") {
+  @include media("tabletVertical") {
     padding-bottom: 120px;
     padding-top: 120px;
   }

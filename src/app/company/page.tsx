@@ -286,15 +286,13 @@ export default function Company() {
         />
       </div>
 
-      <div className={"sectionWrapper"}>
+      <div className={"pageWrapper"}>
         <Results />
-      </div>
 
-      <div className={"sectionWrapper"}>
         <Stats />
-      </div>
 
-      <Steps />
+        <Steps />
+      </div>
     </Layout>
   );
 }

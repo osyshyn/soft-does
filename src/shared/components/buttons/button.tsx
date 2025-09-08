@@ -7,7 +7,7 @@ interface ButtonProps {
   className?: string;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
-  variant?: "primary" | "secondary" | "white";
+  variant?: "primary" | "secondary" | "white" | "outlined";
   rounded?: "md" | "lg";
   size?: "sm" | "md" | "lg";
 }

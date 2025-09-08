@@ -2,6 +2,7 @@ import { ArrowUpAndRight } from "@shared/assets/icons/arrow-up-and-right";
 
 import s from "./results.module.scss";
 import clsx from "clsx";
+import { H5, Text2Xl } from "@shared/components/typography";
 
 const RESULTS = [
   {
@@ -34,10 +35,10 @@ export const Results = () => {
           {RESULTS.map((result) => (
             <li key={result.id}>
               <div className={s.textDiv}>
-                <p className={s.text}>{result.text}</p>
+                <Text2Xl className={s.text}>{result.text}</Text2Xl>
               </div>
               <div className={s.numberDiv}>
-                <p className={s.number}>12+</p>
+                <H5 className={s.number}>{result.number}</H5>
                 <ArrowUpAndRight className={s.arrowIcon} />
               </div>
             </li>

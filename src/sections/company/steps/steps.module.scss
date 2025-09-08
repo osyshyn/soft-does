@@ -1,32 +1,16 @@
 @use "styles/global" as *;
 
 .root {
-  @include fontJetBrains;
   color: white;
-  padding-bottom: 180px;
-  // width: 100%;
 
   position: relative;
 
   h2 {
-    font-weight: 300;
-
-    font-size: 32px;
-    line-height: 90%;
-    letter-spacing: -0.08em;
-    text-transform: uppercase;
     text-align: center;
+    margin-bottom: $Spacing-md;
 
-    margin-bottom: 50px;
-    max-width: 100%;
-
-    @include media("tablet") {
-      font-size: 48px;
-    }
-
-    @include media("laptop") {
-      font-size: 120px;
-      margin-bottom: 200px;
+    @include media(laptop) {
+      margin-bottom: $Spacing-lg;
     }
   }
 }
@@ -36,6 +20,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  gap: 54px;
 }
 
 .steps {
@@ -204,17 +189,10 @@
       flex: unset;
     }
 
-    h3 {
-      font-weight: 200;
-      font-size: 24px;
-      line-height: 110%;
-      letter-spacing: -0.08em;
-      text-transform: uppercase;
-
+    h6 {
       margin-bottom: 16px;
 
       @include media("laptop") {
-        font-size: 32px;
         margin-bottom: 24px;
       }
     }
@@ -243,11 +221,7 @@
     }
 
     .date {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 150%;
-      letter-spacing: -0.08em;
-      color: rgba(255, 255, 255, 0.6);
+      color: $Dark-Gray;
       text-align: center;
 
       padding: 16px 24px;
@@ -255,23 +229,9 @@
       border: 1px solid #333333;
 
       width: max-content;
-      // align-self: flex-start;
       position: relative;
 
-      // Mobile/Tablet: Add connecting line to timeline
-      // &::before {
-      //   content: "";
-      //   position: absolute;
-      //   right: 100%;
-      //   top: 50%;
-      //   transform: translateY(-50%);
-      //   width: 24px;
-      //   height: 2px;
-      //   background-color: #cfec57;
-      // }
-
       @include media("tabletVertical") {
-        font-size: 18px;
         padding: 20px 28px;
 
         &::before {
@@ -280,9 +240,7 @@
       }
 
       @include media("laptop") {
-        font-size: 20px;
         padding: 24px 32px;
-        // align-self: auto;
 
         &::before {
           display: none;
@@ -338,15 +296,7 @@
     }
 
     .detailsTitle {
-      @include fontAbel;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 140%;
-      color: rgba(255, 255, 255, 0.6);
-
-      @include media("laptop") {
-        font-size: 20px;
-      }
+      color: $Dark-Gray;
     }
 
     &:nth-child(even) .detailsTitle {
@@ -482,15 +432,7 @@
           }
 
           p:nth-child(1) {
-            font-weight: 400;
-            font-size: 32px;
-            line-height: 150%;
             text-align: right;
-            letter-spacing: -0.08em;
-
-            @include media("laptop") {
-              font-size: 40px;
-            }
 
             span {
               color: #cfec57;
@@ -499,14 +441,7 @@
 
           p:nth-child(2) {
             @include fontAbel;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 140%;
-            color: rgba(255, 255, 255, 0.6);
-
-            @include media("laptop") {
-              font-size: 18px;
-            }
+            color: $Dark-Gray;
           }
         }
 
@@ -530,15 +465,7 @@
   }
 
   .text {
-    @include fontAbel;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 140%;
-    color: rgba(255, 255, 255, 0.6);
-
-    @include media("laptop") {
-      font-size: 16px;
-    }
+    color: $Dark-Gray;
 
     &:nth-child(2) {
       margin-bottom: 16px;
@@ -604,4 +531,9 @@
     left: calc(50% - 1px);
     transform: translateX(-50%);
   }
+}
+
+.blockTitle {
+  margin-bottom: $Spacing-xs;
+  color: $Dark-Gray;
 }

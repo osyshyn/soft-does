@@ -15,6 +15,7 @@ import s from "./steps.module.scss";
 import clsx from "clsx";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { H2, H6, TextLg, TextMd, TextXl } from "@shared/components/typography";
 
 export const Steps = () => {
   const containerRef = useRef(null);
@@ -28,7 +29,7 @@ export const Steps = () => {
   return (
     <section className={clsx(s.root, "wrapper")}>
       <div className={clsx(s.container, "container")}>
-        <h2>Steps in the development of our company </h2>
+        <H2>Steps in the development of our company </H2>
 
         <div ref={containerRef} className={s.timelineWrapper}>
           <div className={s.steps}>
@@ -48,16 +49,16 @@ export const Steps = () => {
             <li>
               <div className={s.leftBlock}>
                 <div className={s.info}>
-                  <h3>The Beginning</h3>
+                  <H6>The Beginning</H6>
                   <div className={s.textDiv}>
-                    <p className={s.text}>
+                    <TextMd className={s.text}>
                       Our team of highly skilled developers have joined forces
                       to provide premium software development services to our
                       clients. We strived not only to create high-quality code,
                       but also to form partnerships based on trust and mutual
                       understanding.
-                    </p>
-                    <p className={s.text}>
+                    </TextMd>
+                    <TextMd className={s.text}>
                       As our first significant task, we implemented a custom web
                       application for a fintech startup. Using JavaScript and
                       Node.js, we created a solution that effectively solved the
@@ -65,16 +66,18 @@ export const Steps = () => {
                       requirements. This project was not only a test of our
                       competence, but also a starting point for further growth
                       and development of the company.
-                    </p>
+                    </TextMd>
                   </div>
                 </div>
               </div>
 
               <div className={s.rightBlock}>
                 <div className={s.details}>
-                  <p className={s.date}>March 2018</p>
+                  <TextXl className={s.date}>March 2018</TextXl>
                   <div className={s.tools}>
-                    <p className={s.detailsTitle}>The tools we used:</p>
+                    <TextXl className={s.detailsTitle}>
+                      The tools we used:
+                    </TextXl>
                     <ul className={s.workImages}>
                       <li>
                         <Image aria-hidden alt="" src={js} />
@@ -94,7 +97,7 @@ export const Steps = () => {
             <li>
               <div className={s.rightBlock}>
                 <div className={s.details}>
-                  <p className={s.date}>September 2019</p>
+                  <TextXl className={s.date}>September 2019</TextXl>
                   <ul className={s.devices}>
                     <li>
                       <Image aria-hidden alt="" fill src={phone} />
@@ -111,16 +114,16 @@ export const Steps = () => {
 
               <div className={s.leftBlock}>
                 <div className={s.info}>
-                  <h3>Growth and development</h3>
+                  <H6>Growth and development</H6>
                   <div className={s.textDiv}>
-                    <p className={s.text}>
+                    <TextMd className={s.text}>
                       During the first year of operation, we successfully closed
                       about 100 projects, which confirmed our ability to quickly
                       adapt to client requests and effectively cope with tasks
                       of varying complexity. This became the basis for our
                       further development and strengthening of our market
                       position.
-                    </p>
+                    </TextMd>
                   </div>
                 </div>
               </div>
@@ -129,9 +132,9 @@ export const Steps = () => {
             <li>
               <div className={s.leftBlock}>
                 <div className={s.info}>
-                  <h3>Specialisation</h3>
+                  <H6>Specialisation</H6>
                   <div className={s.textDiv}>
-                    <p className={s.text}>
+                    <TextMd className={s.text}>
                       We have become the best in different areas of development
                       by attracting many specialists with expertise in different
                       areas such as web development, mobile applications and
@@ -139,14 +142,14 @@ export const Steps = () => {
                       enabled us to offer more comprehensive and innovative
                       solutions to our clients, and strengthen our reputation as
                       a trusted partner in the software development industry.
-                    </p>
+                    </TextMd>
                   </div>
                 </div>
               </div>
 
               <div className={s.rightBlock}>
                 <div className={s.details}>
-                  <p className={s.date}>April 2020</p>
+                  <TextXl className={s.date}>April 2020</TextXl>
                   <div className={s.frame}>
                     <Image
                       aria-hidden
@@ -163,11 +166,11 @@ export const Steps = () => {
             <li>
               <div className={s.rightBlock}>
                 <div className={s.details}>
-                  <p className={s.date}>December 2022</p>
+                  <TextXl className={s.date}>December 2022</TextXl>
                   <div className={s.aiDiv}>
-                    <p className={s.detailsTitle}>
+                    <TextLg className={s.detailsTitle}>
                       The first company that started using
-                    </p>
+                    </TextLg>
                     <Ai className={s.aiIcon} />
                   </div>
                 </div>
@@ -175,17 +178,17 @@ export const Steps = () => {
 
               <div className={s.leftBlock}>
                 <div className={s.info}>
-                  <h3>AI implementation</h3>
+                  <H6>AI implementation</H6>
                   <div className={s.textDiv}>
-                    <p className={s.text}>
+                    <TextMd className={s.text}>
                       Towards the end of the year, we began to work extensively
                       with artificial intelligence, integrating AI solutions
                       into software for our clients. This enabled us to create
                       smarter applications that automate processes and improve
                       user experience, giving companies new opportunities to
                       optimise their business processes.
-                    </p>
-                    <p className={s.text}>
+                    </TextMd>
+                    <TextMd className={s.text}>
                       We started developing machine learning algorithms to
                       analyse data and predict user behaviour, enabling our
                       clients to make more informed business decisions. We also
@@ -195,7 +198,7 @@ export const Steps = () => {
                       new AI technologies to stay at the forefront of innovation
                       and offer our customers cutting-edge solutions that meet
                       the most relevant market requirements.
-                    </p>
+                    </TextMd>
                   </div>
                 </div>
               </div>
@@ -204,9 +207,9 @@ export const Steps = () => {
             <li>
               <div className={s.leftBlock}>
                 <div className={s.info}>
-                  <h3>A successful company</h3>
+                  <H6>A successful company</H6>
                   <div className={s.textDiv}>
-                    <p className={s.text}>
+                    <TextMd className={s.text}>
                       We have travelled a thorny and long road and can now
                       proudly call ourselves the best in our field. Our efforts
                       and commitment to excellence have borne fruit and we have
@@ -217,34 +220,36 @@ export const Steps = () => {
                       Today, we continue to grow and develop, striving for new
                       heights and always being one step ahead in the world of
                       technology.
-                    </p>
+                    </TextMd>
                   </div>
                 </div>
               </div>
 
               <div className={s.rightBlock}>
                 <div className={s.details}>
-                  <p className={s.date}>October 2023</p>
+                  <TextXl className={s.date}>October 2023</TextXl>
                   <div className={s.statsDiv}>
-                    <h3>Our statistics for this year were</h3>
+                    <TextLg className={s.blockTitle}>
+                      Our statistics for this year were
+                    </TextLg>
                     <ul className={s.stats}>
                       <li>
-                        <p>
+                        <TextXl>
                           100<span>+</span>
-                        </p>
-                        <p>Regular Customers</p>
+                        </TextXl>
+                        <TextLg>Regular Customers</TextLg>
                       </li>
                       <li>
-                        <p>
+                        <TextXl>
                           18k<span>+</span>
-                        </p>
-                        <p>Completed Projects</p>
+                        </TextXl>
+                        <TextLg>Completed Projects</TextLg>
                       </li>
                       <li>
-                        <p>
+                        <TextXl>
                           100<span>+</span>
-                        </p>
-                        <p>Award Winning</p>
+                        </TextXl>
+                        <TextLg>Award Winning</TextLg>
                       </li>
                     </ul>
                   </div>

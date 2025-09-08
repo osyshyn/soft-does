@@ -10,6 +10,8 @@
   line-height: 100%;
   letter-spacing: -0.08em;
   text-transform: uppercase;
+
+  transition: all 0.5s ease;
 }
 
 .rounded-md {
@@ -103,6 +105,11 @@
   );
 
   color: #ffffff;
+
+  &:hover {
+    border-color: $Yellow;
+    color: $Yellow;
+  }
 }
 
 .white {
@@ -122,6 +129,17 @@
   transition: background-color 0.5s ease;
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color: $Yellow;
+  }
+}
+
+.outlined {
+  background-color: black;
+  border: 1px solid rgba(207, 236, 87, 0.3);
+
+  color: #ffffff;
+
+  &:hover {
+    border-color: #cfec57;
   }
 }

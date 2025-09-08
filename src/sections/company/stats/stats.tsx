@@ -7,6 +7,29 @@ import spiral from "@shared/assets/images/company/spiral.png";
 
 import s from "./stats.module.scss";
 import clsx from "clsx";
+import { H3, H4, Text2Xl } from "@shared/components/typography";
+
+const NUMBERS = [
+  {
+    number: "$2m+",
+    text: "In pure profits for our clients",
+  },
+
+  {
+    number: "100%",
+    text: "Data Confidentiality",
+  },
+
+  {
+    number: "300+",
+    text: "Regular Customers",
+  },
+
+  {
+    number: "25k+",
+    text: "Completed Projects",
+  },
+];
 
 export const Stats = () => {
   return (
@@ -35,42 +58,23 @@ export const Stats = () => {
                 width={spiral.width}
                 height={spiral.height}
               />
-              <p className={s.spiralText}>
-                We Transforming Businesses with Cutting-Edge Solutions
-              </p>
+              <H4 className={s.spiralText}>
+                <span>&gt;</span> We Transforming Businesses with Cutting-Edge
+                Solutions <span>&lt;</span>
+              </H4>
             </div>
           </li>
         </ul>
 
         <ul className={s.stats}>
-          <li>
-            <p className={s.number}>$2m+</p>
-            <p className={s.text}>In pure profits for our clients</p>
-          </li>
-          <li>
-            <div className={s.numberDiv}>
-              <p className={s.number}>100%</p>
-            </div>
-            <div className={s.textDiv}>
-              <p className={s.text}>Data Confidentiality</p>
-            </div>
-          </li>
-          <li>
-            <div className={s.numberDiv}>
-              <p className={s.number}>300+</p>
-            </div>
-            <div className={s.textDiv}>
-              <p className={s.text}>Regular Customers</p>
-            </div>
-          </li>
-          <li>
-            <div className={s.numberDiv}>
-              <p className={s.number}>25k+</p>
-            </div>
-            <div className={s.textDiv}>
-              <p className={s.text}>Completed Projects</p>
-            </div>
-          </li>
+          {NUMBERS.map((number) => (
+            <li key={number.number}>
+              <H3 as="p" className={s.number}>
+                {number.number}
+              </H3>
+              <Text2Xl className={s.text}>{number.text}</Text2Xl>
+            </li>
+          ))}
         </ul>
       </div>
     </section>

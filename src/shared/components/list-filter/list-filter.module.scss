@@ -1,0 +1,25 @@
+@use "styles/global" as *;
+
+.block {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+
+  @include media("tablet") {
+    justify-content: flex-start;
+  }
+
+  @include media("tabletVertical") {
+    gap: 16px;
+  }
+}
+
+.tab {
+  flex-shrink: 0;
+}
+
+.active {
+  background-color: $Yellow;
+  color: $Black;
+}

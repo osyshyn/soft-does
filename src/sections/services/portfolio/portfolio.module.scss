@@ -1,32 +1,22 @@
 @use "styles/global" as *;
 
-.root {
+.page {
   @include fontJetBrains;
   background-color: black;
   color: white;
-}
 
-.container {
-  margin-bottom: 60px;
-
-  h2 {
-    font-weight: 300;
-    font-size: $FontSize-h1;
-    line-height: 90%;
-    letter-spacing: -0.08em;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 30px;
+  &__title {
+    margin-bottom: $Spacing-md;
 
     @include media("tablet") {
-      text-align: left;
+      margin-bottom: $Spacing-lg;
     }
   }
 
-  .nav {
+  &__nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
     justify-content: center;
 
     @include media("tablet") {
@@ -34,33 +24,22 @@
     }
 
     @include media("tabletVertical") {
-      gap: 23px;
-    }
-
-    .filterButton {
-      @include fontJetBrains;
-      padding: 12px;
-      background-color: black;
-      border: 1px solid rgba(207, 236, 87, 0.3);
-      border-radius: 4px;
-
-      font-weight: 200;
-      font-size: 16px;
-      line-height: 90%;
-      text-transform: uppercase;
-      color: #ffffff;
-
-      @include media("tabletVertical") {
-        padding: 20px;
-        font-size: 20px;
-      }
+      gap: 16px;
     }
   }
 }
 
+.container {
+  margin-bottom: $Spacing-md;
+
+  @include media("tablet") {
+    margin-bottom: $Spacing-lg;
+  }
+}
+
 .active {
-  border: 1px solid #cfec57;
-  border-radius: 4px;
+  background-color: #cfec57;
+  color: #000;
 }
 
 .swiperContainer {
@@ -136,7 +115,7 @@
   border: 1px solid rgba(255, 255, 255, 0.16);
 
   .image {
-    margin-bottom: 32px;
+    margin-bottom: $Spacing-sm;
     width: 100%;
 
     img {
@@ -148,30 +127,20 @@
   }
 
   .cardTitle {
-    font-weight: 200;
-    font-size: 20px;
-    line-height: 90%;
-    text-transform: uppercase;
-
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   .subtitle {
-    font-weight: 200;
-    line-height: 90%;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
+    color: $Dark-Gray;
 
-    margin-bottom: 32px;
+    margin-bottom: $Spacing-sm;
   }
 
   .description {
-    @include fontAbel;
-    font-weight: 400;
-    line-height: 140%;
-    color: rgba(255, 255, 255, 0.6);
+    color: $Dark-Gray;
 
-    margin-bottom: 32px;
+    margin-bottom: $Spacing-sm;
     max-width: 376px;
   }
 
@@ -215,7 +184,7 @@
 
   .progress {
     height: 100%;
-    background: rgba(255, 255, 255, 0.6);
+    background: $Yellow;
     width: 0%;
     transition: width 0.3s ease;
   }
