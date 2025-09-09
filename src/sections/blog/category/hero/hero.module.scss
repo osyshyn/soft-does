@@ -7,8 +7,6 @@
   color: white;
   position: relative;
 
-  margin-bottom: 60px;
-
   display: flex;
   justify-content: center;
 
@@ -17,13 +15,11 @@
   @include media("tablet") {
     padding-top: 236px;
     padding-bottom: 236px;
-    margin-bottom: 140px;
   }
 }
 
 .title {
   max-width: 949px;
-  margin-bottom: 48px;
 
   span {
     background:

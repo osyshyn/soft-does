@@ -77,7 +77,7 @@ export const Releases = () => {
                     className={s.category__btn}
                     href={`/insights/category/${categoryId}`}
                   >
-                    <Button variant="secondary" size="lg">
+                    <Button variant="secondary">
                       More
                       <Arrow className={s.category__arrow} />
                     </Button>

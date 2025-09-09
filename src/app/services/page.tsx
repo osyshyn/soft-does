@@ -1,17 +1,19 @@
 import { Metadata } from "next";
 import { ROUTES } from "@shared/constants/routes";
 
-import { Hero } from "@sections/services/hero/hero";
 import { Expertise } from "@sections/services/expertise/expertise";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Industries } from "@sections/services/industries/industries";
-import { TalkToUs } from "@sections/talk-to-us/talk-to-us";
 import { Solutions } from "@sections/solutions/solutions";
 import { Portfolio } from "@sections/services/portfolio/portfolio";
 
 import s from "./services.module.scss";
 
+import HeroImg from "@assets/images/services/service-hero.png";
+
 import Layout from "@shared/components/layout/layout";
+import { Hero } from "@sections/hero/hero";
+import data from "@shared/texts/services/index.json";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await import("@shared/texts/seo/index.json");
@@ -275,18 +277,24 @@ export default function Services() {
         }}
       />
 
-      <Hero />
-      <Expertise />
-      <Engagement />
-      <Industries />
-
-      <div className={s.section}>
-        <TalkToUs />
+      <div className="sectionWrapper">
+        <Hero
+          data={data.hero}
+          heroImg={HeroImg}
+          backgroundKey="green"
+          isDynamicImage
+          textContainerClassName={s.textContainer}
+          heroImgClassName={s.heroImg}
+        />
       </div>
 
-      <Solutions />
-
-      <Portfolio />
+      <div className="pageWrapper">
+        <Expertise />
+        <Engagement />
+        <Industries />
+        <Solutions />
+        <Portfolio />
+      </div>
     </Layout>
   );
 }

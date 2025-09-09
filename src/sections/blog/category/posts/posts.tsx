@@ -8,9 +8,8 @@ import { Document } from "@contentful/rich-text-types";
 import { fetchPostsByCategory } from "../../../../app/api/contentful/api";
 import { IAuthor } from "../../../../types/contentful/BlogPost";
 
-import { paginArrowActive as PaginArrowActive } from "@assets/icons/paginArrowActive";
-import { paginArrowDis as PaginArrowDis } from "@assets/icons/paginArrowDis";
 import { BlogCard } from "@shared/components/cards";
+import { Pagination } from "@shared/components";
 
 type Post = {
   sys: { id: string };
@@ -62,50 +61,13 @@ export const CategoryPosts = () => {
         ))}
       </ul>
 
-      <div className={s.pagination}>
-        <button
-          onClick={() => setPage((p) => Math.max(1, p - 1))}
-          disabled={page === 1}
-          aria-label="Previous page"
-          className={s.arrowBtn}
-        >
-          <span
-            style={{ display: "inline-block", transform: "rotate(180deg)" }}
-          >
-            {page === 1 ? (
-              <span
-                style={{ display: "inline-block", transform: "rotate(180deg)" }}
-              >
-                <PaginArrowDis />
-              </span>
-            ) : (
-              <PaginArrowActive />
-            )}
-          </span>
-        </button>
-        <span className={s.pageInfo}>
-          {String(page).padStart(2, "0")}/{String(totalPages).padStart(2, "0")}{" "}
-          Pages
-        </span>
-        <button
-          onClick={() => setPage((p) => (p * limit < total ? p + 1 : p))}
-          disabled={page * limit >= total}
-          aria-label="Next page"
-          className={s.arrowBtn}
-        >
-          <span style={{ display: "inline-block" }}>
-            {page * limit >= total ? (
-              <span
-                style={{ display: "inline-block", transform: "rotate(180deg)" }}
-              >
-                <PaginArrowDis />
-              </span>
-            ) : (
-              <PaginArrowActive />
-            )}
-          </span>
-        </button>
-      </div>
+      <Pagination
+        page={page}
+        onChangePage={setPage}
+        total={total}
+        limit={limit}
+        totalPages={totalPages}
+      />
     </section>
   );
 };

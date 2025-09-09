@@ -5,7 +5,9 @@ import { CategoryPosts } from "@sections/blog/category/posts/posts";
 export default function Category() {
   return (
     <Layout>
-      <CategoryHero />
+      <div className="sectionWrapper">
+        <CategoryHero />
+      </div>
 
       <div className="sectionWrapper">
         <div className="wrapper">

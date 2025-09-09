@@ -1,0 +1,28 @@
+@use "styles/global" as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.arrowBtn {
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  background: transparent;
+  padding: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+
+    @include media("tablet") {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}

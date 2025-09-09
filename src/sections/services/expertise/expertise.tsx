@@ -10,6 +10,8 @@ import s from "./expertise.module.scss";
 import { ProgressArrow } from "@shared/assets/icons/services/progress-arrow";
 import { Arrow } from "@shared/assets/icons/services/arrow";
 import { SERVICES } from "@shared/constants/services";
+import { H2, Text2Xl, TextXl } from "@shared/components/typography";
+import Link from "next/link";
 
 export const Expertise = () => {
   const swiperRef = useRef<SwiperCore>(null);
@@ -20,13 +22,17 @@ export const Expertise = () => {
     <section className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx(s.container, "container")}>
         <div className={s.expContainer}>
-          <h2 className={s.title}>Expertise</h2>
+          <H2 className={s.title}>Expertise</H2>
           <div className={s.progressContainer}>
-            <p>
-              {String(currentStep).padStart(2, "0")} /{" "}
-              {String(allStep).padStart(2, "0")}
+            <p className={s.progressText}>
+              <span>{String(currentStep).padStart(2, "0")}</span>
+              <span>/</span>
+              <span>{String(allStep).padStart(2, "0")}</span>
+
+              <span>
+                <ProgressArrow className={s.progressArrow} />
+              </span>
             </p>
-            <ProgressArrow className={s.progressArrow} />
           </div>
 
           <div className={s.btnContainer}>
@@ -36,7 +42,7 @@ export const Expertise = () => {
                 onClick={() => swiperRef.current?.slidePrev()}
                 disabled={currentStep === 1}
               >
-                ← Back
+                <Text2Xl>← Back</Text2Xl>
               </button>
             )}
           </div>
@@ -59,8 +65,10 @@ export const Expertise = () => {
             }}
             breakpoints={{
               0: { slidesPerView: 1, slidesPerGroup: 1 },
-              640: { slidesPerView: 2, slidesPerGroup: 2 },
-              1024: { slidesPerView: 3, slidesPerGroup: 3 },
+              400: { slidesPerView: 2, slidesPerGroup: 2 },
+              640: { slidesPerView: 3, slidesPerGroup: 3 },
+              1024: { slidesPerView: 4, slidesPerGroup: 4 },
+              1851: { slidesPerView: 3, slidesPerGroup: 3 },
             }}
             className={s.list}
           >
@@ -77,11 +85,11 @@ export const Expertise = () => {
 };
 
 const Card = ({ label, href }: { label: string; href: string }) => (
-  <a href={href} className={s.card}>
+  <Link href={href} className={s.card}>
     <div className={s.card__titleContainer}>
-      <p className={s.card__liTitle}>Soft does</p>
+      <TextXl className={s.card__liTitle}>Soft does</TextXl>
       <Arrow className={s.card__arrow} />
     </div>
-    <p className={s.card__info}>{label}</p>
-  </a>
+    <Text2Xl className={s.card__info}>{label}</Text2Xl>
+  </Link>
 );

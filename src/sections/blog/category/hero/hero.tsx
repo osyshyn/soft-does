@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import s from "./hero.module.scss";
 import { fetchCategoryById } from "../../../../app/api/contentful/api";
-import { H1 } from "@shared/components/typography";
+import { H2 } from "@shared/components/typography";
 import clsx from "clsx";
 
 export const CategoryHero = () => {
@@ -27,7 +27,7 @@ export const CategoryHero = () => {
 
   return (
     <section className={clsx(s.root, "wrapper")}>
-      <H1 className={s.title}>{categoryName || "Category"}</H1>
+      <H2 className={s.title}>{categoryName || "Category"}</H2>
     </section>
   );
 };

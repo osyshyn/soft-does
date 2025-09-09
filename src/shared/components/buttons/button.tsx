@@ -10,6 +10,7 @@ interface ButtonProps {
   variant?: "primary" | "secondary" | "white" | "outlined";
   rounded?: "md" | "lg";
   size?: "sm" | "md" | "lg";
+  disabled?: boolean;
 }
 
 const Button = ({
@@ -20,6 +21,7 @@ const Button = ({
   variant = "primary",
   rounded = "md",
   size = "md",
+  disabled = false,
 }: ButtonProps) => {
   return (
     <button
@@ -32,6 +34,7 @@ const Button = ({
       )}
       onClick={onClick}
       type={type}
+      disabled={disabled}
     >
       {children}
     </button>
