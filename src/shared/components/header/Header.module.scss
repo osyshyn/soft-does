@@ -8,7 +8,7 @@
   right: 0;
 
   z-index: 1000;
-  height: 100px;
+  height: 70px;
   padding: 0 80px;
 
   &::before {
@@ -20,6 +20,10 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(15px);
+  }
+
+  @include media("tablet") {
+    height: 100px;
   }
 
   @media (max-width: 1279px) {
@@ -36,8 +40,12 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  height: 100px;
+  height: 70px;
   align-items: center;
+
+  @include media("tablet") {
+    height: 100px;
+  }
 
   &_burger {
     display: none;
