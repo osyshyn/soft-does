@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, Suspense } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperCore } from "swiper";
@@ -46,73 +46,75 @@ export const Portfolio = () => {
   };
 
   return (
-    <section className={s.page}>
-      <div className={"wrapper"}>
-        <div className={clsx(s.container, "container")}>
-          <H2 className={s.page__title}>Portfolio</H2>
+    <Suspense fallback={<div>Loading...</div>}>
+      <section className={s.page}>
+        <div className={"wrapper"}>
+          <div className={clsx(s.container, "container")}>
+            <H2 className={s.page__title}>Portfolio</H2>
 
-          <ListFilter
-            categories={CATEGORIES}
-            value={activeCategory}
-            onChange={setActiveCategory}
-            queryParam="category"
-          />
-        </div>
-      </div>
-
-      <div className={"wrapper"}>
-        <div className={clsx(s.swiperContainer, "container")}>
-          <div className={clsx(s.nextPrev, s.nextPrev_desktop)}>
-            <button id="prevBtn">{"<"}</button>
-            <button id="nextBtn">{">"}</button>
-          </div>
-          <Swiper
-            modules={[Navigation]}
-            navigation={{ prevEl: "#prevBtn", nextEl: "#nextBtn" }}
-            slidesPerView={1}
-            breakpoints={{
-              768: {
-                slidesPerView: 2,
-              },
-
-              1200: {
-                slidesPerView: 3,
-              },
-
-              1440: {
-                slidesPerView: 3.5,
-              },
-            }}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            onSlideChange={handleSlideChange}
-            className={s.swiper}
-          >
-            {filteredProjects.map((project) => (
-              <SwiperSlide key={project.id}>
-                <PortfolioCard
-                  img={project.img}
-                  title={project.title}
-                  subtitle={project.subtitle}
-                  description={project.description}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
-
-      <div className={"wrapper"}>
-        <div className={clsx("container", s.sliderNav)}>
-          <div className={clsx(s.progressBar)}>
-            <div className={s.progress} style={{ width: `${progress}%` }} />
-          </div>
-
-          <div className={clsx(s.nextPrev, s.nextPrev_mobile)}>
-            <button id="prevBtn">{"<"}</button>
-            <button id="nextBtn">{">"}</button>
+            <ListFilter
+              categories={CATEGORIES}
+              value={activeCategory}
+              onChange={setActiveCategory}
+              queryParam="category"
+            />
           </div>
         </div>
-      </div>
-    </section>
+
+        <div className={"wrapper"}>
+          <div className={clsx(s.swiperContainer, "container")}>
+            <div className={clsx(s.nextPrev, s.nextPrev_desktop)}>
+              <button id="prevBtn">{"<"}</button>
+              <button id="nextBtn">{">"}</button>
+            </div>
+            <Swiper
+              modules={[Navigation]}
+              navigation={{ prevEl: "#prevBtn", nextEl: "#nextBtn" }}
+              slidesPerView={1}
+              breakpoints={{
+                768: {
+                  slidesPerView: 2,
+                },
+
+                1200: {
+                  slidesPerView: 3,
+                },
+
+                1440: {
+                  slidesPerView: 3.5,
+                },
+              }}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              onSlideChange={handleSlideChange}
+              className={s.swiper}
+            >
+              {filteredProjects.map((project) => (
+                <SwiperSlide key={project.id}>
+                  <PortfolioCard
+                    img={project.img}
+                    title={project.title}
+                    subtitle={project.subtitle}
+                    description={project.description}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+
+        <div className={"wrapper"}>
+          <div className={clsx("container", s.sliderNav)}>
+            <div className={clsx(s.progressBar)}>
+              <div className={s.progress} style={{ width: `${progress}%` }} />
+            </div>
+
+            <div className={clsx(s.nextPrev, s.nextPrev_mobile)}>
+              <button id="prevBtn">{"<"}</button>
+              <button id="nextBtn">{">"}</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Suspense>
   );
 };

@@ -7,6 +7,7 @@ import data from "@shared/texts/portfolio/index.json";
 import HeroImg from "@assets/images/portfolio/hero.png";
 import s from "./porfolio.module.scss";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await import("@shared/texts/seo/index.json");
@@ -262,26 +263,28 @@ export default function PortfolioPage() {
   };
 
   return (
-    <Layout talkToUs={false} faq={false}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
+    <Suspense fallback={<div>Loading...</div>}>
+      <Layout talkToUs={false} faq={false}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
 
-      <Hero
-        data={data.hero}
-        heroImg={HeroImg}
-        backgroundKey="grey"
-        isDynamicImage
-        textContainerClassName={s.textContainer}
-        heroImgClassName={s.heroImg}
-      />
+        <Hero
+          data={data.hero}
+          heroImg={HeroImg}
+          backgroundKey="grey"
+          isDynamicImage
+          textContainerClassName={s.textContainer}
+          heroImgClassName={s.heroImg}
+        />
 
-      <div className={s.lastSection}>
-        <GridPorfolio />
-      </div>
-    </Layout>
+        <div className={s.lastSection}>
+          <GridPorfolio />
+        </div>
+      </Layout>
+    </Suspense>
   );
 }
