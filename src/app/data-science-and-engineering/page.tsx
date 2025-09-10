@@ -73,6 +73,7 @@ const content = [
 ];
 
 import HeroImg from "@assets/images/dse/heroObject.png";
+import Testimonials from "@sections/testimonials/testimonials";
 
 export default function DSE() {
   const jsonLd = {
@@ -321,16 +322,15 @@ export default function DSE() {
         heroImgClassName={s.heroImg}
       />
       <Results />
-      <Technologies />
-      <div className="sectionWrapper">
-        <ServicesList services={content} />
-      </div>
 
-      <div className="sectionWrapper">
+      <div className="pageWrapper">
+        <Technologies />
+        <ServicesList services={content} />
+        <Engagement />
         <CaseStudies />
+        <Testimonials />
+        <Solutions />
       </div>
-      <Engagement />
-      <Solutions />
     </Layout>
   );
 }

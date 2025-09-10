@@ -16,7 +16,6 @@
   ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
 
     li {
       display: flex;
@@ -40,7 +39,6 @@
   @include media("tablet") {
     ul {
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
 
       li {
         padding: 25px;
@@ -56,8 +54,6 @@
 
   @include media("desktopM") {
     ul {
-      gap: 25px;
-
       li {
         padding: 52px;
       }

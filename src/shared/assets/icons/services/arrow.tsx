@@ -1,5 +1,12 @@
 export const Arrow = ({ className }: { className: string }) => (
-  <svg width="29" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    className={className}
+    width="29"
+    height="14"
+    viewBox="0 0 29 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path className={className} fill="currentColor" d="M0 6h27v2H0z" />
     <path
       className={className}

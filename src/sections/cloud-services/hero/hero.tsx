@@ -1,9 +1,3 @@
-// import dynamic from "next/dynamic";
-
-// const Spline = dynamic(() => import("@shared/ui/spline"), {
-//   ssr: false,
-// });
-
 const SplineProvider = React.lazy(() => import("@splinetool/react-spline"));
 
 import data from "@texts/cloud-services/index.json";

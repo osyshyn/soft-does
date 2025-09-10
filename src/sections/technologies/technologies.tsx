@@ -41,7 +41,7 @@ export const Technologies = () => {
     <section className={"wrapper"}>
       <div className={clsx(s.root, "container")}>
         <H2 className={s.title}>Technologies we work with </H2>
-        <ul>
+        <ul className={clsx("gap-md")}>
           {TECHNOLOGIES.map((Item, index) => (
             <li key={index}>
               <Item className={s.icon}></Item>

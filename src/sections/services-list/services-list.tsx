@@ -3,23 +3,29 @@ import { Arrow } from "@shared/assets/icons/services/arrow";
 import clsx from "clsx";
 import s from "./services-list.module.scss";
 import PreservingLink from "@shared/components/preserving-link/preserving-link";
+import { H2, H6, TextXl } from "@shared/components/typography";
 
 export const ServicesList = ({ services }: { services: any[] }) => {
   return (
     <section className={clsx(s.root, "wrapper")}>
       <div className={"container"}>
-        <h2 className={s.title}>Our Services</h2>
-        <ul className={s.list}>
+        <H2 className={s.title}>Our Services</H2>
+
+        <ul className={clsx(s.list, "gap-md")}>
           {services.map((item, index) => (
-            <li key={index}>
-              <PreservingLink className={s.link} href={item.link}>
-                <div>
-                  <p className={s.softdoes}>SOFT DOES</p>
+            <li className={s.item} key={index}>
+              <PreservingLink className={s.card} href={item.link}>
+                <div className={s.titleContainer}>
+                  <TextXl>SOFT DOES</TextXl>
                   <Arrow className={s.arrow} />
                 </div>
-                {item.image}
-                <h3 className={s.tag}>{item.title}</h3>
-                <p className={s.text}>{item.text}</p>
+
+                <div className={s.image}>{item.image}</div>
+
+                <div className={s.tagContainer}>
+                  <H6 className={s.tag}>{item.title}</H6>
+                  <TextXl className={s.text}>{item.text}</TextXl>
+                </div>
               </PreservingLink>
             </li>
           ))}

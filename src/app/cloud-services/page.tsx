@@ -1,13 +1,11 @@
 import { ROUTES } from "@shared/constants/routes";
 
 import { Hero } from "@sections/cloud-services/hero/hero";
-import { Results } from "@sections/results/results";
 import { Technologies } from "@sections/technologies/technologies";
 import { ServicesList } from "@sections/services-list/services-list";
 import CaseStudies from "@sections/case-studies/case-studies";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
-import { Industries } from "@sections/services/industries/industries";
 
 import Layout from "@shared/components/layout/layout";
 
@@ -16,6 +14,8 @@ import { Gear } from "@shared/assets/icons/services/cloud-services/gear";
 import { Sync } from "@shared/assets/icons/services/cloud-services/sync";
 import { Lock } from "@shared/assets/icons/services/cloud-services/lock";
 import { Metadata } from "next";
+import Testimonials from "@sections/testimonials/testimonials";
+import { Results } from "@sections/results/results";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await import("@shared/texts/seo/index.json");
@@ -306,17 +306,17 @@ export default function CloudServices() {
         }}
       />
       <Hero />
+
       <Results />
-      <Technologies />
-      <div className="sectionWrapper">
+
+      <div className="pageWrapper">
+        <Technologies />
         <ServicesList services={SERVICES} />
-      </div>
-      <div className="sectionWrapper">
+        <Engagement />
         <CaseStudies />
+        <Testimonials />
+        <Solutions />
       </div>
-      <Engagement />
-      <Solutions />
-      <Industries />
     </Layout>
   );
 }

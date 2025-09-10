@@ -310,16 +310,15 @@ export default function Uiux() {
         heroImgClassName={s.heroImg}
       />
       <Results />
-      <Technologies />
-      <div className="sectionWrapper">
+
+      <div className="pageWrapper">
+        <Technologies />
         <ServicesList services={content} />
-      </div>
-      <Engagement />
-      <div className="sectionWrapper">
+        <Engagement />
         <CaseStudies />
+        <Testimonials />
+        <Solutions />
       </div>
-      <Testimonials />
-      <Solutions />
     </Layout>
   );
 }

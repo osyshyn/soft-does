@@ -36,6 +36,10 @@
   position: relative;
   z-index: 1;
   width: 100%;
+
+  @include media("laptop") {
+    width: 50%;
+  }
 }
 
 .heroText {

@@ -28,7 +28,7 @@ export const Solutions = () => {
 
 const List = ({ items }: { items: { title: string; href: string }[] }) => {
   return (
-    <ul className={s.list}>
+    <ul className={clsx(s.list, "gap-md")}>
       <li className={s.firstCell}>
         <H6 className={s.serviceTitle}>API Integration Services</H6>
         <TextLg className={s.description}>

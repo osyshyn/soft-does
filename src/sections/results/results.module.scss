@@ -27,6 +27,11 @@
       position: relative;
       padding-bottom: 12px;
       text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      padding-top: 8px;
     }
 
     li::before {

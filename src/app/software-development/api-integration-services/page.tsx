@@ -7,7 +7,7 @@ import { Technologies } from "@sections/technologies/technologies";
 import { Testimonials } from "@sections/testimonials/testimonials";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
-
+import CaseStudies from "@sections/case-studies/case-studies";
 import Layout from "@shared/components/layout/layout";
 import s from "./api-integration-services.module.scss";
 
@@ -308,9 +308,10 @@ export default function ApiIntegrationServices() {
       <Results />
       <div className="pageWrapper">
         <Technologies />
-        <Testimonials />
         <Engagement />
+        <Testimonials />
         <Solutions />
+        <CaseStudies />
       </div>
     </Layout>
   );

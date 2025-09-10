@@ -46,6 +46,7 @@ import {
 } from "@assets/icons/services/ai-and-ml/icons";
 import { ServicesList } from "@sections/services-list/services-list";
 import s from "@styles/pages/ai-and-ml.module.scss";
+import Testimonials from "@sections/testimonials/testimonials";
 
 const content = [
   {
@@ -328,17 +329,15 @@ export default function Aiml() {
       />
 
       <Results />
-      <Technologies />
 
-      <div className="sectionWrapper">
+      <div className="pageWrapper">
+        <Technologies />
         <ServicesList services={content} />
-      </div>
-
-      <div className="sectionWrapper">
+        <Engagement />
         <CaseStudies />
+        <Testimonials />
+        <Solutions />
       </div>
-      <Engagement />
-      <Solutions />
     </Layout>
   );
 }

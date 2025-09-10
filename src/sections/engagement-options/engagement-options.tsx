@@ -58,7 +58,7 @@ export const Engagement = () => {
       <div className={clsx(s.content, "container")}>
         <H2 className={s.rootTitle}>Engagement Options</H2>
 
-        <ul className={s.list}>
+        <ul className={clsx(s.list, "gap-md")}>
           {OPTIONS.map((item, index) => (
             <li className={s.block} key={index}>
               <div className={s.icon}>

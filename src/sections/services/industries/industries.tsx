@@ -35,7 +35,7 @@ export const Industries = () => {
       <div className={clsx("container")}>
         <H2 className={s.title}>{data.industries.title}</H2>
 
-        <ul className={s.list}>
+        <ul className={clsx(s.list, "gap-md")}>
           {data.industries.list.map((item) => (
             <li
               key={item.id}
@@ -57,7 +57,7 @@ export const Industries = () => {
               />
 
               <div className={s.itemContentWrapper}>
-                <TextXl>{item.title}</TextXl>
+                <TextXl className={s.itemTitle}>{item.title}</TextXl>
                 <ArrowUpAndRight className={s.arrowUpAndRight} />
               </div>
             </li>

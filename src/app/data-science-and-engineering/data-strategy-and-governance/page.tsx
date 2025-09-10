@@ -4,6 +4,7 @@ import Layout from "@shared/components/layout/layout";
 import { Hero } from "@sections/hero/hero";
 import { Results } from "@sections/results/results";
 import { Technologies } from "@sections/technologies/technologies";
+import CaseStudies from "@sections/case-studies/case-studies";
 import { Testimonials } from "@sections/testimonials/testimonials";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
@@ -294,9 +295,10 @@ export default function DataSG() {
       <Results />
       <div className="pageWrapper">
         <Technologies />
-        <Testimonials />
         <Engagement />
+        <Testimonials />
         <Solutions />
+        <CaseStudies />
       </div>
     </Layout>
   );

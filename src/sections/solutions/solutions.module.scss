@@ -73,7 +73,6 @@
     .list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
 
       @include media(tablet) {
         grid-template-columns: 1fr 1fr;
@@ -81,7 +80,6 @@
 
       @include media(laptop) {
         grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
       }
 
       .firstCell {
@@ -118,7 +116,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 74px;
         gap: 16px;
 
         box-sizing: border-box;
@@ -128,6 +125,10 @@
         transition:
           border 0.5s ease-in-out,
           background-color 0.5s ease-in-out;
+
+        @include media(laptop) {
+          height: 74px;
+        }
 
         p {
           flex: 1 1 100%;

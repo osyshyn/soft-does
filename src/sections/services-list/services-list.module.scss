@@ -5,14 +5,11 @@
   color: white;
 
   .title {
-    font-size: $FontSize-h1;
-    font-weight: 300;
-    // font-size: 120px;
-    line-height: 90%;
-    letter-spacing: -0.08em;
-    text-transform: uppercase;
+    margin-bottom: $Spacing-sm;
 
-    margin-bottom: 80px;
+    @include media("laptop") {
+      margin-bottom: $Spacing-lg;
+    }
   }
 }
 
@@ -20,88 +17,114 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
+}
 
-  li {
-    box-sizing: border-box;
-    flex: 0 0 calc(100%);
+.item {
+  flex: 0 0 100%;
 
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid #333333;
+  @include media("phoneXL") {
+    flex: 0 0 calc(50% - 12px);
+  }
 
-    transition:
-      background-color 0.7s ease-in-out,
-      color 0.7s ease-in-out,
-      fill 0.7s ease-in-out;
-
-    @media (min-width: 650px) {
-      flex: 0 0 calc(50% - 16px);
-    }
-
-    @include media("laptop") {
-      max-width: 518px;
-      flex: 0 0 calc(33.333% - 16px);
-    }
-
-    &:hover {
-      background-color: #cfec57;
-
-      * {
-        color: black;
-      }
-      .arrow {
-        fill: black;
-      }
-    }
-
-    div {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 48px;
-
-      .softdoes {
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 117%;
-      }
-
-      .arrow {
-        fill: white;
-      }
-    }
-
-    .icon {
-      margin-bottom: 16px;
-    }
-
-    .tag {
-      max-width: 348px;
-      margin-bottom: 32px;
-
-      font-weight: 200;
-      font-size: 32px;
-      line-height: 110%;
-      letter-spacing: -0.08em;
-      text-transform: uppercase;
-    }
-
-    .text {
-      max-width: 438px;
-
-      @include fontAbel;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 100%;
-      letter-spacing: -0.02em;
-    }
+  @include media("tabletVertical") {
+    flex: 0 0 calc(33.333% - 16px);
   }
 }
 
-.link {
+.card {
+  height: 100%;
   display: block;
   padding: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  box-sizing: border-box;
+
+  border: 1px solid #333333;
+
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    background-color: #cfec57;
+    transition: all 0.5s ease-in-out;
+
+    .tag,
+    .text,
+    .arrow,
+    .image,
+    .titleContainer {
+      color: black;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .arrow {
+      fill: black;
+    }
+  }
 
   @include media("tablet") {
+    padding: 24px;
+  }
+
+  @include media("laptop") {
     padding: 40px;
+  }
+
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    transition: all 0.5s ease-in-out;
+
+    @include media("tablet") {
+      margin-bottom: 24px;
+    }
+
+    @include media("laptop") {
+      margin-bottom: 48px;
+    }
+  }
+
+  .tag {
+    min-height: 0px;
+
+    @include media("laptop") {
+      min-height: 56px;
+    }
+  }
+
+  .arrow {
+    fill: white;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .icon {
+    margin-bottom: 16px;
+  }
+
+  .tag {
+    flex: 1 1 auto;
+
+    @include media("laptop") {
+      max-width: 348px;
+    }
+  }
+
+  .image {
+    margin-bottom: 16px;
+
+    svg {
+      width: 40px;
+      height: 40px;
+
+      @include media("laptop") {
+        width: 68px;
+        height: 68px;
+      }
+    }
+  }
+
+  .tagContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 }

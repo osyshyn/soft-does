@@ -95,6 +95,7 @@ const content = [
 
 import HeroImg from "@assets/images/architecture-consulting/hero_object.png";
 import { Metadata } from "next";
+import { Industries } from "@sections/services/industries/industries";
 
 export default function DSE() {
   const jsonLd = {
@@ -344,16 +345,15 @@ export default function DSE() {
       />
 
       <Results />
-      <Technologies />
-      <div className="sectionWrapper">
-        <ServicesList services={content} />
-      </div>
 
-      <div className="sectionWrapper">
+      <div className="pageWrapper">
+        <Technologies />
+        <ServicesList services={content} />
         <CaseStudies />
+        <Engagement />
+        <Solutions />
+        <Industries />
       </div>
-      <Engagement />
-      <Solutions />
     </Layout>
   );
 }

@@ -9,7 +9,6 @@ import { ServicesList } from "@sections/services-list/services-list";
 import CaseStudies from "@sections/case-studies/case-studies";
 import { Engagement } from "@sections/engagement-options/engagement-options";
 import { Solutions } from "@sections/solutions/solutions";
-import { Industries } from "@sections/services/industries/industries";
 import heroObject1 from "@assets/images/softwareDev/heroObject2.png";
 
 import { Tags } from "@shared/assets/icons/tags";
@@ -22,6 +21,7 @@ import { Puzzle } from "@shared/assets/icons/puzzle";
 import s from "@styles/pages/software-development.module.scss";
 
 import Layout from "@shared/components/layout/layout";
+import Testimonials from "@sections/testimonials/testimonials";
 
 const SERVICES = [
   {
@@ -354,18 +354,15 @@ export default function SoftwareDev() {
       />
 
       <Results />
-      <Technologies />
 
-      <div className="sectionWrapper">
+      <div className="pageWrapper">
+        <Technologies />
         <ServicesList services={SERVICES} />
-      </div>
-
-      <div className="sectionWrapper">
+        <Engagement />
         <CaseStudies />
+        <Testimonials />
+        <Solutions />
       </div>
-      <Engagement />
-      <Solutions />
-      <Industries />
     </Layout>
   );
 }
