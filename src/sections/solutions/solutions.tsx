@@ -9,14 +9,22 @@ import useIsMobile from "@shared/hooks/useIsMobile";
 import PreservingLink from "@shared/components/preserving-link/preserving-link";
 import { H2, H6, TextLg, TextXl } from "@shared/components/typography";
 
-export const Solutions = () => {
+interface SolutionsProps {
+  description?: string;
+}
+
+export const Solutions = ({ description }: SolutionsProps) => {
   const isMobile = useIsMobile(1024);
   const items = isMobile ? data.solutions.categories : data.solutions.list;
 
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx(s.content, "container")}>
-        <H2>{data.solutions.title}</H2>
+        <div className={s.head}>
+          <H2>{data.solutions.title}</H2>
+
+          {description && <TextLg className={s.desc}>{description}</TextLg>}
+        </div>
 
         <div className={s.block}>
           <List items={items} />

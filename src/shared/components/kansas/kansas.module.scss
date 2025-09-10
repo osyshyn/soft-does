@@ -14,22 +14,14 @@
   align-items: center;
   gap: 16px;
 
-  @include media("tablet") {
+  @include media("tabletVertical") {
     padding: 12px 24px;
   }
 }
 
 .tagText {
   @include fontPoppins;
-  font-weight: 400;
-  font-size: 12px;
   text-transform: uppercase;
-
-  @include media("tablet") {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-  }
 }
 
 .imageContainer {
@@ -37,7 +29,7 @@
   width: 32px;
   height: 18px;
 
-  @include media("tablet") {
+  @include media("tabletVertical") {
     width: 46px;
     height: 29px;
   }

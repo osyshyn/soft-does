@@ -10,11 +10,19 @@ import Upwork from "@shared/assets/images/industries/upwork.png";
 import { Tip } from "@shared/assets/icons/tip";
 
 import s from "./testimonials.module.scss";
-import { H2, Text } from "@shared/components/typography";
+import { H2, Text, TextLg } from "@shared/components/typography";
 
-export const Testimonials = () => (
+interface TestimonialsProps {
+  description?: string;
+}
+
+export const Testimonials = ({ description }: TestimonialsProps) => (
   <section className={s.root}>
-    <H2 className={s.title}>{data.testimonials.title}</H2>
+    <div className={s.head}>
+      <H2 className={s.title}>{data.testimonials.title}</H2>
+
+      {description && <TextLg className={s.desc}>{description}</TextLg>}
+    </div>
 
     <div className="container">
       <Swiper

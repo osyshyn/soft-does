@@ -13,15 +13,29 @@
   }
 }
 
-.title {
-  text-align: center;
-  color: #fff;
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $Spacing-sm;
 
   margin-bottom: $Spacing-sm;
 
-  @include media(laptop) {
+  @include media("laptop") {
     margin-bottom: $Spacing-lg;
+    gap: $Spacing-lg;
   }
+}
+
+.desc {
+  color: $Light-Gray;
+  max-width: 768px;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  color: #fff;
 }
 
 .container {

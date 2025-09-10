@@ -8,7 +8,7 @@ import Light from "@shared/assets/images/services/light.png";
 
 import s from "./engagement-options.module.scss";
 import clsx from "clsx";
-import { H2, H6, TextMd } from "@shared/components/typography";
+import { H2, H6, TextLg, TextMd } from "@shared/components/typography";
 
 const OPTIONS = [
   {
@@ -52,11 +52,19 @@ const OPTIONS_INFO = [
   },
 ];
 
-export const Engagement = () => {
+interface EngagementProps {
+  description?: string;
+}
+
+export const Engagement = ({ description }: EngagementProps) => {
   return (
     <section className={clsx(s.wrapper, "wrapper")}>
       <div className={clsx(s.content, "container")}>
-        <H2 className={s.rootTitle}>Engagement Options</H2>
+        <div className={s.head}>
+          <H2 className={s.rootTitle}>Engagement Options</H2>
+
+          {description && <TextLg className={s.desc}>{description}</TextLg>}
+        </div>
 
         <ul className={clsx(s.list, "gap-md")}>
           {OPTIONS.map((item, index) => (

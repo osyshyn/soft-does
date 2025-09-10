@@ -16,7 +16,7 @@ import { React } from "@shared/assets/icons/technologies/react";
 
 import s from "./technologies.module.scss";
 import clsx from "clsx";
-import { H2 } from "@shared/components/typography";
+import { H2, TextLg } from "@shared/components/typography";
 
 const TECHNOLOGIES = [
   Node,
@@ -36,11 +36,30 @@ const TECHNOLOGIES = [
   React,
 ];
 
-export const Technologies = () => {
+interface TechnologiesProps {
+  description?: string;
+}
+
+export const Technologies = ({ description }: TechnologiesProps) => {
   return (
     <section className={"wrapper"}>
       <div className={clsx(s.root, "container")}>
-        <H2 className={s.title}>Technologies we work with </H2>
+        <div className={s.head}>
+          <H2 className={s.title}>Technologies we work with </H2>
+
+          {description && (
+            <TextLg className={s.desc}>
+              We align every technology choice with cloud operations management
+              best practices. From orchestrating Kubernetes clusters with Helm
+              to managing container workloads in Docker, from deploying
+              serverless apps in AWS Lambda and Azure Functions to integrating
+              GitOps pipelines with ArgoCD, our engineers build managed cloud
+              infrastructures that are resilient, compliant (SOC2, HIPAA, GDPR),
+              and ready to evolve with your business.
+            </TextLg>
+          )}
+        </div>
+
         <ul className={clsx("gap-md")}>
           {TECHNOLOGIES.map((Item, index) => (
             <li key={index}>

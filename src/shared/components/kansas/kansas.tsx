@@ -1,11 +1,13 @@
 import Image from "next/image";
 import kansasFlag from "@assets/images/main/kansas-flag.png";
 import s from "./kansas.module.scss";
+import { TextMd } from "../typography";
 
 export const Kansas = () => {
   return (
     <div className={s.tagContainer}>
-      <p className={s.tagText}>Proudly based in kansas</p>
+      <TextMd className={s.tagText}>Proudly based in kansas</TextMd>
+
       <div className={s.imageContainer}>
         <Image
           priority

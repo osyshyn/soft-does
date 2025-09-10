@@ -305,10 +305,18 @@ export default function MCS() {
       />
       <Results />
       <div className="pageWrapper">
-        <Technologies />
-        <Engagement />
-        <Testimonials />
-        <Solutions />
+        <Technologies
+          description={
+            "Our clients trust us to manage infrastructures that can’t go down. Whether it’s reducing cloud spend by 30% through workload optimization or guaranteeing 99.95% uptime during global product launches, we’ve proven that managed cloud services should deliver measurable outcomes, not just maintenance. Here’s what partners say about working with us."
+          }
+        />
+        <Engagement
+          description="Every organization has different requirements for control and
+              transparency. That's why we offer engagement models that
+              scale with your team's maturity and project needs:"
+        />
+        <Testimonials description="Our clients trust us to manage infrastructures that can’t go down. Whether it’s reducing cloud spend by 30% through workload optimization or guaranteeing 99.95% uptime during global product launches, we’ve proven that managed cloud services should deliver measurable outcomes, not just maintenance. Here’s what partners say about working with us." />
+        <Solutions description="Managed cloud services power every initiative — from low-latency SaaS platforms to AI/ML training pipelines and fintech environments under strict compliance. By embedding cloud operations management into software delivery, data engineering, and MLOps workflows, we provide a unified backbone for scalability, security, and innovation." />
         <CaseStudies />
       </div>
     </Layout>

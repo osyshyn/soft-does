@@ -14,12 +14,23 @@
   color: white;
 }
 
-.rootTitle {
+.head {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $Spacing-sm;
+
   margin-bottom: $Spacing-sm;
 
-  @include media("tablet") {
+  @include media("laptop") {
     margin-bottom: $Spacing-lg;
+    gap: $Spacing-lg;
   }
+}
+
+.desc {
+  color: $Light-Gray;
+  max-width: 768px;
 }
 
 .list {
