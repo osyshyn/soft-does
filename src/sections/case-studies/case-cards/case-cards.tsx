@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 
-import s from "../case-studies.module.scss";
+import s from "./case-card.module.scss";
 import clsx from "clsx";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { StaticImageData } from "next/image";
+import { H4, H5, Text2Xl, TextLg } from "@shared/components/typography";
 
 type CaseItem = {
   id: number;
@@ -37,13 +38,7 @@ type Props = {
   progress: MotionValue<number>;
 };
 
-export const CaseCards = ({
-  item,
-  index,
-  range,
-  targetScale,
-  progress,
-}: Props) => {
+export const CaseCards = ({ item, range, targetScale, progress }: Props) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -66,60 +61,29 @@ export const CaseCards = ({
 
   return (
     <>
-      <motion.li
+      <motion.div
+        key={item.id}
         ref={targetRef}
-        className={s.cardContainer}
         style={{
-          top: isMobile ? `` : `calc(0px + 48px * (${index} - 1))`,
           scale: cardScale,
         }}
-        key={index}
       >
-        <div className={s.caseCardRoot}>
-          <div className={s.tagsContainer}>
-            {isMobile ? (
-              <Swiper
-                direction={"horizontal"}
-                modules={[Autoplay]}
-                slidesPerView="auto"
-                spaceBetween={8}
-                autoplay={{ delay: 2000, disableOnInteraction: false }}
-                className={s.swiperTags}
-              >
-                {[...item.mainInfo, ...item.additionalInfo].map((i) => (
-                  <SwiperSlide key={i} style={{ width: "auto" }}>
-                    <li className={s.tagItem}>{i}</li>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            ) : (
-              <>
-                <ul className={s.mainTags}>
-                  {item.mainInfo.map((i) => (
-                    <li key={i} className={s.tagItem}>
-                      {i}
-                    </li>
-                  ))}
-                </ul>
+        <div className={s.card}>
+          <Tags
+            mainTags={item.mainInfo}
+            additionalTags={item.additionalInfo}
+            isMobile={isMobile}
+          />
 
-                <ul className={s.additionalTags}>
-                  {item.additionalInfo.map((i) => (
-                    <li key={i} className={s.tagItem}>
-                      {i}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </div>
+          <div className={s.card__content}>
+            <H4 as="p" className={s.card__title}>
+              {item.title}
+            </H4>
 
-          <div className={s.mainContentWrapper}>
-            <h3 className={s.cardTitle}>{item.title}</h3>
-
-            <ul className={s.photosWrapper}>
+            <ul className={s.card__photos}>
               {isMobile ? (
                 <li
-                  className={s.photo}
+                  className={s.card__photo}
                   key={item.id}
                   style={{
                     backgroundImage: `url(${item.images[0].src})`,
@@ -133,10 +97,10 @@ export const CaseCards = ({
                     <motion.div
                       key={index}
                       style={{ opacity: scrollYProgress }}
-                      className={s.inner}
+                      className={s.card__photoContainer}
                     >
                       <li
-                        className={s.photo}
+                        className={s.card__photo}
                         style={{
                           backgroundImage: `url(${item.src})`,
                         }}
@@ -148,33 +112,99 @@ export const CaseCards = ({
             </ul>
           </div>
 
-          <ul className={s.bottomContentWrapper}>
-            <li className={s.bottomCardWrapper}>
-              <span className={s.tag}>{item.before.tag}</span>
+          <ul className={s.bottom}>
+            <BottomCard item={item.before} />
 
-              <h4 className={s.bottomTitle}>
-                <span className={s.titleNumber}>{item.before.number}</span>
-                {item.before.title}
-              </h4>
-
-              <p className={s.bottomCardText}>{item.before.text}</p>
-            </li>
-
-            <li className={clsx(s.bottomCardWrapper, s.after)}>
-              <span className={clsx(s.tag, s.after)}>{item.after.tag}</span>
-
-              <h4 className={clsx(s.bottomTitle, s.after)}>
-                <span className={clsx(s.titleNumber, s.after)}>
-                  {item.after.number}
-                </span>
-                {item.after.title}
-              </h4>
-
-              <p className={s.bottomCardText}>{item.after.text}</p>
-            </li>
+            <BottomCard isYellow item={item.after} />
           </ul>
         </div>
-      </motion.li>
+      </motion.div>
     </>
+  );
+};
+
+const Tags = ({
+  mainTags,
+  additionalTags,
+  isMobile,
+}: {
+  mainTags: string[];
+  additionalTags: string[];
+  isMobile: boolean;
+}) => {
+  return (
+    <div className={s.tags}>
+      {isMobile ? (
+        <Swiper
+          direction={"horizontal"}
+          modules={[Autoplay]}
+          slidesPerView="auto"
+          spaceBetween={8}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+        >
+          {[...mainTags, ...additionalTags].map((i) => (
+            <SwiperSlide key={i} style={{ width: "auto" }}>
+              <TextLg className={s.tags__tag}>{i}</TextLg>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      ) : (
+        <>
+          <ul className={s.tags__section}>
+            {mainTags.map((i) => (
+              <li key={i}>
+                <TextLg className={s.tags__tag}>{i}</TextLg>
+              </li>
+            ))}
+          </ul>
+
+          <ul className={s.tags__section}>
+            {additionalTags.map((i) => (
+              <li key={i}>
+                <TextLg className={s.tags__tag}>{i}</TextLg>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </div>
+  );
+};
+
+const BottomCard = ({
+  item,
+  isYellow,
+}: {
+  item: {
+    tag: string;
+    number: string;
+    title: string;
+    text: string;
+  };
+  isYellow?: boolean;
+}) => {
+  return (
+    <li className={clsx(s.bottomCard, isYellow && s.bottomCard_yellow)}>
+      <TextLg
+        className={clsx(
+          s.bottomCard__tag,
+          isYellow && s.bottomCard__tag_yellow
+        )}
+      >
+        {item.tag}
+      </TextLg>
+
+      <Text2Xl
+        className={clsx(
+          s.bottomCard__title,
+          isYellow && s.bottomCard__title_yellow
+        )}
+      >
+        <H5 as="p">{item.number}</H5>
+        {item.title}
+      </Text2Xl>
+
+      <TextLg>{item.text}</TextLg>
+    </li>
   );
 };

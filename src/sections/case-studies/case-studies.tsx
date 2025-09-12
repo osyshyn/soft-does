@@ -8,8 +8,11 @@ import { CaseCards } from "./case-cards/case-cards";
 
 import s from "./case-studies.module.scss";
 import clsx from "clsx";
+import { H2 } from "@shared/components/typography";
 
 export default function CaseStudies() {
+  const items = data.cases.list;
+
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -18,24 +21,28 @@ export default function CaseStudies() {
 
   return (
     <section className={clsx(s.root, "wrapper")}>
-      <div className={clsx(s.contentContainer, "container")}>
-        <ul ref={targetRef}>
-          <li className={s.cardContainer}>
+      <div className={clsx(s.container, "container")}>
+        <ul className={s.list} ref={targetRef}>
+          <li className={s.list__cardContainer}>
             <div>
-              <h2 className={s.title}>{data.cases.title}</h2>
+              <H2 className={s.list__title}>{data.cases.title}</H2>
             </div>
           </li>
-          {data.cases.list.map((item, index) => {
-            const targetScale = 1 - (data.cases.list.length - index) * 0.05;
+
+          {items.map((item, index) => {
+            const targetScale = 1 - (items.length - index) * 0.2;
+            const range = [index * (1 / items.length), 1];
+
             return (
-              <CaseCards
-                key={index}
-                item={item}
-                index={index}
-                range={[index * 0.2, 1]}
-                targetScale={targetScale}
-                progress={scrollYProgress}
-              />
+              <li className={s.list__cardContainer} key={index}>
+                <CaseCards
+                  item={item}
+                  index={index}
+                  range={range}
+                  targetScale={targetScale}
+                  progress={scrollYProgress}
+                />
+              </li>
             );
           })}
         </ul>
