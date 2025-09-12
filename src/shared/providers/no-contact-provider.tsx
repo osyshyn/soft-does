@@ -24,10 +24,18 @@ const NoContactsProvider = ({ children }: { children: React.ReactNode }) => {
 
 export default NoContactsProvider;
 
-export const HideContacts = ({ children }: { children: React.ReactNode }) => {
+export const HideContacts = ({
+  children,
+  fallback,
+}: {
+  children: React.ReactNode;
+  fallback?: React.ReactNode;
+}) => {
   const { noContacts } = useNoContacts();
 
-  if (noContacts) return null;
+  if (noContacts) {
+    return fallback || null;
+  }
 
   return children;
 };

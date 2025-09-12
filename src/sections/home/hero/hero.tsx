@@ -16,7 +16,6 @@ export const Hero = () => {
       <div className={clsx(s.container, "container")}>
         <HeroText
           title={data.hero.title}
-          // text={data.hero.tagText}
           buttonText={data.hero.buttonText}
           titleClassName={s.title}
         />
@@ -28,3 +27,5 @@ export const Hero = () => {
     </section>
   );
 };
+
+export default Hero;

@@ -16,7 +16,7 @@ export default function CaseStudies() {
   const [isShortScreen, setIsShortScreen] = useState(false);
 
   const maxWidthMobile = 500;
-  const minHeightForComfort = 800; // мінімальна висота для комфортного перегляду
+  const minHeightForComfort = 800;
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= maxWidthMobile);

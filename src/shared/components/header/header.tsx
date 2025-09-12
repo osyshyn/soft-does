@@ -54,7 +54,6 @@ export default function Header({ posts, isLanding }: HeaderProps) {
 
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      // element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -124,14 +123,12 @@ export default function Header({ posts, isLanding }: HeaderProps) {
           </div>
         )}
 
-        {isLanding && !noContacts && (
+        {noContacts ? (
+          <div style={{ width: "150px" }}></div>
+        ) : isLanding ? (
           <div className={clsx(s.main_button, s.main_button_landing)}>
             <button onClick={scrollToContacts}>Contact us</button>
           </div>
-        )}
-
-        {noContacts && !isLanding ? (
-          <div></div>
         ) : (
           <PreservingLink href={ROUTES.contact} className={s.main_button}>
             <button>Contact us</button>

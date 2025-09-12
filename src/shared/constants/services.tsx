@@ -31,6 +31,14 @@ import {
   UserIcon,
 } from "@shared/assets/icons/header";
 
+import data from "@texts/main/index";
+import softwareDevelopment from "@assets/images/main/software-development.png";
+import aiAndMachineLearning from "@assets/images/main/ai-machine-learning.png";
+import cloudServices from "@assets/images/main/cloud-services.png";
+import dataScienceAndEngeneering from "@assets/images/main/data-science.png";
+import uiUxDesign from "@assets/images/main/ui-ux-design.png";
+import architectureAndConsulting from "@assets/images/main/architecture-and-consulting.png";
+
 export const SERVICES = [
   // Software Development
   {
@@ -276,3 +284,60 @@ export const DataScienceAndEngineering = {
     },
   ],
 };
+
+export const ServicesSections = [
+  {
+    link: ROUTES.softwareDev.root,
+    currentColor: "#173B91",
+    img: softwareDevelopment,
+    isImagePriority: true,
+    isRight: false,
+    data: data.softwareDevelopment,
+    hasWrapper: true,
+  },
+  {
+    link: ROUTES.aiAndMl.root,
+    currentColor: "#D75186",
+    img: aiAndMachineLearning,
+    isImagePriority: true,
+    isRight: true,
+    data: data.aiMachineLearning,
+    hasWrapper: false,
+  },
+  {
+    link: ROUTES.cloudServices.root,
+    currentColor: "#F28B82",
+    img: cloudServices,
+    isImagePriority: false,
+    isRight: false,
+    data: data.cloudServices,
+    hasWrapper: false,
+  },
+  {
+    link: ROUTES.dataScnAndEngnrng.root,
+    currentColor: "#BF81FF",
+    img: dataScienceAndEngeneering,
+    isImagePriority: false,
+    isRight: true,
+    data: data.dataScienceAndEngeneering,
+    hasWrapper: false,
+  },
+  {
+    link: ROUTES.uiUxDesign.root,
+    currentColor: "#2741FF",
+    img: uiUxDesign,
+    isImagePriority: false,
+    isRight: false,
+    data: data.uiUxDesign,
+    hasWrapper: false,
+  },
+  {
+    link: ROUTES.architectureConsulting.root,
+    currentColor: "#515151",
+    img: architectureAndConsulting,
+    isImagePriority: false,
+    isRight: true,
+    data: data.architectureAndConsulting,
+    hasWrapper: true,
+  },
+];

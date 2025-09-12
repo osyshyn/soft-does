@@ -9,6 +9,7 @@ import { addDataLayer } from "@shared/utils";
 import { usePathname } from "next/navigation";
 import { H3, TextLg, TextMd } from "../typography";
 import Button from "../buttons";
+import { Kansas } from "../kansas/kansas";
 
 interface ContactFormProps {
   title: string;
@@ -75,6 +76,7 @@ export const ContactForm = ({
 
   return (
     <section className={s.root}>
+      <Kansas />
       <div className={s.formWrapper}>
         <div className={s.titleWrapper}>
           <H3 className={s.title}>{title}</H3>
