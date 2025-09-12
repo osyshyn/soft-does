@@ -10,6 +10,34 @@ import Miracleon22ndstreetIcon from "@shared/assets/icons/testimonials/niracleon
 import Upwork from "@shared/assets/images/industries/upwork.png";
 import DaniloMalisicIcon from "@shared/assets/icons/testimonials/danilo-malisic.webp";
 
+import case1Img1 from "@assets/images/case-studies/case1_img1.png";
+import case1Img2 from "@assets/images/case-studies/case1_img2.png";
+import case1Img3 from "@assets/images/case-studies/case1_img3.png";
+
+import case2Img1 from "@assets/images/case-studies/case2_img1.png";
+import case2Img2 from "@assets/images/case-studies/case2_img2.png";
+import case2Img3 from "@assets/images/case-studies/case2_img3.png";
+
+import case3Img1 from "@assets/images/case-studies/case3_img1.png";
+import case3Img2 from "@assets/images/case-studies/case3_img2.png";
+import case3Img3 from "@assets/images/case-studies/case3_img3.png";
+
+import case4Img1 from "@assets/images/case-studies/case4_img1.png";
+import case4Img2 from "@assets/images/case-studies/case4_img2.png";
+import case4Img3 from "@assets/images/case-studies/case4_img3.png";
+
+import case5Img1 from "@assets/images/case-studies/case5_img1.png";
+import case5Img2 from "@assets/images/case-studies/case5_img2.png";
+import case5Img3 from "@assets/images/case-studies/case5_img3.png";
+
+import case6Img1 from "@assets/images/case-studies/case6_img1.png";
+import case6Img2 from "@assets/images/case-studies/case6_img2.png";
+import case6Img3 from "@assets/images/case-studies/case6_img3.png";
+
+import case7Img1 from "@assets/images/case-studies/case7_img1.png";
+import case7Img2 from "@assets/images/case-studies/case7_img2.png";
+import case7Img3 from "@assets/images/case-studies/case7_img3.png";
+
 const data = {
   hero: {
     title: "Partner in Innovative Software Development",
@@ -136,96 +164,8 @@ const data = {
     title: "Numbers Don’t Lie",
     list: [
       {
-        id: "ai",
-        title: "Driving E-commerce Growth for a Boutique Fashion Marketplace",
-        mainInfo: ["2024", "AI & Machine Learning"],
-        additionalInfo: [
-          "Location: Los Angeles, California",
-          "Industry: E-commerce",
-          "Platform: Web",
-        ],
-        before: {
-          number: "10%",
-          title: "Customer Retention",
-          text: "Low retention rates and irrelevant recommendations resulted in 10% customer retention, with abandoned carts accounting for 50% of all transactions. Monthly revenue was stagnant at $20,000.",
-          tag: "BEFORE",
-        },
-        after: {
-          number: "+35%",
-          title: "Customer Retention",
-          text: "We implemented an AI recommendation engine, boosting retention by 35% and increasing monthly revenue by $7,000—an annual gain of $84,000.",
-          tag: "AFTER",
-        },
-      },
-      {
-        id: "cloud-services",
-        title: "Scaling Financial Platforms for a Local Investment Firm",
-        mainInfo: ["2024", "Cloud Services"],
-        additionalInfo: [
-          "Location: New York",
-          "Industry: Finance",
-          "Platform: Web",
-        ],
-        before: {
-          number: "25%",
-          title: "Infrastructure Costs",
-          text: "The firm’s on-premise servers struggled with traffic surges during reporting periods, resulting in delays and inefficiencies. Maintenance costs were $40,000 annually, with limited scalability.",
-          tag: "BEFORE",
-        },
-        after: {
-          number: "-30%",
-          title: "Infrastructure Costs",
-          text: "We migrated their systems to AWS, cutting costs by 30% and enabling the platform to handle 2x traffic. This saved the client $12,000 annually while reducing downtime.",
-          tag: "AFTER",
-        },
-      },
-      {
-        id: "data-science-engineering",
-        title: "Optimizing Retail Operations for a Regional Grocery Chain",
-        mainInfo: ["2024", "Data Science & Engineering"],
-        additionalInfo: [
-          "Location: Atlanta, Georgia",
-          "Industry: Retail",
-          "Platform: Web, Mobile",
-        ],
-        before: {
-          number: "25%",
-          title: "Data Utilization",
-          text: "Fragmented systems limited the grocery chain’s ability to analyze customer behavior, leading to frequent overstock issues and missed demand trends. They incurred $30,000 annually in storage and waste costs.",
-          tag: "BEFORE",
-        },
-        after: {
-          number: "+50%",
-          title: "Data Utilization",
-          text: "We centralized their analytics dashboard, increasing data utilization to 75%. This reduced overstock by 20% and saved $15,000 annually, with an additional $10,000 in new revenue from better inventory planning.",
-          tag: "AFTER",
-        },
-      },
-      {
-        id: "architecture-consulting-services",
-        title: "Streamlining Logistics for a Regional Freight Forwarder",
-        mainInfo: ["2024", "Architecture & Consulting Services"],
-        additionalInfo: [
-          "Location: Houston, Texas",
-          "Industry: Logistics",
-          "Platform: Web",
-        ],
-        before: {
-          number: "85%",
-          title: "Delivery Accuracy",
-          text: "Disconnected systems caused frequent shipment delays, leading to 85% delivery accuracy and increased costs for expedited shipping and refunds, totaling $15,000 annually.",
-          tag: "BEFORE",
-        },
-        after: {
-          number: "95%",
-          title: "Delivery Accuracy",
-          text: "Our unified tracking system improved delivery accuracy to 95%, saving the client $10,000 annually and increasing repeat business by 8%",
-          tag: "AFTER",
-        },
-      },
-      {
-        id: "ui-ux-design",
-        title: "Redesigning FinTech Apps for a Startup Bank",
+        id: 1,
+        title: "Forbidden Alchemy",
         mainInfo: ["2024", "UI/UX Design"],
         additionalInfo: [
           "Location: San Francisco, California",
@@ -233,17 +173,156 @@ const data = {
           "Platform: Mobile",
         ],
         before: {
+          number: "70%",
+          title: "CART ABANDONMENT RATE",
+          text: "High abandonment caused by inconsistent sizing guidance and generic product flow resulted in thousands of dollars in lost sales each month.",
+          tag: "BEFORE",
+        },
+        after: {
           number: "45%",
-          title: "User Drop-off Rate",
-          text: "Confusing navigation and a cluttered dashboard caused 45% of new users to abandon the app within three days. The app earned $8,000 monthly in revenue from premium features.",
+          title: "CART ABANDONMENT RATE",
+          text: "Smart recommendations and tailored product suggestions reduced cart abandonment, recovering an extra $7,500 in monthly revenue.",
+          tag: "AFTER",
+        },
+        images: [case1Img1, case1Img2, case1Img3],
+      },
+      {
+        id: 2,
+        title: "Lobbyist Directory MVP",
+        mainInfo: ["2024", "Shopify, E-commerce"],
+        additionalInfo: [
+          "Location: Los Angeles, California",
+          "Industry: Fashion / Streetwear",
+          "Platform: Web",
+        ],
+        before: {
+          number: "$120+",
+          title: "CAC PER CLIENT",
+          text: "High marketing spend with poor client–lobbyist matches wasted acquisition dollars and limited revenue growth.",
+          tag: "BEFORE",
+        },
+        after: {
+          number: "+35%",
+          title: "REVENUE PER CLIENT",
+          text: "Smarter search filters reduced acquisition costs and improved match quality, increasing ROI and unlocking 35% more revenue per client.",
+          tag: "AFTER",
+        },
+        images: [case2Img1, case2Img2, case2Img3],
+      },
+      {
+        id: 3,
+        title: "Bokeyno Motorsports",
+        mainInfo: ["2024", "UI/UX Design"],
+        additionalInfo: [
+          "Location: San Francisco, California",
+          "Industry: FinTech",
+          "Platform: Mobile",
+        ],
+        before: {
+          number: "<20",
+          title: "LEADS PER MONTH",
+          text: "Poor SEO and weak service descriptions limited inbound leads from performance car enthusiasts.",
+          tag: "BEFORE",
+        },
+        after: {
+          number: "65+",
+          title: "LEADS PER MONTH",
+          text: "Optimized service pages and geo-targeted SEO boosted lead flow, connecting Bokeyno with more Corvette and Mustang owners.",
+          tag: "AFTER",
+        },
+        images: [case3Img1, case3Img2, case3Img3],
+      },
+      {
+        id: 4,
+        title: "EZembly Sports",
+        mainInfo: ["2024", "Data Science & Engineering"],
+        additionalInfo: [
+          "Location: Atlanta, Georgia",
+          "Industry: Retail",
+          "Platform: Web, Mobile",
+        ],
+        before: {
+          number: "$85",
+          title: "AVERAGE ORDER VALUE",
+          text: "Most customers purchased only single golf cage items, limiting revenue per checkout.",
+          tag: "BEFORE",
+        },
+        after: {
+          number: "$112",
+          title: "AVERAGE ORDER VALUE",
+          text: "Upsell features and cross-sell recommendations increased cart sizes, driving a 31% lift in AOV.",
+          tag: "AFTER",
+        },
+        images: [case4Img1, case4Img2, case4Img3],
+      },
+      {
+        id: 5,
+        title: "Tulsa Shade Co.",
+        mainInfo: ["2024", "UI/UX Design"],
+        additionalInfo: [
+          "Location: San Francisco, California",
+          "Industry: FinTech",
+          "Platform: Mobile",
+        ],
+        before: {
+          number: "1.9%",
+          title: "CONVERSION RATE",
+          text: "Confusing navigation and weak trust signals kept most visitors from requesting quotes or consultations.",
+          tag: "BEFORE",
+        },
+        after: {
+          number: "5.6%",
+          title: "CONVERSION RATE",
+          text: "Streamlined booking flows and project galleries improved trust, nearly tripling conversion rates.",
+          tag: "AFTER",
+        },
+        images: [case5Img1, case5Img2, case5Img3],
+      },
+      {
+        id: 6,
+        title: "AI-Powered Chatbot",
+        mainInfo: ["2024", "Cloud Services"],
+        additionalInfo: [
+          "Location: New York",
+          "Industry: Finance",
+          "Platform: Web",
+        ],
+        before: {
+          number: "$4,000+",
+          title: "MONTHLY SUPPORT COSTS",
+          text: "Heavy reliance on human support staff for repetitive queries increased operational costs.",
           tag: "BEFORE",
         },
         after: {
           number: "-50%",
-          title: "User Drop-off Rate",
-          text: "We redesigned the app with a streamlined interface, reducing drop-offs by 50%. Monthly revenue from premium features increased by $3,000, adding an annual gain of $36,000.",
+          title: "SUPPORT COSTS",
+          text: "Automating responses with the chatbot reduced human workload, saving more than $2,000 monthly in support expenses.",
           tag: "AFTER",
         },
+        images: [case6Img1, case6Img2, case6Img3],
+      },
+      {
+        id: 7,
+        title: "SleepFullBaby",
+        mainInfo: ["2024", "Architecture & Consulting Services"],
+        additionalInfo: [
+          "Location: Houston, Texas",
+          "Industry: Logistics",
+          "Platform: Web",
+        ],
+        before: {
+          number: "$120+",
+          title: "PER SIGNUP",
+          text: "High ad spend combined with poor funnel performance pushed CAC above sustainable levels for growth.",
+          tag: "BEFORE",
+        },
+        after: {
+          number: "-45%",
+          title: "CAC REDUCTION",
+          text: "Optimized targeting and a streamlined checkout reduced CAC, allowing more parents to enroll while lowering acquisition costs.",
+          tag: "AFTER",
+        },
+        images: [case7Img1, case7Img2, case7Img3],
       },
     ],
   },

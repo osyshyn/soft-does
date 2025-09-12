@@ -3,46 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 
-import aiLaptop from "@assets/images/main/ai-laptop.png";
-import aiPhone from "@assets/images/main/ai-phone.png";
-import aiWebApp from "@assets/images/main/ai-web-app.png";
-import architectureLaptop from "@assets/images/main/architecture-laptop.png";
-import architecturePhone from "@assets/images/main/architecture-phone.png";
-import architectureTablet from "@assets/images/main/architecture-tablet.png";
-import cloudServicesPhone from "@assets/images/main/cloud-services-phone.png";
-import cloudServicesLaptop from "@assets/images/main/cloud-services-laptop.png";
-import dataScienceGirlWithPhone from "@assets/images/main/data-science-girl-with-phone.png";
-import dataScienceLaptop from "@assets/images/main/data-science-laptop.png";
-import dataScienceWebApp from "@assets/images/main/data-science-web-app.png";
-import designLaptop from "@assets/images/main/design-laptop.png";
-import designPhone from "@assets/images/main/design-phone.png";
-import designTwoPhones from "@assets/images/main/design-two-phones.png";
-
 import s from "../case-studies.module.scss";
 import clsx from "clsx";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-const PHOTOS = {
-  ai: [aiPhone, aiWebApp, aiLaptop],
-  "cloud-services": [cloudServicesPhone, cloudServicesLaptop, designTwoPhones],
-  "data-science-engineering": [
-    dataScienceWebApp,
-    dataScienceLaptop,
-    dataScienceGirlWithPhone,
-  ],
-  "architecture-consulting-services": [
-    architectureLaptop,
-    architecturePhone,
-    architectureTablet,
-  ],
-  "ui-ux-design": [designTwoPhones, designLaptop, designPhone],
-};
-
-type Key = keyof typeof PHOTOS;
+import { StaticImageData } from "next/image";
 
 type CaseItem = {
-  id: string;
+  id: number;
   title: string;
   mainInfo: string[];
   additionalInfo: string[];
@@ -58,6 +26,7 @@ type CaseItem = {
     title: string;
     text: string;
   };
+  images: StaticImageData[];
 };
 
 type Props = {
@@ -153,52 +122,27 @@ export const CaseCards = ({
                   className={s.photo}
                   key={item.id}
                   style={{
-                    backgroundImage: `url(${PHOTOS[item.id as Key][0].src})`,
+                    backgroundImage: `url(${item.images[0].src})`,
                     minWidth: "200px",
                     height: "180px",
                   }}
                 />
               ) : (
                 <>
-                  <motion.div
-                    style={{ opacity: scrollYProgress }}
-                    className={s.inner}
-                  >
-                    <li
-                      className={s.photo}
-                      style={{
-                        backgroundImage: `url(${
-                          PHOTOS[item.id as Key][0].src
-                        })`,
-                      }}
-                    />
-                  </motion.div>
-                  <motion.div
-                    style={{ opacity: scrollYProgress }}
-                    className={s.inner}
-                  >
-                    <li
-                      className={s.photo}
-                      style={{
-                        backgroundImage: `url(${
-                          PHOTOS[item.id as Key][1].src
-                        })`,
-                      }}
-                    />
-                  </motion.div>
-                  <motion.div
-                    style={{ opacity: scrollYProgress }}
-                    className={s.inner}
-                  >
-                    <li
-                      className={s.photo}
-                      style={{
-                        backgroundImage: `url(${
-                          PHOTOS[item.id as Key][2].src
-                        })`,
-                      }}
-                    />
-                  </motion.div>
+                  {item.images.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      style={{ opacity: scrollYProgress }}
+                      className={s.inner}
+                    >
+                      <li
+                        className={s.photo}
+                        style={{
+                          backgroundImage: `url(${item.src})`,
+                        }}
+                      />
+                    </motion.div>
+                  ))}
                 </>
               )}
             </ul>
