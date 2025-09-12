@@ -1,7 +1,7 @@
 "use client";
 
 import data from "@texts/main/index";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useScroll } from "framer-motion";
 
 import { CaseCards } from "./case-cards/case-cards";
@@ -12,6 +12,29 @@ import { H2 } from "@shared/components/typography";
 
 export default function CaseStudies() {
   const items = data.cases.list;
+  const [isMobile, setIsMobile] = useState(false);
+  const [isShortScreen, setIsShortScreen] = useState(false);
+
+  const maxWidthMobile = 500;
+  const minHeightForComfort = 800; // мінімальна висота для комфортного перегляду
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= maxWidthMobile);
+
+    const checkScreenHeight = () =>
+      setIsShortScreen(window.innerHeight < minHeightForComfort);
+
+    checkMobile();
+    checkScreenHeight();
+
+    window.addEventListener("resize", checkMobile);
+    window.addEventListener("resize", checkScreenHeight);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("resize", checkScreenHeight);
+    };
+  }, [maxWidthMobile, minHeightForComfort]);
 
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -23,24 +46,32 @@ export default function CaseStudies() {
     <section className={clsx(s.root, "wrapper")}>
       <div className={clsx(s.container, "container")}>
         <ul className={s.list} ref={targetRef}>
-          <li className={s.list__cardContainer}>
+          <li className={clsx(s.list__cardContainer)}>
             <div>
               <H2 className={s.list__title}>{data.cases.title}</H2>
             </div>
           </li>
 
           {items.map((item, index) => {
-            const targetScale = 1 - (items.length - index) * 0.2;
+            const scaleValue = isMobile ? 0.12 : 0.2;
+            const targetScale = 1 - (items.length - index) * scaleValue;
             const range = [index * (1 / items.length), 1];
 
             return (
-              <li className={s.list__cardContainer} key={index}>
+              <li
+                className={clsx(
+                  s.list__cardContainer,
+                  isShortScreen && s.list__cardContainer_shortScreen
+                )}
+                key={index}
+              >
                 <CaseCards
                   item={item}
                   index={index}
                   range={range}
                   targetScale={targetScale}
                   progress={scrollYProgress}
+                  isShortScreen={isShortScreen}
                 />
               </li>
             );

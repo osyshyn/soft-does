@@ -36,26 +36,43 @@ type Props = {
   range: number[];
   targetScale: number;
   progress: MotionValue<number>;
+  isShortScreen?: boolean;
 };
 
-export const CaseCards = ({ item, range, targetScale, progress }: Props) => {
+export const CaseCards = ({
+  item,
+  range,
+  targetScale,
+  progress,
+  isShortScreen = false,
+}: Props) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start center", "start start"],
   });
 
+  const [isTablet, setIsTablet] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const maxWidth = 768;
+  const maxWidth = 767;
+  const maxWidthMobile = 500;
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= maxWidth);
+    const check = () => setIsTablet(window.innerWidth <= maxWidth);
+    const checkMobile = () => setIsMobile(window.innerWidth <= maxWidthMobile);
+
+    checkMobile();
     check();
 
     window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, [maxWidth]);
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", check);
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, [maxWidth, maxWidthMobile]);
 
   const cardScale = useTransform(progress, range, [1, targetScale]);
 
@@ -68,11 +85,11 @@ export const CaseCards = ({ item, range, targetScale, progress }: Props) => {
           scale: cardScale,
         }}
       >
-        <div className={s.card}>
+        <div className={clsx(s.card, isShortScreen && s.card_shortScreen)}>
           <Tags
             mainTags={item.mainInfo}
             additionalTags={item.additionalInfo}
-            isMobile={isMobile}
+            isMobile={isTablet}
           />
 
           <div className={s.card__content}>
@@ -87,26 +104,44 @@ export const CaseCards = ({ item, range, targetScale, progress }: Props) => {
                   key={item.id}
                   style={{
                     backgroundImage: `url(${item.images[0].src})`,
-                    minWidth: "200px",
-                    height: "180px",
                   }}
                 />
+              ) : isTablet ? (
+                <>
+                  <li
+                    className={s.card__photo}
+                    key={item.id}
+                    style={{
+                      backgroundImage: `url(${item.images[0].src})`,
+                    }}
+                  />
+
+                  <li
+                    className={s.card__photo}
+                    key={item.id}
+                    style={{
+                      backgroundImage: `url(${item.images[1].src})`,
+                    }}
+                  />
+                </>
               ) : (
                 <>
-                  {item.images.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      style={{ opacity: scrollYProgress }}
-                      className={s.card__photoContainer}
-                    >
-                      <li
-                        className={s.card__photo}
-                        style={{
-                          backgroundImage: `url(${item.src})`,
-                        }}
-                      />
-                    </motion.div>
-                  ))}
+                  {item.images.map((item, index) => {
+                    return (
+                      <motion.div
+                        key={index}
+                        style={{ opacity: scrollYProgress }}
+                        className={clsx(s.card__photoContainer)}
+                      >
+                        <li
+                          className={clsx(s.card__photo)}
+                          style={{
+                            backgroundImage: `url(${item.src})`,
+                          }}
+                        />
+                      </motion.div>
+                    );
+                  })}
                 </>
               )}
             </ul>
