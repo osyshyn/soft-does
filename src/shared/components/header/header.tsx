@@ -94,7 +94,7 @@ export default function Header({ posts, isLanding }: HeaderProps) {
                 item.isModal ? (
                   <div
                     key={item.label}
-                    onMouseEnter={handleServicesModalOpen}
+                    onClick={handleServicesModalOpen}
                     className={s.main_nav_item}
                   >
                     {item.label}
