@@ -305,7 +305,7 @@ export default function AiDev() {
       />
       <Results />
       <div className="pageWrapper">
-        <Technologies />
+        <Technologies description={'123'} />
         <Testimonials />
         <Engagement />
         <CaseStudies />

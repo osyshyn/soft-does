@@ -13,8 +13,8 @@
     margin-bottom: $Spacing-sm;
 
     @include media("laptop") {
-      flex-direction: row;
-      align-items: end;
+      // flex-direction: row;
+      // align-items: end;
       margin-bottom: $Spacing-lg;
       gap: $Spacing-lg;
     }
@@ -28,10 +28,10 @@
 
   .desc {
     color: $Light-Gray;
-    max-width: 768px;
+    // max-width: 768px;
 
     @include media("laptop") {
-      max-width: 520px;
+      // max-width: 520px;
     }
   }
 
