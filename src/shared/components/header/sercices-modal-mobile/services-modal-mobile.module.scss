@@ -3,7 +3,7 @@
 .mobileModal {
   position: fixed;
   inset: 0;
-  top: 100px;
+  top: 65px;
   z-index: 1200;
   background: rgba(0, 0, 0, 0.95);
   display: flex;
@@ -15,7 +15,7 @@
 .mobileModal__content {
   position: relative;
   width: 100vw;
-  // height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background:
@@ -40,7 +40,7 @@
 
 .mobileModal__scroll {
   margin-top: 60px;
-  padding: 0 20px 40px 20px;
+  padding: 0 20px 50px 20px;
   overflow-y: auto;
   height: calc(100vh - 200px);
   display: flex;
