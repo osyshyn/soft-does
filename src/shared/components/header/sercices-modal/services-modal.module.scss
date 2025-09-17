@@ -2,15 +2,19 @@
 
 .block {
   position: fixed;
-  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  // inset: 75px; /* top:0; right:0; bottom:0; left:0; */
+  top: 100px;
+  left: 0;
+  right: 0;
   padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(10px);
   z-index: 1100;
   transition: all 0.3s ease;
+  height: calc(100vh - 140px);
+
 
   &__content {
     position: relative;
