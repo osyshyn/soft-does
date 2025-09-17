@@ -1,101 +1,105 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import { Pin } from "@shared/assets/icons/pin-icon";
-import Time from "@shared/assets/images/services/time.png";
-import Price from "@shared/assets/images/services/price.png";
-import Team from "@shared/assets/images/services/team.png";
-import Light from "@shared/assets/images/services/light.png";
+import { Pin } from '@shared/assets/icons/pin-icon';
+import Time from '@shared/assets/images/services/time.png';
+import Price from '@shared/assets/images/services/price.png';
+import Team from '@shared/assets/images/services/team.png';
+import Light from '@shared/assets/images/services/light.png';
 
-import s from "./engagement-options.module.scss";
-import clsx from "clsx";
-import { H2, H6, TextLg, TextMd } from "@shared/components/typography";
+import s from './engagement-options.module.scss';
+import clsx from 'clsx';
+import { H2, H6, TextLg, TextMd } from '@shared/components/typography';
 
 const OPTIONS = [
-  {
-    title: "Time and Materials",
-    image: Time,
-  },
-  {
-    title: "Fixed price",
-    image: Price,
-  },
-  {
-    title: "Managed team",
-    image: Team,
-  },
-  {
-    title: "Managed product",
-    image: Light,
-  },
+	{
+		title: 'Time and Materials',
+		image: Time,
+	},
+	{
+		title: 'Fixed price',
+		image: Price,
+	},
+	{
+		title: 'Managed team',
+		image: Team,
+	},
+	{
+		title: 'Managed product',
+		image: Light,
+	},
 ];
 
 const OPTIONS_INFO = [
-  {
-    a: "Pay only for actual work done",
-    b: "Flexible for changing needs",
-    c: "Ideal for agile projects",
-  },
-  {
-    a: "Set budget, set timeline",
-    b: "Best for well-defined projects",
-    c: "No surprises, total control",
-  },
-  {
-    a: "Dedicated team for your project",
-    b: "Expertise without hiring overhead",
-    c: "Perfect for long-term work",
-  },
-  {
-    a: "Full product development, start to finish",
-    b: "Minimal oversight needed from you",
-    c: "End-to-end delivery, ready to launch",
-  },
+	{
+		a: 'for experimental AI/ML research and rapid prototyping.',
+	},
+	{
+		a: 'for clearly defined AI application development projects.',
+		b: 'Best for well-defined projects',
+		c: 'No surprises, total control',
+	},
+	{
+		a: 'to extend your data science and ML engineering capabilities.',
+		b: 'Expertise without hiring overhead',
+		c: 'Perfect for long-term work',
+	},
+	{
+		a: 'when you want us to own the full AI lifecycle — from data pipelines to model monitoring.',
+		b: 'Minimal oversight needed from you',
+		c: 'End-to-end delivery, ready to launch',
+	},
 ];
 
 interface EngagementProps {
-  description?: string;
+	description?: string;
 }
 
 export const Engagement = ({ description }: EngagementProps) => {
-  return (
-    <section className={clsx(s.wrapper, "wrapper")}>
-      <div className={clsx(s.content, "container")}>
-        <div className={s.head}>
-          <H2 className={s.rootTitle}>Engagement Options</H2>
+	return (
+		<section className={clsx(s.wrapper, 'wrapper')}>
+			<div className={clsx(s.content, 'container')}>
+				<div className={s.head}>
+					<H2 className={s.rootTitle}>Engagement Options</H2>
 
-          {description && <TextLg className={s.desc}>{description}</TextLg>}
-        </div>
+					{description && <TextLg className={s.desc}>{description}</TextLg>}
+				</div>
 
-        <ul className={clsx(s.list, "gap-md")}>
-          {OPTIONS.map((item, index) => (
-            <li className={s.block} key={index}>
-              <div className={s.icon}>
-                <Image
-                  src={item.image}
-                  alt=""
-                  width={item.image.width}
-                  height={item.image.height}
-                />
-              </div>
-              <H6 className={s.title}>{item.title}</H6>
-              <ul>
-                <li className={s.point}>
-                  <Pin className={s.pin} />
-                  <TextMd>{OPTIONS_INFO[index].a}</TextMd>
-                </li>
-                <li className={s.point}>
-                  <Pin className={s.pin} />
-                  <TextMd>{OPTIONS_INFO[index].b}</TextMd>
-                </li>
-                <li className={s.point}>
-                  <Pin className={s.pin} />
-                  <TextMd>{OPTIONS_INFO[index].c}</TextMd>
-                </li>
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
+				<ul className={clsx(s.list, 'gap-md')}>
+					{OPTIONS.map((item, index) => (
+						<li className={s.block} key={index}>
+							<div className={s.icon}>
+								<Image
+									src={item.image}
+									alt=''
+									width={item.image.width}
+									height={item.image.height}
+								/>
+							</div>
+							<H6 className={s.title}>{item.title}</H6>
+							{OPTIONS_INFO[index].a && (
+								<li className={s.point}>
+									<Pin className={s.pin} />
+									<TextMd>{OPTIONS_INFO[index].a}</TextMd>
+								</li>
+							)}
+							{/* <ul>
+								<li className={s.point}>
+									<Pin className={s.pin} />
+									<TextMd>{OPTIONS_INFO[index].a}</TextMd>
+								</li>
+								<li className={s.point}>
+									<Pin className={s.pin} />
+									<TextMd>{OPTIONS_INFO[index].b}</TextMd>
+								</li>
+								<li className={s.point}>
+									<Pin className={s.pin} />
+									<TextMd>{OPTIONS_INFO[index].c}</TextMd>
+								</li>
+							</ul> */}
+						</li>
+					))}
+				</ul>
+			</div>
+		</section>
+	);
 };

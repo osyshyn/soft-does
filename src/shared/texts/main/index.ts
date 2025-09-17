@@ -94,6 +94,16 @@ const data = {
 			'Get the reliability and performance your users expect, even under high traffic. Our solutions grow with you, ensuring seamless user experience and stability.',
 		buttonText: 'Talk to Us',
 	},
+	whatInclude: {
+		title: 'What’s Included in Our AI Development Services',
+		list: [
+			'Custom AI application development (chatbots, agents, predictive analytics)',
+			'Generative AI development for text, vision, and multimodal applications',
+			'AI/ML pipelines for data preparation, model training, and deployment',
+			'AI software development solutions for healthcare, fintech, and gaming',
+			'AI agent development services with automation, monitoring, and governance',
+		],
+	},
 	softwareDevelopment: {
 		title: 'Software Development',
 		buttonText: 'Build',
@@ -300,7 +310,6 @@ const data = {
 					tag: 'AFTER',
 				},
 				images: [case7Img1, case7Img2, case7Img3],
-
 			},
 			{
 				id: 7,
@@ -323,7 +332,7 @@ const data = {
 					text: 'Optimized targeting and a streamlined checkout reduced CAC, allowing more parents to enroll while lowering acquisition costs.',
 					tag: 'AFTER',
 				},
-        images: [case6Img1, case6Img2, case6Img3],
+				images: [case6Img1, case6Img2, case6Img3],
 			},
 		],
 	},
@@ -539,6 +548,44 @@ const data = {
 
 	faq: {
 		title: 'Frequently Asked Questions',
+		listAiMl: [
+			{
+				question: { text: 'Do you build generative AI applications?' },
+				answer: {
+					text: 'Yes. We deliver generative AI development services for text, images, and multimodal use cases using frameworks like LangChain and OpenAI APIs.',
+				},
+			},
+			{
+				question: { text: 'Can you integrate AI into existing products?' },
+				answer: {
+					text: 'Absolutely. As a custom AI development company, we embed models into web, mobile, and enterprise software with APIs and microservices.',
+				},
+			},
+			{
+				question: {
+					text: 'Do you support regulated industries like healthcare?',
+				},
+				answer: {
+					text: 'Yes. We develop AI in drug development and healthcare workflows with HIPAA and GDPR-compliant data pipelines.',
+				},
+			},
+			{
+				question: {
+					text: 'What’s included in AI software development services?',
+				},
+				answer: {
+					text: 'Everything from data preparation and model training to deployment, monitoring, and optimization.',
+				},
+			},
+			{
+				question: {
+					text: 'How do you handle AI agent development?',
+				},
+				answer: {
+					text: 'We design AI agents with governance, monitoring, and fail-safes to ensure they operate reliably at scale.',
+				},
+			},
+		],
 		list: [
 			{
 				question: { text: 'How long will my project take?' },

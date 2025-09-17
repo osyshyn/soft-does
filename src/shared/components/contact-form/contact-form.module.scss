@@ -1,145 +1,147 @@
-@use "styles/global" as *;
+@use 'styles/global' as *;
 
 .root {
-  z-index: 999;
-  overflow-y: auto;
+	z-index: 999;
+	overflow-y: auto;
 
-  width: 100%;
-  color: white;
+	width: 100%;
+	color: white;
 
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	align-items: center;
 
-  @include media(tablet) {
-    gap: 24px;
-    align-items: flex-start;
-  }
+	@include media(tablet) {
+		gap: 24px;
+		align-items: flex-start;
+	}
 }
 
 .title {
-  text-align: center;
-
-  @include media(tablet) {
+	text-align: center;
+  margin-bottom: $Spacing-sm;
+  
+	@include media(tablet) {
     text-align: left;
-  }
+	}
 }
 
 .subtitle {
   text-align: center;
-
-  @include media(tablet) {
-    text-align: left;
-  }
+  color: $Light-Gray;
+  
+	@include media(tablet) {
+		text-align: left;
+	}
 }
 
 .inputWrapper {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 1fr;
+	display: grid;
+	gap: 20px;
+	grid-template-columns: 1fr 1fr;
 
-  & input {
-    background-color: rgba(0, 0, 0, 0);
-  }
+	& input {
+		background-color: rgba(0, 0, 0, 0);
+	}
 
-  @include media(laptop) {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
+	@include media(laptop) {
+		grid-template-columns: 1fr 1fr;
+		gap: 32px;
+	}
 }
 
 .input {
-  gap: 0px;
+	gap: 0px;
 }
 
 .textarea {
-  gap: 0px;
-  margin-top: 20px;
+	gap: 0px;
+	margin-top: 20px;
 
-  & textarea {
-    background-color: rgba(0, 0, 0, 0);
-  }
+	& textarea {
+		background-color: rgba(0, 0, 0, 0);
+	}
 
-  @include media(laptop) {
-    margin-top: 32px;
-    background-color: rgba(0, 0, 0, 0);
-  }
+	@include media(laptop) {
+		margin-top: 32px;
+		background-color: rgba(0, 0, 0, 0);
+	}
 }
 
 .button {
-  width: 100%;
-  max-width: 243px;
+	width: 100%;
+	max-width: 243px;
 
-  margin-top: 40px;
+	margin-top: 40px;
 
-  button {
-    width: 100%;
-  }
+	button {
+		width: 100%;
+	}
 }
 
 .privacy {
-  display: flex;
-  flex-direction: row-reverse !important;
-  justify-content: start;
-  gap: 8px;
+	display: flex;
+	flex-direction: row-reverse !important;
+	justify-content: start;
+	gap: 8px;
 }
 
 .checkboxWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 
-  margin-top: 40px;
+	margin-top: 40px;
 }
 
 .titleWrapper {
-  margin-bottom: $Spacing-md;
+	margin-bottom: $Spacing-md;
 
-  @include media(laptop) {
-    margin-bottom: $Spacing-lg;
-  }
+	@include media(laptop) {
+		margin-bottom: $Spacing-lg;
+	}
 }
 
 .fileWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  gap: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	gap: 8px;
 
-  margin-top: 40px;
+	margin-top: 40px;
 }
 
 .fileInput {
-  display: none;
-  visibility: hidden;
+	display: none;
+	visibility: hidden;
 }
 
 .fileLabel {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
 
-  color: #fff;
+	color: #fff;
 
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .fileFormats {
-  color: $Dark-Gray;
+	color: $Dark-Gray;
 }
 
 .clipIcon {
-  width: 24px;
-  height: 24px;
+	width: 24px;
+	height: 24px;
 
-  color: transparent;
+	color: transparent;
 }
 
 .calendarWrapper {
-  // height: 600px;
+	// height: 600px;
 
-  @include media(laptop) {
-    height: 100%;
-  }
+	@include media(laptop) {
+		height: 100%;
+	}
 }

@@ -47,17 +47,7 @@ export const Technologies = ({ description }: TechnologiesProps) => {
 				<div className={s.head}>
 					<H2 className={s.title}>Technologies we work with </H2>
 
-					{description && (
-						<TextLg className={s.desc}>
-							We align every technology choice with AI software development best
-							practices. From building models with TensorFlow and PyTorch to
-							integrating LangChain, Pinecone, and OpenAI APIs, our engineers
-							craft AI applications that are reliable, compliant, and
-							production-ready. Whether you need an AI chatbot development
-							company or generative AI software development partner, we deliver
-							resilient pipelines that evolve with your business.
-						</TextLg>
-					)}
+					{description && <TextLg className={s.desc}>{description}</TextLg>}
 				</div>
 
 				<ul className={clsx('gap-md')}>

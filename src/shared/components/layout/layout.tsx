@@ -55,7 +55,7 @@ export default function Layout({
         </div>
       )}
       {contacts && <ContactInfo />}
-      <ContactWithWidget title={"TALK TO US"} />
+      <ContactWithWidget title={"TALK TO US"} subtitle={'Ready to launch AI applications that actually work in production? Whether you need AI chatbot development, generative AI software development, or full AI/ML lifecycle support, our team of engineers and data scientists will deliver outcomes that scale with your business.'} />
       <Footer />
     </>
   );

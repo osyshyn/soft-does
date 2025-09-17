@@ -1,0 +1,179 @@
+@use 'styles/global' as *;
+
+.wrapper {
+	background: linear-gradient(
+		-240deg,
+		rgba(226, 255, 102, 0.5) 0%,
+		rgba(226, 255, 102, 0) 15%
+	);
+	background-color: black;
+	color: white;
+	border-top: 2px solid rgba(#fff, 0.3);
+	border-bottom: 2px solid rgba(#fff, 0.3);
+}
+
+.root {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	padding: 90px 0px;
+
+	@include media(tabletVertical) {
+		padding: 0px 0px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0;
+	}
+}
+
+.leftWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	align-items: center;
+
+	@include media(tabletVertical) {
+		border-right: 2px solid rgba(#fff, 0.3);
+		padding: 244px 0px;
+		padding-right: 60px;
+		align-items: start;
+	}
+}
+
+.title {
+	@include fontJetBrains;
+	font-weight: 300;
+	text-transform: uppercase;
+	max-width: 740px;
+	text-align: center;
+	margin-bottom: 24px;
+
+	@include media(tabletVertical) {
+		text-align: left;
+	}
+}
+
+.description {
+	@include fontAbel;
+	font-weight: 400;
+	color: $Dark-Gray;
+	max-width: 740px;
+	text-align: center;
+
+	@include media(tabletVertical) {
+		text-align: left;
+	}
+
+	@include media(laptop) {
+		font-size: 18px;
+	}
+}
+
+.rightWrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	img {
+		margin-right: -90px;
+		width: 100%;
+		height: auto;
+		max-height: 442px;
+		max-width: 389px;
+
+		@include media(phoneM) {
+			margin-right: 0;
+			max-width: 180px;
+		}
+
+		@include media(tablet) {
+			max-width: 289px;
+			margin-right: -90px;
+		}
+
+		@include media(tabletVertical) {
+			max-width: 289px;
+			margin-right: -90px;
+		}
+
+		// @include media(tabletVertical) {
+		// 	margin-right: 0;
+		// }
+	}
+
+	// @include media(tabletVertical) {
+	// 	align-items: center;
+	// 	padding: 244px 0px;
+	// 	padding-left: 60px;
+	// 	justify-content: end;
+	// }
+}
+
+.button {
+	width: 100%;
+
+	max-width: 281px;
+
+	button {
+		width: 100%;
+	}
+}
+
+.imageWrapper {
+}
+
+.image {
+	position: relative;
+	width: 338px;
+	aspect-ratio: 338 / 358;
+	// height: 100%;
+
+	img {
+		position: absolute;
+		object-fit: contain;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.icon {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 50px;
+	height: 50px;
+	margin-bottom: 24px;
+	padding: 10px;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	@include media('tabletVertical') {
+		width: 70px;
+		height: 70px;
+		margin-bottom: 32px;
+	}
+
+	border: 1px solid #cfec57;
+}
+
+.point {
+	padding-bottom: 8px;
+
+	p {
+		display: inline;
+	}
+
+	.pin {
+		margin-right: 16px;
+		width: 16px;
+		height: auto;
+		color: #cfec57;
+	}
+}

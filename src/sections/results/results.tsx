@@ -1,6 +1,8 @@
+"use client";
 import clsx from "clsx";
 import s from "./results.module.scss";
 import { H3, Text2Xl } from "@shared/components/typography";
+import { usePathname } from 'next/navigation'
 
 const RESULTS = [
   {
@@ -22,8 +24,10 @@ const RESULTS = [
 ];
 
 export const Results = () => {
+  const pathname = usePathname();
+
   return (
-    <section className={clsx(s.wrapper, "wrapper")}>
+    <section className={clsx(s.wrapper, pathname.includes("ai-development") ? s.aiDevelopmentWrapper : "wrapper")}>
       <div className={clsx(s.content, "container")}>
         <ul>
           {RESULTS.map((result) => (
