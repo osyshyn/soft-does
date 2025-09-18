@@ -9,6 +9,7 @@
 
 .title {
   text-align: center;
+  margin-top: 50px;
 
   max-width: 900px;
 }
@@ -77,6 +78,7 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   align-items: stretch;
+  margin-bottom: 50px;
 
   > li {
     display: flex;
