@@ -14,12 +14,12 @@ import ListFilter from "@shared/components/list-filter/list-filter";
 
 const CATEGORIES = [
   "All project",
-  "Web app",
-  "Mobile app",
-  "Development",
-  "UX",
-  "UI",
-  "Branding",
+  // "Web app",
+  // "Mobile app",
+  // "Development",
+  // "UX",
+  // "UI",
+  // "Branding",
 ];
 
 export const Portfolio = () => {
