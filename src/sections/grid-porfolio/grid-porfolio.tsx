@@ -47,6 +47,7 @@ export const GridPorfolio = () => {
                 title={project.title}
                 subtitle={project.subtitle}
                 description={project.description}
+                slug={project.id}
               />
             </li>
           ))}
