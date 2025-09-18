@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 interface PorfolioCardProps {
 	img: string | StaticImageData;
 	title: string;
-	subtitle: string;
+	// subtitle: string;
 	description: string;
 	slug: number;
 }

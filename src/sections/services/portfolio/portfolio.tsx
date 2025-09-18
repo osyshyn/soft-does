@@ -93,8 +93,8 @@ export const Portfolio = () => {
                   <PortfolioCard
                     img={project.img}
                     title={project.title}
-                    subtitle={project.subtitle}
                     description={project.description}
+                    slug={project.id}
                   />
                 </SwiperSlide>
               ))}
